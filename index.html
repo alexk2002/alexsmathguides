@@ -261,39 +261,6 @@
       margin-top: 8px;
     }
 
-    label {
-      display: block;
-      font-size: 14px;
-      font-weight: 500;
-      margin-bottom: 6px;
-      color: var(--text);
-    }
-
-    input[type="text"],
-    input[type="email"],
-    textarea {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      font-family: inherit;
-      font-size: 14px;
-      resize: vertical;
-    }
-
-    textarea {
-      min-height: 120px;
-    }
-
-    .form-row {
-      margin-bottom: 14px;
-    }
-
-    .form-note {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
     @media (max-width: 920px) {
       .hero-grid,
       .split,
@@ -325,7 +292,7 @@
         <a href="#angebot">Angebot</a>
         <a href="#kontakt">Kontakt</a>
         <a href="#freebies">Kostenlose PDFs</a>
-        <a href="#impressum">Impressum</a>
+        <a href="/impressum.html">Impressum</a>
       </nav>
     </div>
   </header>
@@ -338,12 +305,11 @@
           <h1>Klare Mathe-Erklärungen für bessere Noten.</h1>
           <p>Ich unterstütze Schüler:innen Schritt für Schritt – von den Grundlagen der Sekundarstufe I bis zu Oberstufen-Themen wie Ableitungen, Integrale, Funktionen und Abiturvorbereitung.</p>
           <div class="hero-actions">
-            <!-- WhatsApp-Link: Nummer unbedingt anpassen, Format: Ländervorwahl ohne + und ohne 00 -->
-            <a class="btn btn-primary" href="https://wa.me/491701234567" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary" href="https://wa.me/4917687836102" target="_blank" rel="noopener noreferrer">
               Über WhatsApp schreiben
             </a>
             <a class="btn btn-secondary" href="#kontakt">
-              Kontaktformular nutzen
+              Kontakt aufnehmen
             </a>
             <a class="btn btn-secondary" href="#freebies">
               Kostenlose Lern-PDFs
@@ -360,7 +326,7 @@
             </div>
             <div class="check-item">
               <div class="check-badge">2</div>
-              <div>Über das <strong>Kontaktformular</strong> per E-Mail schreiben – z.B. für Eltern oder ausführlichere Anfragen.</div>
+              <div>Über ein eingebettetes <strong>Kontakt-Widget</strong> schreiben – z.&nbsp;B. für Eltern oder ausführlichere Anfragen.</div>
             </div>
             <div class="check-item">
               <div class="check-badge">3</div>
@@ -374,19 +340,19 @@
     <section class="section" id="angebot">
       <div class="container">
         <span class="eyebrow">Angebot</span>
-        <h2>Individuelle Mathe-Nachhilfe ohne Druck.</h2>
+        <h2>Individuelle und gemeinsame Mathe-Nachhilfe.</h2>
         <div class="grid-3">
+          <div class="card">
+            <h3>Gruppennachhilfe (bis 4 Personen)</h3>
+            <p>Lernen in kleinen Gruppen: bis zu 4 Schüler:innen mit ähnlichem Niveau und Thema. Ideal, um Kosten zu teilen und trotzdem genug Raum für Fragen zu haben.</p>
+          </div>
           <div class="card">
             <h3>1:1 Online-Unterricht</h3>
             <p>Individuelle Online-Nachhilfe für Schüler:innen, die strukturierte Erklärungen, gezielte Übung und eine klare Vorbereitung auf Klassenarbeiten und Prüfungen möchten.</p>
           </div>
           <div class="card">
             <h3>Fokus Oberstufe</h3>
-            <p>Besonderer Schwerpunkt auf Analysis: Ableitungen, Integrale, Funktionen, Kurvendiskussion, Klausur- und Abituraufgaben – immer Schritt für Schritt erklärt.</p>
-          </div>
-          <div class="card">
-            <h3>Einfacher Einstieg</h3>
-            <p>Du kannst mir direkt per WhatsApp schreiben, das Kontaktformular nutzen oder erst einmal kostenlose Lernunterlagen herunterladen.</p>
+            <p>Besonderer Schwerpunkt auf Analysis: Ableitungen, Integrale, Funktionen, Kurvendiskussion, Klausur- und Abituraufgaben – Schritt für Schritt erklärt.</p>
           </div>
         </div>
       </div>
@@ -397,43 +363,25 @@
         <div>
           <span class="eyebrow">Kontakt</span>
           <h2>Schreib mir dein Mathe-Thema.</h2>
-          <p>Nutze WhatsApp für schnelle Rückfragen oder Terminabstimmungen. Für ausführlichere Anfragen – zum Beispiel als Elternteil oder Schule – kannst du das Kontaktformular verwenden.</p>
+          <p>Nutze WhatsApp für schnelle Rückfragen oder Terminabsprachen. Zusätzlich kannst du über das Kontakt-Widget eine Nachricht schicken – z.&nbsp;B. als Elternteil oder Schule.</p>
           <p><span class="code-inline">Tipp: In deiner ersten Nachricht kannst du kurz Klasse, Bundesland und das aktuelle Thema nennen.</span></p>
           <p style="margin-top: 18px; font-weight: 600;">Kontakt per WhatsApp:</p>
           <p>
-            <a class="btn btn-primary" href="https://wa.me/491701234567" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary" href="https://wa.me/4917687836102" target="_blank" rel="noopener noreferrer">
               Chat in WhatsApp öffnen
             </a>
           </p>
         </div>
 
         <div class="embed-box">
-          <h3>Kontaktformular (E-Mail)</h3>
-          <!-- Einfaches Mailto-Formular; serverseitige Verarbeitung kannst du später ergänzen -->
-          <form action="mailto:deine-email@alexsmathguides.de" method="post" enctype="text/plain">
-            <div class="form-row">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="Name" required />
+          <h3>Kontakt-Widget Platzhalter</h3>
+          <p>Hier kannst du später ein externes Kontakt-Widget einbinden (z.&nbsp;B. Tally, Typeform oder ein eigenes Formular).</p>
+          <div class="placeholder">
+            <div>
+              <p><strong>Kontakt-Widget einfügen</strong></p>
+              <p>Nutze diesen Bereich für ein eingebettetes Formular mit E-Mail-Versand.</p>
             </div>
-            <div class="form-row">
-              <label for="email">E-Mail</label>
-              <input type="email" id="email" name="E-Mail" required />
-            </div>
-            <div class="form-row">
-              <label for="subject">Betreff</label>
-              <input type="text" id="subject" name="Betreff" />
-            </div>
-            <div class="form-row">
-              <label for="message">Nachricht</label>
-              <textarea id="message" name="Nachricht" placeholder="Z.B. Klasse, Bundesland, Thema, gewünschte Zeiten"></textarea>
-            </div>
-            <div class="form-row">
-              <p class="form-note">
-                Mit dem Absenden der Nachricht erklärst du dich damit einverstanden, dass deine Angaben zur Beantwortung deiner Anfrage per E-Mail verarbeitet werden. Weitere Informationen findest du in der Datenschutzerklärung.
-              </p>
-            </div>
-            <button type="submit" class="btn btn-primary">Nachricht senden</button>
-          </form>
+          </div>
         </div>
       </div>
     </section>
@@ -462,80 +410,13 @@
         </div>
       </div>
     </section>
-
-    <section class="section" id="impressum">
-      <div class="container">
-        <span class="eyebrow">Impressum</span>
-        <h2>Angaben gemäß § 5 DDG</h2>
-        <div class="card">
-          <h3>Dienstanbieter</h3>
-          <p>
-            alexsmathguides – Online Mathe Nachhilfe<br>
-            Inhaber: Alexander Kleymann<br>
-            Zillestraße 76<br>
-            10585 Berlin<br>
-            Deutschland
-          </p>
-
-          <h3>Kontakt</h3>
-          <p>
-            Telefon / WhatsApp: +49 (0)170 1234567<br>
-            E-Mail: deine-email@alexsmathguides.de
-          </p>
-
-          <!-- Optional: nur ausfüllen, wenn vorhanden -->
-          <h3>Umsatzsteuer</h3>
-          <p>
-            Umsatzsteuer-Identifikationsnummer gemäß § 27 a UStG: DE_______<br>
-            (Falls keine USt-ID vorhanden ist, kann dieser Abschnitt angepasst oder entfernt werden.)
-          </p>
-
-          <h3>Verantwortlich für den Inhalt</h3>
-          <p>
-            Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV:<br>
-            Alexander Kleymann, Zillestraße 76, 10585 Berlin
-          </p>
-
-          <h3>Haftung für Inhalte</h3>
-          <p>
-            Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. 
-            Nach §§ 8 bis 10 DDG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. 
-            Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. 
-            Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden diese Inhalte umgehend entfernt.
-          </p>
-
-          <h3>Haftung für Links</h3>
-          <p>
-            Mein Angebot enthält ggf. Links zu externen Webseiten Dritter, auf deren Inhalte ich keinen Einfluss habe. 
-            Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. 
-            Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. 
-            Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. 
-            Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. 
-            Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. 
-            Bei Bekanntwerden von Rechtsverletzungen werden derartige Links umgehend entfernt.
-          </p>
-
-          <h3>Urheberrecht</h3>
-          <p>
-            Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. 
-            Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes 
-            bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. 
-            Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. 
-            Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. 
-            Insbesondere werden Inhalte Dritter als solche gekennzeichnet. 
-            Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, wird um einen entsprechenden Hinweis gebeten. 
-            Bei Bekanntwerden von Rechtsverletzungen werden derartige Inhalte umgehend entfernt.
-          </p>
-        </div>
-      </div>
-    </section>
   </main>
 
   <footer class="footer">
     <div class="container">
       <p>© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</p>
       <div class="footer-links">
-        <a href="#impressum">Impressum</a>
+        <a href="/impressum.html">Impressum</a>
         <!-- Später: separate Seite für Datenschutz verlinken -->
       </div>
     </div>
