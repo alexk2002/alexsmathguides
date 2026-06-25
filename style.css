@@ -1,0 +1,315 @@
+/* alexsmathguides – shared stylesheet
+   Used by: index.html, impressum.html, datenschutz.html
+   ================================================== */
+
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f4f7fb;
+      --surface-2: #e9eff7;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #d8e2ee;
+      --primary: #0b2a4a;
+      --primary-2: #133a63;
+      --white: #ffffff;
+      --success: #0f766e;
+      --radius: 18px;
+      --shadow: 0 14px 40px rgba(11, 42, 74, 0.10);
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      transition: .2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover { background: var(--primary-2); }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--primary);
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface);
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eaf1f8;
+      color: var(--primary);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .02em;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(216, 226, 238, 0.7);
+    }
+
+    .nav {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero {
+      padding: 80px 0 64px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    h1, h2, h3 { line-height: 1.1; margin: 0 0 16px; }
+    h1 { font-size: clamp(40px, 7vw, 68px); letter-spacing: -0.03em; }
+    h2 { font-size: clamp(28px, 4vw, 42px); letter-spacing: -0.02em; }
+    h3 { font-size: 22px; }
+    p { margin: 0 0 16px; color: var(--muted); }
+
+    .hero-copy p {
+      font-size: 18px;
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-card,
+    .card,
+    .embed-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      padding: 28px;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      color: var(--text);
+    }
+
+    .check-badge {
+      flex: 0 0 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 14px;
+      font-weight: 700;
+      margin-top: 2px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 24px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .embed-box {
+      padding: 24px;
+      min-height: 320px;
+    }
+
+    .placeholder {
+      margin-top: 18px;
+      border: 1.5px dashed #aac0d8;
+      border-radius: 16px;
+      background: #f7fbff;
+      min-height: 220px;
+      display: grid;
+      place-items: center;
+      padding: 22px;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .code-inline {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 8px;
+      background: #edf3f9;
+      color: var(--primary);
+      font-size: 14px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+
+    .newsletter-box {
+      background: var(--primary);
+      color: white;
+      border-radius: 28px;
+      padding: 32px;
+    }
+
+    .newsletter-box p,
+    .newsletter-box li {
+      color: rgba(255,255,255,.82);
+    }
+
+    .steps {
+      padding-left: 18px;
+      margin: 14px 0 0;
+    }
+
+    .footer {
+      padding: 28px 0 56px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 800;
+      font-size: 20px;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      height: 45px;     /* kannst du auf 28–40 px variieren */
+      width: auto;
+      display: block;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .split,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 14px 0;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .section { padding: 72px 0; }
+      .hero { padding-top: 48px; }
+
+    }
+  
+
+/* ── Datenschutz & Impressum extras ── */
+a { color: inherit; }
+
+.toc {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0 0;
+}
+.toc ol { margin: 8px 0 0; padding-left: 20px; color: var(--muted); }
+.toc li { margin-bottom: 4px; }
+.toc a { color: var(--primary); text-decoration: none; font-size: 14px; }
+.toc a:hover { text-decoration: underline; }
+
+.badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #eaf1f8;
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
