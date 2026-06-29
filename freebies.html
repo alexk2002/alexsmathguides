@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kostenlose Mathe-PDFs | alexsmathguides</title>
+  <meta name="description" content="Kostenlose Formelsammlungen, Checklisten und Abitur-Vorbereitungs-PDFs von alexsmathguides." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .pdf-form {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px;
+    }
+    .pdf-form h3 { margin-bottom: 8px; }
+    .pdf-form .form-note { font-size: 14px; color: var(--muted); margin-bottom: 24px; }
+    .form-group {
+      display: flex; flex-direction: column; gap: 6px; margin-bottom: 18px;
+    }
+    .form-group label { font-size: 14px; font-weight: 600; color: var(--text); }
+    .form-group input[type="text"],
+    .form-group input[type="email"] {
+      padding: 12px 16px;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color .2s;
+      outline: none;
+    }
+    .form-group input:focus { border-color: var(--primary); }
+    .form-consent {
+      display: flex; align-items: flex-start; gap: 10px;
+      margin-bottom: 24px; font-size: 13px; color: var(--muted);
+    }
+    .form-consent input { margin-top: 2px; accent-color: var(--primary); flex-shrink: 0; }
+    .form-consent a { color: var(--primary); text-decoration: underline; }
+    .hero-freebies {
+      padding: 80px 0 64px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="img/logo.png" alt="alexsmathguides Logo" class="brand-logo">
+        <span>alexsmathguides</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#angebot">Angebot</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="freebies.html" style="color: var(--primary); font-weight: 700;">Kostenlose PDFs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero-freebies">
+      <div class="container">
+        <span class="eyebrow">Kostenlos &amp; sofort</span>
+        <h1 style="font-size: clamp(32px, 5vw, 54px); max-width: 18ch;">Kostenlose Mathe-Unterlagen.</h1>
+        <p style="font-size: 18px; max-width: 58ch; color: var(--muted);">Trag deine E-Mail ein und erhalte sofort Zugriff auf alle kostenlosen Lernunterlagen. Kein Spam, jederzeit abmeldbar.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container split">
+
+        <div class="newsletter-box">
+          <span class="eyebrow" style="background: rgba(255,255,255,.12); color: white;">Was dich erwartet</span>
+          <h2 style="color: white; margin-top: 16px;">Lernunterlagen, die wirklich helfen.</h2>
+          <p>Alle PDFs sind speziell auf die Anforderungen der Oberstufe und das Abitur zugeschnitten – kurz, übersichtlich und direkt anwendbar.</p>
+          <ul class="steps">
+            <li>📐 <strong>Analysis Formelsammlung</strong> – Ableitungen, Integrale, Kurvendiskussion</li>
+            <li>✅ <strong>Kurvendiskussion Checkliste</strong> – Schritt für Schritt</li>
+            <li>📊 <strong>Stochastik Formelsammlung</strong> – Binomialverteilung, Erwartungswert</li>
+            <li>🎓 <strong>Abitur-Vorbereitung Kompakt</strong> – alle wichtigen Themen</li>
+            <li>🆓 Komplett kostenlos, ohne Haken</li>
+          </ul>
+        </div>
+
+        <div class="pdf-form">
+          <h3>Jetzt kostenlos erhalten</h3>
+          <p class="form-note">Trag deine E-Mail ein – du gelangst danach direkt zur Download-Seite mit allen PDFs.</p>
+
+          <form id="pdf-form" novalidate>
+            <div class="form-group">
+              <label for="pdf-name">Vorname (optional)</label>
+              <input type="text" id="pdf-name" name="name" placeholder="z. B. Lena" autocomplete="given-name">
+            </div>
+            <div class="form-group">
+              <label for="pdf-email">E-Mail-Adresse <span style="color: #e53e3e;">*</span></label>
+              <input type="email" id="pdf-email" name="email" placeholder="deine@email.de" autocomplete="email" required>
+            </div>
+            <div class="form-consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <label for="consent">
+                Ich bin einverstanden, dass meine E-Mail-Adresse gespeichert wird. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center; font-size: 16px; padding: 16px 24px;">
+              📩 Zu den kostenlosen PDFs
+            </button>
+            <p id="form-error" style="display:none; color:#e53e3e; font-size:14px; margin-top:12px; text-align:center;"></p>
+          </form>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</p>
+      <div class="footer-links">
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const form = document.getElementById('pdf-form');
+    const errorBox = document.getElementById('form-error');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      errorBox.style.display = 'none';
+
+      const email = document.getElementById('pdf-email').value.trim();
+      const consent = document.getElementById('consent').checked;
+
+      if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        errorBox.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+        errorBox.style.display = 'block';
+        return;
+      }
+      if (!consent) {
+        errorBox.textContent = 'Bitte stimme der Datenschutzerklärung zu.';
+        errorBox.style.display = 'block';
+        return;
+      }
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Wird gesendet…';
+
+      try {
+        const res = await fetch('https://formspree.io/f/xbdvkaep', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            name: document.getElementById('pdf-name').value.trim()
+          })
+        });
+
+        if (res.ok) {
+          // Redirect selbst steuern – kein Formspree-Plan nötig
+          window.location.href = 'danke.html';
+        } else {
+          throw new Error();
+        }
+      } catch(err) {
+        errorBox.textContent = 'Etwas hat nicht geklappt. Versuche es erneut oder schreib mir direkt per WhatsApp.';
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '📩 Zu den kostenlosen PDFs';
+      }
+    });
+  </script>
+</body>
+</html>

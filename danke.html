@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Deine Mathe-PDFs | alexsmathguides</title>
+  <!-- Suchmaschinen sollen diese Seite nicht indexieren -->
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="Deine kostenlosen Mathe-PDFs zum Download." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .danke-hero {
+      padding: 80px 0 48px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+      text-align: center;
+    }
+    .danke-hero .success-icon { font-size: 56px; margin-bottom: 16px; }
+    .danke-hero h1 { color: var(--primary); margin-bottom: 12px; }
+    .danke-hero p  { font-size: 17px; color: var(--muted); max-width: 52ch; margin: 0 auto; }
+
+    .pdf-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 12px;
+    }
+    @media (max-width: 640px) {
+      .pdf-grid { grid-template-columns: 1fr; }
+    }
+
+    .pdf-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pdf-card-icon { font-size: 28px; }
+    .pdf-card h3  { margin: 0; font-size: 17px; color: var(--primary); }
+    .pdf-card p   { margin: 0; font-size: 13px; color: var(--muted); flex: 1; }
+    .pdf-card a.btn {
+      margin-top: 6px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .hint-box {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 36px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+    }
+    .hint-box strong { color: var(--text); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="img/logo.png" alt="alexsmathguides Logo" class="brand-logo">
+        <span>alexsmathguides</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html#angebot">Angebot</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="freebies.html">Kostenlose PDFs</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <section class="danke-hero">
+      <div class="container">
+        <div class="success-icon">🎉</div>
+        <h1>Deine PDFs sind bereit!</h1>
+        <p>Vielen Dank! Klick einfach auf den jeweiligen Button und lade dir deine Unterlagen direkt herunter.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top: 40px;">
+      <div class="container" style="max-width: 780px;">
+
+        <div class="pdf-grid">
+
+          <div class="pdf-card">
+            <div class="pdf-card-icon">📐</div>
+            <h3>Analysis Formelsammlung</h3>
+            <p>Ableitungsregeln, Integrale &amp; Kurvendiskussion – alle Regeln auf einen Blick.</p>
+            <a href="pdfs/analysis-formelsammlung.pdf" download class="btn btn-primary">
+              ⬇ Herunterladen
+            </a>
+          </div>
+
+          <div class="pdf-card">
+            <div class="pdf-card-icon">✅</div>
+            <h3>Kurvendiskussion Checkliste</h3>
+            <p>10 Schritte von der Definitionsmenge bis zur Skizze – kein Punkt wird vergessen.</p>
+            <a href="pdfs/kurvendiskussion-checkliste.pdf" download class="btn btn-primary">
+              ⬇ Herunterladen
+            </a>
+          </div>
+
+          <div class="pdf-card">
+            <div class="pdf-card-icon">📊</div>
+            <h3>Stochastik Formelsammlung</h3>
+            <p>Wahrscheinlichkeit, Binomialverteilung, Erwartungswert &amp; Signifikanztest kompakt.</p>
+            <a href="pdfs/stochastik-formelsammlung.pdf" download class="btn btn-primary">
+              ⬇ Herunterladen
+            </a>
+          </div>
+
+          <div class="pdf-card">
+            <div class="pdf-card-icon">🎓</div>
+            <h3>Abitur-Vorbereitung Kompakt</h3>
+            <p>Typische Aufgabentypen, häufige Fehler &amp; 4-Wochen-Lernplan fürs Mathe-Abitur.</p>
+            <a href="pdfs/abitur-vorbereitung.pdf" download class="btn btn-primary">
+              ⬇ Herunterladen
+            </a>
+          </div>
+
+        </div>
+
+        <div class="hint-box">
+          <strong>Tipp:</strong> Speicher die PDFs direkt auf deinem Gerät – so hast du sie auch offline dabei. 📱<br>
+          Noch Fragen zu einem Thema? <a href="https://wa.me/4917687836102" style="color: var(--primary); font-weight: 600;">Schreib mir auf WhatsApp.</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 32px;">
+          <a href="index.html" class="btn btn-secondary">← Zurück zur Startseite</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</p>
+      <div class="footer-links">
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
