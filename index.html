@@ -10,6 +10,44 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-form-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    .cf-group {
+      display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+    }
+    .cf-group label { font-size: 14px; font-weight: 600; color: var(--text); }
+    .cf-group input[type="text"],
+    .cf-group input[type="email"],
+    .cf-group textarea {
+      padding: 11px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color .2s;
+      outline: none;
+      resize: vertical;
+    }
+    .cf-group input:focus,
+    .cf-group textarea:focus { border-color: var(--primary); }
+    .cf-success {
+      display: none;
+      text-align: center;
+      padding: 28px 16px;
+      color: var(--primary);
+    }
+    .cf-success .cf-success-icon { font-size: 40px; margin-bottom: 10px; }
+    .cf-success h3 { margin-bottom: 6px; }
+    .cf-success p { color: var(--muted); font-size: 14px; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -34,7 +72,7 @@
           <h1>Mathe. Locker. Unkompliziert.</h1>
           <p>Ich unterstütze Schüler:innen Schritt für Schritt – von den Grundlagen der Sekundarstufe I bis zu Oberstufen-Themen wie Ableitungen, Integrale, Funktionen und Abiturvorbereitung.</p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/4.917687836102e+12" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary" href="https://wa.me/4917687836102" target="_blank" rel="noopener noreferrer">
               Über WhatsApp schreiben
             </a>
             <a class="btn btn-secondary" href="#kontakt">
@@ -55,7 +93,7 @@
             </div>
             <div class="check-item">
               <div class="check-badge">2</div>
-              <div>Mir über ein <strong>Kontakt-Widget</strong> eine E-Mail schreiben – z.&nbsp;B. für ausführlichere Anfragen.</div>
+              <div>Mir über das <strong>Kontaktformular</strong> eine Nachricht schicken – z.&nbsp;B. für ausführlichere Anfragen.</div>
             </div>
             <div class="check-item">
               <div class="check-badge">3</div>
@@ -92,19 +130,49 @@
         <div>
           <span class="eyebrow">Kontakt</span>
           <h2>Schreib mir dein Mathe-Thema.</h2>
-          <p>Nutze WhatsApp für schnelle Rückfragen oder Terminabsprachen. Zusätzlich kannst du über das Kontakt-Widget eine Nachricht schicken – z.&nbsp;B. als Elternteil oder Schule.</p>
-          <p><span class="code-inline">Tipp: In deiner ersten Nachricht kannst du kurz Klasse, Bundesland und das aktuelle Thema nennen.</span></p>
+          <p>Nutze WhatsApp für schnelle Rückfragen oder Terminabsprachen. Oder schick mir direkt eine Nachricht über das Formular – z.&nbsp;B. als Elternteil oder Schule.</p>
+          <p><span class="code-inline">Tipp: Klasse, Bundesland und aktuelles Thema kurz nennen.</span></p>
           <p style="margin-top: 18px; font-weight: 600;">Kontakt per WhatsApp:</p>
           <p>
-            <a class="btn btn-primary" href="https://wa.me/4.917687836102e+12" target="_blank" rel="noopener noreferrer">
+            <a class="btn btn-primary" href="https://wa.me/4917687836102" target="_blank" rel="noopener noreferrer">
               Chat in WhatsApp öffnen
             </a>
           </p>
         </div>
 
-        <div class="embed-box">
-          <p><iframe src="https://tally.so/r/xXvbpk" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0"></iframe></p>
+        <!-- Formspree Kontaktformular -->
+        <div class="contact-form-box">
+          <div id="cf-container">
+            <form id="contact-form" novalidate>
+              <div class="cf-group">
+                <label for="cf-name">Name <span style="color:#e53e3e;">*</span></label>
+                <input type="text" id="cf-name" name="name" placeholder="Dein Name" required>
+              </div>
+              <div class="cf-group">
+                <label for="cf-email">E-Mail <span style="color:#e53e3e;">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="deine@email.de" required>
+              </div>
+              <div class="cf-group">
+                <label for="cf-klasse">Klasse / Schuljahr (optional)</label>
+                <input type="text" id="cf-klasse" name="klasse" placeholder="z. B. 11. Klasse, Gymnasium">
+              </div>
+              <div class="cf-group">
+                <label for="cf-message">Nachricht <span style="color:#e53e3e;">*</span></label>
+                <textarea id="cf-message" name="message" rows="4" placeholder="Dein Thema, deine Frage oder dein Anliegen…" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px 20px;">
+                Nachricht senden
+              </button>
+              <p id="cf-error" style="display:none; color:#e53e3e; font-size:14px; margin-top:10px; text-align:center;"></p>
+            </form>
+          </div>
+          <div class="cf-success" id="cf-success">
+            <div class="cf-success-icon">✅</div>
+            <h3>Nachricht erhalten!</h3>
+            <p>Danke – ich melde mich so schnell wie möglich bei dir.</p>
+          </div>
         </div>
+
       </div>
     </section>
   </main>
@@ -118,5 +186,61 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    const contactForm = document.getElementById('contact-form');
+    const cfError = document.getElementById('cf-error');
+
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      cfError.style.display = 'none';
+
+      const name    = document.getElementById('cf-name').value.trim();
+      const email   = document.getElementById('cf-email').value.trim();
+      const message = document.getElementById('cf-message').value.trim();
+
+      if (!name) {
+        cfError.textContent = 'Bitte gib deinen Namen ein.';
+        cfError.style.display = 'block'; return;
+      }
+      if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        cfError.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+        cfError.style.display = 'block'; return;
+      }
+      if (!message) {
+        cfError.textContent = 'Bitte schreib eine kurze Nachricht.';
+        cfError.style.display = 'block'; return;
+      }
+
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Wird gesendet…';
+
+      try {
+        const res = await fetch('https://formspree.io/f/xbdvkaep', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            klasse: document.getElementById('cf-klasse').value.trim(),
+            message: message
+          })
+        });
+
+        if (res.ok) {
+          document.getElementById('cf-container').style.display = 'none';
+          document.getElementById('cf-success').style.display = 'block';
+        } else {
+          throw new Error();
+        }
+      } catch(err) {
+        cfError.textContent = 'Etwas hat nicht geklappt. Schreib mir direkt per WhatsApp.';
+        cfError.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Nachricht senden';
+      }
+    });
+  </script>
 </body>
 </html>
