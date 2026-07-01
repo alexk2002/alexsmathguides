@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ableitungsregeln – Die komplette Übersicht | Gratis-Skript von alexsmathguides</title>
+<meta name="description" content="Alle Ableitungsregeln für Oberstufe und Abitur auf einen Blick: Potenz-, Produkt-, Quotienten- und Kettenregel, Sonderfälle, häufige Fehler, Schritt-für-Schritt-Beispiele und eine kompakte Formelsammlung. Druckfreundliches Gratis-Skript von alexsmathguides." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})">
+</script>
+
+<style>
+  :root{
+    --ink:#0f172a;
+    --muted:#4b5768;
+    --faint:#8592a6;
+    --line:#d7dee8;
+    --line-strong:#b9c4d4;
+    --brand:#0b2a4a;
+    --brand-2:#133a63;
+    --paper:#ffffff;
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'Inter', -apple-system, sans-serif;
+    --max:840px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.7;
+    font-size:16px;
+  }
+  a{color:var(--brand);text-decoration:none;}
+  .wrap{width:min(var(--max), calc(100% - 48px));margin:0 auto;}
+
+  /* ── Utility bar (screen only) ── */
+  .utility{
+    border-bottom:1px solid var(--line);
+  }
+  .utility-inner{
+    width:min(var(--max), calc(100% - 48px));margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 0;gap:16px;flex-wrap:wrap;
+  }
+  .utility-brand{display:flex;align-items:center;gap:10px;}
+  .utility-brand a{display:flex;align-items:center;gap:10px;}
+  .mark{
+    width:38px;height:38px;object-fit:contain;flex-shrink:0;
+  }
+  .utility-brand-name{font-weight:800;font-size:15px;color:var(--brand);letter-spacing:-.01em;}
+  .utility-brand-sub{font-size:12px;color:var(--faint);}
+  .utility-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .btn-outline{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border:1px solid var(--line-strong);border-radius:999px;
+    font-size:13px;font-weight:600;color:var(--brand);background:none;cursor:pointer;
+    font-family:var(--sans);
+  }
+  .btn-outline:hover{border-color:var(--brand);}
+
+  /* ── Cover ── */
+  .cover{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+  .cover-kicker{
+    font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--brand);margin-bottom:18px;
+  }
+  .cover h1{
+    font-family:var(--serif);
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:0 0 18px;
+    font-weight:600;
+  }
+  .cover-sub{font-size:17px;color:var(--muted);max-width:56ch;margin:0 0 26px;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);margin-top:8px;padding-top:20px;}
+  .cover-meta-item{
+    flex:0 0 auto;padding-right:56px;
+  }
+  .cover-meta-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:4px;}
+  .cover-meta-value{font-size:14px;font-weight:600;color:var(--ink);}
+
+  /* ── TOC ── */
+  .toc-block{padding:36px 0;border-bottom:1px solid var(--line);}
+  .toc-title{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:18px;}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;}
+  .toc-row{
+    display:flex;align-items:baseline;gap:10px;padding:7px 0;
+    border-bottom:1px dotted var(--line-strong);font-size:14.5px;
+  }
+  .toc-num{font-family:var(--serif);color:var(--brand);font-weight:600;width:22px;flex-shrink:0;}
+  .toc-row a{color:var(--ink);}
+  .toc-row a:hover{color:var(--brand);}
+
+  /* ── Section structure ── */
+  main{padding:8px 0 40px;}
+  section.sec{padding:44px 0;border-bottom:1px solid var(--line);}
+  section.sec:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;}
+  .sec-num{
+    font-family:var(--serif);font-size:15px;font-weight:600;color:var(--brand);
+    border:1px solid var(--line-strong);border-radius:50%;
+    width:34px;height:34px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sec-head h2{
+    font-family:var(--serif);font-weight:600;font-size:24px;margin:0;letter-spacing:-.01em;
+  }
+  h3{font-size:16.5px;font-weight:700;margin:26px 0 10px;color:var(--ink);}
+  p{margin:0 0 15px;color:var(--muted);}
+  ul,ol{margin:0 0 15px;padding-left:22px;color:var(--muted);}
+  li{margin-bottom:7px;}
+  strong{color:var(--ink);}
+
+  /* ── Formula ── */
+  .formula{
+    border:1px solid var(--line);
+    border-left:2.5px solid var(--brand);
+    padding:16px 20px;
+    margin:16px 0 20px;
+    overflow:auto;
+    background:none;
+  }
+  .formula.center{text-align:center;}
+  .formula-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:8px;}
+
+  /* ── Callouts (border-only, no fill) ── */
+  .callout{border:1px solid var(--line);padding:18px 22px;margin:18px 0;page-break-inside:avoid;}
+  .callout-label{
+    font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    margin-bottom:8px;display:flex;align-items:center;gap:8px;
+  }
+  .callout p:last-child, .callout ul:last-child, .callout ol:last-child{margin-bottom:0;}
+
+  .merksatz{border-left:3px solid var(--brand);}
+  .merksatz .callout-label{color:var(--brand);}
+
+  .fehler{border-left:3px solid var(--ink);}
+  .fehler .callout-label{color:var(--ink);}
+  .fehler-row{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+  .fehler-row:last-child{margin-bottom:0;}
+  .fehler-tag{
+    font-family:var(--serif);font-weight:700;font-size:13px;
+    flex-shrink:0;width:20px;text-align:center;
+  }
+  .fehler-tag.x{color:var(--ink);}
+  .fehler-tag.ok{color:var(--brand);}
+
+  .beispiel{border:1px solid var(--line-strong);padding:22px 24px;margin:20px 0;page-break-inside:avoid;}
+  .beispiel-label{
+    font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);
+    margin-bottom:4px;
+  }
+  .beispiel-title{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px;color:var(--ink);}
+  .step{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start;}
+  .step:last-child{margin-bottom:0;}
+  .step-num{
+    font-size:12px;font-weight:700;color:var(--brand);
+    border:1px solid var(--line-strong);border-radius:50%;
+    width:22px;height:22px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .step-body{flex:1;}
+  .step-text{font-size:14.5px;color:var(--muted);margin-bottom:4px;}
+  .step-formula{overflow:auto;}
+  .beispiel-result{
+    margin-top:16px;padding-top:14px;border-top:1px dashed var(--line-strong);
+    font-size:14.5px;
+  }
+  .beispiel-result strong{color:var(--brand);}
+
+  /* ── Table ── */
+  .table-wrap{overflow:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:14.5px;}
+  th{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);border-bottom:1.5px solid var(--line-strong);}
+  tr:last-child td{border-bottom:none;}
+  td.rule{color:var(--muted);width:38%;}
+
+  /* ── Formelsammlung (final cheat sheet) ── */
+  .cheat{page-break-before:always;}
+  .cheat-head{text-align:center;margin-bottom:32px;}
+  .cheat-head .cover-kicker{justify-content:center;}
+  .cheat-head h2{font-family:var(--serif);font-size:28px;font-weight:600;margin:6px 0 6px;}
+  .cheat-head p{max-width:52ch;margin:0 auto;}
+  .cheat-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .cheat-block{margin-bottom:26px;}
+  .cheat-block h3{
+    font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--brand);border-bottom:1px solid var(--line-strong);padding-bottom:8px;margin:0 0 12px;
+  }
+  .cheat-line{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dotted var(--line);font-size:13.5px;}
+  .cheat-line:last-child{border-bottom:none;}
+  .cheat-line-fn{color:var(--muted);white-space:nowrap;}
+  .cheat-line-d{color:var(--ink);text-align:right;}
+
+  /* ── CTA ── */
+  .cta{padding:44px 0;text-align:center;border-bottom:1px solid var(--line);}
+  .cta-kicker{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:12px;}
+  .cta h2{font-family:var(--serif);font-weight:600;font-size:26px;margin:0 0 12px;}
+  .cta p{max-width:52ch;margin:0 auto 22px;}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 30px;border:1.5px solid var(--brand);border-radius:999px;
+    color:var(--brand);font-weight:700;font-size:15px;
+  }
+
+  /* ── Footer ── */
+  footer{padding:26px 0 60px;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  .footer-brand{font-size:13px;color:var(--faint);}
+  .footer-links{display:flex;gap:16px;font-size:13px;color:var(--faint);flex-wrap:wrap;}
+  .footer-links a{color:var(--faint);}
+  .footer-links a:hover{color:var(--brand);}
+
+  /* ════════ PRINT ════════ */
+  @page{
+    size:A4;
+    margin:18mm 16mm;
+  }
+  @media print{
+    .no-print{display:none !important;}
+    body{font-size:11.5pt;line-height:1.55;}
+    .wrap{width:100%;}
+    a{color:var(--ink);text-decoration:none;}
+    section.sec{padding:22px 0;border-bottom:1px solid var(--line);}
+    .cover{padding:0 0 22px;}
+    .cheat{page-break-before:always;}
+    .beispiel, .callout, .table-wrap{page-break-inside:avoid;}
+    .sec-head{page-break-after:avoid;}
+    h2,h3{page-break-after:avoid;}
+  }
+  @media (max-width:640px){
+    .toc-grid{grid-template-columns:1fr;}
+    .cheat-cols{grid-template-columns:1fr;}
+    .cover{padding:44px 0 28px;}
+  }
+</style>
+</head>
+<body>
+
+  <div class="utility no-print">
+    <div class="utility-inner">
+      <div class="utility-brand">
+        <a href="https://alexsmathguides.de/">
+          <img class="mark" src="../img/logo.png" alt="alexsmathguides Logo">
+          <div>
+            <div class="utility-brand-name">alexsmathguides</div>
+            <div class="utility-brand-sub">Gratis-Skript &middot; Teil von mathemaxxers</div>
+          </div>
+        </a>
+      </div>
+      <div class="utility-actions">
+        <a class="btn-outline" href="https://alexsmathguides.de/">&#8592; Zurück zur Webseite</a>
+        <button class="btn-outline" onclick="window.print()">Als PDF speichern / drucken</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+
+    <!-- ═══ COVER ═══ -->
+    <section class="cover">
+      <div class="cover-kicker">Gratis-Skript &middot; alexsmathguides</div>
+      <h1>Ableitungsregeln — die komplette Übersicht</h1>
+      <p class="cover-sub">Alle Ableitungsregeln, Sonderfälle und typischen Fehler für Oberstufe und Abitur auf einen Blick — mit Merksätzen, neun durchgerechneten Beispielen und einer kompakten Formelsammlung zum Nachschlagen.</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Niveau</div>
+          <div class="cover-meta-value">Oberstufe / Abitur</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Format</div>
+          <div class="cover-meta-value">Druckfreundlich &middot; A4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TOC ═══ -->
+    <section class="toc-block no-print">
+      <div class="toc-title">Inhalt</div>
+      <div class="toc-grid">
+        <div class="toc-row"><span class="toc-num">01</span><a href="#grundidee">Was ist eine Ableitung?</a></div>
+        <div class="toc-row"><span class="toc-num">02</span><a href="#grundregeln">Die drei Grundregeln</a></div>
+        <div class="toc-row"><span class="toc-num">03</span><a href="#grundfunktionen">Ableitungen der Grundfunktionen</a></div>
+        <div class="toc-row"><span class="toc-num">04</span><a href="#produktregel">Produktregel</a></div>
+        <div class="toc-row"><span class="toc-num">05</span><a href="#quotientenregel">Quotientenregel</a></div>
+        <div class="toc-row"><span class="toc-num">06</span><a href="#kettenregel">Kettenregel</a></div>
+        <div class="toc-row"><span class="toc-num">07</span><a href="#kombinationen">Kombinierte Regeln</a></div>
+        <div class="toc-row"><span class="toc-num">08</span><a href="#sonderfaelle">Sonderfälle</a></div>
+        <div class="toc-row"><span class="toc-num">09</span><a href="#fehler">Häufige Fehler</a></div>
+        <div class="toc-row"><span class="toc-num">10</span><a href="#merksaetze">Merksätze im Überblick</a></div>
+        <div class="toc-row"><span class="toc-num">11</span><a href="#beispiele">Schritt-für-Schritt-Beispiele</a></div>
+        <div class="toc-row"><span class="toc-num">12</span><a href="#formelsammlung">Formelsammlung</a></div>
+      </div>
+    </section>
+
+    <main>
+
+      <!-- ═══ 1. GRUNDIDEE ═══ -->
+      <section class="sec" id="grundidee">
+        <div class="sec-head"><span class="sec-num">01</span><h2>Was ist eine Ableitung?</h2></div>
+        <p>Die Ableitung \(f'(x)\) einer Funktion \(f\) gibt an, wie steil der Graph an einer bestimmten Stelle \(x\) verläuft — also die <strong>Steigung der Tangente</strong> an diesem Punkt. Formal ist sie definiert als Grenzwert des Differenzenquotienten, wenn der Abstand zwischen zwei Punkten gegen null geht:</p>
+        <div class="formula center">
+          <div class="formula-label">Definition</div>
+          \[ f'(x) = \lim_{h \to 0} \frac{f(x+h) - f(x)}{h} \]
+        </div>
+        <p>In der Praxis wird dieser Grenzwert so gut wie nie direkt berechnet — stattdessen nutzt man die <strong>Ableitungsregeln</strong> aus diesem Skript, die aus dieser Definition hergeleitet wurden und das Ableiten in wenigen Schritten möglich machen.</p>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Ableiten beantwortet immer dieselbe Frage: „Wie stark verändert sich \(f(x)\), wenn ich \(x\) minimal verändere?" Je größer \(|f'(x)|\), desto steiler der Graph an dieser Stelle.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 2. GRUNDREGELN ═══ -->
+      <section class="sec" id="grundregeln">
+        <div class="sec-head"><span class="sec-num">02</span><h2>Die drei Grundregeln</h2></div>
+
+        <h3>2.1 Potenzregel</h3>
+        <p>Die wichtigste Regel überhaupt. Für \(f(x) = x^n\) gilt: Der Exponent wandert als Faktor nach vorne, und der neue Exponent ist um 1 kleiner.</p>
+        <div class="formula center">\[ f(x) = x^n \quad \Longrightarrow \quad f'(x) = n \cdot x^{n-1} \]</div>
+        <p>Diese Regel gilt für <strong>jeden</strong> reellen Exponenten \(n\) — egal ob positiv, negativ oder gebrochen.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Funktion</th><th>Ableitung</th></tr></thead>
+            <tbody>
+              <tr><td>\(f(x) = x^3\)</td><td>\(f'(x) = 3x^2\)</td></tr>
+              <tr><td>\(f(x) = x^7\)</td><td>\(f'(x) = 7x^6\)</td></tr>
+              <tr><td>\(f(x) = x\) &nbsp;(\(=x^1\))</td><td>\(f'(x) = 1\)</td></tr>
+              <tr><td>\(f(x) = 5\) &nbsp;(\(=5x^0\))</td><td>\(f'(x) = 0\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.2 Faktorregel</h3>
+        <p>Ein konstanter Vorfaktor bleibt beim Ableiten einfach stehen — nur der Funktionsteil wird abgeleitet.</p>
+        <div class="formula center">\[ \big(c \cdot f(x)\big)' = c \cdot f'(x) \]</div>
+        <p><strong>Beispiel:</strong> \(f(x) = 4x^3 \ \Rightarrow\ f'(x) = 4 \cdot 3x^2 = 12x^2\)</p>
+
+        <h3>2.3 Summenregel</h3>
+        <p>Eine Summe aus mehreren Funktionen wird summandenweise abgeleitet — jeder Term für sich, unabhängig von den anderen.</p>
+        <div class="formula center">\[ \big(f(x) + g(x)\big)' = f'(x) + g'(x) \]</div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Potenz-, Faktor- und Summenregel sind die drei Bausteine, mit denen sich <strong>jede ganzrationale Funktion</strong> term für term ableiten lässt — ohne Ausnahme.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 3. GRUNDFUNKTIONEN ═══ -->
+      <section class="sec" id="grundfunktionen">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Ableitungen der Grundfunktionen</h2></div>
+        <p>Neben Potenzen gibt es eine Handvoll Funktionstypen, deren Ableitung du auswendig kennen solltest — sie tauchen in fast jeder Abituraufgabe auf.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Funktion \(f(x)\)</th><th>Ableitung \(f'(x)\)</th><th>Hinweis</th></tr></thead>
+            <tbody>
+              <tr><td>\(\sqrt{x}\)</td><td>\(\dfrac{1}{2\sqrt{x}}\)</td><td class="rule">als \(x^{1/2}\) mit Potenzregel</td></tr>
+              <tr><td>\(\dfrac{1}{x}\)</td><td>\(-\dfrac{1}{x^2}\)</td><td class="rule">als \(x^{-1}\) mit Potenzregel</td></tr>
+              <tr><td>\(e^x\)</td><td>\(e^x\)</td><td class="rule">einzige Funktion, die sich selbst ableitet</td></tr>
+              <tr><td>\(a^x\)</td><td>\(a^x \cdot \ln(a)\)</td><td class="rule">allgemeine Exponentialfunktion</td></tr>
+              <tr><td>\(\ln(x)\)</td><td>\(\dfrac{1}{x}\)</td><td class="rule">nur für \(x>0\) definiert</td></tr>
+              <tr><td>\(\log_a(x)\)</td><td>\(\dfrac{1}{x \cdot \ln(a)}\)</td><td class="rule">allgemeiner Logarithmus</td></tr>
+              <tr><td>\(\sin(x)\)</td><td>\(\cos(x)\)</td><td class="rule">&nbsp;</td></tr>
+              <tr><td>\(\cos(x)\)</td><td>\(-\sin(x)\)</td><td class="rule">Vorzeichen beachten!</td></tr>
+              <tr><td>\(\tan(x)\)</td><td>\(\dfrac{1}{\cos^2(x)}\)</td><td class="rule">auch als \(1+\tan^2(x)\) schreibbar</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══ 4. PRODUKTREGEL ═══ -->
+      <section class="sec" id="produktregel">
+        <div class="sec-head"><span class="sec-num">04</span><h2>Produktregel</h2></div>
+        <p>Sobald zwei Funktionen <strong>miteinander multipliziert</strong> werden (und keine davon nur eine Konstante ist), brauchst du die Produktregel. Zerlege die Funktion in \(u(x)\) und \(v(x)\):</p>
+        <div class="formula center">\[ f(x) = u(x)\cdot v(x) \quad \Longrightarrow \quad f'(x) = u'(x)\cdot v(x) + u(x)\cdot v'(x) \]</div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>„Erste-Strich mal Zweite, plus Erste mal Zweite-Strich." Beide Faktoren werden einmal abgeleitet — nie beide gleichzeitig.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 5. QUOTIENTENREGEL ═══ -->
+      <section class="sec" id="quotientenregel">
+        <div class="sec-head"><span class="sec-num">05</span><h2>Quotientenregel</h2></div>
+        <p>Steht eine Funktion als <strong>Bruch</strong> aus zwei nicht-konstanten Termen vor dir, gilt: Zähler \(u(x)\), Nenner \(v(x)\).</p>
+        <div class="formula center">\[ f(x) = \frac{u(x)}{v(x)} \quad \Longrightarrow \quad f'(x) = \frac{u'(x)\cdot v(x) - u(x)\cdot v'(x)}{\big(v(x)\big)^2} \]</div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Im Zähler steht immer zuerst der <strong>abgeleitete Zähler</strong>: „Zähler-Strich mal Nenner, minus Zähler mal Nenner-Strich, das Ganze durch Nenner zum Quadrat." Die Reihenfolge im Minus ist entscheidend — sie ist <strong>nicht</strong> vertauschbar.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 6. KETTENREGEL ═══ -->
+      <section class="sec" id="kettenregel">
+        <div class="sec-head"><span class="sec-num">06</span><h2>Kettenregel</h2></div>
+        <p>Immer wenn eine Funktion <strong>in eine andere eingesetzt</strong> ist — also verkettet ist, \(f(x) = h(g(x))\) — brauchst du die Kettenregel. Man unterscheidet die <strong>äußere Funktion</strong> \(h\) (die zuletzt ausgeführte Operation) und die <strong>innere Funktion</strong> \(g\) (das, was eingesetzt wird).</p>
+        <div class="formula center">\[ f(x) = h\big(g(x)\big) \quad \Longrightarrow \quad f'(x) = h'\big(g(x)\big) \cdot g'(x) \]</div>
+        <p>Man leitet also zuerst die äußere Funktion ab (und lässt die innere unverändert stehen), und multipliziert anschließend mit der Ableitung der inneren Funktion — dem sogenannten <strong>Nachdifferenzieren</strong>.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Funktion</th><th>Äußere / Innere</th><th>Ableitung</th></tr></thead>
+            <tbody>
+              <tr><td>\(e^{g(x)}\)</td><td>\(e^{(\cdot)}\ /\ g(x)\)</td><td>\(g'(x)\cdot e^{g(x)}\)</td></tr>
+              <tr><td>\(\ln(g(x))\)</td><td>\(\ln(\cdot)\ /\ g(x)\)</td><td>\(\dfrac{g'(x)}{g(x)}\)</td></tr>
+              <tr><td>\(\sin(g(x))\)</td><td>\(\sin(\cdot)\ /\ g(x)\)</td><td>\(g'(x)\cdot\cos(g(x))\)</td></tr>
+              <tr><td>\(\cos(g(x))\)</td><td>\(\cos(\cdot)\ /\ g(x)\)</td><td>\(-g'(x)\cdot\sin(g(x))\)</td></tr>
+              <tr><td>\(\sqrt{g(x)}\)</td><td>\(\sqrt{\cdot}\ /\ g(x)\)</td><td>\(\dfrac{g'(x)}{2\sqrt{g(x)}}\)</td></tr>
+              <tr><td>\(\big(g(x)\big)^n\)</td><td>\((\cdot)^n\ /\ g(x)\)</td><td>\(n\cdot\big(g(x)\big)^{n-1}\cdot g'(x)\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>„Äußere Ableitung mal innere Ableitung." Die innere Funktion bleibt beim ersten Schritt komplett unangetastet stehen — sie wird erst im zweiten Faktor abgeleitet.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 7. KOMBINATIONEN ═══ -->
+      <section class="sec" id="kombinationen">
+        <div class="sec-head"><span class="sec-num">07</span><h2>Kombinierte Regeln</h2></div>
+        <p>In Klausuraufgaben treten die Regeln selten isoliert auf. Am häufigsten wird die Kettenregel mit der Produkt- oder Quotientenregel kombiniert, weil einer der Faktoren selbst eine verkettete Funktion ist.</p>
+        <ul>
+          <li><strong>Produkt + Kette:</strong> z.&thinsp;B. \(f(x) = x \cdot \sin(2x)\) — beim Ableiten von \(\sin(2x)\) innerhalb der Produktregel wird zusätzlich nachdifferenziert.</li>
+          <li><strong>Quotient + Kette:</strong> z.&thinsp;B. \(f(x) = \dfrac{e^{2x}}{x+1}\) — die Ableitung von \(e^{2x}\) im Zähler benötigt die Kettenregel.</li>
+        </ul>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Arbeite immer <strong>von außen nach innen</strong>: Erkenne zuerst die äußerste Struktur (Produkt, Quotient oder Summe), wende die passende Regel an, und leite jeden Teilausdruck für sich — mit Kettenregel, wo nötig.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 8. SONDERFÄLLE ═══ -->
+      <section class="sec" id="sonderfaelle">
+        <div class="sec-head"><span class="sec-num">08</span><h2>Sonderfälle</h2></div>
+
+        <h3>8.1 Wurzeln und Brüche als Potenzen</h3>
+        <p>Schreibe Wurzeln und Brüche zuerst als Potenz um, bevor du die Potenzregel anwendest:</p>
+        <div class="formula center">\[ \sqrt{x} = x^{\frac12} \qquad \sqrt[3]{x} = x^{\frac13} \qquad \frac{1}{x^n} = x^{-n} \]</div>
+
+        <h3>8.2 Zusammengesetzte e-Funktionen</h3>
+        <p>Bei \(f(x) = e^{kx+d}\) ist die innere Funktion \(g(x)=kx+d\) mit \(g'(x)=k\) — der Faktor \(k\) bleibt beim Ableiten als Vorfaktor stehen:</p>
+        <div class="formula center">\[ f(x) = e^{kx+d} \quad \Longrightarrow \quad f'(x) = k\cdot e^{kx+d} \]</div>
+
+        <h3>8.3 Höhere Ableitungen</h3>
+        <p>Leitest du \(f'(x)\) noch einmal ab, erhältst du die <strong>zweite Ableitung</strong> \(f''(x)\) — sie beschreibt die Krümmung des Graphen und wird u.&thinsp;a. bei der Kurvendiskussion für Wendepunkte benötigt. Jede weitere Ableitung entsteht durch erneutes Anwenden derselben Regeln auf das letzte Ergebnis.</p>
+
+        <h3>8.4 Konstante Funktionen</h3>
+        <p>Die Ableitung einer reinen Zahl (ohne \(x\)) ist immer null, da sich eine Konstante beim Verändern von \(x\) nicht ändert: \((c)' = 0\).</p>
+      </section>
+
+      <!-- ═══ 9. HÄUFIGE FEHLER ═══ -->
+      <section class="sec" id="fehler">
+        <div class="sec-head"><span class="sec-num">09</span><h2>Häufige Fehler</h2></div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Produktregel vergessen</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\((x^2 e^x)' \neq 2x \cdot e^x\) — beide Faktoren einzeln abzuleiten und zu multiplizieren ist falsch.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\((x^2 e^x)' = 2x\cdot e^x + x^2\cdot e^x\) — mit vollständiger Produktregel.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Nachdifferenzieren vergessen</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\((e^{3x})' \neq e^{3x}\) — der Faktor der inneren Ableitung fehlt.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\((e^{3x})' = 3\cdot e^{3x}\) — die innere Ableitung \(g'(x)=3\) wird mit multipliziert.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Reihenfolge in der Quotientenregel vertauscht</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>Zähler: „\(u\cdot v' - u' \cdot v\)" — falsche Reihenfolge im Minus.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>Zähler: \(u'\cdot v - u\cdot v'\) — der abgeleitete Zähler steht immer zuerst.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Vorzeichen bei Sinus und Kosinus verwechselt</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\((\cos(x))' \neq \sin(x)\)</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\((\cos(x))' = -\sin(x)\) — das Minuszeichen nicht vergessen.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Ableitung von \(\frac{1}{x}\) ohne Vorzeichenwechsel</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(\left(\dfrac{1}{x}\right)' \neq \dfrac{1}{x^2}\)</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\left(\dfrac{1}{x}\right)' = -\dfrac{1}{x^2}\) — als \(x^{-1}\) mit Potenzregel: Exponent \(-1\) minus 1 ergibt \(-2\).</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">\(\ln(x)\) und \(e^x\) verwechselt</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\((\ln(x))' \neq e^x\)</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\((\ln(x))' = \dfrac{1}{x}\), während \((e^x)' = e^x\) — zwei unterschiedliche „besondere" Ableitungen.</span></div>
+        </div>
+      </section>
+
+      <!-- ═══ 10. MERKSÄTZE ═══ -->
+      <section class="sec" id="merksaetze">
+        <div class="sec-head"><span class="sec-num">10</span><h2>Merksätze im Überblick</h2></div>
+        <ul>
+          <li><strong>Potenzregel:</strong> Exponent nach vorne, Exponent minus eins.</li>
+          <li><strong>Faktorregel:</strong> Konstante Vorfaktoren bleiben beim Ableiten einfach stehen.</li>
+          <li><strong>Summenregel:</strong> Jeder Summand wird unabhängig von den anderen abgeleitet.</li>
+          <li><strong>Produktregel:</strong> Erste-Strich mal Zweite, plus Erste mal Zweite-Strich.</li>
+          <li><strong>Quotientenregel:</strong> Zähler-Strich mal Nenner, minus Zähler mal Nenner-Strich, durch Nenner zum Quadrat.</li>
+          <li><strong>Kettenregel:</strong> Äußere Ableitung mal innere Ableitung — nachdifferenzieren nicht vergessen.</li>
+          <li><strong>Bei Kombinationen:</strong> von außen nach innen arbeiten, Struktur zuerst erkennen.</li>
+        </ul>
+      </section>
+
+      <!-- ═══ 11. BEISPIELE ═══ -->
+      <section class="sec" id="beispiele">
+        <div class="sec-head"><span class="sec-num">11</span><h2>Schritt-für-Schritt-Beispiele</h2></div>
+        <p>Neun durchgerechnete Beispiele, die alle Regeln und ihre wichtigsten Kombinationen abdecken.</p>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 1 &middot; Potenzregel gemischt</div>
+          <div class="beispiel-title">\(f(x) = 3x^4 - 5x^2 + 7x - 2\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Jeden Summanden einzeln mit der Potenzregel ableiten (Summenregel):</div><div class="step-formula">\(f'(x) = 3\cdot4x^3 - 5\cdot2x^1 + 7\cdot1 - 0\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Zusammenfassen:</div><div class="step-formula">\(f'(x) = 12x^3 - 10x + 7\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = 12x^3 - 10x + 7\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 2 &middot; Wurzel und Bruch als Potenz</div>
+          <div class="beispiel-title">\(f(x) = 2\sqrt{x} + \dfrac{3}{x^2}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Umschreiben als Potenzen:</div><div class="step-formula">\(f(x) = 2x^{\frac12} + 3x^{-2}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Potenzregel anwenden:</div><div class="step-formula">\(f'(x) = 2\cdot\tfrac12 x^{-\frac12} + 3\cdot(-2)x^{-3} = x^{-\frac12} - 6x^{-3}\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Zurück in Wurzel-/Bruchschreibweise:</div><div class="step-formula">\(f'(x) = \dfrac{1}{\sqrt{x}} - \dfrac{6}{x^3}\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = \dfrac{1}{\sqrt{x}} - \dfrac{6}{x^3}\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 3 &middot; Produktregel</div>
+          <div class="beispiel-title">\(f(x) = x^2 \cdot e^x\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Faktoren festlegen und beide ableiten:</div><div class="step-formula">\(u(x)=x^2,\ u'(x)=2x \qquad v(x)=e^x,\ v'(x)=e^x\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">In die Produktregel einsetzen:</div><div class="step-formula">\(f'(x) = 2x\cdot e^x + x^2\cdot e^x\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">\(e^x\) und \(x\) ausklammern:</div><div class="step-formula">\(f'(x) = x\,e^x(x+2)\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = x\,e^x\,(x+2)\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 4 &middot; Quotientenregel</div>
+          <div class="beispiel-title">\(f(x) = \dfrac{x^2+1}{x-3}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Zähler und Nenner festlegen und ableiten:</div><div class="step-formula">\(u(x)=x^2+1,\ u'(x)=2x \qquad v(x)=x-3,\ v'(x)=1\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">In die Quotientenregel einsetzen:</div><div class="step-formula">\(f'(x) = \dfrac{2x(x-3) - (x^2+1)\cdot1}{(x-3)^2}\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Zähler ausmultiplizieren und zusammenfassen:</div><div class="step-formula">\(f'(x) = \dfrac{2x^2 - 6x - x^2 - 1}{(x-3)^2} = \dfrac{x^2 - 6x - 1}{(x-3)^2}\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = \dfrac{x^2 - 6x - 1}{(x-3)^2}\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 5 &middot; Kettenregel (Potenz)</div>
+          <div class="beispiel-title">\(f(x) = (3x-2)^5\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Äußere und innere Funktion erkennen:</div><div class="step-formula">äußere: \((\cdot)^5\) &nbsp;&middot;&nbsp; innere: \(g(x)=3x-2,\ g'(x)=3\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Äußere Ableitung bilden (innere unverändert stehen lassen):</div><div class="step-formula">\(5(3x-2)^4\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Mit der inneren Ableitung multiplizieren (nachdifferenzieren):</div><div class="step-formula">\(f'(x) = 5(3x-2)^4 \cdot 3 = 15(3x-2)^4\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = 15(3x-2)^4\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 6 &middot; Kettenregel (e-Funktion)</div>
+          <div class="beispiel-title">\(f(x) = e^{-0{,}5x+2}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Innere Funktion und ihre Ableitung bestimmen:</div><div class="step-formula">\(g(x) = -0{,}5x+2,\quad g'(x) = -0{,}5\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Äußere Ableitung (die e-Funktion bleibt sich selbst gleich) mal innere Ableitung:</div><div class="step-formula">\(f'(x) = -0{,}5 \cdot e^{-0{,}5x+2}\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = -0{,}5\,e^{-0{,}5x+2}\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 7 &middot; Kettenregel (ln-Funktion)</div>
+          <div class="beispiel-title">\(f(x) = \ln(x^2+1)\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Innere Funktion und ihre Ableitung bestimmen:</div><div class="step-formula">\(g(x) = x^2+1,\quad g'(x) = 2x\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Äußere Ableitung von \(\ln\) ist \(\frac{1}{(\cdot)}\), mal innere Ableitung:</div><div class="step-formula">\(f'(x) = \dfrac{1}{x^2+1}\cdot 2x\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = \dfrac{2x}{x^2+1}\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 8 &middot; Produktregel + Kettenregel</div>
+          <div class="beispiel-title">\(f(x) = x \cdot \sin(2x)\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Faktoren festlegen; \(v(x)\) enthält eine Verkettung:</div><div class="step-formula">\(u(x)=x,\ u'(x)=1 \qquad v(x)=\sin(2x),\ v'(x)=2\cos(2x)\ \text{(Kettenregel!)}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">In die Produktregel einsetzen:</div><div class="step-formula">\(f'(x) = 1\cdot\sin(2x) + x\cdot 2\cos(2x)\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = \sin(2x) + 2x\cos(2x)\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 9 &middot; Quotientenregel + Kettenregel</div>
+          <div class="beispiel-title">\(f(x) = \dfrac{e^{2x}}{x+1}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Zähler und Nenner festlegen; \(u(x)\) enthält eine Verkettung:</div><div class="step-formula">\(u(x)=e^{2x},\ u'(x)=2e^{2x}\ \text{(Kettenregel!)} \qquad v(x)=x+1,\ v'(x)=1\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">In die Quotientenregel einsetzen:</div><div class="step-formula">\(f'(x) = \dfrac{2e^{2x}(x+1) - e^{2x}\cdot1}{(x+1)^2}\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">\(e^{2x}\) im Zähler ausklammern:</div><div class="step-formula">\(f'(x) = \dfrac{e^{2x}\big(2(x+1) - 1\big)}{(x+1)^2} = \dfrac{e^{2x}(2x+1)}{(x+1)^2}\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(f'(x) = \dfrac{e^{2x}(2x+1)}{(x+1)^2}\)</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ═══ 12. FORMELSAMMLUNG ═══ -->
+    <section class="sec cheat" id="formelsammlung">
+      <div class="cheat-head">
+        <div class="cover-kicker">Zum Nachschlagen</div>
+        <h2>Formelsammlung Ableitungsregeln</h2>
+        <p>Alle Regeln und Grundableitungen dieses Skripts auf einer Seite — ideal zum Ausdrucken und Griffbereithalten.</p>
+      </div>
+
+      <div class="cheat-cols">
+        <div class="cheat-block">
+          <h3>Grundregeln</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">\((x^n)'\)</span><span class="cheat-line-d">\(n\cdot x^{n-1}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((c\cdot f)'\)</span><span class="cheat-line-d">\(c\cdot f'\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((f+g)'\)</span><span class="cheat-line-d">\(f' + g'\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((u\cdot v)'\)</span><span class="cheat-line-d">\(u'v + uv'\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\left(\dfrac{u}{v}\right)'\)</span><span class="cheat-line-d">\(\dfrac{u'v-uv'}{v^2}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\big(h(g(x))\big)'\)</span><span class="cheat-line-d">\(h'(g(x))\cdot g'(x)\)</span></div>
+        </div>
+
+        <div class="cheat-block">
+          <h3>Grundfunktionen</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">\((c)'\)</span><span class="cheat-line-d">\(0\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((\sqrt{x})'\)</span><span class="cheat-line-d">\(\dfrac{1}{2\sqrt{x}}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\left(\dfrac1x\right)'\)</span><span class="cheat-line-d">\(-\dfrac{1}{x^2}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((e^x)'\)</span><span class="cheat-line-d">\(e^x\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((a^x)'\)</span><span class="cheat-line-d">\(a^x\ln(a)\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((\ln x)'\)</span><span class="cheat-line-d">\(\dfrac1x\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((\log_a x)'\)</span><span class="cheat-line-d">\(\dfrac{1}{x\ln a}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((\sin x)'\)</span><span class="cheat-line-d">\(\cos x\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((\cos x)'\)</span><span class="cheat-line-d">\(-\sin x\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\((\tan x)'\)</span><span class="cheat-line-d">\(\dfrac{1}{\cos^2 x}\)</span></div>
+        </div>
+
+        <div class="cheat-block" style="grid-column:1/-1;">
+          <h3>Verkettete Grundfunktionen (innere Funktion \(g(x)\))</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\big(e^{g(x)}\big)'\)</span><span class="cheat-line-d">\(g'(x)\cdot e^{g(x)}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\big(\ln(g(x))\big)'\)</span><span class="cheat-line-d">\(\dfrac{g'(x)}{g(x)}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\big(\sin(g(x))\big)'\)</span><span class="cheat-line-d">\(g'(x)\cdot\cos(g(x))\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\big(\cos(g(x))\big)'\)</span><span class="cheat-line-d">\(-g'(x)\cdot\sin(g(x))\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\big(\sqrt{g(x)}\big)'\)</span><span class="cheat-line-d">\(\dfrac{g'(x)}{2\sqrt{g(x)}}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\big((g(x))^n\big)'\)</span><span class="cheat-line-d">\(n\big(g(x)\big)^{n-1}\cdot g'(x)\)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta no-print">
+      <div class="cta-kicker">Weiter geht's</div>
+      <h2>Das war erst der Anfang</h2>
+      <p>Dieses Skript ist ein kleiner Ausschnitt aus <strong>mathemaxxers</strong> — dem vollständigen Online-Kurs von alexsmathguides für Oberstufe und Abitur, mit Videos, Übungsaufgaben und Quizzes zu jedem Thema.</p>
+      <a class="cta-btn" href="https://alexsmathguides.de/abitur-kurs.html">Zum Abitur-Kurs &#8594;</a>
+    </section>
+
+    <footer>
+      <div class="footer-row">
+        <div class="footer-brand">© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</div>
+        <div class="footer-links">
+          <a href="https://alexsmathguides.de/">Startseite</a>
+          <a href="https://alexsmathguides.de/abitur-kurs.html">Abitur-Kurs</a>
+          <a href="https://alexsmathguides.de/impressum.html">Impressum</a>
+          <a href="https://alexsmathguides.de/datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

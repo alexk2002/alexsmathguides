@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Deine Mathe-PDFs | alexsmathguides</title>
+  <title>Dein Skript ist bereit | alexsmathguides</title>
   <!-- Suchmaschinen sollen diese Seite nicht indexieren -->
   <meta name="robots" content="noindex, nofollow" />
-  <meta name="description" content="Deine kostenlosen Mathe-PDFs zum Download." />
+  <meta name="description" content="Dein kostenloses Ableitungsregeln-Skript." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -22,13 +22,9 @@
     .danke-hero p  { font-size: 17px; color: var(--muted); max-width: 52ch; margin: 0 auto; }
 
     .pdf-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      display: flex;
+      justify-content: center;
       margin-top: 12px;
-    }
-    @media (max-width: 640px) {
-      .pdf-grid { grid-template-columns: 1fr; }
     }
 
     .pdf-card {
@@ -36,18 +32,30 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 24px;
+      padding: 28px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+      align-items: center;
     }
-    .pdf-card-icon { font-size: 28px; }
-    .pdf-card h3  { margin: 0; font-size: 17px; color: var(--primary); }
-    .pdf-card p   { margin: 0; font-size: 13px; color: var(--muted); flex: 1; }
+    .pdf-card-icon { font-size: 32px; }
+    .pdf-card h3  { margin: 0; font-size: 18px; color: var(--primary); }
+    .pdf-card p   { margin: 0; font-size: 14px; color: var(--muted); }
     .pdf-card a.btn {
-      margin-top: 6px;
+      margin-top: 10px;
       text-align: center;
       justify-content: center;
+      width: 100%;
+    }
+
+    .more-soon {
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 20px;
     }
 
     .hint-box {
@@ -83,8 +91,8 @@
     <section class="danke-hero">
       <div class="container">
         <div class="success-icon">🎉</div>
-        <h1>Deine PDFs sind bereit!</h1>
-        <p>Vielen Dank! Klick einfach auf den jeweiligen Button und lade dir deine Unterlagen direkt herunter.</p>
+        <h1>Dein Skript ist bereit!</h1>
+        <p>Vielen Dank! Klick einfach auf den Button, um dein Ableitungsregeln-Skript zu öffnen.</p>
       </div>
     </section>
 
@@ -95,44 +103,19 @@
 
           <div class="pdf-card">
             <div class="pdf-card-icon">📐</div>
-            <h3>Analysis Formelsammlung</h3>
-            <p>Ableitungsregeln, Integrale &amp; Kurvendiskussion – alle Regeln auf einen Blick.</p>
-            <a href="pdfs/analysis-formelsammlung.pdf" download class="btn btn-primary">
-              ⬇ Herunterladen
-            </a>
-          </div>
-
-          <div class="pdf-card">
-            <div class="pdf-card-icon">✅</div>
-            <h3>Kurvendiskussion Checkliste</h3>
-            <p>10 Schritte von der Definitionsmenge bis zur Skizze – kein Punkt wird vergessen.</p>
-            <a href="pdfs/kurvendiskussion-checkliste.pdf" download class="btn btn-primary">
-              ⬇ Herunterladen
-            </a>
-          </div>
-
-          <div class="pdf-card">
-            <div class="pdf-card-icon">📊</div>
-            <h3>Stochastik Formelsammlung</h3>
-            <p>Wahrscheinlichkeit, Binomialverteilung, Erwartungswert &amp; Signifikanztest kompakt.</p>
-            <a href="pdfs/stochastik-formelsammlung.pdf" download class="btn btn-primary">
-              ⬇ Herunterladen
-            </a>
-          </div>
-
-          <div class="pdf-card">
-            <div class="pdf-card-icon">🎓</div>
-            <h3>Abitur-Vorbereitung Kompakt</h3>
-            <p>Typische Aufgabentypen, häufige Fehler &amp; 4-Wochen-Lernplan fürs Mathe-Abitur.</p>
-            <a href="pdfs/abitur-vorbereitung.pdf" download class="btn btn-primary">
-              ⬇ Herunterladen
+            <h3>Ableitungsregeln – Die komplette Übersicht</h3>
+            <p>Alle Ableitungsregeln, Sonderfälle &amp; häufige Fehler, 9 durchgerechnete Beispiele und eine kompakte Formelsammlung zum Nachschlagen.</p>
+            <a href="pdfs/ableitungsregeln.html" target="_blank" rel="noopener" class="btn btn-primary">
+              📄 Skript öffnen
             </a>
           </div>
 
         </div>
 
+        <p class="more-soon">Weitere kostenlose Materialien folgen in Kürze.</p>
+
         <div class="hint-box">
-          <strong>Tipp:</strong> Speicher die PDFs direkt auf deinem Gerät – so hast du sie auch offline dabei. 📱<br>
+          <strong>Tipp:</strong> Öffne das Skript und speichere es dir über „Als PDF speichern / drucken" direkt auf deinem Gerät – so hast du es auch offline dabei. 📱<br>
           Noch Fragen zu einem Thema? <a href="https://wa.me/4917687836102" style="color: var(--primary); font-weight: 600;">Schreib mir auf WhatsApp.</a>
         </div>
 
