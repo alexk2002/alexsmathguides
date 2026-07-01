@@ -260,10 +260,25 @@
       </div>
       <div class="utility-actions">
         <a class="btn-outline" href="https://alexsmathguides.de/">&#8592; Zurück zur Webseite</a>
-        <button class="btn-outline" onclick="window.print()">Als PDF speichern / drucken</button>
+        <button class="btn-outline" onclick="handlePrintClick()">Als PDF speichern / drucken</button>
       </div>
     </div>
   </div>
+
+  <script>
+    function handlePrintClick(){
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      // In-App-Browser (WhatsApp, Instagram, Facebook, Line, ...) auf iOS unterstützen
+      // window.print() nicht – der Klick würde sonst wirkungslos bleiben.
+      var isInAppBrowser = /FBAN|FBAV|Instagram|WhatsApp|Line\//i.test(ua);
+      if (isIOS && isInAppBrowser) {
+        alert('Zum Speichern als PDF bitte diese Seite in Safari öffnen: Tippe oben rechts auf „…" bzw. das Teilen-Symbol und wähle „In Safari öffnen".');
+        return;
+      }
+      window.print();
+    }
+  </script>
 
   <div class="wrap">
 
