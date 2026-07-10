@@ -269,30 +269,20 @@
   <!-- ── Hero ── -->
   <section class="hero">
     <div class="container">
-      <span class="badge">Demnächst verfügbar</span>
+      <span class="badge">139&nbsp;€ · einmalig · lebenslanger Zugriff</span>
       <h1>mathemaxxers Abitur Kurs.</h1>
       <p>Ein Abitur-Vorbereitungskurs, der alle wichtigen Themen abdeckt. Einfache Erklärungen, Videos und Aufgaben – gezielt auf die Abiturprüfung vorbereitet, kein unnötiger Ballast.</p>
     </div>
   </section>
 
-  <!-- ── Voranmeldung ── -->
+  <!-- ── Kauf ── -->
   <section class="form-section">
     <div class="container">
       <div class="form-card">
-        <h2>Jetzt vormerken lassen.</h2>
-        <p class="sub">Trag deine E-Mail ein. Sobald der Kurs verfügbar ist, schreibe ich dir direkt.</p>
-
-        <form id="waitlist-form" action="https://formspree.io/f/xeeblnvq" method="POST">
-          <div class="form-row">
-            <input type="email" name="email" placeholder="deine@email.de" required />
-            <button type="submit" class="btn-submit">Vormerken</button>
-          </div>
-          <p class="form-hint">Kein Spam. Nur eine Nachricht, wenn der Kurs live ist.</p>
-        </form>
-
-        <div class="success-msg" id="success-msg">
-          Du bist dabei – ich melde mich, sobald der Kurs live ist.
-        </div>
+        <h2>Jetzt starten.</h2>
+        <p class="sub">Einmalig 139&nbsp;€, danach dauerhafter Zugriff auf den kompletten Kurs. Nach dem Kauf bekommst du sofort eine E-Mail mit deinem persönlichen Login-Link.</p>
+        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit" style="display:inline-block;text-decoration:none;text-align:center;">Jetzt kaufen – 139&nbsp;€</a>
+        <p class="form-hint">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login">Hier einloggen</a>.</p>
       </div>
     </div>
   </section>
@@ -308,30 +298,6 @@
     </div>
   </footer>
 
-  <script>
-    const form = document.getElementById('waitlist-form');
-    const successMsg = document.getElementById('success-msg');
-
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      const data = new FormData(form);
-      try {
-        const res = await fetch(form.action, {
-          method: 'POST',
-          body: data,
-          headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-          form.style.display = 'none';
-          successMsg.style.display = 'block';
-        } else {
-          alert('Etwas hat nicht geklappt. Bitte versuche es später nochmal.');
-        }
-      } catch {
-        alert('Etwas hat nicht geklappt. Bitte versuche es später nochmal.');
-      }
-    });
-  </script>
 
 </body>
 </html>
