@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mathemaxxers Abitur Kurs – alexsmathguides</title>
+  <meta name="description" content="Der mathemaxxers Abitur Kurs: 10 Welten, 69 Lektionen mit Erklärvideos, Quizzes und Klausursimulator – gezielte Abi-Vorbereitung in Mathe, einmalig 139 €." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -22,7 +23,8 @@
       --success: #0f766e;
       --radius: 16px;
       --shadow: 0 10px 30px rgba(11,42,74,0.08);
-      --max: 780px;
+      --max: 1080px;
+      --max-narrow: 780px;
     }
 
     html { scroll-behavior: smooth; }
@@ -36,10 +38,43 @@
     }
 
     a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
 
     .container {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
+    }
+
+    .container-narrow {
+      width: min(var(--max-narrow), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    section { padding: 72px 0; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+
+    .section-intro {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 40px;
     }
 
     /* ── Header ── */
@@ -88,7 +123,7 @@
 
     /* ── Hero ── */
     .hero {
-      padding: 96px 0 80px;
+      padding: 88px 0 0;
       background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
       text-align: center;
     }
@@ -114,99 +149,334 @@
       color: var(--text);
     }
 
-    .hero p {
+    .hero p.lead {
       margin: 0 auto;
-      max-width: 52ch;
+      max-width: 56ch;
       font-size: 18px;
       color: var(--muted);
       line-height: 1.65;
     }
 
-    /* ── Form Section ── */
-    .form-section {
-      padding: 72px 0 88px;
-    }
-
-    .form-card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 48px 40px;
-      text-align: center;
-      max-width: 520px;
-      margin: 0 auto;
-    }
-
-    .form-card h2 {
-      margin: 0 0 10px;
-      font-size: 26px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--text);
-    }
-
-    .form-card .sub {
-      margin: 0 0 28px;
-      font-size: 15px;
-      color: var(--muted);
-    }
-
-    .form-row {
+    .hero-ctas {
       display: flex;
-      gap: 10px;
-    }
-
-    .form-row input[type="email"] {
-      flex: 1;
-      padding: 13px 16px;
-      border: 1.5px solid var(--line);
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      color: var(--text);
-      background: #fff;
-      outline: none;
-      transition: border-color .2s;
-    }
-
-    .form-row input[type="email"]:focus {
-      border-color: var(--primary);
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin: 36px 0 20px;
     }
 
     .btn-submit {
-      padding: 13px 22px;
+      padding: 15px 28px;
       background: var(--primary);
       color: #fff;
       border: none;
       border-radius: 10px;
       font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
+      font-size: 16px;
+      font-weight: 700;
       cursor: pointer;
       white-space: nowrap;
-      transition: background .2s;
+      transition: background .2s, transform .2s;
+      display: inline-block;
     }
 
-    .btn-submit:hover { background: var(--primary-2); }
+    .btn-submit:hover { background: var(--primary-2); transform: translateY(-1px); }
 
-    .form-hint {
-      margin-top: 12px;
-      font-size: 13px;
+    .btn-secondary {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--muted);
+      border-bottom: 1.5px solid var(--line);
+      padding-bottom: 2px;
+    }
+
+    .btn-secondary:hover { color: var(--primary); border-color: var(--primary); }
+
+    .trust-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 22px;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 13.5px;
+      font-weight: 600;
+      margin-bottom: 56px;
+    }
+
+    .trust-row span { display: inline-flex; align-items: center; gap: 6px; }
+
+    /* ── Hero screenshot ── */
+    .hero-shot {
+      max-width: 980px;
+      margin: 0 auto;
+      border-radius: 18px 18px 0 0;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(11,42,74,0.16);
+      border: 1px solid var(--line);
+      border-bottom: none;
+    }
+
+    .hero-shot img { width: 100%; }
+
+    /* ── Feature grid ── */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+    }
+
+    .feature-card .icon {
+      font-size: 26px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .feature-card p {
+      margin: 0;
+      font-size: 14.5px;
       color: var(--muted);
     }
 
-    /* Success state */
-    .success-msg {
-      display: none;
-      padding: 20px;
-      background: #f0fdf9;
-      border: 1.5px solid #99e6d8;
-      border-radius: 12px;
-      color: var(--success);
-      font-weight: 600;
-      font-size: 15px;
+    /* ── Screenshot gallery ── */
+    .shot-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
     }
+
+    .shot-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .shot-card img {
+      border-bottom: 1px solid var(--line);
+    }
+
+    .shot-caption {
+      padding: 16px 20px;
+      font-size: 14.5px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    /* ── Welten ── */
+    .welten-groups {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .welt-group {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px 26px;
+    }
+
+    .welt-group-head {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .welt-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .welt-group h3 {
+      margin: 0;
+      font-size: 16.5px;
+      font-weight: 700;
+    }
+
+    .welt-group .count {
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .welt-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .welt-chips span {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 13px;
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* ── Trust section ── */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .trust-item h3 {
+      font-size: 16px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .trust-item p {
+      margin: 0;
+      font-size: 14.5px;
+      color: var(--muted);
+    }
+
+    /* ── Pricing card ── */
+    .form-section { background: var(--surface); }
+
+    .form-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .form-card .price {
+      font-size: 44px;
+      font-weight: 800;
+      color: var(--text);
+      margin: 4px 0 4px;
+    }
+
+    .form-card .price span {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .form-card h2 {
+      margin: 0 0 6px;
+      font-size: 24px;
+    }
+
+    .form-card .sub {
+      margin: 0 0 24px;
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .price-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 30px;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .price-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14.5px;
+      color: var(--text);
+      padding: 6px 0;
+    }
+
+    .price-list li::before {
+      content: "✓";
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .form-hint {
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: var(--muted);
+    }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border-bottom: 1px solid var(--line);
+      padding: 20px 0;
+    }
+
+    .faq-item summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-item summary::after {
+      content: "+";
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--muted);
+      flex-shrink: 0;
+      transition: transform .2s;
+    }
+
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+
+    .faq-item p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 14.5px;
+      max-width: 65ch;
+    }
+
+    /* ── Final CTA ── */
+    .final-cta {
+      text-align: center;
+      background: var(--primary);
+      border-radius: 24px;
+      padding: 64px 32px;
+      color: #fff;
+    }
+
+    .final-cta h2 { color: #fff; }
+    .final-cta p { color: rgba(255,255,255,.75); max-width: 50ch; margin: 0 auto 32px; }
+
+    .final-cta .btn-submit {
+      background: #fff;
+      color: var(--primary);
+    }
+
+    .final-cta .btn-submit:hover { background: #eaf1f8; }
 
     /* ── Footer ── */
     .footer {
@@ -226,6 +496,12 @@
     .footer-links a:hover { color: var(--primary); }
 
     /* ── Responsive ── */
+    @media (max-width: 760px) {
+      section { padding: 56px 0; }
+      .shot-gallery { grid-template-columns: 1fr; }
+      .final-cta { padding: 48px 24px; }
+    }
+
     @media (max-width: 600px) {
       .nav {
         flex-direction: column;
@@ -238,12 +514,6 @@
       }
       .form-card {
         padding: 32px 20px;
-      }
-      .form-row {
-        flex-direction: column;
-      }
-      .btn-submit {
-        width: 100%;
       }
     }
   </style>
@@ -271,18 +541,208 @@
     <div class="container">
       <span class="badge">139&nbsp;€ · einmalig · lebenslanger Zugriff</span>
       <h1>mathemaxxers Abitur Kurs.</h1>
-      <p>Ein Abitur-Vorbereitungskurs, der alle wichtigen Themen abdeckt. Einfache Erklärungen, Videos und Aufgaben – gezielt auf die Abiturprüfung vorbereitet, kein unnötiger Ballast.</p>
+      <p class="lead">10 Welten, 69 Lektionen, jede mit Erklärvideo, Beispielaufgabe und Quiz. Alles, was im Mathe-Abi wirklich drankommt, kein unnötiger Ballast, jederzeit von vorne bis hinten Schritt für Schritt vorgerechnet.</p>
+      <div class="hero-ctas">
+        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit">Jetzt kaufen – 139&nbsp;€</a>
+        <a href="#preis" class="btn-secondary">Was ist drin?</a>
+      </div>
+      <div class="trust-row">
+        <span>✓ Sofortiger Zugriff nach dem Kauf</span>
+        <span>✓ Lebenslang gültig, kein Abo</span>
+        <span>✓ Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a></span>
+      </div>
+      <div class="hero-shot">
+        <img src="img/screenshots/screenshot-karte.png" alt="Interaktive Lernkarte des mathemaxxers Abitur Kurses mit 10 Welten" loading="lazy" />
+      </div>
     </div>
   </section>
 
-  <!-- ── Kauf ── -->
-  <section class="form-section">
+  <!-- ── Was du bekommst ── -->
+  <section id="inhalt">
+    <div class="container">
+      <span class="eyebrow">Der Kurs</span>
+      <h2>Alles, was du für dein Abi brauchst.</h2>
+      <p class="section-intro">Kein Frontalunterricht, kein Herumsuchen in dicken Skripten. Jede Lektion ist so aufgebaut, dass du in wenigen Minuten verstehst, worum es geht, und direkt siehst, wie eine typische Abi-Aufgabe gelöst wird.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="icon">🎥</span>
+          <h3>69 Erklärvideos</h3>
+          <p>Zu jeder Lektion eine Beispielaufgabe einmal komplett vorgerechnet, Schritt für Schritt, zum Mitdenken.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">📖</span>
+          <h3>69 Lektionen zum Nachlesen</h3>
+          <p>Kompakte Theorie mit Formeln, Beispielen und typischen Fehlern, immer auf das Wesentliche reduziert.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">🎯</span>
+          <h3>69 Quizzes</h3>
+          <p>Nach jeder Lektion ein Abschlussquiz mit sofortigem Feedback, damit du merkst, ob es wirklich sitzt.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">🗺️</span>
+          <h3>Interaktive Lernkarte</h3>
+          <p>Dein Fortschritt in 10 Welten, geräteübergreifend gespeichert, Login reicht, egal ob Handy, Tablet oder Laptop.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">📝</span>
+          <h3>Klausursimulator</h3>
+          <p>Probeklausuren im Abi-Format, um den Ernstfall zu üben, bevor er wirklich zählt.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">♾️</span>
+          <h3>Lebenslanger Zugriff</h3>
+          <p>Einmal kaufen, für immer nutzen, kein Abo, keine versteckten Kosten, auch nach dem Abitur noch abrufbar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Screenshots ── -->
+  <section id="einblick" style="background: var(--surface);">
+    <div class="container">
+      <span class="eyebrow">Einblick</span>
+      <h2>So sieht eine Lektion aus.</h2>
+      <p class="section-intro">Video zuerst, dann die Theorie kompakt zum Nachlesen, danach das Quiz zur Selbstkontrolle.</p>
+      <div class="shot-gallery">
+        <div class="shot-card">
+          <img src="img/screenshots/screenshot-lektion.png" alt="Beispiel einer Lektionsseite mit Video und Beispielaufgabe" loading="lazy" />
+          <div class="shot-caption">Lektion „Symmetrie von Funktionen“ mit Video und Beispielaufgabe</div>
+        </div>
+        <div class="shot-card">
+          <img src="img/screenshots/screenshot-quiz.png" alt="Beispiel eines Abschlussquiz mit Multiple-Choice-Fragen" loading="lazy" />
+          <div class="shot-caption">Abschlussquiz mit sofortigem Feedback</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Die 10 Welten ── -->
+  <section id="welten">
+    <div class="container">
+      <span class="eyebrow">Kursinhalt</span>
+      <h2>Die 10 Welten des Kurses.</h2>
+      <p class="section-intro">Von den Grundlagen bis zur Stochastik, alle prüfungsrelevanten Themen des Mathe-Abiturs in sinnvoller Reihenfolge.</p>
+      <div class="welten-groups">
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#4f9d5c;"></span>
+            <h3>Welt 1 · Grundlagen &amp; Funktionen</h3>
+            <span class="count">7 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Definitions- &amp; Wertemenge</span><span>Ganzrationale Funktionen</span><span>Exponentialfunktionen</span><span>Logarithmusfunktionen</span><span>Trigonometrische Funktionen</span><span>Symmetrie</span><span>Verkettung &amp; Umkehrfunktionen</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#3b7dd8;"></span>
+            <h3>Welt 2–4 · Analysis (Ableiten &amp; Integrieren)</h3>
+            <span class="count">20 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Potenz-, Faktor- &amp; Summenregel</span><span>Produktregel</span><span>Quotientenregel</span><span>Kettenregel</span><span>Ableitung e &amp; ln</span><span>Ableitung Trigo</span><span>Grenzwerte &amp; Stetigkeit</span><span>Monotonie</span><span>Extremwerte</span><span>Wendepunkte &amp; Krümmung</span><span>Tangente &amp; Normale</span><span>Kurvendiskussion</span><span>Optimierungsaufgaben</span><span>Stammfunktionen</span><span>Bestimmtes Integral</span><span>Hauptsatz</span><span>Flächenberechnung</span><span>Substitution</span><span>Partielle Integration</span><span>Rotationskörper</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#2f8f5b;"></span>
+            <h3>Welt 5 · Wachstum</h3>
+            <span class="count">6 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Unbeschränktes Wachstum</span><span>Beschränktes Wachstum</span><span>Logistisches Wachstum</span><span>Differenzialgleichungen</span><span>Rekonstruktionsaufgaben</span><span>Übungsklausur Analysis</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#8b5fd8;"></span>
+            <h3>Welt 6–8 · Analytische Geometrie</h3>
+            <span class="count">19 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Vektoren Grundlagen</span><span>Geraden Parameterform</span><span>Lagebeziehungen Geraden</span><span>Skalarprodukt</span><span>Betrag &amp; Winkel</span><span>Abstand Punkt Gerade</span><span>Kreuzprodukt</span><span>Spatprodukt</span><span>LGS Gauß</span><span>LGS Lösbarkeit</span><span>Ebenen Parameterform</span><span>Ebenen Normalenform</span><span>Ebenen Koordinatenform</span><span>Umwandlung Ebenenformen</span><span>Lagebeziehungen Gerade-Ebene</span><span>Lagebeziehungen Ebene-Ebene</span><span>Abstand Punkt Ebene</span><span>Schnittwinkel &amp; Lotfußpunkt</span><span>Übungsklausur Geometrie</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#d99a2b;"></span>
+            <h3>Welt 9–10 · Stochastik</h3>
+            <span class="count">17 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Zufallsexperiment &amp; Ereignis</span><span>Laplace</span><span>Kombinatorik</span><span>Baumdiagramm</span><span>Bedingte Wahrscheinlichkeit</span><span>Unabhängigkeit</span><span>Vierfeldertafel</span><span>Totale Wahrscheinlichkeit</span><span>Satz von Bayes</span><span>Bernoulli-Kette</span><span>Binomialverteilung</span><span>Erwartungswert &amp; Varianz</span><span>Standardabweichung</span><span>Normalverteilung</span><span>Hypothesentest</span><span>Fehler 1. &amp; 2. Art</span><span>Abschlussklausur</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Trust ── -->
+  <section id="vertrauen" style="background: var(--surface);">
+    <div class="container-narrow" style="text-align:center;">
+      <span class="eyebrow">Gut zu wissen</span>
+      <h2>👨‍🏫 Von einem echten Nachhilfelehrer.</h2>
+      <p class="section-intro" style="margin-left:auto;margin-right:auto;">Ich bin Alex und gebe seit Jahren Mathe-Nachhilfe. Ich habe schon zahlreiche Schüler:innen erfolgreich durchs Abitur begleitet und weiß genau, wo es dabei wirklich hakt, genau darauf ist dieser Kurs aufgebaut.</p>
+    </div>
+  </section>
+
+  <!-- ── Pricing ── -->
+  <section id="preis" class="form-section">
     <div class="container">
       <div class="form-card">
         <h2>Jetzt starten.</h2>
-        <p class="sub">Einmalig 139&nbsp;€, danach dauerhafter Zugriff auf den kompletten Kurs. Nach dem Kauf bekommst du sofort eine E-Mail mit deinem persönlichen Login-Link.</p>
-        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit" style="display:inline-block;text-decoration:none;text-align:center;">Jetzt kaufen – 139&nbsp;€</a>
-        <p class="form-hint">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login">Hier einloggen</a>.</p>
+        <div class="price">139&nbsp;€ <span>einmalig</span></div>
+        <p class="sub">Kein Abo, keine versteckten Kosten. Nach dem Kauf bekommst du sofort eine E-Mail mit deinem persönlichen Login-Link.</p>
+        <ul class="price-list">
+          <li>10 Welten, 69 Lektionen</li>
+          <li>69 Erklärvideos zum Mitrechnen</li>
+          <li>69 Quizzes mit Sofort-Feedback</li>
+          <li>Interaktive Lernkarte mit Fortschritt</li>
+          <li>Klausursimulator inklusive</li>
+          <li>Lebenslanger Zugriff, alle Updates</li>
+        </ul>
+        <div>
+          <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit" style="display:inline-block;text-decoration:none;text-align:center;">Jetzt kaufen – 139&nbsp;€</a>
+        </div>
+        <p class="form-hint">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="container-narrow">
+      <span class="eyebrow">Fragen</span>
+      <h2>Häufig gefragt.</h2>
+      <div>
+        <details class="faq-item">
+          <summary>Wie lange habe ich Zugriff auf den Kurs?</summary>
+          <p>Für immer. Du zahlst einmalig 139 €, danach ist der Kurs dauerhaft freigeschaltet, auch über dein Abitur hinaus.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Auf welchen Geräten funktioniert der Kurs?</summary>
+          <p>Auf allen, die einen Browser haben, Handy, Tablet, Laptop. Du loggst dich einfach mit deiner E-Mail ein, dein Fortschritt wird geräteübergreifend gespeichert.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Brauche ich Vorwissen?</summary>
+          <p>Nein. Jede Lektion baut die Grundlagen mit auf. Am meisten bringt dir der Kurs, wenn du bereits Q-Phase-Stoff in Mathe hast oder dich gezielt aufs Abitur vorbereitest.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Gibt es Rabattcodes?</summary>
+          <p>Falls du einen Gutscheincode hast, kannst du ihn direkt im Bezahlvorgang bei Stripe eingeben.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Final CTA ── -->
+  <section>
+    <div class="container">
+      <div class="final-cta">
+        <h2>Bereit fürs Abi?</h2>
+        <p>Starte jetzt mit dem mathemaxxers Abitur Kurs und arbeite dich strukturiert durch alle 10 Welten.</p>
+        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit">Jetzt kaufen – 139&nbsp;€</a>
       </div>
     </div>
   </section>
@@ -297,7 +757,6 @@
       </div>
     </div>
   </footer>
-
 
 </body>
 </html>

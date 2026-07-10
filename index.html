@@ -47,6 +47,52 @@
     .cf-success .cf-success-icon { font-size: 40px; margin-bottom: 10px; }
     .cf-success h3 { margin-bottom: 6px; }
     .cf-success p { color: var(--muted); font-size: 14px; }
+
+    /* ── Abitur-Kurs Promo ── */
+    .kurs-promo {
+      background: var(--primary);
+      border-radius: 28px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+    }
+    .kurs-promo-copy .eyebrow { background: rgba(255,255,255,.12); color: #fff; }
+    .kurs-promo-copy h2 { color: #fff; margin-top: 14px; }
+    .kurs-promo-copy p { color: rgba(255,255,255,.78); font-size: 16px; }
+    .kurs-promo-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 26px;
+      display: grid;
+      gap: 8px;
+    }
+    .kurs-promo-list li {
+      color: rgba(255,255,255,.9);
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+    .kurs-promo-list li::before { content: "✓ "; color: #7fe0c8; font-weight: 800; }
+    .kurs-promo-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .kurs-promo .btn-primary { background: #fff; color: var(--primary); }
+    .kurs-promo .btn-primary:hover { background: #eaf1f8; }
+    .kurs-promo-link { color: #fff; font-size: 14px; font-weight: 600; text-decoration: underline; }
+    .kurs-promo-shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .kurs-promo-shots img {
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: 0 14px 34px rgba(0,0,0,.28);
+    }
+    .kurs-promo-shots .shot-main { grid-column: 1 / -1; }
+    @media (max-width: 920px) {
+      .kurs-promo { grid-template-columns: 1fr; padding: 32px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -121,6 +167,33 @@
           <div class="card">
             <h3>Fokus Oberstufe</h3>
             <p>Besonderer Schwerpunkt auf Analysis: Ableitungen, Integrale, Funktionen, Kurvendiskussion, Klausur- und Abituraufgaben – Schritt für Schritt erklärt.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="abitur-kurs-promo">
+      <div class="container">
+        <div class="kurs-promo">
+          <div class="kurs-promo-copy">
+            <span class="eyebrow">Neu</span>
+            <h2>mathemaxxers Abitur Kurs.</h2>
+            <p>10 Welten, 69 Lektionen mit Erklärvideo, Beispielaufgabe und Quiz, dazu Mini-Games und eine interaktive Lernkarte. Einmal zahlen, für immer Zugriff.</p>
+            <ul class="kurs-promo-list">
+              <li>69 Erklärvideos zum Mitrechnen</li>
+              <li>Quizzes mit Sofort-Feedback &amp; Mini-Games</li>
+              <li>Interaktive Lernkarte mit Fortschritt</li>
+              <li>Klausursimulator inklusive</li>
+            </ul>
+            <div class="kurs-promo-actions">
+              <a class="btn btn-primary" href="abitur-kurs.html">Kurs entdecken</a>
+              <a class="kurs-promo-link" href="abitur-kurs.html#preis">139&nbsp;€ · einmalig</a>
+            </div>
+          </div>
+          <div class="kurs-promo-shots">
+            <img class="shot-main" src="img/screenshots/screenshot-karte.png" alt="Interaktive Lernkarte des mathemaxxers Abitur Kurses" loading="lazy">
+            <img src="img/screenshots/screenshot-lektion.png" alt="Lektionsseite mit Video und Beispielaufgabe" loading="lazy">
+            <img src="img/screenshots/screenshot-minigame.png" alt="Mini-Game in einer Lektion" loading="lazy">
           </div>
         </div>
       </div>
