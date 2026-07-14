@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mathemaxxers Abitur Kurs – alexsmathguides</title>
-  <meta name="description" content="Der mathemaxxers Abitur Kurs: 10 Welten, 69 Lektionen mit Kurzvideos unter 60 Sekunden, Quizzes und Klausursimulator – gezielte, interaktive Abi-Vorbereitung in Mathe, einmalig 139 €." />
+  <meta name="description" content="Der mathemaxxers Abitur Kurs: 10 Welten, 69 Lektionen mit Kurzvideos unter 60 Sekunden, Quizzes und Klausursimulator – Welt 1 komplett kostenlos testen, keine Zahlungsdaten nötig." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -165,6 +165,30 @@
       flex-wrap: wrap;
       margin: 36px 0 20px;
     }
+
+    .hero-trial-form {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 36px 0 20px;
+    }
+
+    .hero-trial-form input[type="email"] {
+      padding: 14px 18px;
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: #fff;
+      outline: none;
+      width: 280px;
+      max-width: 100%;
+      transition: border-color .2s;
+    }
+
+    .hero-trial-form input[type="email"]:focus { border-color: var(--primary); }
 
     .btn-submit {
       padding: 15px 28px;
@@ -576,16 +600,16 @@
   <!-- ── Hero ── -->
   <section class="hero">
     <div class="container">
-      <span class="badge">139&nbsp;€ · einmalig · lebenslanger Zugriff</span>
+      <span class="badge">Welt 1 komplett kostenlos testen</span>
       <h1>mathemaxxers Abitur Kurs.</h1>
       <p class="lead">10 Welten, 69 Lektionen, jede mit einem Video unter 60 Sekunden, in dem eine Beispielaufgabe Schritt für Schritt vorgerechnet wird, dazu Quiz und Mini-Game. Alles, was im Mathe-Abi wirklich drankommt, so kompakt, interaktiv und spielerisch wie möglich, kein unnötiger Ballast.</p>
-      <div class="hero-ctas">
-        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit">Jetzt kaufen – 139&nbsp;€</a>
-        <a href="#preis" class="btn-secondary">Was ist drin?</a>
-      </div>
+      <form class="hero-trial-form" action="https://kurs.alexsmathguides.de/trial/start" method="POST">
+        <input type="email" name="email" placeholder="deine@email.de" required />
+        <button type="submit" class="btn-submit">Kostenlos starten</button>
+      </form>
       <div class="trust-row">
-        <span>✓ Sofortiger Zugriff nach dem Kauf</span>
-        <span>✓ Lebenslang gültig, kein Abo</span>
+        <span>✓ Welt 1 inkl. Quizzes &amp; Mini-Games gratis</span>
+        <span>✓ Kein Risiko, keine Zahlungsdaten nötig</span>
         <span>✓ Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a></span>
       </div>
       <div class="hero-shot">
@@ -735,7 +759,6 @@
     </div>
   </section>
 
-  <!-- ── Testimonials ── -->
   <!-- ── Trust ── -->
   <section id="vertrauen" style="background: var(--surface);">
     <div class="container-narrow" style="text-align:center;">
@@ -745,24 +768,24 @@
     </div>
   </section>
 
-  <!-- ── Pricing ── -->
+  <!-- ── Kostenlose Probeversion ── -->
   <section id="preis" class="form-section">
     <div class="container">
       <div class="form-card">
-        <h2>Jetzt starten.</h2>
-        <div class="price">139&nbsp;€ <span>einmalig</span></div>
-        <p class="sub">Kein Abo, keine versteckten Kosten. Nach dem Kauf bekommst du sofort eine E-Mail mit deinem persönlichen Login-Link.</p>
+        <h2>Kostenlos starten.</h2>
+        <p class="sub">Welt 1 komplett gratis, inklusive Videos, Quizzes und Mini-Games. Keine Zahlungsdaten nötig, keine automatische Abbuchung danach.</p>
         <ul class="price-list">
-          <li>10 Welten, 69 Lektionen</li>
-          <li>69 Kurzvideos (unter 60 Sek.) zum Mitrechnen</li>
-          <li>69 Quizzes mit Sofort-Feedback</li>
+          <li>Welt 1 komplett kostenlos spielbar</li>
+          <li>Quizzes mit Sofort-Feedback</li>
+          <li>Mini-Games zum Üben</li>
           <li>Interaktive Lernkarte mit Fortschritt</li>
-          <li>Klausursimulator inklusive</li>
-          <li>Lebenslanger Zugriff, alle Updates</li>
+          <li>Danach optional: 9 weitere Welten freischalten</li>
         </ul>
-        <div>
-          <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit" style="display:inline-block;text-decoration:none;text-align:center;">Jetzt kaufen – 139&nbsp;€</a>
-        </div>
+        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+          <input type="email" name="email" placeholder="deine@email.de" required
+            style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
+          <button type="submit" class="btn-submit">Kostenlos starten</button>
+        </form>
         <p class="form-hint">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
       </div>
     </div>
@@ -775,8 +798,16 @@
       <h2>Häufig gefragt.</h2>
       <div>
         <details class="faq-item">
-          <summary>Wie lange habe ich Zugriff auf den Kurs?</summary>
-          <p>Für immer. Du zahlst einmalig 139 €, danach ist der Kurs dauerhaft freigeschaltet, auch über dein Abitur hinaus.</p>
+          <summary>Wie funktioniert die kostenlose Probeversion?</summary>
+          <p>Du gibst nur deine E-Mail-Adresse an und bekommst sofort Zugriff auf Welt 1, komplett kostenlos, inklusive Videos, Quizzes und Mini-Games. Keine Zahlungsdaten, keine automatische Abbuchung. Erst wenn du mehr willst, kannst du direkt aus dem Kurs heraus die restlichen 9 Welten freischalten.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Bleibt mein Fortschritt erhalten, wenn ich später den ganzen Kurs freischalte?</summary>
+          <p>Ja. Du schaltest mit derselben E-Mail-Adresse frei, mit der du die Probeversion gestartet hast, dein kompletter Fortschritt aus Welt 1 bleibt erhalten.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Wie lange habe ich danach Zugriff auf den Kurs?</summary>
+          <p>Für immer. Einmal freigeschaltet, ist der Kurs dauerhaft verfügbar, auch über dein Abitur hinaus.</p>
         </details>
         <details class="faq-item">
           <summary>Auf welchen Geräten funktioniert der Kurs?</summary>
@@ -788,7 +819,7 @@
         </details>
         <details class="faq-item">
           <summary>Gibt es Rabattcodes?</summary>
-          <p>Falls du einen Gutscheincode hast, kannst du ihn direkt im Bezahlvorgang bei Stripe eingeben.</p>
+          <p>Falls du einen Gutscheincode hast, kannst du ihn direkt im Bezahlvorgang bei Stripe eingeben, wenn du die restlichen Welten freischaltest.</p>
         </details>
       </div>
     </div>
@@ -799,8 +830,12 @@
     <div class="container">
       <div class="final-cta">
         <h2>Bereit fürs Abi?</h2>
-        <p>Starte jetzt mit dem mathemaxxers Abitur Kurs und arbeite dich strukturiert durch alle 10 Welten.</p>
-        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit">Jetzt kaufen – 139&nbsp;€</a>
+        <p>Starte jetzt kostenlos mit Welt 1 und überzeug dich selbst, bevor du dich entscheidest.</p>
+        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+          <input type="email" name="email" placeholder="deine@email.de" required
+            style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
+          <button type="submit" class="btn-submit">Kostenlos starten</button>
+        </form>
       </div>
     </div>
   </section>
