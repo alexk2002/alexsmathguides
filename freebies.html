@@ -159,17 +159,17 @@
       submitBtn.textContent = 'Wird gesendet…';
 
       try {
-        const res = await fetch('https://formspree.io/f/xwvdwgey', {
+        const res = await fetch('https://kurs.alexsmathguides.de/leads/subscribe', {
           method: 'POST',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
           body: JSON.stringify({
             email: email,
-            name: document.getElementById('pdf-name').value.trim()
+            name: document.getElementById('pdf-name').value.trim(),
+            source: 'freebies'
           })
         });
 
         if (res.ok) {
-          // Redirect selbst steuern – kein Formspree-Plan nötig
           window.location.href = 'danke.html';
         } else {
           throw new Error();
