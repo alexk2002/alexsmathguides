@@ -168,10 +168,17 @@
 
     .hero-trial-form {
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin: 36px 0 20px;
+    }
+
+    .hero-trial-row {
+      display: flex;
       justify-content: center;
       gap: 10px;
       flex-wrap: wrap;
-      margin: 36px 0 20px;
     }
 
     .hero-trial-form input[type="email"] {
@@ -189,6 +196,23 @@
     }
 
     .hero-trial-form input[type="email"]:focus { border-color: var(--primary); }
+
+    .trial-consent {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      max-width: 480px;
+      margin: 0 auto 8px;
+      text-align: left;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--muted);
+    }
+
+    .trial-consent input { margin-top: 3px; accent-color: var(--primary); flex-shrink: 0; }
+    .trial-consent a { color: var(--primary); text-decoration: underline; }
+    .trial-consent--dark { color: rgba(255,255,255,.7); }
+    .trial-consent--dark a { color: #fff; }
 
     .btn-submit {
       padding: 15px 28px;
@@ -604,8 +628,14 @@
       <h1>mathemaxxers Abitur Kurs.</h1>
       <p class="lead">10 Welten, 69 Lektionen, jede mit einem Video unter 60 Sekunden, in dem eine Beispielaufgabe Schritt für Schritt vorgerechnet wird, dazu Quiz und Mini-Game. Alles, was im Mathe-Abi wirklich drankommt, so kompakt, interaktiv und spielerisch wie möglich, kein unnötiger Ballast.</p>
       <form class="hero-trial-form" action="https://kurs.alexsmathguides.de/trial/start" method="POST">
-        <input type="email" name="email" placeholder="deine@email.de" required />
-        <button type="submit" class="btn-submit">Kostenlos starten</button>
+        <div class="hero-trial-row">
+          <input type="email" name="email" placeholder="deine@email.de" required />
+          <button type="submit" class="btn-submit">Kostenlos starten</button>
+        </div>
+        <div class="trial-consent">
+          <input type="checkbox" id="trialConsentHero" name="marketingConsent" required />
+          <label for="trialConsentHero">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+        </div>
       </form>
       <div class="trust-row">
         <span>✓ Welt 1 inkl. Quizzes &amp; Mini-Games gratis</span>
@@ -781,10 +811,16 @@
           <li>Interaktive Lernkarte mit Fortschritt</li>
           <li>Danach optional: 9 weitere Welten freischalten</li>
         </ul>
-        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-          <input type="email" name="email" placeholder="deine@email.de" required
-            style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
-          <button type="submit" class="btn-submit">Kostenlos starten</button>
+        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <input type="email" name="email" placeholder="deine@email.de" required
+              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
+            <button type="submit" class="btn-submit">Kostenlos starten</button>
+          </div>
+          <div class="trial-consent">
+            <input type="checkbox" id="trialConsentPreis" name="marketingConsent" required />
+            <label for="trialConsentPreis">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+          </div>
         </form>
         <p class="form-hint">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
       </div>
@@ -831,10 +867,16 @@
       <div class="final-cta">
         <h2>Bereit fürs Abi?</h2>
         <p>Starte jetzt kostenlos mit Welt 1 und überzeug dich selbst, bevor du dich entscheidest.</p>
-        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-          <input type="email" name="email" placeholder="deine@email.de" required
-            style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
-          <button type="submit" class="btn-submit">Kostenlos starten</button>
+        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <input type="email" name="email" placeholder="deine@email.de" required
+              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
+            <button type="submit" class="btn-submit">Kostenlos starten</button>
+          </div>
+          <div class="trial-consent trial-consent--dark" style="justify-content:center;">
+            <input type="checkbox" id="trialConsentFinal" name="marketingConsent" required />
+            <label for="trialConsentFinal">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+          </div>
         </form>
       </div>
     </div>
