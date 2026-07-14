@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Integrale &amp; Stammfunktionen – Die kompakte Übersicht | Gratis-Skript von alexsmathguides</title>
+<meta name="description" content="Stammfunktionen bilden, lineare Substitution und das bestimmte Integral kurz und einfach erklärt, mit Merksätzen, fünf durchgerechneten Beispielen und einer Formelsammlung. Druckfreundliches Gratis-Skript von alexsmathguides." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})">
+</script>
+
+<style>
+  :root{
+    --ink:#0f172a;
+    --muted:#4b5768;
+    --faint:#8592a6;
+    --line:#d7dee8;
+    --line-strong:#b9c4d4;
+    --brand:#0b2a4a;
+    --brand-2:#133a63;
+    --paper:#ffffff;
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'Inter', -apple-system, sans-serif;
+    --max:840px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.7;
+    font-size:16px;
+  }
+  a{color:var(--brand);text-decoration:none;}
+  .wrap{width:min(var(--max), calc(100% - 48px));margin:0 auto;}
+
+  /* ── Utility bar (screen only) ── */
+  .utility{
+    border-bottom:1px solid var(--line);
+  }
+  .utility-inner{
+    width:min(var(--max), calc(100% - 48px));margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 0;gap:16px;flex-wrap:wrap;
+  }
+  .utility-brand{display:flex;align-items:center;gap:10px;}
+  .utility-brand a{display:flex;align-items:center;gap:10px;}
+  .mark{
+    width:38px;height:38px;object-fit:contain;flex-shrink:0;
+  }
+  .utility-brand-name{font-weight:800;font-size:15px;color:var(--brand);letter-spacing:-.01em;}
+  .utility-brand-sub{font-size:12px;color:var(--faint);}
+  .utility-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .btn-outline{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border:1px solid var(--line-strong);border-radius:999px;
+    font-size:13px;font-weight:600;color:var(--brand);background:none;cursor:pointer;
+    font-family:var(--sans);
+  }
+  .btn-outline:hover{border-color:var(--brand);}
+
+  /* ── Cover ── */
+  .cover{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+  .cover-kicker{
+    font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--brand);margin-bottom:18px;
+  }
+  .cover h1{
+    font-family:var(--serif);
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:0 0 18px;
+    font-weight:600;
+  }
+  .cover-sub{font-size:17px;color:var(--muted);max-width:56ch;margin:0 0 26px;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);margin-top:8px;padding-top:20px;}
+  .cover-meta-item{
+    flex:0 0 auto;padding-right:56px;
+  }
+  .cover-meta-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:4px;}
+  .cover-meta-value{font-size:14px;font-weight:600;color:var(--ink);}
+
+  /* ── TOC ── */
+  .toc-block{padding:36px 0;border-bottom:1px solid var(--line);}
+  .toc-title{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:18px;}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;}
+  .toc-row{
+    display:flex;align-items:baseline;gap:10px;padding:7px 0;
+    border-bottom:1px dotted var(--line-strong);font-size:14.5px;
+  }
+  .toc-num{font-family:var(--serif);color:var(--brand);font-weight:600;width:22px;flex-shrink:0;}
+  .toc-row a{color:var(--ink);}
+  .toc-row a:hover{color:var(--brand);}
+
+  /* ── Section structure ── */
+  main{padding:8px 0 40px;}
+  section.sec{padding:44px 0;border-bottom:1px solid var(--line);}
+  section.sec:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;}
+  .sec-num{
+    font-family:var(--serif);font-size:15px;font-weight:600;color:var(--brand);
+    border:1px solid var(--line-strong);border-radius:50%;
+    width:34px;height:34px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sec-head h2{
+    font-family:var(--serif);font-weight:600;font-size:24px;margin:0;letter-spacing:-.01em;
+  }
+  h3{font-size:16.5px;font-weight:700;margin:26px 0 10px;color:var(--ink);}
+  p{margin:0 0 15px;color:var(--muted);}
+  ul,ol{margin:0 0 15px;padding-left:22px;color:var(--muted);}
+  li{margin-bottom:7px;}
+  strong{color:var(--ink);}
+
+  /* ── Formula ── */
+  .formula{
+    border:1px solid var(--line);
+    border-left:2.5px solid var(--brand);
+    padding:16px 20px;
+    margin:16px 0 20px;
+    overflow:auto;
+    background:none;
+  }
+  .formula.center{text-align:center;}
+  .formula-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:8px;}
+
+  /* ── Callouts (border-only, no fill) ── */
+  .callout{border:1px solid var(--line);padding:18px 22px;margin:18px 0;page-break-inside:avoid;}
+  .callout-label{
+    font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    margin-bottom:8px;display:flex;align-items:center;gap:8px;
+  }
+  .callout p:last-child, .callout ul:last-child, .callout ol:last-child{margin-bottom:0;}
+
+  .merksatz{border-left:3px solid var(--brand);}
+  .merksatz .callout-label{color:var(--brand);}
+
+  .fehler{border-left:3px solid var(--ink);}
+  .fehler .callout-label{color:var(--ink);}
+  .fehler-row{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+  .fehler-row:last-child{margin-bottom:0;}
+  .fehler-tag{
+    font-family:var(--serif);font-weight:700;font-size:13px;
+    flex-shrink:0;width:20px;text-align:center;
+  }
+  .fehler-tag.x{color:var(--ink);}
+  .fehler-tag.ok{color:var(--brand);}
+
+  .beispiel{border:1px solid var(--line-strong);padding:22px 24px;margin:20px 0;page-break-inside:avoid;}
+  .beispiel-label{
+    font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);
+    margin-bottom:4px;
+  }
+  .beispiel-title{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px;color:var(--ink);}
+  .step{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start;}
+  .step:last-child{margin-bottom:0;}
+  .step-num{
+    font-size:12px;font-weight:700;color:var(--brand);
+    border:1px solid var(--line-strong);border-radius:50%;
+    width:22px;height:22px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .step-body{flex:1;}
+  .step-text{font-size:14.5px;color:var(--muted);margin-bottom:4px;}
+  .step-formula{overflow:auto;}
+  .beispiel-result{
+    margin-top:16px;padding-top:14px;border-top:1px dashed var(--line-strong);
+    font-size:14.5px;
+  }
+  .beispiel-result strong{color:var(--brand);}
+
+  /* ── Table ── */
+  .table-wrap{overflow:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:14.5px;}
+  th{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);border-bottom:1.5px solid var(--line-strong);}
+  tr:last-child td{border-bottom:none;}
+  td.rule{color:var(--muted);width:38%;}
+
+  /* ── Formelsammlung (final cheat sheet) ── */
+  .cheat{page-break-before:always;}
+  .cheat-head{text-align:center;margin-bottom:32px;}
+  .cheat-head .cover-kicker{justify-content:center;}
+  .cheat-head h2{font-family:var(--serif);font-size:28px;font-weight:600;margin:6px 0 6px;}
+  .cheat-head p{max-width:52ch;margin:0 auto;}
+  .cheat-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .cheat-block{margin-bottom:26px;}
+  .cheat-block h3{
+    font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--brand);border-bottom:1px solid var(--line-strong);padding-bottom:8px;margin:0 0 12px;
+  }
+  .cheat-line{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dotted var(--line);font-size:13.5px;}
+  .cheat-line:last-child{border-bottom:none;}
+  .cheat-line-fn{color:var(--muted);white-space:nowrap;}
+  .cheat-line-d{color:var(--ink);text-align:right;}
+
+  /* ── CTA ── */
+  .cta{padding:44px 0;text-align:center;border-bottom:1px solid var(--line);}
+  .cta-kicker{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:12px;}
+  .cta h2{font-family:var(--serif);font-weight:600;font-size:26px;margin:0 0 12px;}
+  .cta p{max-width:52ch;margin:0 auto 22px;}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 30px;border:1.5px solid var(--brand);border-radius:999px;
+    color:var(--brand);font-weight:700;font-size:15px;
+  }
+
+  /* ── Footer ── */
+  footer{padding:26px 0 60px;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  .footer-brand{font-size:13px;color:var(--faint);}
+  .footer-links{display:flex;gap:16px;font-size:13px;color:var(--faint);flex-wrap:wrap;}
+  .footer-links a{color:var(--faint);}
+  .footer-links a:hover{color:var(--brand);}
+
+  /* ════════ PRINT ════════ */
+  @page{
+    size:A4;
+    margin:18mm 16mm;
+  }
+  @media print{
+    .no-print{display:none !important;}
+    body{font-size:11.5pt;line-height:1.55;}
+    .wrap{width:100%;}
+    a{color:var(--ink);text-decoration:none;}
+    section.sec{padding:22px 0;border-bottom:1px solid var(--line);}
+    .cover{padding:0 0 22px;}
+    .cheat{page-break-before:always;}
+    .beispiel, .callout, .table-wrap{page-break-inside:avoid;}
+    .sec-head{page-break-after:avoid;}
+    h2,h3{page-break-after:avoid;}
+  }
+  @media (max-width:640px){
+    .toc-grid{grid-template-columns:1fr;}
+    .cheat-cols{grid-template-columns:1fr;}
+    .cover{padding:44px 0 28px;}
+  }
+</style>
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+  <div class="utility no-print">
+    <div class="utility-inner">
+      <div class="utility-brand">
+        <a href="https://alexsmathguides.de/">
+          <img class="mark" src="../img/logo.png" alt="alexsmathguides Logo">
+          <div>
+            <div class="utility-brand-name">alexsmathguides</div>
+            <div class="utility-brand-sub">Gratis-Skript &middot; Teil von mathemaxxers</div>
+          </div>
+        </a>
+      </div>
+      <div class="utility-actions">
+        <a class="btn-outline" href="https://alexsmathguides.de/">&#8592; Zurück zur Webseite</a>
+        <button class="btn-outline" onclick="handlePrintClick()">Als PDF speichern / drucken</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handlePrintClick(){
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      // In-App-Browser (WhatsApp, Instagram, Facebook, Line, ...) auf iOS unterstützen
+      // window.print() nicht – der Klick würde sonst wirkungslos bleiben.
+      var isInAppBrowser = /FBAN|FBAV|Instagram|WhatsApp|Line\//i.test(ua);
+      if (isIOS && isInAppBrowser) {
+        alert('Zum Speichern als PDF bitte diese Seite in Safari öffnen: Tippe oben rechts auf „…" bzw. das Teilen-Symbol und wähle „In Safari öffnen".');
+        return;
+      }
+      window.print();
+    }
+  </script>
+
+  <div class="wrap">
+
+    <!-- ═══ COVER ═══ -->
+    <section class="cover">
+      <div class="cover-kicker">Gratis-Skript &middot; alexsmathguides</div>
+      <h1>Integrale &amp; Stammfunktionen — kurz und einfach</h1>
+      <p class="cover-sub">Stammfunktionen bilden, lineare Substitution und das bestimmte Integral auf den Punkt gebracht — mit Merksätzen, fünf durchgerechneten Beispielen und einer kompakten Formelsammlung zum Nachschlagen.</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Niveau</div>
+          <div class="cover-meta-value">Oberstufe / Abitur</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Format</div>
+          <div class="cover-meta-value">Druckfreundlich &middot; A4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TOC ═══ -->
+    <section class="toc-block no-print">
+      <div class="toc-title">Inhalt</div>
+      <div class="toc-grid">
+        <div class="toc-row"><span class="toc-num">01</span><a href="#grundidee">Was ist eine Stammfunktion?</a></div>
+        <div class="toc-row"><span class="toc-num">02</span><a href="#grundregeln">Die drei Grundregeln</a></div>
+        <div class="toc-row"><span class="toc-num">03</span><a href="#grundfunktionen">Stammfunktionen der Grundfunktionen</a></div>
+        <div class="toc-row"><span class="toc-num">04</span><a href="#substitution">Lineare Substitution</a></div>
+        <div class="toc-row"><span class="toc-num">05</span><a href="#bestimmtes-integral">Bestimmtes Integral &amp; Hauptsatz</a></div>
+        <div class="toc-row"><span class="toc-num">06</span><a href="#fehler">Häufige Fehler</a></div>
+        <div class="toc-row"><span class="toc-num">07</span><a href="#merksaetze">Merksätze im Überblick</a></div>
+        <div class="toc-row"><span class="toc-num">08</span><a href="#beispiele">Schritt-für-Schritt-Beispiele</a></div>
+        <div class="toc-row"><span class="toc-num">09</span><a href="#formelsammlung">Formelsammlung</a></div>
+      </div>
+    </section>
+
+    <main>
+
+      <!-- ═══ 1. GRUNDIDEE ═══ -->
+      <section class="sec" id="grundidee">
+        <div class="sec-head"><span class="sec-num">01</span><h2>Was ist eine Stammfunktion?</h2></div>
+        <p>Eine <strong>Stammfunktion</strong> \(F(x)\) einer Funktion \(f(x)\) ist eine Funktion, deren Ableitung wieder \(f(x)\) ergibt. Integrieren ist also genau das <strong>Gegenteil</strong> vom Ableiten:</p>
+        <div class="formula center">
+          <div class="formula-label">Definition</div>
+          \[ F'(x) = f(x) \quad \Longleftrightarrow \quad \int f(x)\,dx = F(x) + C \]
+        </div>
+        <p>Das \(C\) steht für eine beliebige Konstante — denn beim Ableiten fällt jede Konstante weg, also kann beim Integrieren irgendeine dagestanden haben. Bei einem <strong>bestimmten Integral</strong> (mit Grenzen) fällt das \(C\) später automatisch wieder raus, deshalb lässt man es dort weg.</p>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Du kannst jede Stammfunktion sofort selbst überprüfen: Leite dein Ergebnis \(F(x)\) einfach wieder ab. Kommt \(f(x)\) raus, hast du richtig integriert.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 2. GRUNDREGELN ═══ -->
+      <section class="sec" id="grundregeln">
+        <div class="sec-head"><span class="sec-num">02</span><h2>Die drei Grundregeln</h2></div>
+
+        <h3>2.1 Potenzregel</h3>
+        <p>Die wichtigste Regel überhaupt — genau umgekehrt zur Potenzregel beim Ableiten. Der Exponent wird um 1 erhöht, und man teilt durch den <strong>neuen</strong> Exponenten.</p>
+        <div class="formula center">\[ \int x^n\,dx = \frac{1}{n+1}\,x^{n+1} + C \qquad (n \neq -1) \]</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Funktion</th><th>Stammfunktion</th></tr></thead>
+            <tbody>
+              <tr><td>\(f(x) = x^2\)</td><td>\(F(x) = \dfrac{1}{3}x^3\)</td></tr>
+              <tr><td>\(f(x) = x^6\)</td><td>\(F(x) = \dfrac{1}{7}x^7\)</td></tr>
+              <tr><td>\(f(x) = 1\) &nbsp;(\(=x^0\))</td><td>\(F(x) = x\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>2.2 Faktorregel</h3>
+        <p>Ein konstanter Vorfaktor bleibt beim Integrieren einfach stehen.</p>
+        <div class="formula center">\[ \int c \cdot f(x)\,dx = c \cdot \int f(x)\,dx \]</div>
+        <p><strong>Beispiel:</strong> \(f(x) = 4x^3 \ \Rightarrow\ F(x) = 4\cdot\dfrac{1}{4}x^4 = x^4\)</p>
+
+        <h3>2.3 Summenregel</h3>
+        <p>Eine Summe aus mehreren Funktionen wird summandenweise integriert.</p>
+        <div class="formula center">\[ \int \big(f(x) + g(x)\big)\,dx = \int f(x)\,dx + \int g(x)\,dx \]</div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Genau dieselben drei Bausteine wie beim Ableiten, nur „rückwärts": Exponent <strong>plus</strong> eins, geteilt statt malgenommen.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 3. GRUNDFUNKTIONEN ═══ -->
+      <section class="sec" id="grundfunktionen">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Stammfunktionen der Grundfunktionen</h2></div>
+        <p>Diese Stammfunktionen solltest du auswendig kennen — sie lassen sich nicht alle aus der Potenzregel herleiten.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Funktion \(f(x)\)</th><th>Stammfunktion \(F(x)\)</th><th>Hinweis</th></tr></thead>
+            <tbody>
+              <tr><td>\(\dfrac{1}{x}\)</td><td>\(\ln|x|\)</td><td class="rule">die Ausnahme von der Potenzregel (\(n=-1\))</td></tr>
+              <tr><td>\(e^x\)</td><td>\(e^x\)</td><td class="rule">einzige Funktion, die ihre eigene Stammfunktion ist</td></tr>
+              <tr><td>\(a^x\)</td><td>\(\dfrac{a^x}{\ln(a)}\)</td><td class="rule">allgemeine Exponentialfunktion</td></tr>
+              <tr><td>\(\sin(x)\)</td><td>\(-\cos(x)\)</td><td class="rule">Vorzeichen beachten!</td></tr>
+              <tr><td>\(\cos(x)\)</td><td>\(\sin(x)\)</td><td class="rule">&nbsp;</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ═══ 4. LINEARE SUBSTITUTION ═══ -->
+      <section class="sec" id="substitution">
+        <div class="sec-head"><span class="sec-num">04</span><h2>Lineare Substitution</h2></div>
+        <p>Steckt im Argument nur ein <strong>linearer</strong> Term \(kx+d\) (kein \(x^2\) oder Ähnliches), gilt ein einfacher Trick — quasi die Kettenregel rückwärts: Man bildet die Stammfunktion ganz normal und teilt zusätzlich durch die innere Ableitung \(k\).</p>
+        <div class="formula center">\[ \int f(kx+d)\,dx = \frac{1}{k}\cdot F(kx+d) + C \]</div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Funktion</th><th>Stammfunktion</th></tr></thead>
+            <tbody>
+              <tr><td>\(e^{2x+1}\)</td><td>\(\dfrac{1}{2}e^{2x+1}\)</td></tr>
+              <tr><td>\(\sin(3x)\)</td><td>\(-\dfrac{1}{3}\cos(3x)\)</td></tr>
+              <tr><td>\((4x-1)^3\)</td><td>\(\dfrac{1}{4}\cdot\dfrac{1}{4}(4x-1)^4 = \dfrac{1}{16}(4x-1)^4\)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Wichtig: Dieser Trick funktioniert <strong>nur</strong>, wenn im Inneren ein linearer Term \(kx+d\) steht. Bei komplizierteren inneren Funktionen (z.&thinsp;B. \(e^{x^2}\)) braucht man andere Verfahren, die im vollständigen Kurs erklärt werden.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 5. BESTIMMTES INTEGRAL ═══ -->
+      <section class="sec" id="bestimmtes-integral">
+        <div class="sec-head"><span class="sec-num">05</span><h2>Bestimmtes Integral &amp; Hauptsatz</h2></div>
+        <p>Ein <strong>bestimmtes Integral</strong> hat eine untere Grenze \(a\) und eine obere Grenze \(b\) und berechnet die Fläche zwischen Graph und x-Achse in diesem Bereich. Nach dem Hauptsatz der Differential- und Integralrechnung setzt man einfach die Grenzen in die Stammfunktion ein und subtrahiert:</p>
+        <div class="formula center">\[ \int_a^b f(x)\,dx = \Big[F(x)\Big]_a^b = F(b) - F(a) \]</div>
+        <p>Wichtig: <strong>obere Grenze minus untere Grenze</strong> — nicht umgekehrt. Liegt der Graph unterhalb der x-Achse, wird der Flächenanteil dort negativ gezählt.</p>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Stammfunktion bilden, dann einmal die obere und einmal die untere Grenze einsetzen, und die beiden Werte voneinander abziehen. Das \(C\) brauchst du hier nicht, es hebt sich beim Subtrahieren ohnehin auf.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 6. HÄUFIGE FEHLER ═══ -->
+      <section class="sec" id="fehler">
+        <div class="sec-head"><span class="sec-num">06</span><h2>Häufige Fehler</h2></div>
+
+        <div class="callout fehler">
+          <div class="callout-label">\(\frac{1}{x}\) mit der Potenzregel integriert</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(\displaystyle\int \dfrac{1}{x}\,dx \neq \dfrac{1}{0}x^0\) — die Potenzregel versagt bei \(n=-1\), da man durch null teilen würde.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\displaystyle\int \dfrac{1}{x}\,dx = \ln|x| + C\) — Betragsstriche nicht vergessen.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Bei linearer Substitution multipliziert statt geteilt</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(\displaystyle\int e^{2x}\,dx \neq 2e^{2x}\) — der Faktor der inneren Ableitung wird fälschlich mit multipliziert.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\displaystyle\int e^{2x}\,dx = \dfrac{1}{2}e^{2x} + C\) — durch die innere Ableitung \(k=2\) geteilt.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Vorzeichen bei Sinus und Kosinus verwechselt</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(\displaystyle\int \sin(x)\,dx \neq \cos(x)\)</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\displaystyle\int \sin(x)\,dx = -\cos(x) + C\) — beim Integrieren dreht sich das Vorzeichen gegenüber dem Ableiten um.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Grenzen beim bestimmten Integral vertauscht</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(\displaystyle\int_a^b f(x)\,dx \neq F(a) - F(b)\) — falsche Reihenfolge.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\displaystyle\int_a^b f(x)\,dx = F(b) - F(a)\) — immer obere minus untere Grenze.</span></div>
+        </div>
+      </section>
+
+      <!-- ═══ 7. MERKSÄTZE ═══ -->
+      <section class="sec" id="merksaetze">
+        <div class="sec-head"><span class="sec-num">07</span><h2>Merksätze im Überblick</h2></div>
+        <ul>
+          <li><strong>Grundidee:</strong> Integrieren ist Ableiten rückwärts — Ergebnis durch Ableiten prüfbar.</li>
+          <li><strong>Potenzregel:</strong> Exponent plus eins, durch den neuen Exponenten teilen.</li>
+          <li><strong>Ausnahme \(\frac1x\):</strong> wird zu \(\ln|x|\), nicht zur Potenzregel.</li>
+          <li><strong>Lineare Substitution:</strong> zusätzlich durch die innere Ableitung (den Faktor vor \(x\)) teilen.</li>
+          <li><strong>Bestimmtes Integral:</strong> obere Grenze einsetzen, minus untere Grenze einsetzen.</li>
+        </ul>
+      </section>
+
+      <!-- ═══ 8. BEISPIELE ═══ -->
+      <section class="sec" id="beispiele">
+        <div class="sec-head"><span class="sec-num">08</span><h2>Schritt-für-Schritt-Beispiele</h2></div>
+        <p>Fünf durchgerechnete Beispiele, die alle Regeln aus diesem Skript abdecken.</p>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 1 &middot; Potenzregel gemischt</div>
+          <div class="beispiel-title">\(f(x) = 4x^3 - 6x + 2\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Jeden Summanden einzeln mit der Potenzregel integrieren:</div><div class="step-formula">\(F(x) = 4\cdot\tfrac14 x^4 - 6\cdot\tfrac12 x^2 + 2x\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Zusammenfassen:</div><div class="step-formula">\(F(x) = x^4 - 3x^2 + 2x\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(F(x) = x^4 - 3x^2 + 2x + C\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 2 &middot; Wurzel und Bruch als Potenz</div>
+          <div class="beispiel-title">\(f(x) = 3\sqrt{x} + \dfrac{2}{x^2}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Umschreiben als Potenzen:</div><div class="step-formula">\(f(x) = 3x^{\frac12} + 2x^{-2}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Potenzregel anwenden (Exponent plus eins, durch neuen Exponenten teilen):</div><div class="step-formula">\(F(x) = 3\cdot\tfrac{1}{3/2}x^{\frac32} + 2\cdot\tfrac{1}{-1}x^{-1} = 2x^{\frac32} - 2x^{-1}\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Zurück in Wurzel-/Bruchschreibweise:</div><div class="step-formula">\(F(x) = 2\sqrt{x^3} - \dfrac{2}{x}\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(F(x) = 2\sqrt{x^3} - \dfrac{2}{x} + C\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 3 &middot; e-Funktion mit linearer Substitution</div>
+          <div class="beispiel-title">\(f(x) = e^{-0{,}5x+2}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Stammfunktion der e-Funktion bilden (bleibt sich selbst gleich):</div><div class="step-formula">zunächst \(e^{-0{,}5x+2}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Durch die innere Ableitung \(k=-0{,}5\) teilen:</div><div class="step-formula">\(F(x) = \dfrac{1}{-0{,}5}\cdot e^{-0{,}5x+2} = -2\,e^{-0{,}5x+2}\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(F(x) = -2\,e^{-0{,}5x+2} + C\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 4 &middot; Sinus mit linearer Substitution</div>
+          <div class="beispiel-title">\(f(x) = \sin(2x)\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Stammfunktion von \(\sin\) ist \(-\cos\):</div><div class="step-formula">zunächst \(-\cos(2x)\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Durch die innere Ableitung \(k=2\) teilen:</div><div class="step-formula">\(F(x) = -\dfrac12\cos(2x)\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(F(x) = -\dfrac12\cos(2x) + C\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 5 &middot; Bestimmtes Integral</div>
+          <div class="beispiel-title">Berechne \(\displaystyle\int_0^2 (3x^2+2x)\,dx\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Stammfunktion bilden:</div><div class="step-formula">\(F(x) = x^3 + x^2\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Obere Grenze einsetzen:</div><div class="step-formula">\(F(2) = 2^3+2^2 = 12\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Untere Grenze einsetzen und subtrahieren:</div><div class="step-formula">\(F(0) = 0 \quad\Rightarrow\quad F(2)-F(0) = 12 - 0 = 12\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(\displaystyle\int_0^2 (3x^2+2x)\,dx = 12\)</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ═══ 9. FORMELSAMMLUNG ═══ -->
+    <section class="sec cheat" id="formelsammlung">
+      <div class="cheat-head">
+        <div class="cover-kicker">Zum Nachschlagen</div>
+        <h2>Formelsammlung Integrale &amp; Stammfunktionen</h2>
+        <p>Alle Regeln und Grundstammfunktionen dieses Skripts auf einer Seite — ideal zum Ausdrucken und Griffbereithalten.</p>
+      </div>
+
+      <div class="cheat-cols">
+        <div class="cheat-block">
+          <h3>Grundregeln</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int x^n dx\)</span><span class="cheat-line-d">\(\dfrac{1}{n+1}x^{n+1}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int c\cdot f\,dx\)</span><span class="cheat-line-d">\(c\cdot\!\int f\,dx\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int (f+g)\,dx\)</span><span class="cheat-line-d">\(\int f\,dx + \int g\,dx\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int f(kx{+}d)\,dx\)</span><span class="cheat-line-d">\(\dfrac1k F(kx{+}d)\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int_a^b f(x)\,dx\)</span><span class="cheat-line-d">\(F(b)-F(a)\)</span></div>
+        </div>
+
+        <div class="cheat-block">
+          <h3>Grundfunktionen</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int x^n dx\)</span><span class="cheat-line-d">\(\dfrac{x^{n+1}}{n+1}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int \frac1x dx\)</span><span class="cheat-line-d">\(\ln|x|\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int e^x dx\)</span><span class="cheat-line-d">\(e^x\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int a^x dx\)</span><span class="cheat-line-d">\(\dfrac{a^x}{\ln a}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int \sin x\,dx\)</span><span class="cheat-line-d">\(-\cos x\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\int \cos x\,dx\)</span><span class="cheat-line-d">\(\sin x\)</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta no-print">
+      <div class="cta-kicker">Weiter geht's</div>
+      <h2>Das war erst der Anfang</h2>
+      <p>Dieses Skript ist ein kleiner Ausschnitt aus <strong>mathemaxxers</strong> — dem vollständigen Online-Kurs von alexsmathguides für Oberstufe und Abitur, mit Videos, Übungsaufgaben und Quizzes zu jedem Thema.</p>
+      <a class="cta-btn" href="https://alexsmathguides.de/abitur-kurs.html">Zum Abitur-Kurs &#8594;</a>
+    </section>
+
+    <footer>
+      <div class="footer-row">
+        <div class="footer-brand">© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</div>
+        <div class="footer-links">
+          <a href="https://alexsmathguides.de/">Startseite</a>
+          <a href="https://alexsmathguides.de/abitur-kurs.html">Abitur-Kurs</a>
+          <a href="https://alexsmathguides.de/impressum.html">Impressum</a>
+          <a href="https://alexsmathguides.de/datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
