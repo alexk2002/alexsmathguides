@@ -251,6 +251,40 @@
       color: var(--muted);
     }
 
+    /* ── Testimonials ── */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+    }
+
+    .testimonial-stars {
+      color: #f5a623;
+      font-size: 15px;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .testimonial-text {
+      margin: 0 0 16px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--text);
+    }
+
+    .testimonial-author {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--muted);
+    }
+
     /* ── Screenshot gallery ── */
     .shot-gallery {
       display: grid;
@@ -676,6 +710,26 @@
           <div class="welt-chips">
             <span>Zufallsexperiment &amp; Ereignis</span><span>Laplace</span><span>Kombinatorik</span><span>Baumdiagramm</span><span>Bedingte Wahrscheinlichkeit</span><span>Unabhängigkeit</span><span>Vierfeldertafel</span><span>Totale Wahrscheinlichkeit</span><span>Satz von Bayes</span><span>Bernoulli-Kette</span><span>Binomialverteilung</span><span>Erwartungswert &amp; Varianz</span><span>Standardabweichung</span><span>Normalverteilung</span><span>Hypothesentest</span><span>Fehler 1. &amp; 2. Art</span><span>Abschlussklausur</span>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Testimonials ── -->
+  <section id="stimmen">
+    <div class="container">
+      <span class="eyebrow">Das sagen Käufer</span>
+      <h2>Kein Marketing-Blabla, echte Rückmeldungen.</h2>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">„Super Kurs, bei dem man endlich mal einen guten Überblick über alle Themen bekommt. Das Lernen macht Spaß und man spürt den Fortschritt. 10/10"</p>
+          <div class="testimonial-author">Käufer, Juli 2026</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">„Hat funktioniert! Den höheren Preis hast du dir auf jeden Fall verdient! Andere Mathekurse sind längst nicht so flexibel, decken nicht so viel ab und kosten oft deutlich mehr. Unter 100&nbsp;€ wäre es der ganzen Arbeit wirklich nicht gerecht geworden. Bin sehr dankbar 🙏"</p>
+          <div class="testimonial-author">Käufer, Juli 2026</div>
         </div>
       </div>
     </div>
