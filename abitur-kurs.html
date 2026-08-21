@@ -504,6 +504,70 @@
       color: var(--muted);
     }
 
+    /* ── Preis: kostenlos und Vollversion nebeneinander ── */
+    .preis-kopf {
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 38px;
+    }
+
+    .preis-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 26px;
+      align-items: stretch;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .preis-grid .form-card {
+      max-width: none;
+      margin: 0;
+      padding: 40px 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Die Vollversion ist das Angebot, um das es hier geht — die darf sich abheben. */
+    .form-card-voll {
+      border: 2px solid var(--primary);
+      position: relative;
+    }
+
+    .karten-badge {
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--primary);
+      color: #fff;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 6px 15px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* Schiebt Knopf und Fusszeile beider Karten auf dieselbe Hoehe. */
+    .preis-grid .price-list { flex: 1 0 auto; }
+
+    .btn-kauf {
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-size: 17px;
+      padding: 16px 28px;
+    }
+
+    .preis-fuss {
+      margin: 14px 0 0;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
     /* ── FAQ ── */
     .faq-item {
       border-bottom: 1px solid var(--line);
@@ -641,6 +705,7 @@
       <div class="trust-row">
         <span>✓ Welt 1 inkl. Quizzes &amp; Mini-Games gratis</span>
         <span>✓ Kein Risiko, keine Zahlungsdaten nötig</span>
+        <span>✓ Vollversion <a href="#preis" style="text-decoration:underline;">139&nbsp;&euro; einmalig</a>, kein Abo</span>
         <span>✓ Schon angemeldet? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a></span>
       </div>
       <div class="hero-shot">
@@ -799,31 +864,56 @@
     </div>
   </section>
 
-  <!-- ── Kostenloser Zugang ── -->
+  <!-- ── Preis & Zugang ── -->
   <section id="preis" class="form-section">
     <div class="container">
-      <div class="form-card">
-        <h2>Kostenlos starten.</h2>
-        <p class="sub">Welt 1 komplett gratis, inklusive Quizzes und Mini-Games. Keine Zahlungsdaten nötig, keine automatische Abbuchung danach.</p>
-        <ul class="price-list">
-          <li>Welt 1 komplett kostenlos spielbar</li>
-          <li>Quizzes mit Sofort-Feedback</li>
-          <li>Mini-Games zum Üben</li>
-          <li>Interaktive Lernkarte mit Fortschritt</li>
-          <li>Danach optional: 9 weitere Welten freischalten</li>
-        </ul>
-        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+      <div class="preis-kopf">
+        <span class="eyebrow">Zugang</span>
+        <h2>Erst testen, dann entscheiden.</h2>
+        <p class="section-intro">Welt 1 kannst du ohne Zahlungsdaten ausprobieren. Wenn dir der Kurs liegt, schaltest du den Rest einmalig frei.</p>
+      </div>
+
+      <div class="preis-grid">
+
+        <div class="form-card">
+          <h2>Kostenlos testen</h2>
+          <div class="price">0&nbsp;&euro;<span> &middot; Welt 1</span></div>
+          <p class="sub">Nur deine E-Mail-Adresse. Keine Zahlungsdaten, keine automatische Abbuchung.</p>
+          <ul class="price-list">
+            <li>Welt 1: 7 Lektionen zu Grundlagen &amp; Funktionen</li>
+            <li>Quizzes mit Sofort-Feedback</li>
+            <li>Mini-Games zum &Uuml;ben</li>
+            <li>Interaktive Lernkarte mit Fortschritt</li>
+          </ul>
+          <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
             <input type="email" name="email" placeholder="deine@email.de" required
-              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
-            <button type="submit" class="btn-submit">Kostenlos starten</button>
-          </div>
-          <div class="trial-consent">
-            <input type="checkbox" id="trialConsentPreis" name="marketingConsent" required />
-            <label for="trialConsentPreis">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
-          </div>
-        </form>
-        <p class="form-hint">Schon angemeldet? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
+              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:100%;max-width:280px;" />
+            <button type="submit" class="btn-submit" style="width:100%;">Kostenlos starten</button>
+            <div class="trial-consent">
+              <input type="checkbox" id="trialConsentPreis" name="marketingConsent" required />
+              <label for="trialConsentPreis">Ich bin einverstanden, dass meine E-Mail-Adresse f&uuml;r den kostenlosen Zugang gespeichert und auch f&uuml;r gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos m&ouml;glich. Es gilt die <a href="datenschutz.html">Datenschutzerkl&auml;rung</a>.</label>
+            </div>
+          </form>
+          <p class="form-hint">Schon angemeldet? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
+        </div>
+
+        <div class="form-card form-card-voll">
+          <span class="karten-badge">Voller Zugang</span>
+          <h2>Alle 10 Welten</h2>
+          <div class="price">139&nbsp;&euro;<span> einmalig</span></div>
+          <p class="sub">Einmal zahlen, dauerhaft nutzen. Kein Abo, keine Folgekosten, auch nach dem Abitur noch abrufbar.</p>
+          <ul class="price-list">
+            <li>Alle 69 Lektionen in 10 Welten</li>
+            <li>Alle Erkl&auml;rvideos, jedes unter 60 Sekunden</li>
+            <li>69 Quizzes mit Sofort-Feedback</li>
+            <li>Mini-Game zu jedem Thema</li>
+            <li>Klausursimulator mit Probeklausuren</li>
+            <li>Dein Fortschritt aus Welt 1 bleibt erhalten</li>
+          </ul>
+          <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf">Jetzt kaufen &#8594;</a>
+          <p class="preis-fuss">Sichere Zahlung &uuml;ber Stripe &middot; Rechnung kommt automatisch per E-Mail &middot; Zugang sofort nach dem Kauf</p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -837,6 +927,10 @@
         <details class="faq-item">
           <summary>Wie funktioniert der kostenlose Zugang?</summary>
           <p>Du gibst nur deine E-Mail-Adresse an und bekommst sofort Zugriff auf Welt 1, komplett kostenlos, inklusive Quizzes und Mini-Games. Die Erklärvideos sind Teil der Vollversion. Keine Zahlungsdaten, keine automatische Abbuchung. Erst wenn du mehr willst, kannst du direkt aus dem Kurs heraus die restlichen 9 Welten freischalten.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Was kostet der Kurs?</summary>
+          <p>Der volle Zugang zu allen 10 Welten kostet einmalig 139&nbsp;&euro;. Kein Abo, keine Folgekosten, der Kurs bleibt dir dauerhaft erhalten. Welt 1 kannst du vorher kostenlos ausprobieren, um zu sehen, ob dir die Art zu lernen liegt.</p>
         </details>
         <details class="faq-item">
           <summary>Bleibt mein Fortschritt erhalten, wenn ich später den ganzen Kurs freischalte?</summary>
