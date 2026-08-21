@@ -857,40 +857,23 @@
     </div>
   </section>
 
-  <!-- ── FAQ ── -->
-  <section id="faq">
-    <div class="container-narrow">
-      <span class="eyebrow">Fragen</span>
-      <h2>Häufig gefragt.</h2>
-      <div>
-        <details class="faq-item">
-          <summary>Wie funktioniert der kostenlose Zugang?</summary>
-          <p>Du gibst nur deine E-Mail-Adresse an und bekommst sofort Zugriff auf Welt 1, komplett kostenlos, inklusive Quizzes und Mini-Games. Die Erklärvideos sind Teil der Vollversion. Keine Zahlungsdaten, keine automatische Abbuchung. Erst wenn du mehr willst, kannst du direkt aus dem Kurs heraus die restlichen 9 Welten freischalten.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Was kostet der Kurs?</summary>
-          <p>Der volle Zugang zu allen 10 Welten kostet einmalig 139&nbsp;&euro;. Kein Abo, keine Folgekosten, der Kurs bleibt dir dauerhaft erhalten. Welt 1 kannst du vorher kostenlos ausprobieren, um zu sehen, ob dir die Art zu lernen liegt.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Bleibt mein Fortschritt erhalten, wenn ich später den ganzen Kurs freischalte?</summary>
-          <p>Ja. Du schaltest mit derselben E-Mail-Adresse frei, mit der du gestartet hast, dein kompletter Fortschritt aus Welt 1 bleibt erhalten.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Wie lange habe ich danach Zugriff auf den Kurs?</summary>
-          <p>Für immer. Einmal freigeschaltet, ist der Kurs dauerhaft verfügbar, auch über dein Abitur hinaus.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Auf welchen Geräten funktioniert der Kurs?</summary>
-          <p>Auf allen, die einen Browser haben, Handy, Tablet, Laptop. Du loggst dich einfach mit deiner E-Mail ein, dein Fortschritt wird geräteübergreifend gespeichert.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Brauche ich Vorwissen?</summary>
-          <p>Nein. Jede Lektion baut die Grundlagen mit auf. Am meisten bringt dir der Kurs, wenn du bereits Q-Phase-Stoff in Mathe hast oder dich gezielt aufs Abitur vorbereitest.</p>
-        </details>
-        <details class="faq-item">
-          <summary>Gibt es Rabattcodes?</summary>
-          <p>Falls du einen Gutscheincode hast, kannst du ihn direkt im Bezahlvorgang bei Stripe eingeben, wenn du die restlichen Welten freischaltest.</p>
-        </details>
+  <!-- ── Final CTA ── -->
+  <section>
+    <div class="container">
+      <div class="final-cta">
+        <h2>Bereit fürs Abi?</h2>
+        <p>Starte jetzt kostenlos mit Welt 1 und überzeug dich selbst, bevor du dich entscheidest.</p>
+        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
+          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
+            <input type="email" name="email" placeholder="deine@email.de" required
+              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
+            <button type="submit" class="btn-submit">Kostenlos starten</button>
+          </div>
+          <div class="trial-consent trial-consent--dark" style="justify-content:center;">
+            <input type="checkbox" id="trialConsentFinal" name="marketingConsent" required />
+            <label for="trialConsentFinal">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+          </div>
+        </form>
       </div>
     </div>
   </section>
@@ -956,23 +939,40 @@
     </div>
   </section>
 
-  <!-- ── Final CTA ── -->
-  <section>
-    <div class="container">
-      <div class="final-cta">
-        <h2>Bereit fürs Abi?</h2>
-        <p>Starte jetzt kostenlos mit Welt 1 und überzeug dich selbst, bevor du dich entscheidest.</p>
-        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-            <input type="email" name="email" placeholder="deine@email.de" required
-              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
-            <button type="submit" class="btn-submit">Kostenlos starten</button>
-          </div>
-          <div class="trial-consent trial-consent--dark" style="justify-content:center;">
-            <input type="checkbox" id="trialConsentFinal" name="marketingConsent" required />
-            <label for="trialConsentFinal">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
-          </div>
-        </form>
+  <!-- ── FAQ ── -->
+  <section id="faq">
+    <div class="container-narrow">
+      <span class="eyebrow">Fragen</span>
+      <h2>Häufig gefragt.</h2>
+      <div>
+        <details class="faq-item">
+          <summary>Wie funktioniert der kostenlose Zugang?</summary>
+          <p>Du gibst nur deine E-Mail-Adresse an und bekommst sofort Zugriff auf Welt 1, komplett kostenlos, inklusive Quizzes und Mini-Games. Die Erklärvideos sind Teil der Vollversion. Keine Zahlungsdaten, keine automatische Abbuchung. Erst wenn du mehr willst, kannst du direkt aus dem Kurs heraus die restlichen 9 Welten freischalten.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Was kostet der Kurs?</summary>
+          <p>Der volle Zugang zu allen 10 Welten kostet einmalig 139&nbsp;&euro;. Kein Abo, keine Folgekosten, der Kurs bleibt dir dauerhaft erhalten. Welt 1 kannst du vorher kostenlos ausprobieren, um zu sehen, ob dir die Art zu lernen liegt.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Bleibt mein Fortschritt erhalten, wenn ich später den ganzen Kurs freischalte?</summary>
+          <p>Ja. Du schaltest mit derselben E-Mail-Adresse frei, mit der du gestartet hast, dein kompletter Fortschritt aus Welt 1 bleibt erhalten.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Wie lange habe ich danach Zugriff auf den Kurs?</summary>
+          <p>Für immer. Einmal freigeschaltet, ist der Kurs dauerhaft verfügbar, auch über dein Abitur hinaus.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Auf welchen Geräten funktioniert der Kurs?</summary>
+          <p>Auf allen, die einen Browser haben, Handy, Tablet, Laptop. Du loggst dich einfach mit deiner E-Mail ein, dein Fortschritt wird geräteübergreifend gespeichert.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Brauche ich Vorwissen?</summary>
+          <p>Nein. Jede Lektion baut die Grundlagen mit auf. Am meisten bringt dir der Kurs, wenn du bereits Q-Phase-Stoff in Mathe hast oder dich gezielt aufs Abitur vorbereitest.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Gibt es Rabattcodes?</summary>
+          <p>Falls du einen Gutscheincode hast, kannst du ihn direkt im Bezahlvorgang bei Stripe eingeben, wenn du die restlichen Welten freischaltest.</p>
+        </details>
       </div>
     </div>
   </section>
