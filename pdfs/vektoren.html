@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Vektoren – Die komplette Übersicht | Gratis-Skript von alexsmathguides</title>
+<meta name="description" content="Vektoren für Oberstufe und Abitur auf einen Blick: Rechnen mit Vektoren, Ortsvektor und Verbindungsvektor, Betrag und Einheitsvektor, Skalarprodukt, Kreuzprodukt, Geraden in Parameterform und Lagebeziehungen — mit Merksätzen, häufigen Fehlern, acht Schritt-für-Schritt-Beispielen und einer kompakten Formelsammlung. Druckfreundliches Gratis-Skript von alexsmathguides." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body,{delimiters:[{left:'\\(',right:'\\)',display:false},{left:'\\[',right:'\\]',display:true}]})">
+</script>
+
+<style>
+  :root{
+    --ink:#0f172a;
+    --muted:#4b5768;
+    --faint:#8592a6;
+    --line:#d7dee8;
+    --line-strong:#b9c4d4;
+    --brand:#0b2a4a;
+    --brand-2:#133a63;
+    --paper:#ffffff;
+    --serif:'Source Serif 4', Georgia, serif;
+    --sans:'Inter', -apple-system, sans-serif;
+    --max:840px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  body{
+    margin:0;
+    font-family:var(--sans);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.7;
+    font-size:16px;
+  }
+  a{color:var(--brand);text-decoration:none;}
+  .wrap{width:min(var(--max), calc(100% - 48px));margin:0 auto;}
+
+  /* ── Utility bar (screen only) ── */
+  .utility{
+    border-bottom:1px solid var(--line);
+  }
+  .utility-inner{
+    width:min(var(--max), calc(100% - 48px));margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 0;gap:16px;flex-wrap:wrap;
+  }
+  .utility-brand{display:flex;align-items:center;gap:10px;}
+  .utility-brand a{display:flex;align-items:center;gap:10px;}
+  .mark{
+    width:38px;height:38px;object-fit:contain;flex-shrink:0;
+  }
+  .utility-brand-name{font-weight:800;font-size:15px;color:var(--brand);letter-spacing:-.01em;}
+  .utility-brand-sub{font-size:12px;color:var(--faint);}
+  .utility-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;}
+  .btn-outline{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:10px 18px;border:1px solid var(--line-strong);border-radius:999px;
+    font-size:13px;font-weight:600;color:var(--brand);background:none;cursor:pointer;
+    font-family:var(--sans);
+  }
+  .btn-outline:hover{border-color:var(--brand);}
+
+  /* ── Cover ── */
+  .cover{padding:64px 0 40px;border-bottom:1px solid var(--line);}
+  .cover-kicker{
+    font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--brand);margin-bottom:18px;
+  }
+  .cover h1{
+    font-family:var(--serif);
+    font-size:clamp(32px,5vw,46px);
+    line-height:1.12;
+    letter-spacing:-.01em;
+    margin:0 0 18px;
+    font-weight:600;
+  }
+  .cover-sub{font-size:17px;color:var(--muted);max-width:56ch;margin:0 0 26px;}
+  .cover-meta{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--line);margin-top:8px;padding-top:20px;}
+  .cover-meta-item{
+    flex:0 0 auto;padding-right:56px;
+  }
+  .cover-meta-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--faint);margin-bottom:4px;}
+  .cover-meta-value{font-size:14px;font-weight:600;color:var(--ink);}
+
+  /* ── TOC ── */
+  .toc-block{padding:36px 0;border-bottom:1px solid var(--line);}
+  .toc-title{font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:18px;}
+  .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 40px;}
+  .toc-row{
+    display:flex;align-items:baseline;gap:10px;padding:7px 0;
+    border-bottom:1px dotted var(--line-strong);font-size:14.5px;
+  }
+  .toc-num{font-family:var(--serif);color:var(--brand);font-weight:600;width:22px;flex-shrink:0;}
+  .toc-row a{color:var(--ink);}
+  .toc-row a:hover{color:var(--brand);}
+
+  /* ── Section structure ── */
+  main{padding:8px 0 40px;}
+  section.sec{padding:44px 0;border-bottom:1px solid var(--line);}
+  section.sec:last-of-type{border-bottom:none;}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:22px;}
+  .sec-num{
+    font-family:var(--serif);font-size:15px;font-weight:600;color:var(--brand);
+    border:1px solid var(--line-strong);border-radius:50%;
+    width:34px;height:34px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .sec-head h2{
+    font-family:var(--serif);font-weight:600;font-size:24px;margin:0;letter-spacing:-.01em;
+  }
+  h3{font-size:16.5px;font-weight:700;margin:26px 0 10px;color:var(--ink);}
+  p{margin:0 0 15px;color:var(--muted);}
+  ul,ol{margin:0 0 15px;padding-left:22px;color:var(--muted);}
+  li{margin-bottom:7px;}
+  strong{color:var(--ink);}
+
+  /* ── Formula ── */
+  .formula{
+    border:1px solid var(--line);
+    border-left:2.5px solid var(--brand);
+    padding:16px 20px;
+    margin:16px 0 20px;
+    overflow:auto;
+    background:none;
+  }
+  .formula.center{text-align:center;}
+  .formula-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin-bottom:8px;}
+
+  /* ── Callouts (border-only, no fill) ── */
+  .callout{border:1px solid var(--line);padding:18px 22px;margin:18px 0;page-break-inside:avoid;}
+  .callout-label{
+    font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+    margin-bottom:8px;display:flex;align-items:center;gap:8px;
+  }
+  .callout p:last-child, .callout ul:last-child, .callout ol:last-child{margin-bottom:0;}
+
+  .merksatz{border-left:3px solid var(--brand);}
+  .merksatz .callout-label{color:var(--brand);}
+
+  .fehler{border-left:3px solid var(--ink);}
+  .fehler .callout-label{color:var(--ink);}
+  .fehler-row{display:flex;gap:10px;margin-bottom:10px;align-items:flex-start;}
+  .fehler-row:last-child{margin-bottom:0;}
+  .fehler-tag{
+    font-family:var(--serif);font-weight:700;font-size:13px;
+    flex-shrink:0;width:20px;text-align:center;
+  }
+  .fehler-tag.x{color:var(--ink);}
+  .fehler-tag.ok{color:var(--brand);}
+
+  .beispiel{border:1px solid var(--line-strong);padding:22px 24px;margin:20px 0;page-break-inside:avoid;}
+  .beispiel-label{
+    font-size:11.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--brand);
+    margin-bottom:4px;
+  }
+  .beispiel-title{font-family:var(--serif);font-size:17px;font-weight:600;margin-bottom:14px;color:var(--ink);}
+  .step{display:flex;gap:14px;margin-bottom:12px;align-items:flex-start;}
+  .step:last-child{margin-bottom:0;}
+  .step-num{
+    font-size:12px;font-weight:700;color:var(--brand);
+    border:1px solid var(--line-strong);border-radius:50%;
+    width:22px;height:22px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;margin-top:2px;
+  }
+  .step-body{flex:1;}
+  .step-text{font-size:14.5px;color:var(--muted);margin-bottom:4px;}
+  .step-formula{overflow:auto;}
+  .beispiel-result{
+    margin-top:16px;padding-top:14px;border-top:1px dashed var(--line-strong);
+    font-size:14.5px;
+  }
+  .beispiel-result strong{color:var(--brand);}
+
+  /* ── Table ── */
+  .table-wrap{overflow:auto;margin:18px 0;}
+  table{width:100%;border-collapse:collapse;}
+  th,td{padding:11px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:middle;font-size:14.5px;}
+  th{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--faint);border-bottom:1.5px solid var(--line-strong);}
+  tr:last-child td{border-bottom:none;}
+  td.rule{color:var(--muted);width:38%;}
+
+  /* ── Formelsammlung (final cheat sheet) ── */
+  .cheat{page-break-before:always;}
+  .cheat-head{text-align:center;margin-bottom:32px;}
+  .cheat-head .cover-kicker{justify-content:center;}
+  .cheat-head h2{font-family:var(--serif);font-size:28px;font-weight:600;margin:6px 0 6px;}
+  .cheat-head p{max-width:52ch;margin:0 auto;}
+  .cheat-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;}
+  .cheat-block{margin-bottom:26px;}
+  .cheat-block h3{
+    font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--brand);border-bottom:1px solid var(--line-strong);padding-bottom:8px;margin:0 0 12px;
+  }
+  .cheat-line{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px dotted var(--line);font-size:13.5px;}
+  .cheat-line:last-child{border-bottom:none;}
+  .cheat-line-fn{color:var(--muted);white-space:nowrap;}
+  .cheat-line-d{color:var(--ink);text-align:right;}
+
+  /* ── CTA ── */
+  .cta{padding:44px 0;text-align:center;border-bottom:1px solid var(--line);}
+  .cta-kicker{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:12px;}
+  .cta h2{font-family:var(--serif);font-weight:600;font-size:26px;margin:0 0 12px;}
+  .cta p{max-width:52ch;margin:0 auto 22px;}
+  .cta-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 30px;border:1.5px solid var(--brand);border-radius:999px;
+    color:var(--brand);font-weight:700;font-size:15px;
+  }
+
+  /* ── Footer ── */
+  footer{padding:26px 0 60px;}
+  .footer-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;}
+  .footer-brand{font-size:13px;color:var(--faint);}
+  .footer-links{display:flex;gap:16px;font-size:13px;color:var(--faint);flex-wrap:wrap;}
+  .footer-links a{color:var(--faint);}
+  .footer-links a:hover{color:var(--brand);}
+
+  /* ════════ PRINT ════════ */
+  @page{
+    size:A4;
+    margin:18mm 16mm;
+  }
+  @media print{
+    .no-print{display:none !important;}
+    body{font-size:11.5pt;line-height:1.55;}
+    .wrap{width:100%;}
+    a{color:var(--ink);text-decoration:none;}
+    section.sec{padding:22px 0;border-bottom:1px solid var(--line);}
+    .cover{padding:0 0 22px;}
+    .cheat{page-break-before:always;}
+    .beispiel, .callout, .table-wrap{page-break-inside:avoid;}
+    .sec-head{page-break-after:avoid;}
+    h2,h3{page-break-after:avoid;}
+  }
+  @media (max-width:640px){
+    .toc-grid{grid-template-columns:1fr;}
+    .cheat-cols{grid-template-columns:1fr;}
+    .cover{padding:44px 0 28px;}
+  }
+</style>
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+  <div class="utility no-print">
+    <div class="utility-inner">
+      <div class="utility-brand">
+        <a href="https://alexsmathguides.de/">
+          <img class="mark" src="../img/logo.png" alt="alexsmathguides Logo">
+          <div>
+            <div class="utility-brand-name">alexsmathguides</div>
+            <div class="utility-brand-sub">Gratis-Skript &middot; Teil von mathemaxxers</div>
+          </div>
+        </a>
+      </div>
+      <div class="utility-actions">
+        <a class="btn-outline" href="https://alexsmathguides.de/">&#8592; Zurück zur Webseite</a>
+        <button class="btn-outline" onclick="handlePrintClick()">Als PDF speichern / drucken</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handlePrintClick(){
+      var ua = navigator.userAgent || '';
+      var isIOS = /iPad|iPhone|iPod/.test(ua) && !window.MSStream;
+      // In-App-Browser (WhatsApp, Instagram, Facebook, Line, ...) auf iOS unterstützen
+      // window.print() nicht – der Klick würde sonst wirkungslos bleiben.
+      var isInAppBrowser = /FBAN|FBAV|Instagram|WhatsApp|Line\//i.test(ua);
+      if (isIOS && isInAppBrowser) {
+        alert('Zum Speichern als PDF bitte diese Seite in Safari öffnen: Tippe oben rechts auf „…" bzw. das Teilen-Symbol und wähle „In Safari öffnen".');
+        return;
+      }
+      window.print();
+    }
+  </script>
+
+  <div class="wrap">
+
+    <!-- ═══ COVER ═══ -->
+    <section class="cover">
+      <div class="cover-kicker">Gratis-Skript &middot; alexsmathguides</div>
+      <h1>Vektoren — die komplette Übersicht</h1>
+      <p class="cover-sub">Alles, was du für Analytische Geometrie im Abitur brauchst: Rechnen mit Vektoren, Betrag und Winkel, Skalar- und Kreuzprodukt, Geraden in Parameterform und Lagebeziehungen — mit Merksätzen, acht durchgerechneten Beispielen und einer kompakten Formelsammlung.</p>
+      <div class="cover-meta">
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Niveau</div>
+          <div class="cover-meta-value">Oberstufe / Abitur</div>
+        </div>
+        <div class="cover-meta-item">
+          <div class="cover-meta-label">Format</div>
+          <div class="cover-meta-value">Druckfreundlich &middot; A4</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ TOC ═══ -->
+    <section class="toc-block no-print">
+      <div class="toc-title">Inhalt</div>
+      <div class="toc-grid">
+        <div class="toc-row"><span class="toc-num">01</span><a href="#grundidee">Was ist ein Vektor?</a></div>
+        <div class="toc-row"><span class="toc-num">02</span><a href="#rechnen">Rechnen mit Vektoren</a></div>
+        <div class="toc-row"><span class="toc-num">03</span><a href="#ortsvektor">Ortsvektor und Verbindungsvektor</a></div>
+        <div class="toc-row"><span class="toc-num">04</span><a href="#betrag">Betrag, Abstand und Einheitsvektor</a></div>
+        <div class="toc-row"><span class="toc-num">05</span><a href="#skalarprodukt">Skalarprodukt</a></div>
+        <div class="toc-row"><span class="toc-num">06</span><a href="#kreuzprodukt">Kreuzprodukt</a></div>
+        <div class="toc-row"><span class="toc-num">07</span><a href="#geraden">Geraden in Parameterform</a></div>
+        <div class="toc-row"><span class="toc-num">08</span><a href="#lagebeziehungen">Lagebeziehungen von Geraden</a></div>
+        <div class="toc-row"><span class="toc-num">09</span><a href="#fehler">Häufige Fehler</a></div>
+        <div class="toc-row"><span class="toc-num">10</span><a href="#merksaetze">Merksätze im Überblick</a></div>
+        <div class="toc-row"><span class="toc-num">11</span><a href="#beispiele">Schritt-für-Schritt-Beispiele</a></div>
+        <div class="toc-row"><span class="toc-num">12</span><a href="#formelsammlung">Formelsammlung</a></div>
+      </div>
+    </section>
+
+    <main>
+
+      <!-- ═══ 1. GRUNDIDEE ═══ -->
+      <section class="sec" id="grundidee">
+        <div class="sec-head"><span class="sec-num">01</span><h2>Was ist ein Vektor?</h2></div>
+        <p>Ein Vektor beschreibt eine <strong>Verschiebung</strong> im Raum: eine Richtung und eine Länge, aber keinen festen Ort. Man notiert ihn als Spalte, im Abitur fast immer dreidimensional:</p>
+        <div class="formula center">
+          <div class="formula-label">Schreibweise</div>
+          \[ \vec{a} = \begin{pmatrix} a_1 \\ a_2 \\ a_3 \end{pmatrix} \]
+        </div>
+        <p>Der entscheidende Unterschied zu einem Punkt: Ein <strong>Punkt</strong> \(P(2|-1|4)\) liegt irgendwo, ein <strong>Vektor</strong> sagt nur „drei nach rechts, vier nach oben". Derselbe Vektor darf beliebig parallel verschoben werden — er bleibt derselbe.</p>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Punkte schreibt man mit runden Klammern und Strichen \(P(2|-1|4)\), Vektoren als Spalte. Wer beides vermischt, landet schnell bei Unsinn wie „Punkt plus Punkt" — das gibt es nicht.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 2. RECHNEN ═══ -->
+      <section class="sec" id="rechnen">
+        <div class="sec-head"><span class="sec-num">02</span><h2>Rechnen mit Vektoren</h2></div>
+
+        <h3>2.1 Addition und Subtraktion</h3>
+        <p>Beides läuft komponentenweise ab — Zeile für Zeile, ohne dass sich die Zeilen gegenseitig beeinflussen.</p>
+        <div class="formula center">
+          \[ \vec{a} \pm \vec{b} = \begin{pmatrix} a_1 \pm b_1 \\ a_2 \pm b_2 \\ a_3 \pm b_3 \end{pmatrix} \]
+        </div>
+
+        <h3>2.2 Vielfaches eines Vektors</h3>
+        <p>Ein Vektor mal eine Zahl (ein <em>Skalar</em>) streckt oder staucht ihn. Ein negativer Faktor dreht zusätzlich die Richtung um.</p>
+        <div class="formula center">
+          \[ \lambda \cdot \vec{a} = \begin{pmatrix} \lambda a_1 \\ \lambda a_2 \\ \lambda a_3 \end{pmatrix} \]
+        </div>
+
+        <h3>2.3 Parallelität</h3>
+        <p>Zwei Vektoren sind genau dann parallel, wenn der eine ein Vielfaches des anderen ist. Das prüft man, indem man alle drei Zeilen durcheinander teilt: Kommt überall derselbe Faktor heraus, sind sie parallel.</p>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Vorsicht bei doppelten Minuszeichen: \(2 - (-15) = 17\). Das ist die häufigste Fehlerquelle beim Subtrahieren von Vektoren — Zeile für Zeile sauber hinschreiben lohnt sich.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 3. ORTSVEKTOR ═══ -->
+      <section class="sec" id="ortsvektor">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Ortsvektor und Verbindungsvektor</h2></div>
+        <p>Der <strong>Ortsvektor</strong> \(\vec{OP}\) zeigt vom Ursprung zu einem Punkt — er ist der Punkt in Vektorschreibweise. Der <strong>Verbindungsvektor</strong> zeigt von einem Punkt zu einem anderen:</p>
+        <div class="formula center">
+          <div class="formula-label">Spitze minus Fuß</div>
+          \[ \vec{AB} = \vec{OB} - \vec{OA} \]
+        </div>
+        <p>Der Zielpunkt steht also vorn. Dreht man die Reihenfolge um, bekommt man denselben Vektor mit umgedrehtem Vorzeichen: \(\vec{BA} = -\vec{AB}\) — gleiche Länge, entgegengesetzte Richtung.</p>
+        <p>Aus derselben Idee folgt der <strong>Mittelpunkt</strong> einer Strecke: Man geht von einem Punkt aus die halbe Strecke weiter.</p>
+        <div class="formula center">
+          \[ \vec{OM} = \tfrac{1}{2}\left(\vec{OA} + \vec{OB}\right) \]
+        </div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>„Spitze minus Fuß" ist der meistgebrauchte Handgriff der ganzen Geometrie. Er steckt später in Geradengleichungen, Ebenen, Abständen und Winkeln.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 4. BETRAG ═══ -->
+      <section class="sec" id="betrag">
+        <div class="sec-head"><span class="sec-num">04</span><h2>Betrag, Abstand und Einheitsvektor</h2></div>
+        <p>Der <strong>Betrag</strong> ist die Länge eines Vektors — der Satz des Pythagoras in drei Dimensionen:</p>
+        <div class="formula center">
+          \[ |\vec{a}| = \sqrt{a_1^2 + a_2^2 + a_3^2} \]
+        </div>
+        <p>Weil quadriert wird, verschwinden alle Minuszeichen: Ein Betrag ist nie negativ. Daraus folgt direkt der <strong>Abstand zweier Punkte</strong> — er ist die Länge ihres Verbindungsvektors:</p>
+        <div class="formula center">
+          \[ d(A,B) = \left|\vec{AB}\right| \]
+        </div>
+        <p>Teilt man einen Vektor durch seine eigene Länge, erhält man den <strong>Einheitsvektor</strong>: gleiche Richtung, Länge genau \(1\).</p>
+        <div class="formula center">
+          \[ \vec{a}_0 = \frac{1}{|\vec{a}|}\,\vec{a} \]
+        </div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Einheitsvektoren braucht man überall dort, wo nur die Richtung zählt und die Länge stören würde — etwa bei Abständen zu Ebenen oder bei Winkelberechnungen.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 5. SKALARPRODUKT ═══ -->
+      <section class="sec" id="skalarprodukt">
+        <div class="sec-head"><span class="sec-num">05</span><h2>Skalarprodukt</h2></div>
+        <p>Das Skalarprodukt multipliziert zwei Vektoren zu einer <strong>Zahl</strong> — nicht zu einem Vektor. Genau das unterscheidet es vom Kreuzprodukt im nächsten Abschnitt.</p>
+        <div class="formula center">
+          <div class="formula-label">Definition</div>
+          \[ \vec{a} \cdot \vec{b} = a_1b_1 + a_2b_2 + a_3b_3 \]
+        </div>
+        <p>Seine wichtigste Eigenschaft im Abitur ist der <strong>Orthogonalitätstest</strong>:</p>
+        <div class="formula center">
+          \[ \vec{a} \perp \vec{b} \quad\Longleftrightarrow\quad \vec{a} \cdot \vec{b} = 0 \]
+        </div>
+        <p>Und daraus wiederum der <strong>Winkel</strong> zwischen zwei Vektoren:</p>
+        <div class="formula center">
+          \[ \cos\varphi = \frac{\vec{a} \cdot \vec{b}}{|\vec{a}| \cdot |\vec{b}|} \]
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Skalarprodukt</th><th>Winkel</th><th>Bedeutung</th></tr></thead>
+            <tbody>
+              <tr><td>positiv</td><td>spitz</td><td class="rule">zeigen grob in dieselbe Richtung</td></tr>
+              <tr><td>null</td><td>\(90^\circ\)</td><td class="rule">stehen senkrecht aufeinander</td></tr>
+              <tr><td>negativ</td><td>stumpf</td><td class="rule">zeigen grob gegeneinander</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Aus \(\vec{a} \cdot \vec{b} = 0\) folgt <em>nicht</em>, dass einer der beiden der Nullvektor ist. Das Ergebnis ist eine Summe aus drei Produkten, die sich aufheben können — es bedeutet schlicht „senkrecht".</p>
+        </div>
+      </section>
+
+      <!-- ═══ 6. KREUZPRODUKT ═══ -->
+      <section class="sec" id="kreuzprodukt">
+        <div class="sec-head"><span class="sec-num">06</span><h2>Kreuzprodukt</h2></div>
+        <p>Das Kreuzprodukt liefert einen <strong>Vektor</strong>, der senkrecht auf beiden Ausgangsvektoren steht. Genau deshalb braucht man es später für Normalenvektoren von Ebenen.</p>
+        <div class="formula center">
+          <div class="formula-label">Definition</div>
+          \[ \vec{a} \times \vec{b} = \begin{pmatrix} a_2b_3 - a_3b_2 \\ a_3b_1 - a_1b_3 \\ a_1b_2 - a_2b_1 \end{pmatrix} \]
+        </div>
+        <p>Die mittlere Zeile ist die Falle: Dort stehen die Indizes „andersherum" als in den beiden anderen. Wer stumpf durchzählt, bekommt genau dort ein falsches Vorzeichen.</p>
+        <p>Der Betrag des Kreuzprodukts hat eine anschauliche Bedeutung — er ist die <strong>Fläche des Parallelogramms</strong>, das die beiden Vektoren aufspannen:</p>
+        <div class="formula center">
+          \[ A_{\text{Parallelogramm}} = \left|\vec{a} \times \vec{b}\right| \qquad A_{\text{Dreieck}} = \tfrac{1}{2}\left|\vec{a} \times \vec{b}\right| \]
+        </div>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Immer gegenprüfen: \(\vec{a} \cdot (\vec{a} \times \vec{b})\) und \(\vec{b} \cdot (\vec{a} \times \vec{b})\) müssen beide null ergeben. Zwei Zeilen Rechnung, die jeden Vorzeichenfehler sofort entlarven.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 7. GERADEN ═══ -->
+      <section class="sec" id="geraden">
+        <div class="sec-head"><span class="sec-num">07</span><h2>Geraden in Parameterform</h2></div>
+        <p>Eine Gerade braucht zwei Zutaten: einen <strong>Aufpunkt</strong>, der sagt wo sie liegt, und einen <strong>Richtungsvektor</strong>, der sagt wohin sie zeigt.</p>
+        <div class="formula center">
+          <div class="formula-label">Parameterform</div>
+          \[ g:\ \vec{x} = \vec{OA} + t \cdot \vec{u}, \qquad t \in \mathbb{R} \]
+        </div>
+        <p>Sind zwei Punkte gegeben, ist der Richtungsvektor einfach ihr Verbindungsvektor: \(\vec{u} = \vec{AB}\).</p>
+        <p>Bei der <strong>Punktprobe</strong> setzt man den fraglichen Punkt ein und löst jede Zeile einzeln nach \(t\) auf. Nur wenn <em>alle drei</em> Zeilen dasselbe \(t\) liefern, liegt der Punkt auf der Geraden.</p>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Dieselbe Gerade lässt sich auf unendlich viele Arten aufschreiben: Jeder ihrer Punkte taugt als Aufpunkt, und jedes Vielfache des Richtungsvektors zeigt in dieselbe Richtung. „Sieht anders aus" heißt also nicht „ist anders".</p>
+        </div>
+      </section>
+
+      <!-- ═══ 8. LAGEBEZIEHUNGEN ═══ -->
+      <section class="sec" id="lagebeziehungen">
+        <div class="sec-head"><span class="sec-num">08</span><h2>Lagebeziehungen von Geraden</h2></div>
+        <p>Zwei Geraden im Raum können auf vier Arten zueinander liegen. Man entscheidet in zwei Schritten: erst die Richtungsvektoren vergleichen, dann eine Punktprobe oder ein Gleichungssystem.</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Richtungsvektoren</th><th>Gemeinsamer Punkt?</th><th>Lagebeziehung</th></tr></thead>
+            <tbody>
+              <tr><td>parallel</td><td>ja</td><td class="rule">identisch — dieselbe Gerade</td></tr>
+              <tr><td>parallel</td><td>nein</td><td class="rule">echt parallel</td></tr>
+              <tr><td>nicht parallel</td><td>ja</td><td class="rule">schneiden sich in einem Punkt</td></tr>
+              <tr><td>nicht parallel</td><td>nein</td><td class="rule">windschief</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Sind die Richtungen parallel, genügt eine <strong>Punktprobe</strong> mit dem Aufpunkt der einen Geraden in der anderen — ein Gleichungssystem braucht man dann gar nicht. Sind sie nicht parallel, setzt man beide Gleichungen gleich und löst; entsteht ein Widerspruch, sind die Geraden windschief.</p>
+        <div class="callout merksatz">
+          <div class="callout-label">Merksatz</div>
+          <p>Windschief gibt es nur im Raum. In der Ebene müssen sich zwei nicht-parallele Geraden zwangsläufig schneiden — im Raum können sie einfach aneinander vorbeilaufen, wie zwei Straßen mit einer Brücke dazwischen.</p>
+        </div>
+      </section>
+
+      <!-- ═══ 9. FEHLER ═══ -->
+      <section class="sec" id="fehler">
+        <div class="sec-head"><span class="sec-num">09</span><h2>Häufige Fehler</h2></div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Spitze und Fuß vertauscht</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(\vec{AB} = \vec{OA} - \vec{OB}\) — so entsteht der Gegenvektor, alle Vorzeichen sind falsch.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\vec{AB} = \vec{OB} - \vec{OA}\) — der Zielpunkt steht vorn.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Skalar- und Kreuzprodukt verwechselt</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>Beim Orthogonalitätstest das Kreuzprodukt ausrechnen — das liefert einen Vektor, keine Zahl.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>Senkrecht prüft man mit dem <em>Skalarprodukt</em>: \(\vec{a}\cdot\vec{b}=0\). Das Kreuzprodukt <em>erzeugt</em> dagegen einen senkrechten Vektor.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Wurzel beim Betrag vergessen</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(\left|\begin{pmatrix}2\\-1\\2\end{pmatrix}\right| \neq 4+1+4 = 9\)</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\left|\begin{pmatrix}2\\-1\\2\end{pmatrix}\right| = \sqrt{4+1+4} = 3\)</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Mittlere Zeile des Kreuzprodukts</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>\(a_1b_3 - a_3b_1\) — die Indizes in der falschen Reihenfolge, das Vorzeichen kippt.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(a_3b_1 - a_1b_3\) — die mittlere Zeile läuft bewusst andersherum als die beiden anderen.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Punktprobe nur halb durchgeführt</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>Zwei Zeilen liefern dasselbe \(t\), also liegt der Punkt auf der Geraden.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>Erst wenn <em>alle drei</em> Zeilen dasselbe \(t\) ergeben, liegt der Punkt darauf. Eine unpassende Zeile genügt zum Ausschluss.</span></div>
+        </div>
+
+        <div class="callout fehler">
+          <div class="callout-label">Richtungsvektor als Punkt gelesen</div>
+          <div class="fehler-row"><span class="fehler-tag x">✕</span><span>Aus \(g:\ \vec{x} = \vec{OA} + t\vec{u}\) schließen, dass \(\vec{u}\) ein Punkt der Geraden ist.</span></div>
+          <div class="fehler-row"><span class="fehler-tag ok">✓</span><span>\(\vec{u}\) ist nur die Richtung. Punkte der Geraden bekommt man, indem man \(t\) einsetzt — etwa \(t=1\) für \(\vec{OA}+\vec{u}\).</span></div>
+        </div>
+      </section>
+
+      <!-- ═══ 10. MERKSÄTZE ═══ -->
+      <section class="sec" id="merksaetze">
+        <div class="sec-head"><span class="sec-num">10</span><h2>Merksätze im Überblick</h2></div>
+        <ul>
+          <li><strong>Verbindungsvektor:</strong> Spitze minus Fuß — der Zielpunkt steht vorn.</li>
+          <li><strong>Betrag:</strong> quadrieren, addieren, Wurzel ziehen. Nie negativ.</li>
+          <li><strong>Einheitsvektor:</strong> durch die eigene Länge teilen.</li>
+          <li><strong>Skalarprodukt:</strong> ergibt eine Zahl. Null bedeutet senkrecht.</li>
+          <li><strong>Kreuzprodukt:</strong> ergibt einen Vektor, der auf beiden senkrecht steht.</li>
+          <li><strong>Betrag des Kreuzprodukts:</strong> Fläche des Parallelogramms, halbiert die des Dreiecks.</li>
+          <li><strong>Gerade:</strong> ein Aufpunkt plus ein Richtungsvektor, beide frei wählbar.</li>
+          <li><strong>Punktprobe:</strong> alle drei Zeilen müssen dasselbe \(t\) liefern.</li>
+          <li><strong>Lagebeziehung:</strong> erst Richtungen vergleichen, dann Punktprobe oder Gleichungssystem.</li>
+        </ul>
+      </section>
+
+      <!-- ═══ 11. BEISPIELE ═══ -->
+      <section class="sec" id="beispiele">
+        <div class="sec-head"><span class="sec-num">11</span><h2>Schritt-für-Schritt-Beispiele</h2></div>
+        <p>Acht durchgerechnete Beispiele, die alle Bausteine dieses Skripts abdecken.</p>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 1 &middot; Verbindungsvektor und Abstand</div>
+          <div class="beispiel-title">Gegeben \(A(1|2|3)\) und \(B(4|6|3)\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Verbindungsvektor bilden, Spitze minus Fuß:</div><div class="step-formula">\(\vec{AB} = \begin{pmatrix}4\\6\\3\end{pmatrix} - \begin{pmatrix}1\\2\\3\end{pmatrix} = \begin{pmatrix}3\\4\\0\end{pmatrix}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Abstand ist der Betrag dieses Vektors:</div><div class="step-formula">\(\left|\vec{AB}\right| = \sqrt{9+16+0} = \sqrt{25} = 5\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(\vec{AB} = \begin{pmatrix}3\\4\\0\end{pmatrix}\), die Punkte sind \(5\) Einheiten voneinander entfernt.</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 2 &middot; Einheitsvektor</div>
+          <div class="beispiel-title">\(\vec{a} = \begin{pmatrix}2\\-1\\2\end{pmatrix}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Länge berechnen:</div><div class="step-formula">\(|\vec{a}| = \sqrt{4+1+4} = \sqrt{9} = 3\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Durch die eigene Länge teilen:</div><div class="step-formula">\(\vec{a}_0 = \tfrac13\begin{pmatrix}2\\-1\\2\end{pmatrix} = \begin{pmatrix}\tfrac23\\-\tfrac13\\\tfrac23\end{pmatrix}\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Probe — die Länge muss genau \(1\) sein:</div><div class="step-formula">\(\sqrt{\tfrac49+\tfrac19+\tfrac49} = \sqrt{1} = 1\ \checkmark\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(\vec{a}_0 = \begin{pmatrix}\tfrac23\\-\tfrac13\\\tfrac23\end{pmatrix}\)</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 3 &middot; Orthogonalität mit Unbekannter</div>
+          <div class="beispiel-title">Für welches \(y\) stehen \(\vec{a} = \begin{pmatrix}3\\1\\-2\end{pmatrix}\) und \(\vec{b} = \begin{pmatrix}4\\y\\5\end{pmatrix}\) senkrecht?</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Skalarprodukt aufstellen und null setzen:</div><div class="step-formula">\(3\cdot4 + 1\cdot y + (-2)\cdot5 = 12 + y - 10\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Nach \(y\) auflösen:</div><div class="step-formula">\(y + 2 = 0 \iff y = -2\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> Für \(y = -2\) stehen die beiden Vektoren senkrecht aufeinander.</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 4 &middot; Winkel zwischen zwei Vektoren</div>
+          <div class="beispiel-title">\(\vec{a} = \begin{pmatrix}1\\1\\0\end{pmatrix}\), \(\vec{b} = \begin{pmatrix}1\\0\\1\end{pmatrix}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Skalarprodukt und beide Beträge:</div><div class="step-formula">\(\vec{a}\cdot\vec{b} = 1+0+0 = 1\), \(\quad |\vec{a}| = |\vec{b}| = \sqrt{2}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">In die Winkelformel einsetzen:</div><div class="step-formula">\(\cos\varphi = \dfrac{1}{\sqrt{2}\cdot\sqrt{2}} = \dfrac{1}{2}\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Umkehrfunktion anwenden:</div><div class="step-formula">\(\varphi = \arccos\!\left(\tfrac12\right) = 60^\circ\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> Die Vektoren schließen einen Winkel von \(60^\circ\) ein.</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 5 &middot; Kreuzprodukt und Dreiecksfläche</div>
+          <div class="beispiel-title">\(\vec{a} = \begin{pmatrix}1\\2\\0\end{pmatrix}\), \(\vec{b} = \begin{pmatrix}0\\1\\3\end{pmatrix}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Kreuzprodukt nach dem Schema berechnen:</div><div class="step-formula">\(\vec{a}\times\vec{b} = \begin{pmatrix}2\cdot3-0\cdot1\\0\cdot0-1\cdot3\\1\cdot1-2\cdot0\end{pmatrix} = \begin{pmatrix}6\\-3\\1\end{pmatrix}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Probe — das Ergebnis muss auf beiden senkrecht stehen:</div><div class="step-formula">\(\vec{a}\cdot\begin{pmatrix}6\\-3\\1\end{pmatrix} = 6-6+0 = 0\ \checkmark\), \(\quad \vec{b}\cdot\begin{pmatrix}6\\-3\\1\end{pmatrix} = 0-3+3 = 0\ \checkmark\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Betrag ergibt die Parallelogrammfläche, die Hälfte davon das Dreieck:</div><div class="step-formula">\(\left|\vec{a}\times\vec{b}\right| = \sqrt{36+9+1} = \sqrt{46} \approx 6{,}78\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> Das Dreieck hat den Flächeninhalt \(\tfrac12\sqrt{46} \approx 3{,}39\).</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 6 &middot; Geradengleichung und Punktprobe</div>
+          <div class="beispiel-title">Gerade durch \(A(0|1|2)\) und \(B(4|3|-2)\) — liegt \(P(2|2|0)\) darauf?</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Richtungsvektor als Verbindungsvektor:</div><div class="step-formula">\(\vec{AB} = \begin{pmatrix}4\\3\\-2\end{pmatrix} - \begin{pmatrix}0\\1\\2\end{pmatrix} = \begin{pmatrix}4\\2\\-4\end{pmatrix}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Gleichung aufstellen:</div><div class="step-formula">\(g:\ \vec{x} = \begin{pmatrix}0\\1\\2\end{pmatrix} + t\begin{pmatrix}4\\2\\-4\end{pmatrix}\)</div></div></div>
+          <div class="step"><span class="step-num">3</span><div class="step-body"><div class="step-text">Punktprobe, Zeile für Zeile:</div><div class="step-formula">\(\text{I: } 4t = 2 \Rightarrow t = 0{,}5\), \(\quad\text{II: } 1 + 1 = 2\ \checkmark\), \(\quad\text{III: } 2 - 2 = 0\ \checkmark\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> Alle drei Zeilen liefern \(t = 0{,}5\) — \(P\) liegt auf der Geraden.</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 7 &middot; Lagebeziehung zweier Geraden</div>
+          <div class="beispiel-title">\(g:\ \vec{x} = \begin{pmatrix}1\\1\\1\end{pmatrix} + t\begin{pmatrix}2\\0\\1\end{pmatrix}\) und \(h:\ \vec{x} = \begin{pmatrix}3\\1\\2\end{pmatrix} + s\begin{pmatrix}4\\0\\2\end{pmatrix}\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Richtungsvektoren vergleichen:</div><div class="step-formula">\(\begin{pmatrix}4\\0\\2\end{pmatrix} = 2\cdot\begin{pmatrix}2\\0\\1\end{pmatrix}\) — parallel</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Also genügt eine Punktprobe: Aufpunkt von \(g\) in \(h\) einsetzen.</div><div class="step-formula">\(\text{I: } 3 + 4s = 1 \Rightarrow s = -0{,}5\), \(\quad\text{II: } 1 = 1\ \checkmark\), \(\quad\text{III: } 2 - 1 = 1\ \checkmark\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> Parallele Richtung <em>und</em> ein gemeinsamer Punkt — die beiden Gleichungen beschreiben dieselbe Gerade.</div>
+        </div>
+
+        <div class="beispiel">
+          <div class="beispiel-label">Beispiel 8 &middot; Mittelpunkt einer Strecke</div>
+          <div class="beispiel-title">\(A(1|3|5)\), \(B(5|1|1)\)</div>
+          <div class="step"><span class="step-num">1</span><div class="step-body"><div class="step-text">Ortsvektoren addieren:</div><div class="step-formula">\(\begin{pmatrix}1\\3\\5\end{pmatrix} + \begin{pmatrix}5\\1\\1\end{pmatrix} = \begin{pmatrix}6\\4\\6\end{pmatrix}\)</div></div></div>
+          <div class="step"><span class="step-num">2</span><div class="step-body"><div class="step-text">Halbieren:</div><div class="step-formula">\(\vec{OM} = \tfrac12\begin{pmatrix}6\\4\\6\end{pmatrix} = \begin{pmatrix}3\\2\\3\end{pmatrix}\)</div></div></div>
+          <div class="beispiel-result"><strong>Ergebnis:</strong> \(M(3|2|3)\)</div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ═══ CHEAT SHEET ═══ -->
+    <section class="sec cheat" id="formelsammlung">
+      <div class="cheat-head">
+        <div class="cover-kicker">Zum Nachschlagen</div>
+        <h2>Formelsammlung Vektoren</h2>
+        <p>Alle Formeln dieses Skripts auf einer Seite — ideal zum Ausdrucken und Griffbereithalten.</p>
+      </div>
+
+      <div class="cheat-cols">
+        <div class="cheat-block">
+          <h3>Grundrechnen</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{a} \pm \vec{b}\)</span><span class="cheat-line-d">komponentenweise</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\lambda\vec{a}\)</span><span class="cheat-line-d">jede Zeile mal \(\lambda\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{AB}\)</span><span class="cheat-line-d">\(\vec{OB} - \vec{OA}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{BA}\)</span><span class="cheat-line-d">\(-\vec{AB}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{OM}\)</span><span class="cheat-line-d">\(\tfrac12\left(\vec{OA}+\vec{OB}\right)\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(|\vec{a}|\)</span><span class="cheat-line-d">\(\sqrt{a_1^2+a_2^2+a_3^2}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(d(A,B)\)</span><span class="cheat-line-d">\(\left|\vec{AB}\right|\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{a}_0\)</span><span class="cheat-line-d">\(\dfrac{1}{|\vec{a}|}\vec{a}\)</span></div>
+        </div>
+
+        <div class="cheat-block">
+          <h3>Produkte</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{a}\cdot\vec{b}\)</span><span class="cheat-line-d">\(a_1b_1+a_2b_2+a_3b_3\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{a}\perp\vec{b}\)</span><span class="cheat-line-d">\(\vec{a}\cdot\vec{b}=0\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\cos\varphi\)</span><span class="cheat-line-d">\(\dfrac{\vec{a}\cdot\vec{b}}{|\vec{a}||\vec{b}|}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{a}\times\vec{b}\)</span><span class="cheat-line-d">\(\begin{pmatrix}a_2b_3-a_3b_2\\a_3b_1-a_1b_3\\a_1b_2-a_2b_1\end{pmatrix}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(\vec{b}\times\vec{a}\)</span><span class="cheat-line-d">\(-\left(\vec{a}\times\vec{b}\right)\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(A_{\square}\)</span><span class="cheat-line-d">\(\left|\vec{a}\times\vec{b}\right|\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">\(A_{\triangle}\)</span><span class="cheat-line-d">\(\tfrac12\left|\vec{a}\times\vec{b}\right|\)</span></div>
+        </div>
+
+        <div class="cheat-block" style="grid-column:1/-1;">
+          <h3>Geraden und Lagebeziehungen</h3>
+          <div class="cheat-line"><span class="cheat-line-fn">Parameterform</span><span class="cheat-line-d">\(\vec{x} = \vec{OA} + t\,\vec{u}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">durch \(A\) und \(B\)</span><span class="cheat-line-d">\(\vec{u} = \vec{AB}\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">Punktprobe</span><span class="cheat-line-d">alle drei Zeilen ergeben dasselbe \(t\)</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">parallel + gemeinsamer Punkt</span><span class="cheat-line-d">identisch</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">parallel, kein Punkt</span><span class="cheat-line-d">echt parallel</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">nicht parallel, Punkt</span><span class="cheat-line-d">Schnittpunkt</span></div>
+          <div class="cheat-line"><span class="cheat-line-fn">nicht parallel, kein Punkt</span><span class="cheat-line-d">windschief</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══ CTA ═══ -->
+    <section class="cta no-print">
+      <div class="cta-kicker">Weiter geht's</div>
+      <h2>Das war erst der Anfang</h2>
+      <p>Dieses Skript ist ein kleiner Ausschnitt aus <strong>mathemaxxers</strong> — dem vollständigen Online-Kurs von alexsmathguides für Oberstufe und Abitur, mit Videos, Übungsaufgaben und Quizzes zu jedem Thema.</p>
+      <a class="cta-btn" href="https://alexsmathguides.de/abitur-kurs.html">Zum Abitur-Kurs &#8594;</a>
+    </section>
+
+    <footer>
+      <div class="footer-row">
+        <div class="footer-brand">© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</div>
+        <div class="footer-links">
+          <a href="https://alexsmathguides.de/">Startseite</a>
+          <a href="https://alexsmathguides.de/abitur-kurs.html">Abitur-Kurs</a>
+          <a href="https://alexsmathguides.de/impressum.html">Impressum</a>
+          <a href="https://alexsmathguides.de/datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
