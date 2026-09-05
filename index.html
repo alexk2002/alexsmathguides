@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="google-site-verification" content="FP2hKmeql81k86escIEbznBAMRpq24NTUXlHk7zmyuA" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>alexsmathguides | Online Mathe Nachhilfe</title>
-  <meta name="description" content="Online Mathe Nachhilfe von alexsmathguides – verständliche Erklärungen, Prüfungsvorbereitung und individuelle Unterstützung für Schüler:innen der Sekundarstufe." />
+  <title>Online Mathe Abitur Coaching | alexsmathguides</title>
+  <meta name="description" content="Online Mathe Abitur Coaching: persönlicher Coach, Einzelunterricht nach deinem Stundenplan, WhatsApp-Support und der komplette Abitur-Kurs inklusive. Ab 180 Euro im Monat, monatlich kündbar." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -24,6 +24,7 @@
     .cf-group label { font-size: 14px; font-weight: 600; color: var(--text); }
     .cf-group input[type="text"],
     .cf-group input[type="email"],
+    .cf-group select,
     .cf-group textarea {
       padding: 11px 14px;
       border: 1.5px solid var(--line);
@@ -37,6 +38,7 @@
       resize: vertical;
     }
     .cf-group input:focus,
+    .cf-group select:focus,
     .cf-group textarea:focus { border-color: var(--primary); }
     .cf-success {
       display: none;
@@ -49,6 +51,404 @@
     .cf-success p { color: var(--muted); font-size: 14px; }
 
     /* ── Abitur-Kurs Promo ── */
+
+    /* ── Coaching: Ablauf ── */
+
+
+
+
+
+    /* Band: was enthalten ist */
+    .enthalten-band { padding: 46px 0; border-bottom: 1px solid var(--line); }
+    .enthalten {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    }
+    .enthalten-punkt { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; }
+    .enthalten-nr {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .enthalten-punkt h3 { margin: 0 0 4px; font-size: 17px; }
+    .enthalten-punkt p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+    @media (max-width: 920px) {
+      .enthalten { grid-template-columns: 1fr; gap: 24px; }
+      .enthalten-band { padding: 36px 0; }
+    }
+
+
+    /* ── Hero, breit mit auslaufendem Bild ── */
+    .hero { overflow: hidden; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: 56px;
+      align-items: center;
+      padding-top: 60px;
+      padding-bottom: 62px;
+    }
+    .hero-copy h1 {
+      font-size: clamp(38px, 5.2vw, 62px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin: 0 0 26px;
+    }
+
+    /* Hakenliste statt Fliesstext */
+    .hero-punkte { list-style: none; margin: 0 0 32px; padding: 0; }
+    .hero-punkte li {
+      position: relative;
+      padding-left: 34px;
+      margin-bottom: 15px;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .hero-punkte li::before {
+      content: "";
+      position: absolute; left: 0; top: 6px;
+      width: 19px; height: 19px;
+      background: no-repeat center/contain
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f766e' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.6l5.2 5.2L20 6.8'/%3E%3C/svg%3E");
+    }
+    .hero-punkte b { color: var(--text); font-weight: 700; }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 0; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 26px;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      font-weight: 700; font-size: 16px;
+      color: var(--primary);
+      transition: border-color .2s, transform .2s;
+    }
+    .btn-outline:hover { border-color: var(--primary); transform: translateY(-1px); }
+
+    /* Bild laeuft nach rechts aus dem Raster */
+    .hero-visual { position: relative; }
+    .hero-visual img {
+      width: calc(100% + 90px);
+      max-width: none;
+      border-radius: var(--radius);
+      display: block;
+      position: relative; z-index: 2;
+    }
+    /* Nur in freien Flaechen ueber und unter dem Bild, nie darueber. */
+    .deko-punkte {
+      position: absolute; width: 74px; height: 74px; opacity: .5; z-index: 1;
+      background-image: radial-gradient(var(--line) 2.4px, transparent 2.4px);
+      background-size: 15px 15px;
+    }
+    .deko-1 { top: -70px; right: 60px; opacity:.35; }
+    .deko-2 { bottom: -76px; right: -30px; opacity:.35; }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; padding-top: 8px; }
+      .hero-visual img { width: 100%; }
+      .deko-punkte { display: none; }
+    }
+    /* Band: was enthalten ist */
+    .enthalten-band { padding: 46px 0; border-bottom: 1px solid var(--line); }
+    .enthalten {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    }
+    .enthalten-punkt { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; }
+    .enthalten-nr {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .enthalten-punkt h3 { margin: 0 0 4px; font-size: 17px; }
+    .enthalten-punkt p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+    @media (max-width: 920px) {
+      .enthalten { grid-template-columns: 1fr; gap: 24px; }
+      .enthalten-band { padding: 36px 0; }
+    }
+
+    /* Bild im Hero */
+    .hero-visual { display: flex; align-items: center; }
+    .hero-visual img {
+      width: 100%; border-radius: var(--radius); display: block;
+    }
+    .hero-visual .hero-card { margin: 0; }
+    @media (max-width: 920px) { .hero-visual { gap: 18px; } }
+
+    /* Dezenter Hinweis auf das Abi-Datum */
+    .abi-hinweis {
+      margin: 18px 0 0;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      position: relative;
+      padding-left: 16px;
+      max-width: 48ch;
+    }
+    .abi-hinweis::before {
+      content: "";
+      position: absolute; left: 0; top: .6em;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--success);
+    }
+    .abi-hinweis b {
+      color: var(--text);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* Handy-Rahmen */
+    .handy {
+      width: 290px;
+      margin: 0 auto;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .handy-koerper {
+      background: #10151c;
+      border-radius: 42px;
+      padding: 11px;
+      box-shadow:
+        0 0 0 2px #2a323d,
+        0 26px 60px rgba(11,42,74,.34),
+        0 6px 18px rgba(11,42,74,.18);
+      position: relative;
+    }
+    /* Seitentasten */
+    .handy-koerper::before,
+    .handy-koerper::after {
+      content: "";
+      position: absolute; left: -3px;
+      width: 3px; border-radius: 3px 0 0 3px;
+      background: #2a323d;
+    }
+    .handy-koerper::before { top: 116px; height: 30px; }
+    .handy-koerper::after  { top: 158px; height: 52px; }
+
+    .handy-schirm {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #0b2a4a;
+      aspect-ratio: 9 / 19.5;
+    }
+    .handy-schirm img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      object-position: 64% 50%;
+    }
+    /* Dynamische Insel */
+    .handy-insel {
+      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      width: 86px; height: 25px; border-radius: 999px;
+      background: #10151c; z-index: 3;
+    }
+
+    /* Kanaele unter dem Handy */
+    .kanaele {
+      display: flex; justify-content: center; gap: 14px; margin-top: 22px;
+    }
+    .kanaele a {
+      width: 42px; height: 42px; border-radius: 12px;
+      border: 1px solid var(--line); background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      transition: border-color .2s, transform .2s;
+    }
+    .kanaele a:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .kanaele svg { width: 20px; height: 20px; }
+
+    /* Zahlen mit Markerstrich */
+    .marker {
+      background: linear-gradient(180deg, transparent 56%, rgba(15,118,110,.20) 56%);
+      padding: 0 4px; border-radius: 2px;
+    }
+
+    /* Ueber mich */
+    .ueber { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+    .ueber-bild {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid var(--line);
+    }
+    .ueber-bild img { width: 100%; height: auto; display: block; }
+    .ueber-text p { margin: 0 0 16px; font-size: 17px; line-height: 1.7; }
+    .ueber-text p:last-child { margin-bottom: 0; }
+    .ueber-zahlen {
+      display: flex; gap: 36px; flex-wrap: wrap;
+      margin: 24px 0 26px; padding: 20px 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    }
+    .ueber-zahl .wert {
+      font-size: 27px; font-weight: 800; color: var(--primary);
+      letter-spacing: -.02em; line-height: 1.1;
+    }
+    .ueber-zahl .was { font-size: 14px; color: var(--muted); margin-top: 2px; }
+    .signatur { font-size: 15px; color: var(--muted); font-style: italic; }
+
+
+    @media (max-width: 920px) {
+      .ueber { grid-template-columns: 1fr; gap: 28px; }
+      .handy { margin: 0 auto; }
+    }
+
+    .ablauf { counter-reset: schritt; max-width: 62ch; margin-top: 8px; }
+    .ablauf-schritt {
+      counter-increment: schritt;
+      display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+      padding-bottom: 28px; position: relative;
+    }
+    .ablauf-schritt::before {
+      content: counter(schritt);
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ablauf-schritt::after {
+      content: ""; position: absolute; left: 18.5px; top: 46px; bottom: 2px;
+      width: 1px; background: var(--line);
+    }
+    .ablauf-schritt:last-child { padding-bottom: 0; }
+    .ablauf-schritt:last-child::after { display: none; }
+    .ablauf-schritt h3 { margin: 0 0 6px; font-size: 18px; }
+    .ablauf-schritt p { margin: 0; color: var(--muted); }
+
+    /* ── Coaching: Leistungen ── */
+
+    /* Ablauf mit Bild daneben */
+    .ablauf-raster {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+      align-items: start;
+      margin-top: 8px;
+    }
+    .ablauf-raster .ablauf { margin-top: 0; }
+    .ablauf-bild img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 20px 50px rgba(11,42,74,.18);
+      border: 1px solid var(--line);
+    }
+    .ablauf-bild figcaption {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 920px) {
+      .ablauf-raster { grid-template-columns: 1fr; gap: 36px; }
+      .ablauf-bild { max-width: 340px; margin: 0 auto; }
+    }
+
+    .leistungen {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 14px;
+    }
+    .leistung {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 18px; padding: 30px 28px;
+    }
+    .leistung-symbol {
+      width: 46px; height: 46px; border-radius: 13px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .leistung-symbol svg {
+      width: 23px; height: 23px; stroke: var(--primary); fill: none;
+      stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .leistung h3 { margin: 0 0 9px; font-size: 19px; }
+    .leistung p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
+
+    /* ── Preise ── */
+
+    .preise {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 26px; margin-top: 20px; align-items: stretch;
+    }
+    .preis {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 20px; padding: 38px 32px;
+      display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    .preis:hover { border-color: var(--primary-2); transform: translateY(-2px); }
+    .preis--empfohlen {
+      border: 2px solid var(--primary);
+      box-shadow: 0 18px 50px rgba(11,42,74,.13);
+      position: relative;
+      transform: translateY(-14px);
+    }
+    .preis--empfohlen:hover { transform: translateY(-17px); }
+    .preis-marke {
+      position: absolute; top: -14px; left: 32px;
+      background: var(--primary); color: #fff;
+      font-size: 12px; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; padding: 6px 15px; border-radius: 999px;
+    }
+    .preis h3 { margin: 0 0 5px; font-size: 21px; }
+    .preis .umfang { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
+    .preis .betrag {
+      font-size: 46px; font-weight: 800; color: var(--primary);
+      letter-spacing: -.03em; line-height: 1; margin-bottom: 4px;
+    }
+    .preis .takt { color: var(--muted); font-size: 14.5px; margin-bottom: 26px; }
+    .preis ul { list-style: none; margin: 0 0 28px; padding: 0; flex: 1; }
+    .preis ul li {
+      padding-left: 28px; margin-bottom: 12px; position: relative;
+      font-size: 15.5px; line-height: 1.5;
+    }
+    .preis ul li::before {
+      content: "✓"; position: absolute; left: 0; top: -1px;
+      color: var(--success); font-weight: 800; font-size: 16px;
+    }
+    .preis .btn { width: 100%; justify-content: center; }
+    .preis-hinweis {
+      max-width: 62ch; margin: 34px 0 0;
+      color: var(--muted); font-size: 15px;
+    }
+
+    /* ── FAQ ── */
+    .faq { max-width: 62ch; margin-top: 8px; }
+    .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    .faq summary {
+      cursor: pointer; font-weight: 700; font-size: 16.5px; list-style: none;
+      display: flex; justify-content: space-between; gap: 16px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+"; color: var(--primary); font-weight: 700;
+      font-size: 22px; line-height: 1; flex-shrink: 0;
+    }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: 12px 0 0; color: var(--muted); font-size: 15.5px; }
+
+    /* ── Dunkler Abschluss ── */
+    .final-cta {
+      text-align: center; background: var(--primary);
+      border-radius: 24px; padding: 60px 32px; color: #fff;
+    }
+    .final-cta h2 { color: #fff; margin-bottom: 12px; }
+    .final-cta p { color: rgba(255,255,255,.75); max-width: 50ch; margin: 0 auto 28px; }
+    .final-cta .btn-primary { background: #fff; color: var(--primary); }
+    .final-cta .btn-primary:hover { background: var(--surface-2, #e9eff7); }
+
+    @media (max-width: 920px) {
+      .preise { grid-template-columns: 1fr; }
+      .leistungen { grid-template-columns: 1fr; }
+    }
+
     .kurs-promo {
       background: var(--primary);
       border-radius: 28px;
@@ -93,6 +493,40 @@
     @media (max-width: 920px) {
       .kurs-promo { grid-template-columns: 1fr; padding: 32px 24px; }
     }
+  
+    /* Formel-Hintergrund: eine nahtlos kachelbare Grafik, die unabhaengig
+       vom Seiteninhalt darunter liegt. Sie sitzt ueber der Flaechenfarbe
+       des Abschnitts, aber hinter allem Inhalt.
+       background-attachment: fixed sorgt dafuer, dass alle Abschnitte
+       denselben Bezugspunkt haben und das Muster an den Uebergaengen
+       nahtlos weiterlaeuft. */
+    section { position: relative; z-index: 0; }
+    section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: url('img/formel-muster-g10c.png');
+      background-repeat: repeat;
+      background-size: 1400px 950px;
+      /* Haengt an der Seite, nicht am Bildschirm: es scrollt normal weg.
+         Damit die Kachel nicht in jedem Abschnitt neu anfaengt und dabei
+         Formeln zerschneidet, rechnet das Skript weiter unten jedem
+         Abschnitt seinen Versatz aus. */
+      background-attachment: scroll;
+      background-position: 0 var(--muster-y, 0px);
+      opacity: .34;
+      pointer-events: none;
+      /* Die Maske wird unten je Abschnitt gezeichnet: ueberall dort, wo
+         Text oder ein Bild steht, bekommt sie ein weiches Loch. Dadurch
+         verschwindet das Muster unter Text, bleibt sonst aber stehen. */
+      -webkit-mask-image: var(--muster-maske, none);
+      mask-image: var(--muster-maske, none);
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
   </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -106,73 +540,357 @@
         <span>alexsmathguides</span>
       </a>
       <nav class="nav-links">
-        <a href="#angebot">Angebot</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="index.html" style="color: var(--primary); font-weight: 600;">Coaching</a>
         <a href="freebies.html">Kostenlose PDFs</a>
+        <a href="tutor-werden.html">Tutor werden</a>
         <b><a href="abitur-kurs.html">mathemaxxers Abitur Kurs</a></b>
-        <a href="https://kurs.alexsmathguides.de/login" style="font-weight:600;">Zum Kurs &#8594;</a>
+        <a class="nav-cta" href="#kontakt">Erstgespr&auml;ch</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
+
+    <!-- Hero -->
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Online Mathe Nachhilfe</span>
-          <h1>Mathe. Locker. Unkompliziert.</h1>
-          <p>Ich unterstütze Schüler:innen Schritt für Schritt – von den Grundlagen der Sekundarstufe I bis zu Oberstufen-Themen wie Ableitungen, Integrale, Funktionen und Abiturvorbereitung.</p>
+          <span class="eyebrow">Online Mathe Abitur Coaching</span>
+          <h1>Der Weg zu deinem Traum Mathe-Abi.</h1>
+
+          <ul class="hero-punkte">
+            <li><b>Dein fester Coach</b> &mdash; eine Person, die dich bis zur Pr&uuml;fung begleitet</li>
+            <li><b>Termine nach deinem Stundenplan</b> &mdash; ihr sprecht sie direkt ab</li>
+            <li><b>Der komplette Abitur-Kurs</b> &mdash; 69 Lektionen, ohne Aufpreis dabei</li>
+          </ul>
+
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/4917687836102" target="_blank" rel="noopener noreferrer">
-              Über WhatsApp schreiben
-            </a>
-            <a class="btn btn-secondary" href="#kontakt">
-              Kontakt aufnehmen
-            </a>
-            <a class="btn btn-secondary" href="freebies.html">
-              Kostenlose Lern-PDFs
-            </a>
+            <a class="btn btn-primary" href="#kontakt">Kostenloses Erstgespr&auml;ch</a>
+            <a class="btn-outline" href="https://wa.me/4917687836102" target="_blank" rel="noopener">WhatsApp-Kontakt &rarr;</a>
           </div>
+
+          <p class="abi-hinweis">Noch <b id="abi-uhr">&ndash;&ndash;</b> bis zu den
+          ersten Mathe-Abiturpr&uuml;fungen 2027</p>
         </div>
 
-        <div class="hero-card">
-          <h3>Was du hier machen kannst</h3>
-          <div class="check-list">
-            <div class="check-item">
-              <div class="check-badge">1</div>
-              <div>Mich direkt per <strong>WhatsApp-Nachricht</strong> kontaktieren (Fragen, Terminabsprachen, kurze Einschätzung).</div>
+        <div class="hero-visual">
+          <span class="deko-punkte deko-1"></span>
+          <span class="deko-punkte deko-2"></span>
+          <img src="img/coaching/online-stunde.png"
+               alt="Coach und Sch&uuml;lerin arbeiten im Videocall gemeinsam an einer Extremwertaufgabe">
+        </div>
+      </div>
+    </section>
+
+    <!-- Warum -->
+
+
+
+    <!-- Was enthalten ist -->
+    <section class="section enthalten-band">
+      <div class="container">
+        <div class="enthalten">
+          <div class="enthalten-punkt">
+            <span class="enthalten-nr">1</span>
+            <div>
+              <h3>Dein pers&ouml;nlicher Coach</h3>
+              <p>Begleitet dich das ganze Schuljahr und wei&szlig;, wo du stehst.</p>
             </div>
-            <div class="check-item">
-              <div class="check-badge">2</div>
-              <div>Mir über das <strong>Kontaktformular</strong> eine Nachricht schicken – z.&nbsp;B. für ausführlichere Anfragen.</div>
+          </div>
+          <div class="enthalten-punkt">
+            <span class="enthalten-nr">2</span>
+            <div>
+              <h3>Der komplette Abitur-Kurs</h3>
+              <p>69 Lektionen mit Videos und Quizzen. Ohne Aufpreis.</p>
             </div>
-            <div class="check-item">
-              <div class="check-badge">3</div>
-              <div>Dir <strong><a href="freebies.html" style="color: var(--primary); text-decoration: underline;">kostenlose Mathe-PDFs</a></strong> herunterladen.</div>
+          </div>
+          <div class="enthalten-punkt">
+            <span class="enthalten-nr">3</span>
+            <div>
+              <h3>Fragen per WhatsApp</h3>
+              <p>Auch dann, wenn gerade keine Stunde ansteht.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="angebot">
+    <section class="section" id="warum">
       <div class="container">
-        <span class="eyebrow">Angebot</span>
-        <h2>Individuelle und gemeinsame Mathe-Nachhilfe.</h2>
+        <span class="eyebrow">Warum Coaching</span>
+        <h2>Mathe scheitert selten am Kopf.</h2>
         <div class="grid-3">
           <div class="card">
-            <h3>Gruppennachhilfe (bis 4 Personen)</h3>
-            <p>Lernen in kleinen Gruppen: bis zu 4 Schüler:innen mit ähnlichem Niveau und Thema. Ideal, um Kosten zu teilen und trotzdem genug Raum für Fragen zu haben.</p>
+            <h3>Der Anschluss fehlt</h3>
+            <p>Eine Reihe verpasst, und pl&ouml;tzlich bauen alle neuen Themen auf
+            etwas auf, das nie sa&szlig;. Im Unterricht f&auml;llt das kaum auf, in
+            der Klausur schon.</p>
           </div>
           <div class="card">
-            <h3>1:1 Online-Unterricht</h3>
-            <p>Individuelle Online-Nachhilfe für Schüler:innen, die strukturierte Erklärungen, gezielte Übung und eine klare Vorbereitung auf Klassenarbeiten und Prüfungen möchten.</p>
+            <h3>Allein lernen ist schwer</h3>
+            <p>Videos schauen f&uuml;hlt sich produktiv an, bringt aber wenig, wenn
+            niemand merkt, wo du gerade h&auml;ngst. Genau daf&uuml;r ist ein Mensch
+            da.</p>
           </div>
           <div class="card">
-            <h3>Fokus Oberstufe</h3>
-            <p>Besonderer Schwerpunkt auf Analysis: Ableitungen, Integrale, Funktionen, Kurvendiskussion, Klausur- und Abituraufgaben – Schritt für Schritt erklärt.</p>
+            <h3>Es fehlt ein Plan</h3>
+            <p>Bis zum Abi sind es Monate mit vielen Themen. Wer ohne Reihenfolge
+            lernt, wiederholt das Bekannte und schiebt das Schwere auf.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Ablauf -->
+
+    <!-- Ueber mich -->
+    <section class="section" id="ueber-mich" style="background: var(--surface);">
+      <div class="container ueber">
+        <div class="handy">
+          <div class="handy-koerper">
+            <div class="handy-schirm">
+              <div class="handy-insel"></div>
+              <img src="img/coaching/alex-portrait.jpg" alt="Alexander Kleymann erkl&auml;rt Mathe">
+            </div>
+          </div>
+          <div class="kanaele">
+            <a href="https://www.tiktok.com/@alexsmathguides" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .77-5.06V9.7a5.68 5.68 0 0 0-.77-.05A5.66 5.66 0 1 0 15.54 15.3V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.24-1.48z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/alexsmathguides" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@alexs_math_guides" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10.1 14.94V9.06L15.2 12l-5.1 2.94z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="ueber-text">
+          <span class="eyebrow">Wer dahintersteckt</span>
+          <h2>Hi, ich bin Alex</h2>
+
+          <p>Ich gebe seit f&uuml;nf Jahren Mathe-Nachhilfe. In der Zeit habe ich
+          gemerkt, dass fast niemand an Mathe scheitert, weil er zu dumm daf&uuml;r
+          w&auml;re. Es scheitert daran, dass irgendwann eine Erkl&auml;rung gefehlt hat
+          und danach alles darauf aufbaute.</p>
+
+          <p>Irgendwann habe ich angefangen, meine Erkl&auml;rungen auf TikTok zu
+          posten. Kurz, ohne Fachchinesisch, so wie ich sie einem Freund erkl&auml;ren
+          w&uuml;rde. Inzwischen sind daraus <strong>&uuml;ber 1,5 Millionen Aufrufe</strong>
+          geworden, und ich bekomme jede Woche Nachrichten von Leuten, bei denen
+          es endlich klick gemacht hat.</p>
+
+          <p>Aus denselben Erkl&auml;rungen ist dann der Abitur-Kurs entstanden, 69
+          Lektionen quer durch den ganzen Stoff. Er hilft vielen, aber ich sehe
+          auch, wo er an Grenzen st&ouml;&szlig;t: Ein Video merkt nicht, wenn du an einer
+          Stelle h&auml;ngst. Ein Mensch schon.</p>
+
+          <p>Deshalb das Coaching. Der Kurs f&uuml;rs eigenst&auml;ndige Lernen, ein Coach
+          f&uuml;r alles, wo du allein nicht weiterkommst.</p>
+
+          <div class="ueber-zahlen">
+            <div class="ueber-zahl">
+              <div class="wert"><span class="marker">5 Jahre</span></div>
+              <div class="was">Mathe-Nachhilfe</div>
+            </div>
+            <div class="ueber-zahl">
+              <div class="wert"><span class="marker">1,5 Mio.</span></div>
+              <div class="was">Aufrufe auf TikTok</div>
+            </div>
+            <div class="ueber-zahl">
+              <div class="wert"><span class="marker">69</span></div>
+              <div class="was">Lektionen im Kurs</div>
+            </div>
+          </div>
+
+          <p class="signatur">Alexander Kleymann, alexsmathguides</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ablauf" style="background: var(--surface);">
+      <div class="container">
+        <span class="eyebrow">So l&auml;uft es ab</span>
+        <h2>Vom Erstgespr&auml;ch bis zur Pr&uuml;fung.</h2>
+
+        <div class="ablauf-raster">
+          <div class="ablauf">
+          <div class="ablauf-schritt">
+            <div>
+              <h3>Kostenloses Erstgespr&auml;ch</h3>
+              <p>Wir sprechen etwa 20 Minuten dar&uuml;ber, wo du stehst, was ansteht
+              und was du erreichen willst. Danach wei&szlig;t du, ob es passt. Kostet
+              nichts und verpflichtet zu nichts.</p>
+            </div>
+          </div>
+          <div class="ablauf-schritt">
+            <div>
+              <h3>Du bekommst deinen Coach</h3>
+              <p>Wir suchen jemanden aus, der zu dir und deinem Thema passt. Alle
+              unsere Coaches haben ihr Mathe-Abi mit 1 abgeschlossen und
+              studieren.</p>
+            </div>
+          </div>
+          <div class="ablauf-schritt">
+            <div>
+              <h3>Ihr macht eure Termine selbst aus</h3>
+              <p>Nachmittags, abends, am Wochenende. Ihr sprecht direkt miteinander
+              und findet Zeiten, die zu deinem Stundenplan passen.</p>
+            </div>
+          </div>
+          <div class="ablauf-schritt">
+            <div>
+              <h3>Zwischen den Stunden geht es weiter</h3>
+              <p>Du arbeitest mit dem Abitur-Kurs in deinem Tempo. Wenn du irgendwo
+              h&auml;ngst, schreibst du deinem Coach einfach per WhatsApp.</p>
+            </div>
+          </div>
+          <div class="ablauf-schritt">
+            <div>
+              <h3>Gezielt Richtung Pr&uuml;fung</h3>
+              <p>Je n&auml;her das Abi r&uuml;ckt, desto mehr geht es um echte
+              Pr&uuml;fungsaufgaben, Zeiteinteilung und die Themen, die dir noch
+              Punkte kosten.</p>
+            </div>
+          </div>
+          </div>
+
+          <figure class="ablauf-bild">
+            <img src="img/coaching/whatsapp-beispiel.png"
+                 alt="Chatverlauf: Ein Sch&uuml;ler schickt seinem Coach ein Foto seiner Rechnung, der Coach findet den Fehler"
+                 loading="lazy">
+            <figcaption>Zwischen den Stunden erreichst du deinen Coach
+            per WhatsApp.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Leistungen -->
+
+
+    <!-- Abschluss -->
+    <section class="section">
+      <div class="container">
+        <div class="final-cta">
+          <h2>Lass uns kurz sprechen.</h2>
+          <p>Das Erstgespr&auml;ch dauert etwa 20 Minuten, kostet nichts und
+          verpflichtet zu nichts. Danach wei&szlig;t du, ob Coaching f&uuml;r dich das
+          Richtige ist.</p>
+          <a class="btn btn-primary" href="#kontakt">Erstgespr&auml;ch anfragen</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="leistungen">
+      <div class="container">
+        <span class="eyebrow">Was drin ist</span>
+        <h2>Alles in einem Paket.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 30px;">Kein
+        Baukasten mit Zusatzkosten. Was hier steht, ist in jedem Tarif enthalten,
+        egal wie viele Stunden du buchst. Der Unterricht läuft eins zu eins per
+        Videocall, mit geteiltem Whiteboard, auf dem ihr gemeinsam rechnet.</p>
+
+        <div class="leistungen">
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4.5 20c0-3.6 3.3-5.6 7.5-5.6s7.5 2 7.5 5.6"/></svg></div>
+            <h3>Dein pers&ouml;nlicher Coach</h3>
+            <p>Kein wechselndes Personal. Eine Person, die deinen Stand kennt,
+            deine L&uuml;cken kennt und wei&szlig;, worauf ihr zuletzt hinausgearbeitet
+            habt.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 21h8M12 16.5V21"/><path d="M8 9h8M8 12.5h5"/></svg></div>
+            <h3>Immer eins zu eins</h3>
+            <p>Keine Gruppen. Die ganze Stunde geh&ouml;rt dir, in deinem Tempo und an
+            deinen Themen.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M9 8h6M9 11.5h4"/></svg></div>
+            <h3>Der komplette Abitur-Kurs</h3>
+            <p>69 Lektionen mit Erkl&auml;rvideo, Beispielaufgabe und Quiz, dazu
+            Mini-Games, Lernkarte und Klausursimulator. Sonst 139 Euro, hier ohne
+            Aufpreis dabei.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-11 6.7L4 20l1.9-4.8A7.5 7.5 0 1 1 20 11.5z"/></svg></div>
+            <h3>Support per WhatsApp</h3>
+            <p>Aufgabe verstanden, aber das Ergebnis stimmt nicht? Schick ein Foto
+            an deinen Coach, statt bis zur n&auml;chsten Stunde zu warten.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg></div>
+            <h3>Termine nach deinem Plan</h3>
+            <p>Ihr sprecht die Zeiten direkt ab. Klausurenphase, Ferien,
+            Sportverein, das bekommt ihr geregelt.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.2-7 9.5-4.1-1.3-7-5.2-7-9.5V6z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></svg></div>
+            <h3>Monatlich k&uuml;ndbar</h3>
+            <p>Keine Mindestlaufzeit, keine Knebelvertr&auml;ge. Du bleibst, solange
+            es dir hilft.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preise -->
+    <section class="section" id="preise" style="background: var(--surface);">
+      <div class="container">
+        <span class="eyebrow">Preise</span>
+        <h2>Such dir aus, wie viel du brauchst.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Alle Tarife
+        enthalten dasselbe Paket. Der Unterschied sind nur die Stunden pro Monat.</p>
+
+        <div class="preise">
+          <div class="preis">
+            <h3>Basis</h3>
+            <div class="umfang">4 Stunden im Monat</div>
+            <div class="betrag">180 &euro;</div>
+            <div class="takt">pro Monat, monatlich k&uuml;ndbar</div>
+            <ul>
+              <li>4 Einzelstunden mit deinem Coach</li>
+              <li>Kompletter Abitur-Kurs inklusive</li>
+              <li>WhatsApp-Support zwischendurch</li>
+              <li>Termine frei vereinbar</li>
+            </ul>
+            <a class="btn btn-secondary" href="#kontakt">Erstgespr&auml;ch vereinbaren</a>
+          </div>
+
+          <div class="preis preis--empfohlen">
+            <span class="preis-marke">Am beliebtesten</span>
+            <h3>Intensiv</h3>
+            <div class="umfang">8 Stunden im Monat</div>
+            <div class="betrag">320 &euro;</div>
+            <div class="takt">pro Monat, monatlich k&uuml;ndbar</div>
+            <ul>
+              <li>8 Einzelstunden mit deinem Coach</li>
+              <li>Kompletter Abitur-Kurs inklusive</li>
+              <li>WhatsApp-Support zwischendurch</li>
+              <li>Termine frei vereinbar</li>
+              <li>Sinnvoll ab etwa einem halben Jahr vor dem Abi</li>
+            </ul>
+            <a class="btn btn-primary" href="#kontakt">Erstgespr&auml;ch vereinbaren</a>
+          </div>
+
+          <div class="preis">
+            <h3>Individuell</h3>
+            <div class="umfang">Dein eigener Plan</div>
+            <div class="betrag">auf Anfrage</div>
+            <div class="takt">nach Absprache</div>
+            <ul>
+              <li>Mehr Stunden in der hei&szlig;en Phase</li>
+              <li>Gruppenunterricht mit Freunden</li>
+              <li>Intensivwochen vor der Pr&uuml;fung</li>
+              <li>Alles andere, was du brauchst</li>
+            </ul>
+            <a class="btn btn-secondary" href="#kontakt">Anfrage schreiben</a>
+          </div>
+        </div>
+
+        <p class="preis-hinweis">Das Erstgespr&auml;ch ist kostenlos und
+        unverbindlich. Erst danach entscheidest du, ob und mit welchem Tarif du
+        starten willst.</p>
       </div>
     </section>
 
@@ -180,9 +898,9 @@
       <div class="container">
         <div class="kurs-promo">
           <div class="kurs-promo-copy">
-            <span class="eyebrow">Neu</span>
-            <h2>mathemaxxers Abitur Kurs.</h2>
-            <p>10 Welten, 69 Lektionen mit Erklärvideo, Beispielaufgabe und Quiz, dazu Mini-Games und eine interaktive Lernkarte. Einmal zahlen, für immer Zugriff.</p>
+            <span class="eyebrow">Lieber allein lernen?</span>
+            <h2>Der Abitur-Kurs einzeln.</h2>
+            <p>Im Coaching ist er ohne Aufpreis dabei. Wenn du kein Coaching brauchst, bekommst du ihn auch einzeln: 10 Welten, 69 Lektionen mit Erklärvideo, Beispielaufgabe und Quiz, dazu Mini-Games und eine interaktive Lernkarte. Einmal zahlen, für immer Zugriff.</p>
             <ul class="kurs-promo-list">
               <li>69 Erklärvideos zum Mitrechnen</li>
               <li>Quizzes mit Sofort-Feedback &amp; Mini-Games</li>
@@ -203,13 +921,59 @@
       </div>
     </section>
 
+
+    <!-- FAQ -->
+    <section class="section" id="fragen">
+      <div class="container">
+        <span class="eyebrow">H&auml;ufige Fragen</span>
+        <h2>Das werden wir oft gefragt.</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Ab wann sollte man mit dem Coaching anfangen?</summary>
+            <p>Je fr&uuml;her, desto entspannter. Wer ein Jahr vor dem Abi anf&auml;ngt,
+            kann L&uuml;cken in Ruhe schlie&szlig;en. Aber auch drei Monate vorher bringt
+            noch viel, dann arbeiten wir gezielter an den Themen, die die meisten
+            Punkte bringen.</p>
+          </details>
+          <details>
+            <summary>Wer sind die Coaches?</summary>
+            <p>Studierende, die ihr eigenes Mathe-Abi mit einer 1 abgeschlossen
+            haben. Sie waren selbst vor wenigen Jahren in derselben Situation und
+            wissen noch genau, wo es klemmt.</p>
+          </details>
+          <details>
+            <summary>Was, wenn es mit dem Coach nicht passt?</summary>
+            <p>Sag uns einfach Bescheid, dann bekommst du jemand anderen. Das ist
+            kein Drama und kostet dich nichts.</p>
+          </details>
+          <details>
+            <summary>Kann ich Stunden verschieben?</summary>
+            <p>Ja. Du sprichst die Termine direkt mit deinem Coach ab, ihr findet
+            zusammen eine L&ouml;sung. Nur sehr kurzfristige Absagen k&ouml;nnen wir nicht
+            immer nachholen.</p>
+          </details>
+          <details>
+            <summary>Gibt es eine Mindestlaufzeit?</summary>
+            <p>Nein. Du kannst monatlich k&uuml;ndigen. Wir glauben, dass du bleibst,
+            weil es hilft, nicht weil ein Vertrag dich festh&auml;lt.</p>
+          </details>
+          <details>
+            <summary>Nur Mathe oder auch andere F&auml;cher?</summary>
+            <p>Wir sind auf Mathe spezialisiert, vor allem auf die Oberstufe und
+            das Abitur. Das machen wir daf&uuml;r richtig.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="kontakt">
-      <div class="container split">
+      <div class="container split" style="position:relative">
         <div>
           <span class="eyebrow">Kontakt</span>
-          <h2>Schreib mir dein Mathe-Thema.</h2>
+          <h2>Erstgespr&auml;ch anfragen.</h2>
           <p>Nutze WhatsApp für schnelle Rückfragen oder Terminabsprachen. Oder schick mir direkt eine Nachricht über das Formular – z.&nbsp;B. als Elternteil oder Schule.</p>
-          <p><span class="code-inline">Tipp: Klasse, Bundesland und aktuelles Thema kurz nennen.</span></p>
+          <p><span class="code-inline">Tipp: Klasse, Bundesland und Abi-Jahrgang kurz nennen.</span></p>
           <p style="margin-top: 18px; font-weight: 600;">Kontakt per WhatsApp:</p>
           <p>
             <a class="btn btn-primary" href="https://wa.me/4917687836102" target="_blank" rel="noopener noreferrer">
@@ -231,15 +995,11 @@
                 <input type="email" id="cf-email" name="email" placeholder="deine@email.de" required>
               </div>
               <div class="cf-group">
-                <label for="cf-klasse">Klasse / Schuljahr (optional)</label>
-                <input type="text" id="cf-klasse" name="klasse" placeholder="z. B. 11. Klasse, Gymnasium">
-              </div>
-              <div class="cf-group">
-                <label for="cf-message">Nachricht <span style="color:#e53e3e;">*</span></label>
-                <textarea id="cf-message" name="message" rows="4" placeholder="Dein Thema, deine Frage oder dein Anliegen…" required></textarea>
+                <label for="cf-message">Deine Anfrage <span style="color:#e53e3e;">*</span></label>
+                <textarea id="cf-message" name="message" rows="5" placeholder="Worum geht es? Schreib kurz, wo du stehst und was du erreichen willst." required></textarea>
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px 20px;">
-                Nachricht senden
+                Abschicken
               </button>
               <p id="cf-error" style="display:none; color:#e53e3e; font-size:14px; margin-top:10px; text-align:center;"></p>
             </form>
@@ -259,6 +1019,7 @@
     <div class="container">
       <p>© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</p>
       <div class="footer-links">
+        <a class="fuss-login" href="https://kurs.alexsmathguides.de/login">Zum Kurs einloggen</a>
         <a href="/impressum.html">Impressum</a>
         <a href="/datenschutz.html">Datenschutz</a>
         <a href="/widerruf.html">Widerruf</a>
@@ -275,9 +1036,9 @@
       e.preventDefault();
       cfError.style.display = 'none';
 
-      const name    = document.getElementById('cf-name').value.trim();
-      const email   = document.getElementById('cf-email').value.trim();
-      const message = document.getElementById('cf-message').value.trim();
+      const name  = document.getElementById('cf-name').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const text  = document.getElementById('cf-message').value.trim();
 
       if (!name) {
         cfError.textContent = 'Bitte gib deinen Namen ein.';
@@ -287,8 +1048,8 @@
         cfError.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
         cfError.style.display = 'block'; return;
       }
-      if (!message) {
-        cfError.textContent = 'Bitte schreib eine kurze Nachricht.';
+      if (!text) {
+        cfError.textContent = 'Bitte schreib kurz, worum es geht.';
         cfError.style.display = 'block'; return;
       }
 
@@ -303,8 +1064,7 @@
           body: JSON.stringify({
             name: name,
             email: email,
-            klasse: document.getElementById('cf-klasse').value.trim(),
-            message: message
+            message: text
           })
         });
 
@@ -318,9 +1078,141 @@
         cfError.textContent = 'Etwas hat nicht geklappt. Schreib mir direkt per WhatsApp.';
         cfError.style.display = 'block';
         btn.disabled = false;
-        btn.textContent = 'Nachricht senden';
+        btn.textContent = 'Abschicken';
       }
     });
+  </script>
+
+  <script>
+    // Erste Mathe-Abiturpruefungen 2027. Die Termine unterscheiden sich je
+    // Bundesland, das hier ist ein realistischer fruehester Termin.
+    (function () {
+      const ZIEL = new Date('2027-04-19T08:00:00+02:00').getTime();
+      const feld = document.getElementById('abi-uhr');
+      if (!feld) return;
+
+      const zwei = n => String(n).padStart(2, '0');
+
+      function tick() {
+        const rest = ZIEL - Date.now();
+        if (rest <= 0) {
+          feld.parentElement.textContent = 'Viel Erfolg bei den Prüfungen!';
+          return;
+        }
+        const tage = Math.floor(rest / 86400000);
+        const std  = Math.floor(rest / 3600000) % 24;
+        const min  = Math.floor(rest / 60000) % 60;
+        const sek  = Math.floor(rest / 1000) % 60;
+        feld.textContent = tage + ' Tage, ' + zwei(std) + ':' + zwei(min) + ':' + zwei(sek);
+      }
+
+      tick();
+      setInterval(tick, 1000);
+    })();
+  </script>
+
+  <script>
+    // Formel-Hintergrund: Maske mit Loechern dort, wo Text oder Bilder stehen.
+    (function () {
+      var LUFT = 24;      // Abstand um jeden Textkasten
+      var WEICH = 26;     // weicher Rand, damit keine harten Kanten entstehen
+      var SKALA = 0.5;    // Maske in halber Aufloesung, das reicht voellig
+
+      function kaestenIn(abschnitt) {
+        var aus = [];
+        var alle = abschnitt.querySelectorAll('*');
+        for (var i = 0; i < alle.length; i++) {
+          var el = alle[i];
+          var cs = getComputedStyle(el);
+          if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+          for (var j = 0; j < el.childNodes.length; j++) {
+            var n = el.childNodes[j];
+            if (n.nodeType !== 3 || !n.textContent.trim()) continue;
+            var rg = document.createRange();
+            rg.selectNodeContents(n);
+            var zeilen = rg.getClientRects();
+            for (var k = 0; k < zeilen.length; k++) {
+              if (zeilen[k].width > 2 && zeilen[k].height > 2) aus.push(zeilen[k]);
+            }
+          }
+          if (/^(IMG|SVG|VIDEO|CANVAS|INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName)) {
+            var r = el.getBoundingClientRect();
+            if (r.width > 2 && r.height > 2) aus.push(r);
+          }
+        }
+        return aus;
+      }
+
+      function maskeFuer(abschnitt) {
+        var ab = abschnitt.getBoundingClientRect();
+        if (ab.width < 10 || ab.height < 10) return null;
+        var c = document.createElement('canvas');
+        c.width  = Math.max(1, Math.round(ab.width  * SKALA));
+        c.height = Math.max(1, Math.round(ab.height * SKALA));
+        var g = c.getContext('2d');
+        g.fillStyle = '#fff';
+        g.fillRect(0, 0, c.width, c.height);
+        var kaesten = kaestenIn(abschnitt);
+        if (!kaesten.length) return null;
+        g.globalCompositeOperation = 'destination-out';
+        g.fillStyle = '#000';
+        // Zwei Durchgaenge: erst der harte Kern, damit unter Text wirklich
+        // nichts stehen bleibt. Ein einzelner weichgezeichneter Kasten
+        // radiert die Mitte nur zu etwa 84 Prozent aus.
+        for (var d = 0; d < 2; d++) {
+          if ('filter' in g) g.filter = d === 0 ? 'none' : 'blur(' + (WEICH * SKALA) + 'px)';
+          for (var i = 0; i < kaesten.length; i++) {
+            var r = kaesten[i];
+            g.fillRect((r.left - ab.left - LUFT) * SKALA, (r.top - ab.top - LUFT) * SKALA,
+                       (r.width + LUFT * 2) * SKALA, (r.height + LUFT * 2) * SKALA);
+          }
+        }
+        if ('filter' in g) g.filter = 'none';
+        return c.toDataURL('image/png');
+      }
+
+      // Billig: nur der Kachelversatz. Laeuft sofort bei jeder Verschiebung,
+      // damit an den Abschnittsgrenzen nie eine Naht sichtbar wird.
+      function versaetze() {
+        var y = window.pageYOffset;
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var oben = liste[i].getBoundingClientRect().top + y;
+          liste[i].style.setProperty('--muster-y', -(oben % 950) + 'px');
+        }
+      }
+
+      // Teuer: die Masken neu zeichnen. Nur gebuendelt.
+      var laeuft = false;
+      function bauen() {
+        if (laeuft) return;
+        laeuft = true;
+        versaetze();
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var d = maskeFuer(liste[i]);
+          if (d) liste[i].style.setProperty('--muster-maske', 'url(' + d + ')');
+        }
+        laeuft = false;
+      }
+
+      var timer;
+      function spaeter() { versaetze(); clearTimeout(timer); timer = setTimeout(bauen, 120); }
+
+      bauen();
+      window.addEventListener('load', spaeter);
+      window.addEventListener('resize', spaeter);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(spaeter);
+      document.addEventListener('toggle', spaeter, true);   // aufklappbare Fragen
+      // Nachladende Bilder verschieben Abschnitte noch nach dem load-Ereignis.
+      // Ohne das waeren die Versaetze veraltet und das Muster bekaeme eine Naht.
+      if (window.ResizeObserver) {
+        var beo = new ResizeObserver(spaeter);
+        beo.observe(document.body);
+        var abschnitte = document.querySelectorAll('section');
+        for (var i = 0; i < abschnitte.length; i++) beo.observe(abschnitte[i]);
+      }
+    })();
   </script>
 </body>
 </html>

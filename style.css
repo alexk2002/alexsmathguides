@@ -7,6 +7,7 @@
       --bg: #ffffff;
       --surface: #f4f7fb;
       --surface-2: #e9eff7;
+      --accent: #e4edf7;
       --text: #0f172a;
       --muted: #475569;
       --line: #d8e2ee;
@@ -16,7 +17,7 @@
       --success: #0f766e;
       --radius: 18px;
       --shadow: 0 14px 40px rgba(11, 42, 74, 0.10);
-      --max: 1120px;
+      --max: 1280px;
     }
 
     * { box-sizing: border-box; }
@@ -102,6 +103,20 @@
       color: var(--muted);
       font-size: 15px;
     }
+
+    /* Knopf im Kopfbereich */
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 11px 20px;
+      background: var(--primary); color: #fff;
+      border-radius: 10px;
+      font-weight: 700; font-size: 14.5px;
+      white-space: nowrap;
+      transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: var(--primary-2); transform: translateY(-1px); color: #fff; }
+    @media (max-width: 1180px) { .nav-links { gap: 15px; } .nav-links a:not(.nav-cta) { font-size: 14px; } }
+
 
     .hero {
       padding: 80px 0 64px;

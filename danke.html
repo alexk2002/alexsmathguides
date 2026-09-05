@@ -9,7 +9,7 @@
   <meta name="description" content="Deine kostenlosen Skripte zu Ableitungsregeln, Integralen/Stammfunktionen und Vektoren." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
     .danke-hero {
@@ -84,6 +84,34 @@
       text-align: center;
     }
     .hint-box strong { color: var(--text); }
+  
+    section { position: relative; z-index: 0; }
+    section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: url('img/formel-muster-g10c.png');
+      background-repeat: repeat;
+      background-size: 1400px 950px;
+      /* Haengt an der Seite, nicht am Bildschirm: es scrollt normal weg.
+         Damit die Kachel nicht in jedem Abschnitt neu anfaengt und dabei
+         Formeln zerschneidet, rechnet das Skript weiter unten jedem
+         Abschnitt seinen Versatz aus. */
+      background-attachment: scroll;
+      background-position: 0 var(--muster-y, 0px);
+      opacity: .34;
+      pointer-events: none;
+      /* Die Maske wird unten je Abschnitt gezeichnet: ueberall dort, wo
+         Text oder ein Bild steht, bekommt sie ein weiches Loch. Dadurch
+         verschwindet das Muster unter Text, bleibt sonst aber stehen. */
+      -webkit-mask-image: var(--muster-maske, none);
+      mask-image: var(--muster-maske, none);
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
   </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -97,10 +125,11 @@
         <span>alexsmathguides</span>
       </a>
       <nav class="nav-links">
-        <a href="index.html#angebot">Angebot</a>
-        <a href="index.html#kontakt">Kontakt</a>
+        <a href="index.html">Coaching</a>
         <a href="freebies.html">Kostenlose PDFs</a>
-        <a href="https://kurs.alexsmathguides.de/login" style="font-weight:600;">Zum Kurs &#8594;</a>
+        <a href="tutor-werden.html">Tutor werden</a>
+        <b><a href="abitur-kurs.html">mathemaxxers Abitur Kurs</a></b>
+        <a class="nav-cta" href="index.html#kontakt">Erstgespr&auml;ch</a>
       </nav>
     </div>
   </header>
@@ -116,7 +145,7 @@
     </section>
 
     <section class="section" style="padding-top: 40px;">
-      <div class="container" style="max-width: 1120px;">
+      <div class="container" style="position:relative;max-width: 1120px;">
 
         <div class="pdf-grid">
 
@@ -210,6 +239,7 @@
     <div class="container">
       <p>© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</p>
       <div class="footer-links">
+        <a class="fuss-login" href="https://kurs.alexsmathguides.de/login">Zum Kurs einloggen</a>
         <a href="/impressum.html">Impressum</a>
         <a href="/datenschutz.html">Datenschutz</a>
         <a href="/widerruf.html">Widerruf</a>
@@ -217,5 +247,109 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Formel-Hintergrund: Maske mit Loechern dort, wo Text oder Bilder stehen.
+    (function () {
+      var LUFT = 24;      // Abstand um jeden Textkasten
+      var WEICH = 26;     // weicher Rand, damit keine harten Kanten entstehen
+      var SKALA = 0.5;    // Maske in halber Aufloesung, das reicht voellig
+
+      function kaestenIn(abschnitt) {
+        var aus = [];
+        var alle = abschnitt.querySelectorAll('*');
+        for (var i = 0; i < alle.length; i++) {
+          var el = alle[i];
+          var cs = getComputedStyle(el);
+          if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+          for (var j = 0; j < el.childNodes.length; j++) {
+            var n = el.childNodes[j];
+            if (n.nodeType !== 3 || !n.textContent.trim()) continue;
+            var rg = document.createRange();
+            rg.selectNodeContents(n);
+            var zeilen = rg.getClientRects();
+            for (var k = 0; k < zeilen.length; k++) {
+              if (zeilen[k].width > 2 && zeilen[k].height > 2) aus.push(zeilen[k]);
+            }
+          }
+          if (/^(IMG|SVG|VIDEO|CANVAS|INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName)) {
+            var r = el.getBoundingClientRect();
+            if (r.width > 2 && r.height > 2) aus.push(r);
+          }
+        }
+        return aus;
+      }
+
+      function maskeFuer(abschnitt) {
+        var ab = abschnitt.getBoundingClientRect();
+        if (ab.width < 10 || ab.height < 10) return null;
+        var c = document.createElement('canvas');
+        c.width  = Math.max(1, Math.round(ab.width  * SKALA));
+        c.height = Math.max(1, Math.round(ab.height * SKALA));
+        var g = c.getContext('2d');
+        g.fillStyle = '#fff';
+        g.fillRect(0, 0, c.width, c.height);
+        var kaesten = kaestenIn(abschnitt);
+        if (!kaesten.length) return null;
+        g.globalCompositeOperation = 'destination-out';
+        g.fillStyle = '#000';
+        // Zwei Durchgaenge: erst der harte Kern, damit unter Text wirklich
+        // nichts stehen bleibt. Ein einzelner weichgezeichneter Kasten
+        // radiert die Mitte nur zu etwa 84 Prozent aus.
+        for (var d = 0; d < 2; d++) {
+          if ('filter' in g) g.filter = d === 0 ? 'none' : 'blur(' + (WEICH * SKALA) + 'px)';
+          for (var i = 0; i < kaesten.length; i++) {
+            var r = kaesten[i];
+            g.fillRect((r.left - ab.left - LUFT) * SKALA, (r.top - ab.top - LUFT) * SKALA,
+                       (r.width + LUFT * 2) * SKALA, (r.height + LUFT * 2) * SKALA);
+          }
+        }
+        if ('filter' in g) g.filter = 'none';
+        return c.toDataURL('image/png');
+      }
+
+      // Billig: nur der Kachelversatz. Laeuft sofort bei jeder Verschiebung,
+      // damit an den Abschnittsgrenzen nie eine Naht sichtbar wird.
+      function versaetze() {
+        var y = window.pageYOffset;
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var oben = liste[i].getBoundingClientRect().top + y;
+          liste[i].style.setProperty('--muster-y', -(oben % 950) + 'px');
+        }
+      }
+
+      // Teuer: die Masken neu zeichnen. Nur gebuendelt.
+      var laeuft = false;
+      function bauen() {
+        if (laeuft) return;
+        laeuft = true;
+        versaetze();
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var d = maskeFuer(liste[i]);
+          if (d) liste[i].style.setProperty('--muster-maske', 'url(' + d + ')');
+        }
+        laeuft = false;
+      }
+
+      var timer;
+      function spaeter() { versaetze(); clearTimeout(timer); timer = setTimeout(bauen, 120); }
+
+      bauen();
+      window.addEventListener('load', spaeter);
+      window.addEventListener('resize', spaeter);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(spaeter);
+      document.addEventListener('toggle', spaeter, true);   // aufklappbare Fragen
+      // Nachladende Bilder verschieben Abschnitte noch nach dem load-Ereignis.
+      // Ohne das waeren die Versaetze veraltet und das Muster bekaeme eine Naht.
+      if (window.ResizeObserver) {
+        var beo = new ResizeObserver(spaeter);
+        beo.observe(document.body);
+        var abschnitte = document.querySelectorAll('section');
+        for (var i = 0; i < abschnitte.length; i++) beo.observe(abschnitte[i]);
+      }
+    })();
+  </script>
 </body>
 </html>

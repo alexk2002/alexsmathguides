@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mathe-Tutor werden – alexsmathguides</title>
+  <meta name="description" content="Werde Mathe-Tutor bei alexsmathguides: 20 € pro Stunde, 4 bis 16 Stunden im Monat, komplett von zuhause. Schüler bekommst du von uns, Zeiten machst du selbst aus." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    :root {
+      --bg: #ffffff;
+      --surface: #f4f7fb;
+      --accent: #eaf1f8;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #d8e2ee;
+      --primary: #0b2a4a;
+      --primary-2: #133a63;
+      --success: #0f766e;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(11,42,74,0.08);
+      --max: 1280px;
+      --max-narrow: 780px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+    .container-narrow { width: min(var(--max-narrow), calc(100% - 32px)); margin: 0 auto; }
+
+    section { padding: 72px 0; }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    h2 {
+      font-size: clamp(26px, 4vw, 34px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+
+    h3 { font-size: 18px; font-weight: 700; margin: 0 0 6px; }
+
+    .section-intro {
+      max-width: 62ch;
+      color: var(--muted);
+      font-size: 16px;
+      margin: 0 0 40px;
+    }
+
+    /* ── Header ── */
+    .site-header {
+      position: sticky; top: 0; z-index: 20;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(216,226,238,0.7);
+    }
+    .nav {
+      min-height: 74px;
+      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    }
+    .brand {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 800; font-size: 20px; color: var(--primary); text-decoration: none;
+    }
+    .brand-logo { height: 40px; width: auto; display: block; }
+    .nav-links {
+      display: flex; gap: 20px; align-items: center;
+      color: var(--muted); font-size: 15px;
+    }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Knopf im Kopfbereich */
+    .nav-cta {
+      display: inline-flex; align-items: center;
+      padding: 11px 20px;
+      background: var(--primary); color: #fff;
+      border-radius: 10px;
+      font-weight: 700; font-size: 14.5px;
+      white-space: nowrap;
+      transition: background .2s, transform .2s;
+    }
+    .nav-cta:hover { background: var(--primary-2); transform: translateY(-1px); color: #fff; }
+    @media (max-width: 1180px) { .nav-links a:not(.nav-cta) { font-size: 14px; } .nav-links { gap: 15px; } }
+    .hero { position: relative; overflow: hidden; }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 88px 0 72px;
+      background: linear-gradient(180deg, #ffffff 0%, #f7faff 100%);
+      text-align: center;
+    }
+    .badge {
+      display: inline-block; padding: 6px 14px; border-radius: 999px;
+      background: var(--accent); color: var(--primary);
+      font-size: 13px; font-weight: 700; letter-spacing: .03em; margin-bottom: 24px;
+    }
+    h1 {
+      margin: 0 0 20px;
+      font-size: clamp(36px, 7vw, 58px);
+      font-weight: 800; letter-spacing: -0.03em; line-height: 1.1;
+      color: var(--text);
+    }
+    .hero p.lead {
+      margin: 0 auto; max-width: 54ch;
+      font-size: 18px; color: var(--muted); line-height: 1.65;
+    }
+    .hero-ctas {
+      display: flex; align-items: center; justify-content: center;
+      gap: 16px; flex-wrap: wrap; margin: 36px 0 0;
+    }
+    .btn-submit {
+      padding: 15px 28px; background: var(--primary); color: #fff;
+      border: none; border-radius: 10px;
+      font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+      cursor: pointer; white-space: nowrap;
+      transition: background .2s, transform .2s; display: inline-block;
+    }
+    .btn-submit:hover { background: var(--primary-2); transform: translateY(-1px); }
+    .btn-secondary {
+      font-size: 15px; font-weight: 600; color: var(--muted);
+      border-bottom: 1.5px solid var(--line); padding-bottom: 2px;
+    }
+    .btn-secondary:hover { color: var(--primary); border-color: var(--primary); }
+
+    /* ── Zahlenkarten ── */
+    .zahlen {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 8px;
+    }
+    .zahl-karte {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px 22px;
+    }
+    .zahl-karte .wert {
+      font-size: 30px; font-weight: 800; color: var(--primary);
+      letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 4px;
+    }
+    .zahl-karte .label { font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+    .zahl-karte .text { color: var(--muted); font-size: 14.5px; line-height: 1.55; }
+
+    /* ── Ablauf ── */
+    .ablauf { counter-reset: schritt; max-width: 64ch; }
+    .schritt {
+      counter-increment: schritt;
+      display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+      padding-bottom: 30px; position: relative;
+    }
+    .schritt::before {
+      content: counter(schritt);
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .schritt::after {
+      content: ""; position: absolute; left: 18.5px; top: 46px; bottom: 4px;
+      width: 1px; background: var(--line);
+    }
+    .schritt:last-child { padding-bottom: 0; }
+    .schritt:last-child::after { display: none; }
+    .schritt p { margin: 0; color: var(--muted); font-size: 15.5px; }
+
+    /* ── Listen ── */
+    ul.haken { list-style: none; margin: 0; padding: 0; max-width: 64ch; }
+    ul.haken li {
+      padding-left: 34px; margin-bottom: 16px; position: relative;
+      font-size: 16px; line-height: 1.6;
+    }
+    ul.haken li::before {
+      content: "✓"; position: absolute; left: 0; top: -1px;
+      color: var(--success); font-weight: 800; font-size: 19px;
+    }
+    ul.haken li b { font-weight: 700; }
+    ul.haken li span { color: var(--muted); }
+
+    ul.punkte { list-style: none; margin: 0; padding: 0; max-width: 64ch; }
+    ul.punkte li {
+      padding-left: 26px; margin-bottom: 14px; position: relative;
+      font-size: 16px; line-height: 1.6;
+    }
+    ul.punkte li::before {
+      content: ""; position: absolute; left: 0; top: 9px;
+      width: 8px; height: 8px; border-radius: 50%;
+      border: 2px solid var(--primary);
+    }
+    ul.punkte li span { color: var(--muted); }
+
+    /* ── Hinweiskasten ── */
+    .hinweis {
+      background: var(--surface);
+      border-left: 3px solid var(--success);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 28px 0 0;
+      max-width: 64ch;
+      font-size: 15.5px;
+      color: var(--muted);
+    }
+    .hinweis b { color: var(--primary); }
+
+    /* ── FAQ ── */
+    .faq { max-width: 64ch; }
+    .faq details {
+      border-bottom: 1px solid var(--line);
+      padding: 18px 0;
+    }
+    .faq summary {
+      cursor: pointer; font-weight: 700; font-size: 16.5px;
+      list-style: none; display: flex; justify-content: space-between; gap: 16px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+"; color: var(--primary); font-weight: 700; font-size: 22px;
+      line-height: 1; flex-shrink: 0;
+    }
+    .faq details[open] summary::after { content: "–"; }
+    .faq details p { margin: 12px 0 0; color: var(--muted); font-size: 15.5px; }
+
+    /* ── Abschluss ── */
+    .abschluss {
+      background: var(--primary);
+      color: #fff;
+      border-radius: 20px;
+      padding: 56px 40px;
+      text-align: center;
+    }
+    .abschluss h2 { color: #fff; }
+    .abschluss p { color: #cfdcea; max-width: 52ch; margin: 0 auto 12px; font-size: 16.5px; }
+    .abschluss .btn-hell {
+      display: inline-block; margin-top: 24px;
+      padding: 15px 30px; border-radius: 10px;
+      background: #fff; color: var(--primary);
+      font-weight: 700; font-size: 16px;
+      transition: background .2s, transform .2s;
+    }
+    .abschluss .btn-hell:hover { background: var(--accent); transform: translateY(-1px); }
+    .abschluss .klein { font-size: 14px; color: rgba(255,255,255,.6); margin-top: 18px; }
+
+    /* ── Footer ── */
+    .footer {
+      padding: 28px 0 48px; color: var(--muted); font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+    .footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; }
+    .footer-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 6px; }
+    .footer-links a:hover { color: var(--primary); }
+    .fuss-login { font-weight: 600; color: var(--primary); }
+    .fuss-login:hover { text-decoration: underline; }
+
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .zahlen { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 760px) {
+      section { padding: 56px 0; }
+      .hero { padding: 56px 0 48px; }
+      .nav-links { display: none; }
+      .abschluss { padding: 40px 24px; }
+      .zahlen { grid-template-columns: 1fr; }
+    }
+  
+    section { position: relative; z-index: 0; }
+    section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: url('img/formel-muster-g10c.png');
+      background-repeat: repeat;
+      background-size: 1400px 950px;
+      /* Haengt an der Seite, nicht am Bildschirm: es scrollt normal weg.
+         Damit die Kachel nicht in jedem Abschnitt neu anfaengt und dabei
+         Formeln zerschneidet, rechnet das Skript weiter unten jedem
+         Abschnitt seinen Versatz aus. */
+      background-attachment: scroll;
+      background-position: 0 var(--muster-y, 0px);
+      opacity: .34;
+      pointer-events: none;
+      /* Die Maske wird unten je Abschnitt gezeichnet: ueberall dort, wo
+         Text oder ein Bild steht, bekommt sie ein weiches Loch. Dadurch
+         verschwindet das Muster unter Text, bleibt sonst aber stehen. */
+      -webkit-mask-image: var(--muster-maske, none);
+      mask-image: var(--muster-maske, none);
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+  </style>
+</head>
+<body id="top">
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <img src="img/logo.png" alt="alexsmathguides Logo" class="brand-logo" />
+        <span>alexsmathguides</span>
+      </a>
+      <nav class="nav-links">
+        <a href="index.html">Coaching</a>
+        <a href="freebies.html">Kostenlose PDFs</a>
+        <a href="tutor-werden.html" style="color: var(--primary); font-weight: 600;">Tutor werden</a>
+        <b><a href="abitur-kurs.html">mathemaxxers Abitur Kurs</a></b>
+        <a class="nav-cta" href="index.html#kontakt">Erstgespr&auml;ch</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ── Hero ── -->
+  <section class="hero">
+    <div class="container-narrow">
+      <span class="badge">Wir suchen Verstärkung</span>
+      <h1>Werde auch zum mathemaxxer<br></h1>
+      <p class="lead">Du hast Mathe im Abi gerockt und studierst jetzt? Dann such
+      dir aus, wie viel du arbeiten willst. Wir bringen dir die Schüler, du machst
+      den Rest von zuhause.</p>
+      <div class="hero-ctas">
+        <a class="btn-submit" href="#bewerben">Jetzt bewerben</a>
+        <a class="btn-secondary" href="#ablauf">Wie läuft das ab?</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Zahlen ── -->
+  <section style="padding-top:0;">
+    <div class="container">
+      <div class="zahlen">
+        <div class="zahl-karte">
+          <div class="wert">20 €</div>
+          <div class="label">pro Stunde</div>
+          <div class="text">Du schreibst am Monatsende eine Rechnung über die
+          Stunden, die du gegeben hast.</div>
+        </div>
+        <div class="zahl-karte">
+          <div class="wert">4 bis 16</div>
+          <div class="label">Stunden im Monat</div>
+          <div class="text">Du entscheidest, wie viel du arbeiten willst. So behälst du deine Flexiblität</div>
+        </div>
+        <div class="zahl-karte">
+          <div class="wert">100 %</div>
+          <div class="label">von zuhause</div>
+          <div class="text">Alles läuft online. Du brauchst nur Laptop & Internet.</div>
+        </div>
+        <div class="zahl-karte">
+          <div class="wert">0</div>
+          <div class="label">Schüler suchen</div>
+          <div class="text">Die Betreuung kommt von uns. Du musst niemanden
+          akquirieren und keine Werbung machen.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Ablauf ── -->
+  <section id="ablauf" style="background: var(--surface);">
+    <div class="container">
+      <span class="eyebrow">So läuft es ab</span>
+      <h2>Fünf Schritte, dann geht es los</h2>
+      <p class="section-intro">Kein langes Bewerbungsverfahren. Wir lernen uns kurz kennen und dann startest du.</p>
+
+      <div class="ablauf">
+        <div class="schritt">
+          <div>
+            <h3>Wir sprechen kurz per Zoom</h3>
+            <p>Etwa 20 Minuten. Mich interessiert, wer du bist und ob du ausreichend gut erklären kannst.</p>
+          </div>
+        </div>
+        <div class="schritt">
+          <div>
+            <h3>Du sagst, wie viel du machen willst</h3>
+            <p>Zwischen 4 und 16 Stunden im Monat, du entscheidest.</p>
+          </div>
+        </div>
+        <div class="schritt">
+          <div>
+            <h3>Wir schlagen dir Schüler vor</h3>
+            <p>Du bekommst eine kurze Info zu Jahrgang und Themen. Passt es nicht,
+            sagst du einfach ab. Das ist völlig okay und hat keine Folgen.</p>
+          </div>
+        </div>
+        <div class="schritt">
+          <div>
+            <h3>Termine machst du direkt aus</h3>
+            <p>Du und dein Schüler findet Zeiten, die für euch passen. Wir reden
+            da nicht rein.</p>
+          </div>
+        </div>
+        <div class="schritt">
+          <div>
+            <h3>Am Monatsende schreibst du eine Rechnung</h3>
+            <p>Über die Stunden, die tatsächlich stattgefunden haben. Dafür gibt es natürlich ein Template.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Voraussetzungen ── -->
+  <section>
+    <div class="container">
+      <span class="eyebrow">Voraussetzungen</span>
+      <h2>Was du mitbringen solltest</h2>
+
+      <ul class="haken">
+        <li><b>Eine 1 im Mathe-Abitur</b>, also mindestens 13 Punkte.
+        <span>Das ist die einzige harte Bedingung.</span></li>
+        <li><b>Du studierst gerade.</b>
+        <span>Welches Fach, ist völlig egal. Medizin, BWL, Lehramt, Informatik,
+        alles gut.</span></li>
+        <li><b>Erfahrung in Nachhilfe ist super, aber kein Muss.</b>
+        <span>Wenn du schon mal jemandem Mathe erklärt hast und es hat Klick
+        gemacht, reicht das erstmal.</span></li>
+      </ul>
+
+      <div class="hinweis">
+        <b>Wichtig zu wissen:</b> Du arbeitest selbstständig auf Rechnung, nicht
+        als Angestellter. Steuern und Versicherung laufen über dich. Bei den
+        Stundenzahlen, um die es hier geht, ist das meistens unkompliziert. Wir
+        erklären dir im Gespräch, worauf du achten musst.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Kurs ── -->
+  <section style="background: var(--surface);">
+    <div class="container">
+      <span class="eyebrow">Material</span>
+      <h2>Der Abitur-Kurs gehört dazu</h2>
+      <p class="section-intro" style="margin-bottom:20px;">Deine Schüler bekommen
+      bei uns Zugang zum kompletten Abitur-Kurs mit 69 Lektionen, Kurzvideos und
+      Quizzen. Du bekommst den Zugang auch, damit du weißt, womit sie arbeiten.</p>
+      <p style="max-width:62ch; color:var(--muted); margin:0;">Ob du damit
+      unterrichtest, entscheidest du selbst. Manche nutzen ihn als roten Faden,
+      andere bringen komplett eigenes Material mit. Beides ist völlig in Ordnung.</p>
+    </div>
+  </section>
+
+  <!-- ── Unterlagen ── -->
+  <section>
+    <div class="container">
+      <span class="eyebrow">Bewerbung</span>
+      <h2>Was wir von dir brauchen</h2>
+
+      <ul class="punkte">
+        <li><b>Dein Abiturzeugnis</b>, <span>es reicht die Seite mit den
+        Mathe-Punkten</span></li>
+        <li><b>Deinen Lebenslauf</b>, <span>gerne kurz und formlos</span></li>
+        <li><b>Eine Immatrikulationsbescheinigung</b> <span>von deiner Uni</span></li>
+      </ul>
+
+      <div class="hinweis">
+        <b>Kein Anschreiben nötig.</b> Wirklich nicht. Schick uns die drei Sachen
+        und ein, zwei Sätze zu dir. Alles andere besprechen wir im Gespräch.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FAQ ── -->
+  <section style="background: var(--surface);">
+    <div class="container">
+      <span class="eyebrow">Häufige Fragen</span>
+      <h2>Das werden wir oft gefragt</h2>
+
+      <div class="faq">
+        <details>
+          <summary>Muss ich Mathe studieren?</summary>
+          <p>Nein. Wichtig ist, dass du Abi-Mathe wirklich kannst und es gut
+          erklären kannst. Viele unserer besten Erklärer studieren etwas ganz
+          anderes.</p>
+        </details>
+        <details>
+          <summary>Wie viele Schüler betreue ich?</summary>
+          <p>Meistens zwei bis vier, je nachdem wie viele Stunden du machen
+          willst. Du bekommst nie mehr zugeteilt, als du selbst angegeben hast.</p>
+        </details>
+        <details>
+          <summary>Kann ich nebenbei woanders Nachhilfe geben?</summary>
+          <p>Klar. Du bist selbstständig, das ist deine Entscheidung. Wir
+          vereinbaren kein Wettbewerbsverbot.</p>
+        </details>
+        <details>
+          <summary>Wie schnell bekomme ich eine Antwort?</summary>
+          <p>Normalerweise innerhalb von zwei Tagen. Du bekommst dann direkt
+          einen Terminvorschlag fürs Zoom-Gespräch.</p>
+        </details>
+        <details>
+          <summary>Brauche ich ein Gewerbe?</summary>
+          <p>In der Regel nicht. Unterricht gilt als freiberufliche Tätigkeit, da
+          reicht die Anmeldung beim Finanzamt. Wir gehen das im Gespräch mit dir
+          durch.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Abschluss ── -->
+  <section id="bewerben">
+    <div class="container">
+      <div class="abschluss">
+        <h2>Klingt gut? Dann meld dich</h2>
+        <p>Schick uns deine Unterlagen und ein paar Sätze zu dir. Wir melden uns
+        normalerweise innerhalb von zwei Tagen mit einem Terminvorschlag.</p>
+        <a class="btn-hell"
+           href="mailto:kontakt@alexsmathguides.de?subject=Bewerbung%20als%20Mathe-Tutor&body=Hi%20Alex%2C%0A%0Aich%20m%C3%B6chte%20mich%20als%20Tutor%20bewerben.%0A%0AKurz%20zu%20mir%3A%0A%0A%0AMeine%20Mathe-Punkte%20im%20Abi%3A%0AIch%20studiere%3A%0AGew%C3%BCnschte%20Stunden%20pro%20Monat%3A%0A%0AIm%20Anhang%3A%20Abiturzeugnis%2C%20Lebenslauf%2C%20Immatrikulationsbescheinigung%0A%0AViele%20Gr%C3%BC%C3%9Fe%0A">
+          Bewerbung schreiben
+        </a>
+        <p class="klein">kontakt@alexsmathguides.de</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="footer">
+    <div class="container">
+      <span>© 2026 alexsmathguides</span>
+      <div class="footer-links">
+        <a class="fuss-login" href="https://kurs.alexsmathguides.de/login">Zum Kurs einloggen</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html">Datenschutz</a>
+        <a href="widerruf.html">Widerruf</a>
+        <a href="agb.html">AGB</a>
+      </div>
+    </div>
+  </footer>
+
+
+  <script>
+    // Formel-Hintergrund: Maske mit Loechern dort, wo Text oder Bilder stehen.
+    (function () {
+      var LUFT = 24;      // Abstand um jeden Textkasten
+      var WEICH = 26;     // weicher Rand, damit keine harten Kanten entstehen
+      var SKALA = 0.5;    // Maske in halber Aufloesung, das reicht voellig
+
+      function kaestenIn(abschnitt) {
+        var aus = [];
+        var alle = abschnitt.querySelectorAll('*');
+        for (var i = 0; i < alle.length; i++) {
+          var el = alle[i];
+          var cs = getComputedStyle(el);
+          if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+          for (var j = 0; j < el.childNodes.length; j++) {
+            var n = el.childNodes[j];
+            if (n.nodeType !== 3 || !n.textContent.trim()) continue;
+            var rg = document.createRange();
+            rg.selectNodeContents(n);
+            var zeilen = rg.getClientRects();
+            for (var k = 0; k < zeilen.length; k++) {
+              if (zeilen[k].width > 2 && zeilen[k].height > 2) aus.push(zeilen[k]);
+            }
+          }
+          if (/^(IMG|SVG|VIDEO|CANVAS|INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName)) {
+            var r = el.getBoundingClientRect();
+            if (r.width > 2 && r.height > 2) aus.push(r);
+          }
+        }
+        return aus;
+      }
+
+      function maskeFuer(abschnitt) {
+        var ab = abschnitt.getBoundingClientRect();
+        if (ab.width < 10 || ab.height < 10) return null;
+        var c = document.createElement('canvas');
+        c.width  = Math.max(1, Math.round(ab.width  * SKALA));
+        c.height = Math.max(1, Math.round(ab.height * SKALA));
+        var g = c.getContext('2d');
+        g.fillStyle = '#fff';
+        g.fillRect(0, 0, c.width, c.height);
+        var kaesten = kaestenIn(abschnitt);
+        if (!kaesten.length) return null;
+        g.globalCompositeOperation = 'destination-out';
+        g.fillStyle = '#000';
+        // Zwei Durchgaenge: erst der harte Kern, damit unter Text wirklich
+        // nichts stehen bleibt. Ein einzelner weichgezeichneter Kasten
+        // radiert die Mitte nur zu etwa 84 Prozent aus.
+        for (var d = 0; d < 2; d++) {
+          if ('filter' in g) g.filter = d === 0 ? 'none' : 'blur(' + (WEICH * SKALA) + 'px)';
+          for (var i = 0; i < kaesten.length; i++) {
+            var r = kaesten[i];
+            g.fillRect((r.left - ab.left - LUFT) * SKALA, (r.top - ab.top - LUFT) * SKALA,
+                       (r.width + LUFT * 2) * SKALA, (r.height + LUFT * 2) * SKALA);
+          }
+        }
+        if ('filter' in g) g.filter = 'none';
+        return c.toDataURL('image/png');
+      }
+
+      // Billig: nur der Kachelversatz. Laeuft sofort bei jeder Verschiebung,
+      // damit an den Abschnittsgrenzen nie eine Naht sichtbar wird.
+      function versaetze() {
+        var y = window.pageYOffset;
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var oben = liste[i].getBoundingClientRect().top + y;
+          liste[i].style.setProperty('--muster-y', -(oben % 950) + 'px');
+        }
+      }
+
+      // Teuer: die Masken neu zeichnen. Nur gebuendelt.
+      var laeuft = false;
+      function bauen() {
+        if (laeuft) return;
+        laeuft = true;
+        versaetze();
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var d = maskeFuer(liste[i]);
+          if (d) liste[i].style.setProperty('--muster-maske', 'url(' + d + ')');
+        }
+        laeuft = false;
+      }
+
+      var timer;
+      function spaeter() { versaetze(); clearTimeout(timer); timer = setTimeout(bauen, 120); }
+
+      bauen();
+      window.addEventListener('load', spaeter);
+      window.addEventListener('resize', spaeter);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(spaeter);
+      document.addEventListener('toggle', spaeter, true);   // aufklappbare Fragen
+      // Nachladende Bilder verschieben Abschnitte noch nach dem load-Ereignis.
+      // Ohne das waeren die Versaetze veraltet und das Muster bekaeme eine Naht.
+      if (window.ResizeObserver) {
+        var beo = new ResizeObserver(spaeter);
+        beo.observe(document.body);
+        var abschnitte = document.querySelectorAll('section');
+        for (var i = 0; i < abschnitte.length; i++) beo.observe(abschnitte[i]);
+      }
+    })();
+  </script>
+</body>
+</html>
