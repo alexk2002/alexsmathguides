@@ -205,9 +205,19 @@
 
         if (res.ok) {
           window.location.href = 'danke.html';
-        } else {
-          throw new Error();
+          return;
         }
+        // Bei 400 weiss der Server genau, was klemmt -- meist ein Tippfehler in der
+        // Domain. Diesen Hinweis zeigen statt ihn durch einen allgemeinen Satz zu
+        // ersetzen: nur so kann die Person die Adresse korrigieren.
+        let meldung = null;
+        try { meldung = (await res.json()).error; } catch (e) {}
+        if (!meldung) throw new Error();
+        errorBox.textContent = meldung;
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+        submitBtn.textContent = '📩 Zu den kostenlosen Skripten';
+        return;
       } catch(err) {
         errorBox.textContent = 'Etwas hat nicht geklappt. Versuche es erneut oder schreib mir direkt per WhatsApp.';
         errorBox.style.display = 'block';
