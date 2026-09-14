@@ -527,6 +527,18 @@
       -webkit-mask-repeat: no-repeat;
       mask-repeat: no-repeat;
     }
+
+    /* Auf dem Handy eine eigene Kachel. Die breite Fassung ist 1400 px breit,
+       ein Telefon zeigt davon nur den linken Streifen -- und damit nur die zwei
+       Formeln, die zufaellig dort liegen. Die schmale Kachel ist 390 px breit,
+       passt also ganz ins Bild, und ist mit 1280 px hoch genug, dass sich die
+       sechs Formeln nicht auf jedem Bildschirm wiederholen. */
+    @media (max-width: 620px) {
+      section::before {
+        background-image: url('img/formel-muster-m9.png');
+        background-size: 390px 1280px;
+      }
+    }
   </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -1116,6 +1128,15 @@
     (function () {
       var LUFT = 24;      // Abstand um jeden Textkasten
       var WEICH = 26;     // weicher Rand, damit keine harten Kanten entstehen
+      // Auf dem Handy fuellt Text fast die ganze Breite. Mit demselben Abstand wie
+      // am Rechner bliebe von der Kachel kaum etwas stehen, und das Wenige waeren
+      // angeschnittene Reste. Enger gefasst ueberleben ganze Formeln in den Luecken
+      // zwischen den Bloecken -- und genau die sollen zu sehen sein.
+      function masseSetzen() {
+        var schmal = window.innerWidth <= 620;
+        LUFT  = schmal ? 9  : 24;
+        WEICH = schmal ? 13 : 26;
+      }
       var SKALA = 0.5;    // Maske in halber Aufloesung, das reicht voellig
 
       function kaestenIn(abschnitt) {
@@ -1144,6 +1165,7 @@
       }
 
       function maskeFuer(abschnitt) {
+        masseSetzen();
         var ab = abschnitt.getBoundingClientRect();
         if (ab.width < 10 || ab.height < 10) return null;
         var c = document.createElement('canvas');
