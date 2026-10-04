@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Die Danke-Seite ist nur nach einer Anmeldung sinnvoll und hat in der Suche
+# nichts verloren -- sonst landen Leute dort ohne den Zusammenhang.
+Disallow: /danke.html
+
+Sitemap: https://alexsmathguides.de/sitemap.xml
