@@ -1,8 +1,8 @@
 User-agent: *
 Allow: /
 
-# Die Danke-Seite ist nur nach einer Anmeldung sinnvoll und hat in der Suche
-# nichts verloren -- sonst landen Leute dort ohne den Zusammenhang.
-Disallow: /danke.html
+# Die Danke-Seite und die Gratis-Skripte tragen ein noindex im Kopf. Hier stehen
+# sie bewusst NICHT auf Disallow: was gesperrt ist, darf Google nicht lesen -- und
+# bekommt das noindex dann nie zu sehen.
 
 Sitemap: https://alexsmathguides.de/sitemap.xml
