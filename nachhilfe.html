@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SOS Nachhilfe – kurzfristige Mathe-Hilfe online | alexsmathguides</title>
+  <meta name="description" content="SOS Nachhilfe: kurzfristige Mathe-Hilfe online, einzelne Stunden ohne Abo. Eine Stunde 45 Euro, 5er-Paket 195 Euro, 10er-Paket 370 Euro. Alle Klassenstufen, Termine frei vereinbar, Gruppenunterricht nach Absprache." />
+  <link rel="canonical" href="https://alexsmathguides.de/nachhilfe.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contact-form-box {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 32px;
+    }
+    .cf-group {
+      display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px;
+    }
+    .cf-group label { font-size: 14px; font-weight: 600; color: var(--text); }
+    .cf-group input[type="text"],
+    .cf-group input[type="email"],
+    .cf-group select,
+    .cf-group textarea {
+      padding: 11px 14px;
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--text);
+      background: var(--bg);
+      transition: border-color .2s;
+      outline: none;
+      resize: vertical;
+    }
+    .cf-group input:focus,
+    .cf-group select:focus,
+    .cf-group textarea:focus { border-color: var(--primary); }
+    .cf-success {
+      display: none;
+      text-align: center;
+      padding: 28px 16px;
+      color: var(--primary);
+    }
+    .cf-success .cf-success-icon { font-size: 40px; margin-bottom: 10px; }
+    .cf-success h3 { margin-bottom: 6px; }
+    .cf-success p { color: var(--muted); font-size: 14px; }
+
+    /* ── Abitur-Kurs Promo ── */
+
+    /* ── Coaching: Ablauf ── */
+
+
+
+
+
+    /* Band: was enthalten ist */
+    .enthalten-band { padding: 46px 0; border-bottom: 1px solid var(--line); }
+    .enthalten {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    }
+    .enthalten-punkt { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; }
+    .enthalten-nr {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .enthalten-punkt h3 { margin: 0 0 4px; font-size: 17px; }
+    .enthalten-punkt p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+    @media (max-width: 920px) {
+      .enthalten { grid-template-columns: 1fr; gap: 24px; }
+      .enthalten-band { padding: 36px 0; }
+    }
+
+
+    /* ── Hero, breit mit auslaufendem Bild ── */
+    .hero { overflow: hidden; }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+      gap: 56px;
+      align-items: center;
+      padding-top: 60px;
+      padding-bottom: 62px;
+    }
+    .hero-copy h1 {
+      font-size: clamp(38px, 5.2vw, 62px);
+      line-height: 1.06;
+      letter-spacing: -0.03em;
+      margin: 0 0 26px;
+    }
+
+    /* Hakenliste statt Fliesstext */
+    .hero-punkte { list-style: none; margin: 0 0 32px; padding: 0; }
+    .hero-punkte li {
+      position: relative;
+      padding-left: 34px;
+      margin-bottom: 15px;
+      font-size: 17px;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .hero-punkte li::before {
+      content: "";
+      position: absolute; left: 0; top: 6px;
+      width: 19px; height: 19px;
+      background: no-repeat center/contain
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230f766e' stroke-width='3.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 12.6l5.2 5.2L20 6.8'/%3E%3C/svg%3E");
+    }
+    .hero-punkte b { color: var(--text); font-weight: 700; }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; margin: 0; }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 26px;
+      border: 2px solid var(--line);
+      border-radius: 12px;
+      font-weight: 700; font-size: 16px;
+      color: var(--primary);
+      transition: border-color .2s, transform .2s;
+    }
+    .btn-outline:hover { border-color: var(--primary); transform: translateY(-1px); }
+
+    /* Bild laeuft nach rechts aus dem Raster */
+    .hero-visual { position: relative; }
+    .hero-visual img {
+      width: calc(100% + 90px);
+      max-width: none;
+      border-radius: var(--radius);
+      display: block;
+      position: relative; z-index: 2;
+    }
+    /* Nur in freien Flaechen ueber und unter dem Bild, nie darueber. */
+    .deko-punkte {
+      position: absolute; width: 74px; height: 74px; opacity: .5; z-index: 1;
+      background-image: radial-gradient(var(--line) 2.4px, transparent 2.4px);
+      background-size: 15px 15px;
+    }
+    .deko-1 { top: -70px; right: 60px; opacity:.35; }
+    .deko-2 { bottom: -76px; right: -30px; opacity:.35; }
+
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; gap: 36px; padding-top: 8px; }
+      .hero-visual img { width: 100%; }
+      .deko-punkte { display: none; }
+    }
+    /* Band: was enthalten ist */
+    .enthalten-band { padding: 46px 0; border-bottom: 1px solid var(--line); }
+    .enthalten {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px;
+    }
+    .enthalten-punkt { display: grid; grid-template-columns: 34px 1fr; gap: 14px; align-items: start; }
+    .enthalten-nr {
+      width: 30px; height: 30px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 14px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      margin-top: 1px;
+    }
+    .enthalten-punkt h3 { margin: 0 0 4px; font-size: 17px; }
+    .enthalten-punkt p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+
+    @media (max-width: 920px) {
+      .enthalten { grid-template-columns: 1fr; gap: 24px; }
+      .enthalten-band { padding: 36px 0; }
+    }
+
+    /* Bild im Hero */
+    .hero-visual { display: flex; align-items: center; }
+    .hero-visual img {
+      width: 100%; border-radius: var(--radius); display: block;
+    }
+    .hero-visual .hero-card { margin: 0; }
+    @media (max-width: 920px) { .hero-visual { gap: 18px; } }
+
+    /* Dezenter Hinweis auf das Abi-Datum */
+    .abi-hinweis {
+      margin: 18px 0 0;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--muted);
+      position: relative;
+      padding-left: 16px;
+      max-width: 48ch;
+    }
+    .abi-hinweis::before {
+      content: "";
+      position: absolute; left: 0; top: .6em;
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--success);
+    }
+    .abi-hinweis b {
+      color: var(--text);
+      font-weight: 600;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    /* Handy-Rahmen */
+    .handy {
+      width: 290px;
+      margin: 0 auto;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .handy-koerper {
+      background: #10151c;
+      border-radius: 42px;
+      padding: 11px;
+      box-shadow:
+        0 0 0 2px #2a323d,
+        0 26px 60px rgba(11,42,74,.34),
+        0 6px 18px rgba(11,42,74,.18);
+      position: relative;
+    }
+    /* Seitentasten */
+    .handy-koerper::before,
+    .handy-koerper::after {
+      content: "";
+      position: absolute; left: -3px;
+      width: 3px; border-radius: 3px 0 0 3px;
+      background: #2a323d;
+    }
+    .handy-koerper::before { top: 116px; height: 30px; }
+    .handy-koerper::after  { top: 158px; height: 52px; }
+
+    .handy-schirm {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #0b2a4a;
+      aspect-ratio: 9 / 19.5;
+    }
+    .handy-schirm img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      object-position: 64% 50%;
+    }
+    /* Dynamische Insel */
+    .handy-insel {
+      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      width: 86px; height: 25px; border-radius: 999px;
+      background: #10151c; z-index: 3;
+    }
+
+    /* Kanaele unter dem Handy */
+    .kanaele {
+      display: flex; justify-content: center; gap: 14px; margin-top: 22px;
+    }
+    .kanaele a {
+      width: 42px; height: 42px; border-radius: 12px;
+      border: 1px solid var(--line); background: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      transition: border-color .2s, transform .2s;
+    }
+    .kanaele a:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .kanaele svg { width: 20px; height: 20px; }
+
+    /* Zahlen mit Markerstrich */
+    .marker {
+      background: linear-gradient(180deg, transparent 56%, rgba(15,118,110,.20) 56%);
+      padding: 0 4px; border-radius: 2px;
+    }
+
+    /* Ueber mich */
+    .ueber { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+    .ueber-bild {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow); border: 1px solid var(--line);
+    }
+    .ueber-bild img { width: 100%; height: auto; display: block; }
+    .ueber-text p { margin: 0 0 16px; font-size: 17px; line-height: 1.7; }
+    .ueber-text p:last-child { margin-bottom: 0; }
+    .ueber-zahlen {
+      display: flex; gap: 36px; flex-wrap: wrap;
+      margin: 24px 0 26px; padding: 20px 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    }
+    .ueber-zahl .wert {
+      font-size: 27px; font-weight: 800; color: var(--primary);
+      letter-spacing: -.02em; line-height: 1.1;
+    }
+    .ueber-zahl .was { font-size: 14px; color: var(--muted); margin-top: 2px; }
+    .signatur { font-size: 15px; color: var(--muted); font-style: italic; }
+
+
+    @media (max-width: 920px) {
+      .ueber { grid-template-columns: 1fr; gap: 28px; }
+      .handy { margin: 0 auto; }
+    }
+
+    .ablauf { counter-reset: schritt; max-width: 62ch; margin-top: 8px; }
+    .ablauf-schritt {
+      counter-increment: schritt;
+      display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+      padding-bottom: 28px; position: relative;
+    }
+    .ablauf-schritt::before {
+      content: counter(schritt);
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--primary); color: #fff;
+      font-size: 16px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ablauf-schritt::after {
+      content: ""; position: absolute; left: 18.5px; top: 46px; bottom: 2px;
+      width: 1px; background: var(--line);
+    }
+    .ablauf-schritt:last-child { padding-bottom: 0; }
+    .ablauf-schritt:last-child::after { display: none; }
+    .ablauf-schritt h3 { margin: 0 0 6px; font-size: 18px; }
+    .ablauf-schritt p { margin: 0; color: var(--muted); }
+
+    /* ── Coaching: Leistungen ── */
+
+    /* Ablauf mit Bild daneben */
+    .ablauf-raster {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 56px;
+      align-items: start;
+      margin-top: 8px;
+    }
+    .ablauf-raster .ablauf { margin-top: 0; }
+    .ablauf-bild img {
+      width: 100%;
+      border-radius: 18px;
+      display: block;
+      box-shadow: 0 20px 50px rgba(11,42,74,.18);
+      border: 1px solid var(--line);
+    }
+    .ablauf-bild figcaption {
+      margin-top: 14px;
+      font-size: 14px;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    @media (max-width: 920px) {
+      .ablauf-raster { grid-template-columns: 1fr; gap: 36px; }
+      .ablauf-bild { max-width: 340px; margin: 0 auto; }
+    }
+
+    .leistungen {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 24px; margin-top: 14px;
+    }
+    .leistung {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 18px; padding: 30px 28px;
+    }
+    .leistung-symbol {
+      width: 46px; height: 46px; border-radius: 13px;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 18px;
+    }
+    .leistung-symbol svg {
+      width: 23px; height: 23px; stroke: var(--primary); fill: none;
+      stroke-width: 1.9; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .leistung h3 { margin: 0 0 9px; font-size: 19px; }
+    .leistung p { margin: 0; color: var(--muted); font-size: 15.5px; line-height: 1.6; }
+
+    /* ── Preise ── */
+
+    .preise {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 26px; margin-top: 20px; align-items: stretch;
+    }
+    .preis {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 20px; padding: 38px 32px;
+      display: flex; flex-direction: column;
+      transition: border-color .2s, transform .2s;
+    }
+    .preis:hover { border-color: var(--primary-2); transform: translateY(-2px); }
+    .preis--empfohlen {
+      border: 2px solid var(--primary);
+      box-shadow: 0 18px 50px rgba(11,42,74,.13);
+      position: relative;
+      transform: translateY(-14px);
+    }
+    .preis--empfohlen:hover { transform: translateY(-17px); }
+    .preis-marke {
+      position: absolute; top: -14px; left: 32px;
+      background: var(--primary); color: #fff;
+      font-size: 12px; font-weight: 700; letter-spacing: .07em;
+      text-transform: uppercase; padding: 6px 15px; border-radius: 999px;
+    }
+    .preis h3 { margin: 0 0 5px; font-size: 21px; }
+    .preis .umfang { color: var(--muted); font-size: 15px; margin-bottom: 22px; }
+    .preis .betrag {
+      font-size: 46px; font-weight: 800; color: var(--primary);
+      letter-spacing: -.03em; line-height: 1; margin-bottom: 4px;
+    }
+    .preis .takt { color: var(--muted); font-size: 14.5px; margin-bottom: 26px; }
+    .preis ul { list-style: none; margin: 0 0 28px; padding: 0; flex: 1; }
+    .preis ul li {
+      padding-left: 28px; margin-bottom: 12px; position: relative;
+      font-size: 15.5px; line-height: 1.5;
+    }
+    .preis ul li::before {
+      content: "✓"; position: absolute; left: 0; top: -1px;
+      color: var(--success); font-weight: 800; font-size: 16px;
+    }
+    .preis .btn { width: 100%; justify-content: center; }
+    .preis-hinweis {
+      max-width: 62ch; margin: 34px 0 0;
+      color: var(--muted); font-size: 15px;
+    }
+
+    /* ── FAQ ── */
+    .faq { max-width: 62ch; margin-top: 8px; }
+    .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
+    .faq summary {
+      cursor: pointer; font-weight: 700; font-size: 16.5px; list-style: none;
+      display: flex; justify-content: space-between; gap: 16px;
+    }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after {
+      content: "+"; color: var(--primary); font-weight: 700;
+      font-size: 22px; line-height: 1; flex-shrink: 0;
+    }
+    .faq details[open] summary::after { content: "−"; }
+    .faq details p { margin: 12px 0 0; color: var(--muted); font-size: 15.5px; }
+
+    /* ── Dunkler Abschluss ── */
+    .final-cta {
+      text-align: center; background: var(--primary);
+      border-radius: 24px; padding: 60px 32px; color: #fff;
+    }
+    .final-cta h2 { color: #fff; margin-bottom: 12px; }
+    .final-cta p { color: rgba(255,255,255,.75); max-width: 50ch; margin: 0 auto 28px; }
+    .final-cta .btn-primary { background: #fff; color: var(--primary); }
+    .final-cta .btn-primary:hover { background: var(--surface-2, #e9eff7); }
+
+    @media (max-width: 920px) {
+      .preise { grid-template-columns: 1fr; }
+      .leistungen { grid-template-columns: 1fr; }
+    }
+
+    .kurs-promo {
+      background: var(--primary);
+      border-radius: 28px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      overflow: hidden;
+    }
+    .kurs-promo-copy .eyebrow { background: rgba(255,255,255,.12); color: #fff; }
+    .kurs-promo-copy h2 { color: #fff; margin-top: 14px; }
+    .kurs-promo-copy p { color: rgba(255,255,255,.78); font-size: 16px; }
+    .kurs-promo-list {
+      list-style: none;
+      padding: 0;
+      margin: 4px 0 26px;
+      display: grid;
+      gap: 8px;
+    }
+    .kurs-promo-list li {
+      color: rgba(255,255,255,.9);
+      font-size: 14.5px;
+      font-weight: 500;
+    }
+    .kurs-promo-list li::before { content: "✓ "; color: #7fe0c8; font-weight: 800; }
+    .kurs-promo-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .kurs-promo .btn-primary { background: #fff; color: var(--primary); }
+    .kurs-promo .btn-primary:hover { background: #eaf1f8; }
+    .kurs-promo-link { color: #fff; font-size: 14px; font-weight: 600; text-decoration: underline; }
+    .kurs-promo-shots {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .kurs-promo-shots img {
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.15);
+      box-shadow: 0 14px 34px rgba(0,0,0,.28);
+    }
+    .kurs-promo-shots .shot-main { grid-column: 1 / -1; }
+    @media (max-width: 920px) {
+      .kurs-promo { grid-template-columns: 1fr; padding: 32px 24px; }
+    }
+  
+    /* Formel-Hintergrund: eine nahtlos kachelbare Grafik, die unabhaengig
+       vom Seiteninhalt darunter liegt. Sie sitzt ueber der Flaechenfarbe
+       des Abschnitts, aber hinter allem Inhalt.
+       background-attachment: fixed sorgt dafuer, dass alle Abschnitte
+       denselben Bezugspunkt haben und das Muster an den Uebergaengen
+       nahtlos weiterlaeuft. */
+    section { position: relative; z-index: 0; }
+    section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background-image: url('img/formel-muster-g8b.png');
+      background-repeat: repeat;
+      background-size: 1400px 950px;
+      /* Haengt an der Seite, nicht am Bildschirm: es scrollt normal weg.
+         Damit die Kachel nicht in jedem Abschnitt neu anfaengt und dabei
+         Formeln zerschneidet, rechnet das Skript weiter unten jedem
+         Abschnitt seinen Versatz aus. */
+      background-attachment: scroll;
+      background-position: 0 var(--muster-y, 0px);
+      opacity: .34;
+      pointer-events: none;
+      /* Die Maske wird unten je Abschnitt gezeichnet: ueberall dort, wo
+         Text oder ein Bild steht, bekommt sie ein weiches Loch. Dadurch
+         verschwindet das Muster unter Text, bleibt sonst aber stehen. */
+      -webkit-mask-image: var(--muster-maske, none);
+      mask-image: var(--muster-maske, none);
+      -webkit-mask-size: 100% 100%;
+      mask-size: 100% 100%;
+      -webkit-mask-repeat: no-repeat;
+      mask-repeat: no-repeat;
+    }
+
+    /* Auf dem Handy eine eigene Kachel. Die breite Fassung ist 1400 px breit,
+       ein Telefon zeigt davon nur den linken Streifen -- und damit nur die zwei
+       Formeln, die zufaellig dort liegen. Die schmale Kachel ist 390 px breit,
+       passt also ganz ins Bild, und ist mit 1280 px hoch genug, dass sich die
+       sechs Formeln nicht auf jedem Bildschirm wiederholen. */
+    @media (max-width: 620px) {
+      section::before {
+        background-image: url('img/formel-muster-m9.png');
+        background-size: 390px 1280px;
+      }
+    }
+  
+
+    /* ── Nur auf dieser Seite: Pakete, Klassenstufen, Ablauf ── */
+        .gruppe {
+      margin-top: 30px; background: var(--white);
+      border: 1px dashed var(--line); border-radius: 18px;
+      padding: 26px 30px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 10px 24px;
+    }
+        .stufen { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+        .stufe {
+      background: var(--white); border: 1px solid var(--line);
+      border-radius: 999px; padding: 9px 18px;
+      font-size: 15px; font-weight: 600; color: var(--text);
+    }
+        .ablauf { display: grid; gap: 20px; margin-top: 18px; max-width: 70ch; }
+        .schritt { display: grid; grid-template-columns: 42px 1fr; gap: 18px; align-items: start; }
+        .schritt-nr {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: var(--primary); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .leistungen, .preise { grid-template-columns: 1fr; }
+      .preis--empfohlen, .preis--empfohlen:hover { transform: none; }
+    }
+</style>
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="index.html">alexsmathguides</a>
+      <nav class="nav-links">
+        <a href="index.html">Coaching</a>
+        <a href="nachhilfe.html" style="color: var(--primary); font-weight: 600;">SOS Nachhilfe</a>
+        <a href="freebies.html">Kostenlose PDFs</a>
+        <a href="tutor-werden.html">Tutor werden</a>
+        <b><a href="abitur-kurs.html">mathemaxxers Abitur Kurs</a></b>
+        <a href="https://kurs.alexsmathguides.de/login">Login</a>
+        <a class="nav-cta" href="#kontakt">Stunde anfragen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <span class="eyebrow">SOS Nachhilfe</span>
+        <h1>Mathe-Hilfe, wenn es schnell gehen muss.</h1>
+
+        <ul class="hero-punkte">
+          <li><b>Kein Abo</b> &mdash; du buchst Stunden und nutzt sie, wenn es passt</li>
+          <li><b>Alle Klassenstufen</b> &mdash; von der Mittelstufe bis zum Abitur</li>
+          <li><b>Online im Einzelunterricht</b> &mdash; 55 Minuten, Termine frei vereinbar</li>
+          <li><b>Meist am selben Tag</b> &mdash; Antwort mit Termin und Zahlungslink</li>
+        </ul>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#kontakt">Stunde anfragen</a>
+          <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener">WhatsApp-Kontakt &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fuer wen -->
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">F&uuml;r wen</span>
+        <h2>Vor der Klausur, bei einer L&uuml;cke, oder einfach regelm&auml;&szlig;ig.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 10px;">Nicht jeder braucht
+        monatelange Begleitung. Manchmal ist die Klausur n&auml;chste Woche, manchmal sitzt ein
+        einzelnes Thema nicht. Daf&uuml;r gibt es hier einzelne Stunden statt eines Vertrags
+        &mdash; kurzfristig buchbar, ohne Bindung.</p>
+
+        <div class="stufen">
+          <span class="stufe">Klasse 5&ndash;10</span>
+          <span class="stufe">Oberstufe</span>
+          <span class="stufe">Abiturvorbereitung</span>
+          <span class="stufe">Grund- und Leistungskurs</span>
+          <span class="stufe">Nachpr&uuml;fungen</span>
+        </div>
+
+        <div class="leistungen" style="margin-top:32px;">
+          <div class="leistung">
+            <h3>Gezielt statt flächendeckend</h3>
+            <p>Du sagst, worum es geht &mdash; Kurvendiskussion, Vektoren, Br&uuml;che.
+            Die Stunde dreht sich genau darum, nicht um einen Lehrplan.</p>
+          </div>
+          <div class="leistung">
+            <h3>Kein Druck, keine Bindung</h3>
+            <p>Keine Mindestlaufzeit und keine K&uuml;ndigungsfrist. Gekaufte Stunden sind
+            zw&ouml;lf Monate g&uuml;ltig, du nutzt sie, wann du willst.</p>
+          </div>
+          <div class="leistung">
+            <h3>Von Leuten, die es k&ouml;nnen</h3>
+            <p>Du bekommst einen passenden Tutor aus unserem Team zugeteilt &mdash; alle sind
+            Studenten, die sich noch gut an die Schulzeit erinnern. Unterricht l&auml;uft
+            online &uuml;ber Zoom.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Preise -->
+    <section class="section" id="preise" style="background: var(--surface);">
+      <div class="container">
+        <span class="eyebrow">Preise</span>
+        <h2>W&auml;hle deinen Tarif.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Einmal zahlen,
+        keine laufenden Kosten. Eine Unterrichtsstunde dauert 55&nbsp;Minuten.</p>
+
+        <div class="preise">
+          <div class="preis">
+            <h3>Einzelstunde</h3>
+            <div class="umfang">1 Stunde</div>
+            <div class="betrag">45 &euro;</div>
+            <div class="takt">45&nbsp;&euro; pro Stunde</div>
+            <ul>
+              <li>Zum Ausprobieren oder f&uuml;r eine einzelne Frage</li>
+              <li>Termin frei vereinbar</li>
+              <li>Keine weiteren Verpflichtungen</li>
+            </ul>
+            <a class="btn btn-secondary" href="#kontakt">Stunde anfragen</a>
+          </div>
+
+          <div class="preis preis--empfohlen">
+            <span class="preis-marke">Am beliebtesten</span>
+            <h3>5er-Paket</h3>
+            <div class="umfang">5 Stunden</div>
+            <div class="betrag">195 &euro;</div>
+            <div class="takt">39&nbsp;&euro; pro Stunde &middot; du sparst 30&nbsp;&euro;</div>
+            <ul>
+              <li>Reicht meist f&uuml;r eine Klausurvorbereitung</li>
+              <li>Zw&ouml;lf Monate g&uuml;ltig</li>
+              <li>Termine nach deinem Plan</li>
+              <li>Feste Lehrkraft</li>
+            </ul>
+            <a class="btn btn-primary" href="#kontakt">5er-Paket anfragen</a>
+          </div>
+
+          <div class="preis">
+            <h3>10er-Paket</h3>
+            <div class="umfang">10 Stunden</div>
+            <div class="betrag">370 &euro;</div>
+            <div class="takt">37&nbsp;&euro; pro Stunde &middot; du sparst 80&nbsp;&euro;</div>
+            <ul>
+              <li>F&uuml;r ein ganzes Halbjahr oder eine gr&ouml;&szlig;ere L&uuml;cke</li>
+              <li>Zw&ouml;lf Monate g&uuml;ltig</li>
+              <li>Termine nach deinem Plan</li>
+              <li>Feste Lehrkraft</li>
+            </ul>
+            <a class="btn btn-secondary" href="#kontakt">10er-Paket anfragen</a>
+          </div>
+        </div>
+
+        <div class="gruppe">
+          <div style="min-width:200px;">
+            <h3>Gruppenunterricht</h3>
+          </div>
+          <p>Nach Absprache. <span class="betrag-klein">Ab 20&nbsp;&euro;</span> pro Person.</p>
+          <a class="btn btn-secondary" href="#kontakt" style="white-space:nowrap;">Anfragen</a>
+        </div>
+
+        <p class="preis-hinweis">Du lernst lieber durchgehend und mit festem Coach?
+        Dann ist das <a href="index.html">Coaching im Monatsabo</a> der passendere Weg &mdash;
+        dort ist auch der komplette Abitur-Kurs enthalten.</p>
+      </div>
+    </section>
+
+    <!-- Ablauf -->
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">So l&auml;uft es</span>
+        <h2>Von der Anfrage bis zur ersten Stunde.</h2>
+
+        <div class="ablauf">
+          <div class="schritt">
+            <div class="schritt-nr">1</div>
+            <div>
+              <h3>Du schreibst mir</h3>
+              <p>Klassenstufe, Thema und wie viele Stunden du dir vorstellst. &Uuml;ber das
+              Formular unten oder per WhatsApp.</p>
+            </div>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">2</div>
+            <div>
+              <h3>Ich suche die passende Lehrkraft</h3>
+              <p>Du bekommst eine R&uuml;ckmeldung mit einem Terminvorschlag und dem
+              Zahlungslink. Meist noch am selben Tag.</p>
+            </div>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">3</div>
+            <div>
+              <h3>Ihr macht die Termine direkt aus</h3>
+              <p>Nach der Zahlung sprecht ihr die Zeiten untereinander ab. Unterricht
+              l&auml;uft online &uuml;ber Zoom.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ueber-mich" style="background: var(--surface);">
+      <div class="container ueber">
+        <div class="handy">
+          <div class="handy-koerper">
+            <div class="handy-schirm">
+              <div class="handy-insel"></div>
+              <img src="img/coaching/alex-portrait.jpg" alt="Alexander Kleymann erkl&auml;rt Mathe">
+            </div>
+          </div>
+          <div class="kanaele">
+            <a href="https://www.tiktok.com/@alexsmathguides" target="_blank" rel="noopener" aria-label="TikTok">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .77-5.06V9.7a5.68 5.68 0 0 0-.77-.05A5.66 5.66 0 1 0 15.54 15.3V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.24-1.48z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/alexsmathguides" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="https://www.youtube.com/@alexs_math_guides" target="_blank" rel="noopener" aria-label="YouTube">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10.1 14.94V9.06L15.2 12l-5.1 2.94z"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="ueber-text">
+          <span class="eyebrow">Wer dahintersteckt</span>
+          <h2>Hi, ich bin Alex</h2>
+
+          <p>Ich gebe seit f&uuml;nf Jahren Mathe-Nachhilfe. In der Zeit habe ich
+          gemerkt, dass fast niemand an Mathe scheitert, weil er zu dumm daf&uuml;r
+          w&auml;re. Es scheitert daran, dass irgendwann eine Erkl&auml;rung gefehlt hat
+          und danach alles darauf aufbaute.</p>
+
+          <p>Irgendwann habe ich angefangen, meine Erkl&auml;rungen auf TikTok zu
+          posten. Kurz, ohne Fachchinesisch, so wie ich sie einem Freund erkl&auml;ren
+          w&uuml;rde. Inzwischen sind daraus <strong>&uuml;ber 1,5 Millionen Aufrufe</strong>
+          geworden, und ich bekomme jede Woche Nachrichten von Leuten, bei denen
+          es endlich klick gemacht hat.</p>
+
+          <p>Aus denselben Erkl&auml;rungen ist dann der Abitur-Kurs entstanden, 69
+          Lektionen quer durch den ganzen Stoff. Er hilft vielen, aber ich sehe
+          auch, wo er an Grenzen st&ouml;&szlig;t: Ein Video merkt nicht, wenn du an einer
+          Stelle h&auml;ngst. Ein Mensch schon.</p>
+
+          <p>Deshalb das Coaching. Der Kurs f&uuml;rs eigenst&auml;ndige Lernen, ein Coach
+          f&uuml;r alles, wo du allein nicht weiterkommst.</p>
+
+          <div class="ueber-zahlen">
+            <div class="ueber-zahl">
+              <div class="wert"><span class="marker">5 Jahre</span></div>
+              <div class="was">Mathe-Nachhilfe</div>
+            </div>
+            <div class="ueber-zahl">
+              <div class="wert"><span class="marker">1,5 Mio.</span></div>
+              <div class="was">Aufrufe auf TikTok</div>
+            </div>
+            <div class="ueber-zahl">
+              <div class="wert"><span class="marker">69</span></div>
+              <div class="was">Lektionen im Kurs</div>
+            </div>
+          </div>
+
+          <p class="signatur">Alexander Kleymann, alexsmathguides</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" style="background: var(--surface);">
+      <div class="container">
+        <span class="eyebrow">H&auml;ufig gefragt</span>
+        <h2>Was oft gefragt wird.</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Wie lange sind gekaufte Stunden g&uuml;ltig?</summary>
+            <p>Zw&ouml;lf Monate ab Kauf. Innerhalb dieser Zeit nutzt du sie, wann du willst
+            &mdash; am St&uuml;ck in einer Klausurphase oder verteilt &uuml;ber das Schuljahr.</p>
+          </details>
+          <details>
+            <summary>F&uuml;r welche Klassenstufen gibt es Nachhilfe?</summary>
+            <p>Von Klasse 5 bis zum Abitur, Grund- und Leistungskurs. Schreib einfach dazu,
+            in welcher Klasse du bist und welches Thema ansteht.</p>
+          </details>
+          <details>
+            <summary>Was kostet Gruppenunterricht?</summary>
+            <p>Das h&auml;ngt von der Gruppengr&ouml;&szlig;e ab, los geht es bei 20&nbsp;&euro;
+            pro Person und Stunde. Wenn ihr zu zweit oder zu dritt dasselbe Thema habt, meldet
+            euch &mdash; das ist deutlich g&uuml;nstiger als einzeln.</p>
+          </details>
+          <details>
+            <summary>Was ist der Unterschied zum Coaching?</summary>
+            <p>Beim Coaching zahlst du monatlich, hast ein festes Stundenkontingent, einen
+            festen Coach, WhatsApp-Support zwischendurch und den kompletten Abitur-Kurs
+            inklusive. Hier kaufst du einmalig Stunden, ohne Bindung und ohne laufende Kosten.</p>
+          </details>
+          <details>
+            <summary>Was passiert, wenn ich einen Termin absagen muss?</summary>
+            <p>Sag mindestens 24&nbsp;Stunden vorher Bescheid, dann bleibt die Stunde
+            erhalten. Bei Krankheit oder etwas ebenso Unvorhersehbarem bin ich auch
+            kurzfristiger kulant &mdash; eine kurze Nachricht gen&uuml;gt.</p>
+          </details>
+          <details>
+            <summary>Kann ich Stunden zur&uuml;ckgeben?</summary>
+            <p>Innerhalb von 14&nbsp;Tagen nach dem Kauf kannst du widerrufen. Bereits
+            genommene Stunden werden dabei anteilig verrechnet. Die Einzelheiten stehen in
+            der <a href="widerruf.html">Widerrufsbelehrung</a>.</p>
+          </details>
+          <details>
+            <summary>Wer unterrichtet?</summary>
+            <p>Du bekommst einen passenden Tutor aus unserem Team zugeteilt. Alle unsere
+            Tutoren sind Studenten, die sich noch gut an die Schulzeit erinnern k&ouml;nnen
+            und dir wertvolle Tipps mitgeben k&ouml;nnen.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section class="section" id="kontakt">
+      <div class="container split" style="position:relative">
+        <div>
+          <span class="eyebrow">Kontakt</span>
+          <h2>Stunden anfragen.</h2>
+          <p>Nutze WhatsApp f&uuml;r schnelle R&uuml;ckfragen oder Terminabsprachen. Oder schick mir direkt eine Nachricht &uuml;ber das Formular &ndash; z.&nbsp;B. als Elternteil. Ich melde mich meist noch am selben Tag mit einem Terminvorschlag und dem Zahlungslink.</p>
+          <p><span class="code-inline">Tipp: Klasse, Thema und gew&uuml;nschte Stundenzahl kurz nennen.</span></p>
+          <p style="color:var(--muted); font-size:15px;">Bei Minderj&auml;hrigen brauche ich f&uuml;r die Buchung die Zustimmung eines Elternteils &mdash; am einfachsten, wenn ihr euch gemeinsam meldet.</p>
+          <p style="margin-top: 18px; font-weight: 600;">Kontakt per WhatsApp:</p>
+          <p>
+            <a class="btn btn-primary" href="https://wa.me/4915233954481" target="_blank" rel="noopener noreferrer">
+              Chat in WhatsApp öffnen
+            </a>
+          </p>
+        </div>
+
+        <!-- Formspree Kontaktformular -->
+        <div class="contact-form-box">
+          <div id="cf-container">
+            <form id="contact-form" novalidate>
+              <div class="cf-group">
+                <label for="cf-name">Name <span style="color:#e53e3e;">*</span></label>
+                <input type="text" id="cf-name" name="name" placeholder="Dein Name" required>
+              </div>
+              <div class="cf-group">
+                <label for="cf-email">E-Mail <span style="color:#e53e3e;">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="deine@email.de" required>
+              </div>
+              <div class="cf-group">
+                <label for="cf-message">Deine Anfrage <span style="color:#e53e3e;">*</span></label>
+                <textarea id="cf-message" name="message" rows="5" placeholder="Worum geht es? Schreib kurz, wo du stehst und was du erreichen willst." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px 20px;">
+                Abschicken
+              </button>
+              <p id="cf-error" style="display:none; color:#e53e3e; font-size:14px; margin-top:10px; text-align:center;"></p>
+            </form>
+          </div>
+          <div class="cf-success" id="cf-success">
+            <div class="cf-success-icon">✅</div>
+            <h3>Nachricht erhalten!</h3>
+            <p>Danke – ich melde mich so schnell wie möglich bei dir.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</p>
+      <div class="footer-links">
+        <a class="fuss-login" href="https://kurs.alexsmathguides.de/login">Zum Kurs einloggen</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/widerruf.html">Widerruf</a>
+        <a href="/kuendigen.html">Verträge kündigen</a>
+        <a href="/agb.html">AGB</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Formel-Hintergrund: Maske mit Loechern dort, wo Text oder Bilder stehen.
+    (function () {
+      var LUFT = 24;      // Abstand um jeden Textkasten
+      var WEICH = 26;     // weicher Rand, damit keine harten Kanten entstehen
+      // Auf dem Handy fuellt Text fast die ganze Breite. Mit demselben Abstand wie
+      // am Rechner bliebe von der Kachel kaum etwas stehen, und das Wenige waeren
+      // angeschnittene Reste. Enger gefasst ueberleben ganze Formeln in den Luecken
+      // zwischen den Bloecken -- und genau die sollen zu sehen sein.
+      function masseSetzen() {
+        var schmal = window.innerWidth <= 620;
+        LUFT  = schmal ? 9  : 24;
+        WEICH = schmal ? 13 : 26;
+      }
+      var SKALA = 0.5;    // Maske in halber Aufloesung, das reicht voellig
+
+      function kaestenIn(abschnitt) {
+        var aus = [];
+        var alle = abschnitt.querySelectorAll('*');
+        for (var i = 0; i < alle.length; i++) {
+          var el = alle[i];
+          var cs = getComputedStyle(el);
+          if (cs.display === 'none' || cs.visibility === 'hidden') continue;
+          for (var j = 0; j < el.childNodes.length; j++) {
+            var n = el.childNodes[j];
+            if (n.nodeType !== 3 || !n.textContent.trim()) continue;
+            var rg = document.createRange();
+            rg.selectNodeContents(n);
+            var zeilen = rg.getClientRects();
+            for (var k = 0; k < zeilen.length; k++) {
+              if (zeilen[k].width > 2 && zeilen[k].height > 2) aus.push(zeilen[k]);
+            }
+          }
+          if (/^(IMG|SVG|VIDEO|CANVAS|INPUT|TEXTAREA|SELECT|BUTTON)$/.test(el.tagName)) {
+            var r = el.getBoundingClientRect();
+            if (r.width > 2 && r.height > 2) aus.push(r);
+          }
+        }
+        return aus;
+      }
+
+      function maskeFuer(abschnitt) {
+        masseSetzen();
+        var ab = abschnitt.getBoundingClientRect();
+        if (ab.width < 10 || ab.height < 10) return null;
+        var c = document.createElement('canvas');
+        c.width  = Math.max(1, Math.round(ab.width  * SKALA));
+        c.height = Math.max(1, Math.round(ab.height * SKALA));
+        var g = c.getContext('2d');
+        g.fillStyle = '#fff';
+        g.fillRect(0, 0, c.width, c.height);
+        var kaesten = kaestenIn(abschnitt);
+        if (!kaesten.length) return null;
+        g.globalCompositeOperation = 'destination-out';
+        g.fillStyle = '#000';
+        // Zwei Durchgaenge: erst der harte Kern, damit unter Text wirklich
+        // nichts stehen bleibt. Ein einzelner weichgezeichneter Kasten
+        // radiert die Mitte nur zu etwa 84 Prozent aus.
+        for (var d = 0; d < 2; d++) {
+          if ('filter' in g) g.filter = d === 0 ? 'none' : 'blur(' + (WEICH * SKALA) + 'px)';
+          for (var i = 0; i < kaesten.length; i++) {
+            var r = kaesten[i];
+            g.fillRect((r.left - ab.left - LUFT) * SKALA, (r.top - ab.top - LUFT) * SKALA,
+                       (r.width + LUFT * 2) * SKALA, (r.height + LUFT * 2) * SKALA);
+          }
+        }
+        if ('filter' in g) g.filter = 'none';
+        return c.toDataURL('image/png');
+      }
+
+      // Billig: nur der Kachelversatz. Laeuft sofort bei jeder Verschiebung,
+      // damit an den Abschnittsgrenzen nie eine Naht sichtbar wird.
+      function versaetze() {
+        var y = window.pageYOffset;
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var oben = liste[i].getBoundingClientRect().top + y;
+          liste[i].style.setProperty('--muster-y', -(oben % 950) + 'px');
+        }
+      }
+
+      // Teuer: die Masken neu zeichnen. Nur gebuendelt.
+      var laeuft = false;
+      function bauen() {
+        if (laeuft) return;
+        laeuft = true;
+        versaetze();
+        var liste = document.querySelectorAll('section');
+        for (var i = 0; i < liste.length; i++) {
+          var d = maskeFuer(liste[i]);
+          if (d) liste[i].style.setProperty('--muster-maske', 'url(' + d + ')');
+        }
+        laeuft = false;
+      }
+
+      var timer;
+      function spaeter() { versaetze(); clearTimeout(timer); timer = setTimeout(bauen, 120); }
+
+      bauen();
+      window.addEventListener('load', spaeter);
+      window.addEventListener('resize', spaeter);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(spaeter);
+      document.addEventListener('toggle', spaeter, true);   // aufklappbare Fragen
+      // Nachladende Bilder verschieben Abschnitte noch nach dem load-Ereignis.
+      // Ohne das waeren die Versaetze veraltet und das Muster bekaeme eine Naht.
+      if (window.ResizeObserver) {
+        var beo = new ResizeObserver(spaeter);
+        beo.observe(document.body);
+        var abschnitte = document.querySelectorAll('section');
+        for (var i = 0; i < abschnitte.length; i++) beo.observe(abschnitte[i]);
+      }
+    })();
+  </script>
+  <script>
+    const contactForm = document.getElementById('contact-form');
+    const cfError = document.getElementById('cf-error');
+
+    contactForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      cfError.style.display = 'none';
+
+      const name  = document.getElementById('cf-name').value.trim();
+      const email = document.getElementById('cf-email').value.trim();
+      const text  = document.getElementById('cf-message').value.trim();
+
+      if (!name) {
+        cfError.textContent = 'Bitte gib deinen Namen ein.';
+        cfError.style.display = 'block'; return;
+      }
+      if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        cfError.textContent = 'Bitte gib eine gültige E-Mail-Adresse ein.';
+        cfError.style.display = 'block'; return;
+      }
+      if (!text) {
+        cfError.textContent = 'Bitte schreib kurz, worum es geht.';
+        cfError.style.display = 'block'; return;
+      }
+
+      const btn = contactForm.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Wird gesendet…';
+
+      try {
+        const res = await fetch('https://formspree.io/f/xgojzroz', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: text
+          })
+        });
+
+        if (res.ok) {
+          document.getElementById('cf-container').style.display = 'none';
+          document.getElementById('cf-success').style.display = 'block';
+        } else {
+          throw new Error();
+        }
+      } catch(err) {
+        cfError.textContent = 'Etwas hat nicht geklappt. Schreib mir direkt per WhatsApp.';
+        cfError.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Abschicken';
+      }
+    });
+    </script>
+</body>
+</html>
