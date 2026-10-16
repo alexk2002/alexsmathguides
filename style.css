@@ -328,3 +328,24 @@ a { color: inherit; }
   font-weight: 600;
   margin-bottom: 6px;
 }
+
+    /* Geo winkt -- dieselbe Bewegung wie im Kurs (abitur_kurs/progress.js).
+       Das Wippen des Koerpers bleibt hier weg: im Kopf sitzt das Logo direkt
+       neben dem Schriftzug, und ein wippendes Zeichen neben festem Text wirkt
+       unruhig. overflow:visible, weil der Arm beim Ausschwingen aus dem
+       Ausschnitt ragt. */
+    .brand-logo { overflow: visible; }
+    .geo-arm { transform-origin: 20px 44px; animation: geoWinken 3.4s ease-in-out infinite; }
+    @keyframes geoWinken {
+      0%, 55%, 100% { transform: rotate(0deg); }
+      62%, 76%      { transform: rotate(-22deg); }
+      69%, 83%      { transform: rotate(10deg); }
+    }
+    .geo-augen { transform-origin: 42px 60px; animation: geoBlinzeln 4.6s ease-in-out infinite; }
+    @keyframes geoBlinzeln {
+      0%, 92%, 100% { transform: scaleY(1); }
+      95%           { transform: scaleY(.12); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .geo-arm, .geo-augen { animation: none; }
+    }

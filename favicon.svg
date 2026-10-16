@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="8 8 84 84">
+  <title>alexsmathguides</title>
+  <path d="M 14 12 L 14 86 L 88 86 Z" fill="#0b2a4a" stroke="#0b2a4a"
+        stroke-width="9" stroke-linejoin="round"/>
+  <circle cx="33" cy="58" r="6.5" fill="#fff"/>
+  <circle cx="53" cy="58" r="6.5" fill="#fff"/>
+  <path d="M 31 70 Q 43 80 55 70" fill="none" stroke="#fff"
+        stroke-width="5.5" stroke-linecap="round"/>
+</svg>
