@@ -407,6 +407,12 @@
       font-size: 46px; font-weight: 800; color: var(--primary);
       letter-spacing: -.03em; line-height: 1; margin-bottom: 4px;
     }
+    /* Das "/ Einheit" haengt an der grossen Zahl, darf sie aber nicht
+       erschlagen -- darum eigene Groesse und normaler Zeichenabstand. */
+    .preis .betrag .je {
+      font-size: 17px; font-weight: 700; color: var(--muted);
+      letter-spacing: 0; margin-left: 5px;
+    }
     .preis .takt { color: var(--muted); font-size: 14.5px; margin-bottom: 26px; }
     .preis ul { list-style: none; margin: 0 0 28px; padding: 0; flex: 1; }
     .preis ul li {
@@ -688,8 +694,8 @@
           <div class="preis">
             <h3>Einzelne Einheit</h3>
             <div class="umfang">1 Einheit &middot; 45&nbsp;Minuten</div>
-            <div class="betrag">29 &euro;</div>
-            <div class="takt">29&nbsp;&euro; pro Einheit</div>
+            <div class="betrag">29 &euro;<span class="je">/ Einheit</span></div>
+            <div class="takt">29&nbsp;&euro; gesamt</div>
             <ul>
               <li>Zum Ausprobieren oder f&uuml;r eine einzelne Frage</li>
               <li>Termin frei vereinbar</li>
@@ -702,8 +708,8 @@
             <span class="preis-marke">Am beliebtesten</span>
             <h3>5er-Paket</h3>
             <div class="umfang">5 Einheiten &middot; je 45&nbsp;Minuten</div>
-            <div class="betrag">135 &euro;</div>
-            <div class="takt">27&nbsp;&euro; pro Einheit &middot; du sparst 10&nbsp;&euro;</div>
+            <div class="betrag">27 &euro;<span class="je">/ Einheit</span></div>
+            <div class="takt">135&nbsp;&euro; gesamt &middot; du sparst 10&nbsp;&euro;</div>
             <ul>
               <li>Reicht meist f&uuml;r eine Klausurvorbereitung</li>
               <li>Zw&ouml;lf Monate g&uuml;ltig</li>
@@ -716,8 +722,8 @@
           <div class="preis">
             <h3>10er-Paket</h3>
             <div class="umfang">10 Einheiten &middot; je 45&nbsp;Minuten</div>
-            <div class="betrag">250 &euro;</div>
-            <div class="takt">25&nbsp;&euro; pro Einheit &middot; du sparst 40&nbsp;&euro;</div>
+            <div class="betrag">25 &euro;<span class="je">/ Einheit</span></div>
+            <div class="takt">250&nbsp;&euro; gesamt &middot; du sparst 40&nbsp;&euro;</div>
             <ul>
               <li>F&uuml;r ein ganzes Halbjahr oder eine gr&ouml;&szlig;ere L&uuml;cke</li>
               <li>Zw&ouml;lf Monate g&uuml;ltig</li>
@@ -732,7 +738,7 @@
           <div style="min-width:200px;">
             <h3>Gruppenunterricht</h3>
           </div>
-          <p>Nach Absprache. <span class="betrag-klein">Ab 20&nbsp;&euro;</span> pro Person.</p>
+          <p>Nach Absprache. <span class="betrag-klein">Ab 20&nbsp;&euro;</span> pro Person und Einheit.</p>
           <a class="btn btn-secondary" href="#kontakt" style="white-space:nowrap;">Anfragen</a>
         </div>
 
