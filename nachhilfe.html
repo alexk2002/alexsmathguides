@@ -475,69 +475,6 @@
       color: var(--muted); font-size: 15px;
     }
 
-
-    /* Vier Punkte statt drei: eigenes Raster, damit keiner allein
-       in der zweiten Zeile haengt. */
-    .leistungen--vier { grid-template-columns: repeat(4, 1fr); }
-    @media (max-width: 1040px) { .leistungen--vier { grid-template-columns: repeat(2, 1fr); } }
-    @media (max-width: 620px)  { .leistungen--vier { grid-template-columns: 1fr; } }
-
-    /* ── Umbau nach dem Aufbau von onmathe.de ── */
-
-    /* Vertrauenszeile direkt unter den Hero-Knoepfen */
-    .hero-vertrauen {
-      margin: 20px 0 0; font-size: 15px; color: var(--muted); line-height: 1.6;
-    }
-    .hero-vertrauen b { color: var(--text); font-weight: 700; }
-
-    /* Zahlenleiste */
-    .zahlen-band { background: var(--primary); padding: 34px 0; }
-    .zahlen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-    .zahl-wert { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -.02em; }
-    .zahl-was { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 4px; }
-    @media (max-width: 760px) {
-      .zahlen { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
-    }
-
-    /* Auswahl "Fuer mein Kind / Fuer mich selbst" */
-    .cf-wahl { display: flex; flex-wrap: wrap; gap: 10px; }
-    .cf-wahl label {
-      flex: 1 1 140px; display: flex; align-items: center; gap: 9px;
-      border: 1.5px solid var(--line); border-radius: 10px;
-      padding: 12px 14px; font-size: 15px; font-weight: 600;
-      cursor: pointer; transition: border-color .15s, background .15s;
-    }
-    .cf-wahl label:hover { border-color: var(--primary-2, var(--primary)); }
-    .cf-wahl input { accent-color: var(--primary); }
-    .cf-group select {
-      width: 100%; padding: 12px 14px; border: 1.5px solid var(--line);
-      border-radius: 10px; font: inherit; font-size: 15px;
-      color: var(--text); background: var(--white);
-    }
-    .cf-group select:focus { border-color: var(--primary); outline: none; }
-
-    /* Mitlaufende Leiste. Nur auf dem Handy -- am Rechner steht der Knopf
-       ohnehin dauerhaft in der Kopfzeile. */
-    .sticky-cta { display: none; }
-    @media (max-width: 860px) {
-      .sticky-cta {
-        display: flex; gap: 10px; align-items: center;
-        position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40;
-        background: rgba(255,255,255,.94);
-        backdrop-filter: blur(8px);
-        border: 1px solid var(--line); border-radius: 14px;
-        padding: 10px; box-shadow: 0 10px 30px rgba(11,42,74,.18);
-      }
-      .sticky-cta[hidden] { display: none; }
-      .sticky-cta .btn { flex: 1; justify-content: center; }
-      .sticky-wa {
-        padding: 13px 16px; border-radius: 10px; font-weight: 700; font-size: 15px;
-        border: 1.5px solid var(--line); color: var(--primary); white-space: nowrap;
-      }
-      /* Platz, damit die Leiste den Seitenfuss nicht verdeckt */
-      body { padding-bottom: 78px; }
-    }
-
     /* ── FAQ ── */
     .faq { max-width: 62ch; margin-top: 8px; }
     .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
@@ -753,13 +690,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#kontakt">Einheit anfragen</a>
             <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener">WhatsApp-Kontakt &rarr;</a>
-          </div>
-
-          <p class="hero-vertrauen">
-            <b>5&nbsp;Jahre</b> Mathe-Nachhilfe &middot; <b>&uuml;ber 1,5&nbsp;Millionen</b> Aufrufe
-            auf TikTok &middot; Antwort meist <b>am selben Tag</b>
-          </p>
-        </div>
+          </div>        </div>
 
         <!-- Breite und Hoehe stehen im Markup, damit beim Laden nichts springt.
              Kein loading="lazy": Das Bild steht ganz oben und ist das groesste
@@ -774,66 +705,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Zahlen -->
-    <section class="zahlen-band">
-      <div class="container zahlen">
-        <div class="zahl"><div class="zahl-wert">5 Jahre</div><div class="zahl-was">Mathe-Nachhilfe</div></div>
-        <div class="zahl"><div class="zahl-wert">1,5 Mio.</div><div class="zahl-was">Aufrufe auf TikTok</div></div>
-        <div class="zahl"><div class="zahl-wert">69</div><div class="zahl-was">Lektionen im Abitur-Kurs</div></div>
-        <div class="zahl"><div class="zahl-wert">45 Min.</div><div class="zahl-was">je Unterrichtseinheit</div></div>
-      </div>
-    </section>
-
-    <!-- Wer unterrichtet -->
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">Wer dich unterrichtet</span>
-        <h2>Studenten, die den Stoff noch im Kopf haben.</h2>
-        <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Du bekommst eine feste
-        Lehrkraft aus unserem Team zugeteilt &mdash; keine wechselnden Aushilfen und keine
-        Gruppe, in der du auf deine Frage wartest.</p>
-
-        <div class="leistungen leistungen--vier">
-          <div class="leistung">
-            <h3>Studiert</h3>
-            <p>Alle unterrichten Mathe in einem Fach, das sie selbst studieren.</p>
-          </div>
-          <div class="leistung">
-            <h3>Nah dran</h3>
-            <p>Sie haben ihr eigenes Abitur noch gut im Ged&auml;chtnis &mdash; samt der Stellen,
-            an denen es schwierig wird.</p>
-          </div>
-          <div class="leistung">
-            <h3>Fest</h3>
-            <p>Dieselbe Lehrkraft vom ersten bis zum letzten Termin. Du erkl&auml;rst deine
-            L&uuml;cken nur einmal.</p>
-          </div>
-          <div class="leistung">
-            <h3>Online</h3>
-            <p>Unterricht &uuml;ber Zoom mit digitalem Tafelbild. Keine Anfahrt, kein Papierkram.</p>
-          </div>
-        </div>
-
-        <!-- ════════════════════════════════════════════════════════════════
-             PLATZHALTER -- hier fehlen die Tutorprofile.
-
-             Auf onmathe.de stehen neun Karten mit Foto, Studienfach, Zitat
-             und drei Stichpunkten. Das ist dort der staerkste Abschnitt der
-             ganzen Seite: Eltern wollen sehen, wer ihrem Kind gegenuebersitzt.
-
-             Damit das hier stehen kann, brauche ich von dir:
-               - Lerons Einverstaendnis, Name und Foto zu zeigen
-               - sein Studienfach und seine Mathe-Abinote
-               - einen Satz von ihm, warum er unterrichtet
-             Dasselbe fuer dich selbst (die vier Angaben fehlen mir seit
-             der Eltern-Seite ohnehin).
-
-             Erfundene Profile baue ich nicht ein.
-             ════════════════════════════════════════════════════════════════ -->
-      </div>
-    </section>
-
     <section class="section" id="ueber-mich" style="background: var(--surface);">
       <div class="container ueber">
         <div class="handy">
@@ -977,21 +848,6 @@
         </div>
       </div>
     </section>
-
-    <!-- ════════════════════════════════════════════════════════════════
-         PLATZHALTER -- hier gehoeren Stimmen von Schuelern und Eltern hin.
-
-         Bei onmathe stehen an dieser Stelle sechs Google-Bewertungen mit
-         Namen und Rolle ("Marion M., Mutter"), danach drei WhatsApp-
-         Screenshots mit Ergebnissen. Zusammen ist das ihr halber Beweis.
-
-         Wir haben zwei Nachhilfe-Schueler. Frag beide nach einem Satz --
-         und das Elternteil von letzter Woche nach einem zweiten. Drei echte
-         Saetze wirken mehr als zwanzig erfundene.
-
-         Sobald du sie hast, baue ich den Abschnitt in zehn Minuten.
-         ════════════════════════════════════════════════════════════════ -->
-
     <section class="section" id="preise" style="background: var(--surface);">
       <div class="container">
         <span class="eyebrow">Preise</span>
@@ -1078,23 +934,6 @@
           <div id="cf-container">
             <form id="contact-form" novalidate>
               <div class="cf-group">
-                <label>F&uuml;r wen suchst du Nachhilfe? <span style="color:#e53e3e;">*</span></label>
-                <div class="cf-wahl">
-                  <label><input type="radio" name="fuer" value="Für mein Kind" required> F&uuml;r mein Kind</label>
-                  <label><input type="radio" name="fuer" value="Für mich selbst"> F&uuml;r mich selbst</label>
-                </div>
-              </div>
-              <div class="cf-group">
-                <label for="cf-stufe">Klassenstufe</label>
-                <select id="cf-stufe" name="stufe">
-                  <option value="">Bitte w&auml;hlen</option>
-                  <option>Klasse 5&ndash;7</option>
-                  <option>Klasse 8&ndash;10</option>
-                  <option>Oberstufe</option>
-                  <option>Abiturvorbereitung</option>
-                </select>
-              </div>
-              <div class="cf-group">
                 <label for="cf-name">Name <span style="color:#e53e3e;">*</span></label>
                 <input type="text" id="cf-name" name="name" placeholder="Dein Name" required>
               </div>
@@ -1172,23 +1011,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Abschluss -->
-    <section class="section">
-      <div class="container">
-        <div class="final-cta">
-          <h2>Die n&auml;chste Klausur kommt bestimmt.</h2>
-          <p>Schreib uns, wo es gerade h&auml;ngt. Du bekommst meist am selben Tag eine
-          R&uuml;ckmeldung, wer frei ist &mdash; die Zeiten macht ihr danach direkt untereinander aus.</p>
-          <div class="hero-actions" style="justify-content:center;">
-            <a class="btn btn-primary" href="#kontakt">Einheit anfragen</a>
-            <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener"
-               style="border-color:rgba(255,255,255,.35); color:#fff;">Per WhatsApp fragen</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
   </main>
 
   <footer class="footer">
@@ -1378,31 +1200,5 @@
         btn.textContent = 'Abschicken';
       }
     });
-    </script>
-  <!-- Mitlaufende Leiste: erscheint, sobald der Hero weggescrollt ist,
-       und verschwindet wieder am Kontaktformular. Nur auf dem Handy --
-       am Rechner ist der Knopf in der Kopfzeile immer sichtbar. -->
-  <div class="sticky-cta" id="stickyCta" hidden>
-    <a class="btn btn-primary" href="#kontakt">Einheit anfragen</a>
-    <a class="sticky-wa" href="https://wa.me/4915233954481" target="_blank" rel="noopener"
-       aria-label="Per WhatsApp fragen">WhatsApp</a>
-  </div>
-
-  <script>
-    // Zeigt die Leiste zwischen Hero und Kontaktformular.
-    (function () {
-      var leiste = document.getElementById('stickyCta');
-      var kontakt = document.getElementById('kontakt');
-      if (!leiste || !kontakt) return;
-      function pruefen() {
-        var ab = window.pageYOffset > 620;
-        var bis = kontakt.getBoundingClientRect().top > window.innerHeight * 0.8;
-        leiste.hidden = !(ab && bis);
-      }
-      window.addEventListener('scroll', pruefen, { passive: true });
-      window.addEventListener('resize', pruefen);
-      pruefen();
-    })();
-  </script>
-</body>
+    </script></body>
 </html>

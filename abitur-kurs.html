@@ -586,16 +586,6 @@
       line-height: 1.6;
     }
 
-    /* Zahlenleiste direkt unter dem Hero -- Vertrauen, bevor irgendetwas
-       kostet. Vier belegte Angaben, keine Werbezahlen. */
-    .zahlen-band { background: var(--primary); padding: 34px 0; }
-    .zahlen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
-    .zahl-wert { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -.02em; }
-    .zahl-was { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 4px; }
-    @media (max-width: 760px) {
-      .zahlen { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
-    }
-
     /* ── FAQ ── */
     .faq-item {
       border-bottom: 1px solid var(--line);
@@ -840,17 +830,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Zahlen -->
-  <section class="zahlen-band">
-    <div class="container zahlen">
-        <div class="zahl"><div class="zahl-wert">10</div><div class="zahl-was">Welten</div></div>
-        <div class="zahl"><div class="zahl-wert">69</div><div class="zahl-was">Lektionen</div></div>
-        <div class="zahl"><div class="zahl-wert">unter 60 Sek.</div><div class="zahl-was">je Erkl&auml;rvideo</div></div>
-        <div class="zahl"><div class="zahl-wert">1,5 Mio.</div><div class="zahl-was">Aufrufe auf TikTok</div></div>
-    </div>
-  </section>
-
 
   <!-- ── Was du bekommst ── -->
   <section id="inhalt">
