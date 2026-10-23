@@ -89,6 +89,10 @@
     }
     .hint-box strong { color: var(--text); }
   
+    /* Eine Stelle fuer die Kachelgroesse -- CSS und Skript lesen dieselben
+       Werte. Kleiner heisst: feinere Formeln, dafuer mehr Wiederholungen. */
+    :root { --muster-breite: 920px; --muster-hoehe: 624px; }   /* 66 % der urspruenglichen Kachel */
+
     section { position: relative; z-index: 0; }
     section::before {
       content: '';
@@ -97,7 +101,7 @@
       z-index: -1;
       background-image: url('img/formel-muster-g8b.png');
       background-repeat: repeat;
-      background-size: 1400px 950px;
+      background-size: var(--muster-breite) var(--muster-hoehe);
       /* Haengt an der Seite, nicht am Bildschirm: es scrollt normal weg.
          Damit die Kachel nicht in jedem Abschnitt neu anfaengt und dabei
          Formeln zerschneidet, rechnet das Skript weiter unten jedem
@@ -123,9 +127,9 @@
        passt also ganz ins Bild, und ist mit 1280 px hoch genug, dass sich die
        sechs Formeln nicht auf jedem Bildschirm wiederholen. */
     @media (max-width: 620px) {
+      :root { --muster-breite: 258px; --muster-hoehe: 847px; }
       section::before {
         background-image: url('img/formel-muster-m9.png');
-        background-size: 390px 1280px;
       }
     }
   </style>
@@ -359,12 +363,19 @@
 
       // Billig: nur der Kachelversatz. Laeuft sofort bei jeder Verschiebung,
       // damit an den Abschnittsgrenzen nie eine Naht sichtbar wird.
+      function kachelhoehe() {
+        var v = getComputedStyle(document.documentElement)
+                  .getPropertyValue('--muster-hoehe');
+        return parseFloat(v) || 624;
+      }
+
       function versaetze() {
         var y = window.pageYOffset;
+        var h = kachelhoehe();
         var liste = document.querySelectorAll('section');
         for (var i = 0; i < liste.length; i++) {
           var oben = liste[i].getBoundingClientRect().top + y;
-          liste[i].style.setProperty('--muster-y', -(oben % 950) + 'px');
+          liste[i].style.setProperty('--muster-y', -(oben % h) + 'px');
         }
       }
 
