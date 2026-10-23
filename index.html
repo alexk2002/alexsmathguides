@@ -423,6 +423,36 @@
       color: var(--muted); font-size: 15px;
     }
 
+    /* Zahlenleiste direkt unter dem Hero -- Vertrauen, bevor irgendetwas
+       kostet. Vier belegte Angaben, keine Werbezahlen. */
+    .zahlen-band { background: var(--primary); padding: 34px 0; }
+    .zahlen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+    .zahl-wert { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -.02em; }
+    .zahl-was { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 4px; }
+    @media (max-width: 760px) {
+      .zahlen { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+    }
+
+    /* Mitlaufende Leiste. Nur auf dem Handy -- am Rechner steht der Knopf
+       ohnehin dauerhaft in der Kopfzeile. */
+    .sticky-cta { display: none; }
+    @media (max-width: 860px) {
+      .sticky-cta {
+        display: flex; gap: 10px; align-items: center;
+        position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40;
+        background: rgba(255,255,255,.94); backdrop-filter: blur(8px);
+        border: 1px solid var(--line); border-radius: 14px;
+        padding: 10px; box-shadow: 0 10px 30px rgba(11,42,74,.18);
+      }
+      .sticky-cta[hidden] { display: none; }
+      .sticky-cta .btn { flex: 1; justify-content: center; }
+      .sticky-wa {
+        padding: 13px 16px; border-radius: 10px; font-weight: 700; font-size: 15px;
+        border: 1.5px solid var(--line); color: var(--primary); white-space: nowrap;
+      }
+      body { padding-bottom: 78px; }
+    }
+
     /* ── FAQ ── */
     .faq { max-width: 62ch; margin-top: 8px; }
     .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
@@ -643,6 +673,17 @@
         </div>
       </div>
     </section>
+
+  <!-- Zahlen -->
+  <section class="zahlen-band">
+    <div class="container zahlen">
+        <div class="zahl"><div class="zahl-wert">5 Jahre</div><div class="zahl-was">Mathe-Nachhilfe</div></div>
+        <div class="zahl"><div class="zahl-wert">1,5 Mio.</div><div class="zahl-was">Aufrufe auf TikTok</div></div>
+        <div class="zahl"><div class="zahl-wert">69</div><div class="zahl-was">Lektionen im Kurs</div></div>
+        <div class="zahl"><div class="zahl-wert">55 Min.</div><div class="zahl-was">je Coaching-Stunde</div></div>
+    </div>
+  </section>
+
 
     <!-- Warum -->
 
@@ -1292,6 +1333,28 @@
         var abschnitte = document.querySelectorAll('section');
         for (var i = 0; i < abschnitte.length; i++) beo.observe(abschnitte[i]);
       }
+    })();
+  </script>
+  <div class="sticky-cta" id="stickyCta" hidden>
+    <a class="btn btn-primary" href="#kontakt">Erstgespr&auml;ch anfragen</a>
+    <a class="sticky-wa" href="https://wa.me/4915233954481" target="_blank" rel="noopener"
+       aria-label="Per WhatsApp fragen">WhatsApp</a>
+  </div>
+
+  <script>
+    // Zeigt die Leiste zwischen Hero und Kontaktformular.
+    (function () {
+      var leiste = document.getElementById('stickyCta');
+      var kontakt = document.getElementById('kontakt');
+      if (!leiste || !kontakt) return;
+      function pruefen() {
+        var ab = window.pageYOffset > 620;
+        var bis = kontakt.getBoundingClientRect().top > window.innerHeight * 0.8;
+        leiste.hidden = !(ab && bis);
+      }
+      window.addEventListener('scroll', pruefen, { passive: true });
+      window.addEventListener('resize', pruefen);
+      pruefen();
     })();
   </script>
 </body>

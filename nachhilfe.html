@@ -475,6 +475,69 @@
       color: var(--muted); font-size: 15px;
     }
 
+
+    /* Vier Punkte statt drei: eigenes Raster, damit keiner allein
+       in der zweiten Zeile haengt. */
+    .leistungen--vier { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 1040px) { .leistungen--vier { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px)  { .leistungen--vier { grid-template-columns: 1fr; } }
+
+    /* ── Umbau nach dem Aufbau von onmathe.de ── */
+
+    /* Vertrauenszeile direkt unter den Hero-Knoepfen */
+    .hero-vertrauen {
+      margin: 20px 0 0; font-size: 15px; color: var(--muted); line-height: 1.6;
+    }
+    .hero-vertrauen b { color: var(--text); font-weight: 700; }
+
+    /* Zahlenleiste */
+    .zahlen-band { background: var(--primary); padding: 34px 0; }
+    .zahlen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+    .zahl-wert { font-size: 30px; font-weight: 800; color: #fff; letter-spacing: -.02em; }
+    .zahl-was { font-size: 14.5px; color: rgba(255,255,255,.72); margin-top: 4px; }
+    @media (max-width: 760px) {
+      .zahlen { grid-template-columns: repeat(2, 1fr); gap: 24px 16px; }
+    }
+
+    /* Auswahl "Fuer mein Kind / Fuer mich selbst" */
+    .cf-wahl { display: flex; flex-wrap: wrap; gap: 10px; }
+    .cf-wahl label {
+      flex: 1 1 140px; display: flex; align-items: center; gap: 9px;
+      border: 1.5px solid var(--line); border-radius: 10px;
+      padding: 12px 14px; font-size: 15px; font-weight: 600;
+      cursor: pointer; transition: border-color .15s, background .15s;
+    }
+    .cf-wahl label:hover { border-color: var(--primary-2, var(--primary)); }
+    .cf-wahl input { accent-color: var(--primary); }
+    .cf-group select {
+      width: 100%; padding: 12px 14px; border: 1.5px solid var(--line);
+      border-radius: 10px; font: inherit; font-size: 15px;
+      color: var(--text); background: var(--white);
+    }
+    .cf-group select:focus { border-color: var(--primary); outline: none; }
+
+    /* Mitlaufende Leiste. Nur auf dem Handy -- am Rechner steht der Knopf
+       ohnehin dauerhaft in der Kopfzeile. */
+    .sticky-cta { display: none; }
+    @media (max-width: 860px) {
+      .sticky-cta {
+        display: flex; gap: 10px; align-items: center;
+        position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 40;
+        background: rgba(255,255,255,.94);
+        backdrop-filter: blur(8px);
+        border: 1px solid var(--line); border-radius: 14px;
+        padding: 10px; box-shadow: 0 10px 30px rgba(11,42,74,.18);
+      }
+      .sticky-cta[hidden] { display: none; }
+      .sticky-cta .btn { flex: 1; justify-content: center; }
+      .sticky-wa {
+        padding: 13px 16px; border-radius: 10px; font-weight: 700; font-size: 15px;
+        border: 1.5px solid var(--line); color: var(--primary); white-space: nowrap;
+      }
+      /* Platz, damit die Leiste den Seitenfuss nicht verdeckt */
+      body { padding-bottom: 78px; }
+    }
+
     /* ── FAQ ── */
     .faq { max-width: 62ch; margin-top: 8px; }
     .faq details { border-bottom: 1px solid var(--line); padding: 18px 0; }
@@ -666,7 +729,7 @@
         <a href="tutor-werden.html">Tutor werden</a>
         <b><a href="abitur-kurs.html">mathemaxxers Abitur Kurs</a></b>
         <a href="https://kurs.alexsmathguides.de/login">Login</a>
-        <a class="nav-cta" href="#kontakt">Einheit anfragen</a>
+        <a class="nav-cta" href="#kontakt">Kostenlos beraten lassen</a>
       </nav>
     </div>
   </header>
@@ -684,13 +747,18 @@
             <li><b>Kein Abo</b> &mdash; du buchst Einheiten und nutzt sie, wenn es passt</li>
             <li><b>Alle Klassenstufen</b> &mdash; von der Mittelstufe bis zum Abitur</li>
             <li><b>Online im Einzelunterricht</b> &mdash; 45 Minuten je Einheit, Termine frei vereinbar</li>
-            <li><b>Meist am selben Tag</b> &mdash; Antwort mit Termin und Zahlungslink</li>
+            <li><b>Meist am selben Tag</b> &mdash; R&uuml;ckmeldung, ob eine Lehrkraft frei ist</li>
           </ul>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#kontakt">Einheit anfragen</a>
+            <a class="btn btn-primary" href="#kontakt">Kostenlos beraten lassen</a>
             <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener">WhatsApp-Kontakt &rarr;</a>
           </div>
+
+          <p class="hero-vertrauen">
+            <b>5&nbsp;Jahre</b> Mathe-Nachhilfe &middot; <b>&uuml;ber 1,5&nbsp;Millionen</b> Aufrufe
+            auf TikTok &middot; Antwort meist <b>am selben Tag</b>
+          </p>
         </div>
 
         <!-- Breite und Hoehe stehen im Markup, damit beim Laden nichts springt.
@@ -707,143 +775,62 @@
       </div>
     </section>
 
-    <!-- Fuer wen -->
-    <section class="section">
-      <div class="container">
-        <span class="eyebrow">F&uuml;r wen</span>
-        <h2>Nachhilfe vor der Klausur, bei einer L&uuml;cke oder regelm&auml;&szlig;ig.</h2>
-        <p style="max-width:62ch; color:var(--muted); margin:0 0 10px;">Nicht jeder braucht
-        monatelange Begleitung. Manchmal ist die Klausur n&auml;chste Woche, manchmal sitzt ein
-        einzelnes Thema nicht. Daf&uuml;r gibt es hier einzelne Einheiten statt eines Vertrags
-        &mdash; kurzfristig buchbar, ohne Bindung.</p>
-
-        <div class="stufen">
-          <span class="stufe">Klasse 5&ndash;10</span>
-          <span class="stufe">Oberstufe</span>
-          <span class="stufe">Abiturvorbereitung</span>
-          <span class="stufe">Grund- und Leistungskurs</span>
-          <span class="stufe">Nachpr&uuml;fungen</span>
-        </div>
-
-        <div class="leistungen" style="margin-top:32px;">
-          <div class="leistung">
-            <h3>Gezielt statt flächendeckend</h3>
-            <p>Du sagst, worum es geht &mdash; Kurvendiskussion, Vektoren, Br&uuml;che.
-            Die Einheit dreht sich genau darum, nicht um einen Lehrplan.</p>
-          </div>
-          <div class="leistung">
-            <h3>Kein Druck, keine Bindung</h3>
-            <p>Keine Mindestlaufzeit und keine K&uuml;ndigungsfrist. Gekaufte Einheiten sind
-            zw&ouml;lf Monate g&uuml;ltig, du nutzt sie, wann du willst.</p>
-          </div>
-          <div class="leistung">
-            <h3>Von Leuten, die es k&ouml;nnen</h3>
-            <p>Du bekommst einen passenden Tutor aus unserem Team zugeteilt &mdash; alle sind
-            Studenten, die sich noch gut an die Schulzeit erinnern. Unterricht l&auml;uft
-            online &uuml;ber Zoom.</p>
-          </div>
-        </div>
+    <!-- Zahlen -->
+    <section class="zahlen-band">
+      <div class="container zahlen">
+        <div class="zahl"><div class="zahl-wert">5 Jahre</div><div class="zahl-was">Mathe-Nachhilfe</div></div>
+        <div class="zahl"><div class="zahl-wert">1,5 Mio.</div><div class="zahl-was">Aufrufe auf TikTok</div></div>
+        <div class="zahl"><div class="zahl-wert">69</div><div class="zahl-was">Lektionen im Abitur-Kurs</div></div>
+        <div class="zahl"><div class="zahl-wert">45 Min.</div><div class="zahl-was">je Unterrichtseinheit</div></div>
       </div>
     </section>
 
-    <!-- Preise -->
-    <section class="section" id="preise" style="background: var(--surface);">
-      <div class="container">
-        <span class="eyebrow">Preise</span>
-        <h2>Was Nachhilfe kostet &mdash; w&auml;hle deinen Tarif.</h2>
-        <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Einmal zahlen,
-        keine laufenden Kosten. Eine Einheit dauert 45&nbsp;Minuten &mdash; so lang wie eine Schulstunde.</p>
-
-        <div class="preise">
-          <div class="preis">
-            <h3>Einzelne Einheit</h3>
-            <div class="umfang">1 Einheit &middot; 45&nbsp;Minuten</div>
-            <div class="betrag">29 &euro;<span class="je">/ Einheit</span></div>
-            <div class="takt">29&nbsp;&euro; gesamt</div>
-            <ul>
-              <li>Zum Ausprobieren oder f&uuml;r eine einzelne Frage</li>
-              <li>Termin frei vereinbar</li>
-              <li>Keine weiteren Verpflichtungen</li>
-            </ul>
-            <a class="btn btn-secondary" href="#kontakt">Einheit anfragen</a>
-          </div>
-
-          <div class="preis preis--empfohlen">
-            <span class="preis-marke">Am beliebtesten</span>
-            <h3>5er-Paket</h3>
-            <div class="umfang">5 Einheiten &middot; je 45&nbsp;Minuten</div>
-            <div class="betrag">27 &euro;<span class="je">/ Einheit</span></div>
-            <div class="takt">135&nbsp;&euro; gesamt &middot; du sparst 10&nbsp;&euro;</div>
-            <ul>
-              <li>Reicht meist f&uuml;r eine Klausurvorbereitung</li>
-              <li>Zw&ouml;lf Monate g&uuml;ltig</li>
-              <li>Termine nach deinem Plan</li>
-              <li>Feste Lehrkraft</li>
-            </ul>
-            <a class="btn btn-primary" href="#kontakt">5er-Paket anfragen</a>
-          </div>
-
-          <div class="preis">
-            <h3>10er-Paket</h3>
-            <div class="umfang">10 Einheiten &middot; je 45&nbsp;Minuten</div>
-            <div class="betrag">25 &euro;<span class="je">/ Einheit</span></div>
-            <div class="takt">250&nbsp;&euro; gesamt &middot; du sparst 40&nbsp;&euro;</div>
-            <ul>
-              <li>F&uuml;r ein ganzes Halbjahr oder eine gr&ouml;&szlig;ere L&uuml;cke</li>
-              <li>Zw&ouml;lf Monate g&uuml;ltig</li>
-              <li>Termine nach deinem Plan</li>
-              <li>Feste Lehrkraft</li>
-            </ul>
-            <a class="btn btn-secondary" href="#kontakt">10er-Paket anfragen</a>
-          </div>
-        </div>
-
-        <div class="gruppe">
-          <div style="min-width:200px;">
-            <h3>Gruppenunterricht</h3>
-          </div>
-          <p>Nach Absprache. <span class="betrag-klein">Ab 20&nbsp;&euro;</span> pro Person und Einheit.</p>
-          <a class="btn btn-secondary" href="#kontakt" style="white-space:nowrap;">Anfragen</a>
-        </div>
-
-        <p class="preis-hinweis">Du lernst lieber durchgehend und mit festem Coach?
-        Dann ist das <a href="index.html">Coaching im Monatsabo</a> der passendere Weg &mdash;
-        dort ist auch der komplette Abitur-Kurs enthalten.</p>
-      </div>
-    </section>
-
-    <!-- Ablauf -->
+    <!-- Wer unterrichtet -->
     <section class="section">
       <div class="container">
-        <span class="eyebrow">So l&auml;uft es</span>
-        <h2>Von der Anfrage bis zur ersten Nachhilfestunde.</h2>
+        <span class="eyebrow">Wer dich unterrichtet</span>
+        <h2>Studenten, die den Stoff noch im Kopf haben.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Du bekommst eine feste
+        Lehrkraft aus unserem Team zugeteilt &mdash; keine wechselnden Aushilfen und keine
+        Gruppe, in der du auf deine Frage wartest.</p>
 
-        <div class="ablauf">
-          <div class="schritt">
-            <div class="schritt-nr">1</div>
-            <div>
-              <h3>Du schreibst mir</h3>
-              <p>Klassenstufe, Thema und wie viele Einheiten du dir vorstellst. &Uuml;ber das
-              Formular unten oder per WhatsApp.</p>
-            </div>
+        <div class="leistungen leistungen--vier">
+          <div class="leistung">
+            <h3>Studiert</h3>
+            <p>Alle unterrichten Mathe in einem Fach, das sie selbst studieren.</p>
           </div>
-          <div class="schritt">
-            <div class="schritt-nr">2</div>
-            <div>
-              <h3>Ich suche die passende Lehrkraft</h3>
-              <p>Du bekommst eine R&uuml;ckmeldung mit einem Terminvorschlag und dem
-              Zahlungslink. Meist noch am selben Tag.</p>
-            </div>
+          <div class="leistung">
+            <h3>Nah dran</h3>
+            <p>Sie haben ihr eigenes Abitur noch gut im Ged&auml;chtnis &mdash; samt der Stellen,
+            an denen es schwierig wird.</p>
           </div>
-          <div class="schritt">
-            <div class="schritt-nr">3</div>
-            <div>
-              <h3>Ihr macht die Termine direkt aus</h3>
-              <p>Nach der Zahlung sprecht ihr die Zeiten untereinander ab. Unterricht
-              l&auml;uft online &uuml;ber Zoom.</p>
-            </div>
+          <div class="leistung">
+            <h3>Fest</h3>
+            <p>Dieselbe Lehrkraft vom ersten bis zum letzten Termin. Du erkl&auml;rst deine
+            L&uuml;cken nur einmal.</p>
+          </div>
+          <div class="leistung">
+            <h3>Online</h3>
+            <p>Unterricht &uuml;ber Zoom mit digitalem Tafelbild. Keine Anfahrt, kein Papierkram.</p>
           </div>
         </div>
+
+        <!-- ════════════════════════════════════════════════════════════════
+             PLATZHALTER -- hier fehlen die Tutorprofile.
+
+             Auf onmathe.de stehen neun Karten mit Foto, Studienfach, Zitat
+             und drei Stichpunkten. Das ist dort der staerkste Abschnitt der
+             ganzen Seite: Eltern wollen sehen, wer ihrem Kind gegenuebersitzt.
+
+             Damit das hier stehen kann, brauche ich von dir:
+               - Lerons Einverstaendnis, Name und Foto zu zeigen
+               - sein Studienfach und seine Mathe-Abinote
+               - einen Satz von ihm, warum er unterrichtet
+             Dasselbe fuer dich selbst (die vier Angaben fehlen mir seit
+             der Eltern-Seite ohnehin).
+
+             Erfundene Profile baue ich nicht ein.
+             ════════════════════════════════════════════════════════════════ -->
       </div>
     </section>
 
@@ -911,7 +898,230 @@
       </div>
     </section>
 
-    <!-- FAQ -->
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">Was anders ist</span>
+        <h2>Drei Dinge, die uns von Nachhilfeinstituten unterscheiden.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 10px;">Nicht jeder braucht
+        monatelange Begleitung. Manchmal ist die Klausur n&auml;chste Woche, manchmal sitzt ein
+        einzelnes Thema nicht. Daf&uuml;r gibt es hier einzelne Einheiten statt eines Vertrags
+        &mdash; kurzfristig buchbar, ohne Bindung.</p>
+
+        <div class="stufen">
+          <span class="stufe">Klasse 5&ndash;10</span>
+          <span class="stufe">Oberstufe</span>
+          <span class="stufe">Abiturvorbereitung</span>
+          <span class="stufe">Grund- und Leistungskurs</span>
+          <span class="stufe">Nachpr&uuml;fungen</span>
+        </div>
+
+        <div class="leistungen" style="margin-top:32px;">
+          <div class="leistung">
+            <h3>Gezielt statt flächendeckend</h3>
+            <p>Du sagst, worum es geht &mdash; Kurvendiskussion, Vektoren, Br&uuml;che.
+            Die Einheit dreht sich genau darum, nicht um einen Lehrplan.</p>
+          </div>
+          <div class="leistung">
+            <h3>Kein Druck, keine Bindung</h3>
+            <p>Keine Mindestlaufzeit und keine K&uuml;ndigungsfrist. Gekaufte Einheiten sind
+            zw&ouml;lf Monate g&uuml;ltig, du nutzt sie, wann du willst.</p>
+          </div>
+          <div class="leistung">
+            <h3>Von Leuten, die es k&ouml;nnen</h3>
+            <p>Du bekommst einen passenden Tutor aus unserem Team zugeteilt &mdash; alle sind
+            Studenten, die sich noch gut an die Schulzeit erinnern. Unterricht l&auml;uft
+            online &uuml;ber Zoom.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <span class="eyebrow">So l&auml;uft es</span>
+        <h2>In vier Schritten zur ersten Nachhilfestunde.</h2>
+
+        <div class="ablauf">
+          <div class="schritt">
+            <div class="schritt-nr">1</div>
+            <div>
+              <h3>Du schreibst mir</h3>
+              <p>Klassenstufe, Thema und wie viele Einheiten du dir vorstellst. &Uuml;ber das
+              Formular unten oder per WhatsApp.</p>
+            </div>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">2</div>
+            <div>
+              <h3>Ich suche die passende Lehrkraft</h3>
+              <p>Ich frage im Team herum, wer zu deinem Thema und deiner Klassenstufe
+              passt. Meist bekommst du noch am selben Tag eine R&uuml;ckmeldung.</p>
+            </div>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">3</div>
+            <div>
+              <h3>Ich stelle euch einander vor</h3>
+              <p>Sobald eine Lehrkraft zusagt, gebe ich euren Kontakt weiter und schicke
+              dir den Zahlungslink. Damit ist meine Rolle erledigt.</p>
+            </div>
+          </div>
+          <div class="schritt">
+            <div class="schritt-nr">4</div>
+            <div>
+              <h3>Ihr macht die Termine unter euch aus</h3>
+              <p>Wann ihr euch trefft, legt ihr direkt miteinander fest &mdash; ohne Umweg
+              &uuml;ber mich. Unterricht l&auml;uft online &uuml;ber Zoom mit digitalem Tafelbild.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════════════════════════════════════════════════════════
+         PLATZHALTER -- hier gehoeren Stimmen von Schuelern und Eltern hin.
+
+         Bei onmathe stehen an dieser Stelle sechs Google-Bewertungen mit
+         Namen und Rolle ("Marion M., Mutter"), danach drei WhatsApp-
+         Screenshots mit Ergebnissen. Zusammen ist das ihr halber Beweis.
+
+         Wir haben zwei Nachhilfe-Schueler. Frag beide nach einem Satz --
+         und das Elternteil von letzter Woche nach einem zweiten. Drei echte
+         Saetze wirken mehr als zwanzig erfundene.
+
+         Sobald du sie hast, baue ich den Abschnitt in zehn Minuten.
+         ════════════════════════════════════════════════════════════════ -->
+
+    <section class="section" id="preise" style="background: var(--surface);">
+      <div class="container">
+        <span class="eyebrow">Preise</span>
+        <h2>Was Nachhilfe kostet &mdash; w&auml;hle deinen Tarif.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Einmal zahlen,
+        keine laufenden Kosten. Eine Einheit dauert 45&nbsp;Minuten &mdash; so lang wie eine Schulstunde.</p>
+
+        <div class="preise">
+          <div class="preis">
+            <h3>Einzelne Einheit</h3>
+            <div class="umfang">1 Einheit &middot; 45&nbsp;Minuten</div>
+            <div class="betrag">29 &euro;<span class="je">/ Einheit</span></div>
+            <div class="takt">29&nbsp;&euro; gesamt</div>
+            <ul>
+              <li>Zum Ausprobieren oder f&uuml;r eine einzelne Frage</li>
+              <li>Termin frei vereinbar</li>
+              <li>Keine weiteren Verpflichtungen</li>
+            </ul>
+            <a class="btn btn-secondary" href="#kontakt">Einheit anfragen</a>
+          </div>
+
+          <div class="preis preis--empfohlen">
+            <span class="preis-marke">Am beliebtesten</span>
+            <h3>5er-Paket</h3>
+            <div class="umfang">5 Einheiten &middot; je 45&nbsp;Minuten</div>
+            <div class="betrag">27 &euro;<span class="je">/ Einheit</span></div>
+            <div class="takt">135&nbsp;&euro; gesamt &middot; du sparst 10&nbsp;&euro;</div>
+            <ul>
+              <li>Reicht meist f&uuml;r eine Klausurvorbereitung</li>
+              <li>Zw&ouml;lf Monate g&uuml;ltig</li>
+              <li>Termine nach deinem Plan</li>
+              <li>Feste Lehrkraft</li>
+            </ul>
+            <a class="btn btn-primary" href="#kontakt">5er-Paket anfragen</a>
+          </div>
+
+          <div class="preis">
+            <h3>10er-Paket</h3>
+            <div class="umfang">10 Einheiten &middot; je 45&nbsp;Minuten</div>
+            <div class="betrag">25 &euro;<span class="je">/ Einheit</span></div>
+            <div class="takt">250&nbsp;&euro; gesamt &middot; du sparst 40&nbsp;&euro;</div>
+            <ul>
+              <li>F&uuml;r ein ganzes Halbjahr oder eine gr&ouml;&szlig;ere L&uuml;cke</li>
+              <li>Zw&ouml;lf Monate g&uuml;ltig</li>
+              <li>Termine nach deinem Plan</li>
+              <li>Feste Lehrkraft</li>
+            </ul>
+            <a class="btn btn-secondary" href="#kontakt">10er-Paket anfragen</a>
+          </div>
+        </div>
+
+        <div class="gruppe">
+          <div style="min-width:200px;">
+            <h3>Gruppenunterricht</h3>
+          </div>
+          <p>Nach Absprache. <span class="betrag-klein">Ab 20&nbsp;&euro;</span> pro Person und Einheit.</p>
+          <a class="btn btn-secondary" href="#kontakt" style="white-space:nowrap;">Anfragen</a>
+        </div>
+
+        <p class="preis-hinweis">Du lernst lieber durchgehend und mit festem Coach?
+        Dann ist das <a href="index.html">Coaching im Monatsabo</a> der passendere Weg &mdash;
+        dort ist auch der komplette Abitur-Kurs enthalten.</p>
+      </div>
+    </section>
+
+    <section class="section" id="kontakt">
+      <div class="container split" style="position:relative">
+        <div>
+          <span class="eyebrow">Kontakt</span>
+          <h2>Kostenlos beraten lassen.</h2>
+          <p>Nutze WhatsApp f&uuml;r schnelle R&uuml;ckfragen. Oder schick mir direkt eine Nachricht &uuml;ber das Formular &ndash; z.&nbsp;B. als Elternteil. Ich melde mich meist noch am selben Tag und sage dir, wer frei ist. Die Zeiten macht ihr danach direkt mit der Lehrkraft aus.</p>
+          <p><span class="code-inline">Tipp: Klasse, Thema und gew&uuml;nschte Anzahl Einheiten kurz nennen.</span></p>
+          <p style="color:var(--muted); font-size:15px;">Bei Minderj&auml;hrigen brauche ich f&uuml;r die Buchung die Zustimmung eines Elternteils &mdash; am einfachsten, wenn ihr euch gemeinsam meldet.</p>
+          <p style="margin-top: 18px; font-weight: 600;">Kontakt per WhatsApp:</p>
+          <p>
+            <a class="btn btn-primary" href="https://wa.me/4915233954481" target="_blank" rel="noopener noreferrer">
+              Chat in WhatsApp öffnen
+            </a>
+          </p>
+        </div>
+
+        <!-- Formspree Kontaktformular -->
+        <div class="contact-form-box">
+          <div id="cf-container">
+            <form id="contact-form" novalidate>
+              <div class="cf-group">
+                <label>F&uuml;r wen suchst du Nachhilfe? <span style="color:#e53e3e;">*</span></label>
+                <div class="cf-wahl">
+                  <label><input type="radio" name="fuer" value="Für mein Kind" required> F&uuml;r mein Kind</label>
+                  <label><input type="radio" name="fuer" value="Für mich selbst"> F&uuml;r mich selbst</label>
+                </div>
+              </div>
+              <div class="cf-group">
+                <label for="cf-stufe">Klassenstufe</label>
+                <select id="cf-stufe" name="stufe">
+                  <option value="">Bitte w&auml;hlen</option>
+                  <option>Klasse 5&ndash;7</option>
+                  <option>Klasse 8&ndash;10</option>
+                  <option>Oberstufe</option>
+                  <option>Abiturvorbereitung</option>
+                </select>
+              </div>
+              <div class="cf-group">
+                <label for="cf-name">Name <span style="color:#e53e3e;">*</span></label>
+                <input type="text" id="cf-name" name="name" placeholder="Dein Name" required>
+              </div>
+              <div class="cf-group">
+                <label for="cf-email">E-Mail <span style="color:#e53e3e;">*</span></label>
+                <input type="email" id="cf-email" name="email" placeholder="deine@email.de" required>
+              </div>
+              <div class="cf-group">
+                <label for="cf-message">Deine Anfrage <span style="color:#e53e3e;">*</span></label>
+                <textarea id="cf-message" name="message" rows="5" placeholder="Worum geht es? Schreib kurz, wo du stehst und was du erreichen willst." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px 20px;">
+                Abschicken
+              </button>
+              <p id="cf-error" style="display:none; color:#e53e3e; font-size:14px; margin-top:10px; text-align:center;"></p>
+            </form>
+          </div>
+          <div class="cf-success" id="cf-success">
+            <div class="cf-success-icon">✅</div>
+            <h3>Nachricht erhalten!</h3>
+            <p>Danke – ich melde mich so schnell wie möglich bei dir.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <section class="section" style="background: var(--surface);">
       <div class="container">
         <span class="eyebrow">H&auml;ufig gefragt</span>
@@ -963,52 +1173,19 @@
       </div>
     </section>
 
-    <!-- Kontakt -->
-    <section class="section" id="kontakt">
-      <div class="container split" style="position:relative">
-        <div>
-          <span class="eyebrow">Kontakt</span>
-          <h2>Nachhilfe anfragen.</h2>
-          <p>Nutze WhatsApp f&uuml;r schnelle R&uuml;ckfragen oder Terminabsprachen. Oder schick mir direkt eine Nachricht &uuml;ber das Formular &ndash; z.&nbsp;B. als Elternteil. Ich melde mich meist noch am selben Tag mit einem Terminvorschlag und dem Zahlungslink.</p>
-          <p><span class="code-inline">Tipp: Klasse, Thema und gew&uuml;nschte Anzahl Einheiten kurz nennen.</span></p>
-          <p style="color:var(--muted); font-size:15px;">Bei Minderj&auml;hrigen brauche ich f&uuml;r die Buchung die Zustimmung eines Elternteils &mdash; am einfachsten, wenn ihr euch gemeinsam meldet.</p>
-          <p style="margin-top: 18px; font-weight: 600;">Kontakt per WhatsApp:</p>
-          <p>
-            <a class="btn btn-primary" href="https://wa.me/4915233954481" target="_blank" rel="noopener noreferrer">
-              Chat in WhatsApp öffnen
-            </a>
-          </p>
-        </div>
-
-        <!-- Formspree Kontaktformular -->
-        <div class="contact-form-box">
-          <div id="cf-container">
-            <form id="contact-form" novalidate>
-              <div class="cf-group">
-                <label for="cf-name">Name <span style="color:#e53e3e;">*</span></label>
-                <input type="text" id="cf-name" name="name" placeholder="Dein Name" required>
-              </div>
-              <div class="cf-group">
-                <label for="cf-email">E-Mail <span style="color:#e53e3e;">*</span></label>
-                <input type="email" id="cf-email" name="email" placeholder="deine@email.de" required>
-              </div>
-              <div class="cf-group">
-                <label for="cf-message">Deine Anfrage <span style="color:#e53e3e;">*</span></label>
-                <textarea id="cf-message" name="message" rows="5" placeholder="Worum geht es? Schreib kurz, wo du stehst und was du erreichen willst." required></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px 20px;">
-                Abschicken
-              </button>
-              <p id="cf-error" style="display:none; color:#e53e3e; font-size:14px; margin-top:10px; text-align:center;"></p>
-            </form>
-          </div>
-          <div class="cf-success" id="cf-success">
-            <div class="cf-success-icon">✅</div>
-            <h3>Nachricht erhalten!</h3>
-            <p>Danke – ich melde mich so schnell wie möglich bei dir.</p>
+    <!-- Abschluss -->
+    <section class="section">
+      <div class="container">
+        <div class="final-cta">
+          <h2>Die n&auml;chste Klausur kommt bestimmt.</h2>
+          <p>Schreib uns, wo es gerade h&auml;ngt. Du bekommst meist am selben Tag eine
+          R&uuml;ckmeldung, wer frei ist &mdash; die Zeiten macht ihr danach direkt untereinander aus.</p>
+          <div class="hero-actions" style="justify-content:center;">
+            <a class="btn btn-primary" href="#kontakt">Kostenlos beraten lassen</a>
+            <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener"
+               style="border-color:rgba(255,255,255,.35); color:#fff;">Per WhatsApp fragen</a>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -1202,5 +1379,30 @@
       }
     });
     </script>
+  <!-- Mitlaufende Leiste: erscheint, sobald der Hero weggescrollt ist,
+       und verschwindet wieder am Kontaktformular. Nur auf dem Handy --
+       am Rechner ist der Knopf in der Kopfzeile immer sichtbar. -->
+  <div class="sticky-cta" id="stickyCta" hidden>
+    <a class="btn btn-primary" href="#kontakt">Kostenlos beraten lassen</a>
+    <a class="sticky-wa" href="https://wa.me/4915233954481" target="_blank" rel="noopener"
+       aria-label="Per WhatsApp fragen">WhatsApp</a>
+  </div>
+
+  <script>
+    // Zeigt die Leiste zwischen Hero und Kontaktformular.
+    (function () {
+      var leiste = document.getElementById('stickyCta');
+      var kontakt = document.getElementById('kontakt');
+      if (!leiste || !kontakt) return;
+      function pruefen() {
+        var ab = window.pageYOffset > 620;
+        var bis = kontakt.getBoundingClientRect().top > window.innerHeight * 0.8;
+        leiste.hidden = !(ab && bis);
+      }
+      window.addEventListener('scroll', pruefen, { passive: true });
+      window.addEventListener('resize', pruefen);
+      pruefen();
+    })();
+  </script>
 </body>
 </html>
