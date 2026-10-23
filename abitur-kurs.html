@@ -686,7 +686,7 @@
   
     /* Eine Stelle fuer die Kachelgroesse -- CSS und Skript lesen dieselben
        Werte. Kleiner heisst: feinere Formeln, dafuer mehr Wiederholungen. */
-    :root { --muster-breite: 1820px; --muster-hoehe: 1235px; }   /* 130 % der urspruenglichen Kachel */
+    :root { --muster-breite: 1370px; --muster-hoehe: 930px; }   /* Mitte zwischen 920 und 1820 */
 
     section { position: relative; z-index: 0; }
     section::before {
@@ -722,7 +722,7 @@
        passt also ganz ins Bild, und ist mit 1280 px hoch genug, dass sich die
        sechs Formeln nicht auf jedem Bildschirm wiederholen. */
     @media (max-width: 620px) {
-      :root { --muster-breite: 390px; --muster-hoehe: 1280px; }
+      :root { --muster-breite: 324px; --muster-hoehe: 1063px; }
       section::before {
         background-image: url('img/formel-muster-m9.png');
       }
@@ -1190,7 +1190,7 @@
       function kachelhoehe() {
         var v = getComputedStyle(document.documentElement)
                   .getPropertyValue('--muster-hoehe');
-        return parseFloat(v) || 1235;
+        return parseFloat(v) || 930;
       }
 
       function versaetze() {
