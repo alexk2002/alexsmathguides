@@ -7,8 +7,50 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0b2a4a">
-  <title>SOS Nachhilfe – kurzfristige Mathe-Hilfe online | alexsmathguides</title>
-  <meta name="description" content="SOS Nachhilfe: kurzfristige Mathe-Hilfe online, einzelne Einheiten ohne Abo. Eine Einheit 29 Euro, 5er-Paket 135 Euro, 10er-Paket 250 Euro. Alle Klassenstufen, Termine frei vereinbar, Gruppenunterricht nach Absprache." />
+  <title>Mathe Nachhilfe online ohne Abo – ab 25 € pro Einheit</title>
+  <meta name="description" content="Mathe-Nachhilfe online ohne Abo: Einheit 29 €, 5er-Paket 135 €, 10er-Paket 250 €. Klasse 5 bis Abitur, Termine frei vereinbar, Antwort meist am selben Tag." />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Mathe-Nachhilfe online",
+    "serviceType": "Online-Nachhilfe Mathematik",
+    "url": "https://alexsmathguides.de/nachhilfe.html",
+    "description": "Mathe-Nachhilfe online im Einzelunterricht, ohne Abo und ohne Mindestlaufzeit. Eine Unterrichtseinheit dauert 45 Minuten.",
+    "provider": {
+      "@type": "EducationalOrganization",
+      "name": "alexsmathguides",
+      "url": "https://alexsmathguides.de/"
+    },
+    "areaServed": { "@type": "Country", "name": "Deutschland" },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Einzelne Einheit (45 Minuten)",
+        "price": "29",
+        "priceCurrency": "EUR",
+        "url": "https://alexsmathguides.de/nachhilfe.html#preise",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "5er-Paket (5 Einheiten zu je 45 Minuten)",
+        "price": "135",
+        "priceCurrency": "EUR",
+        "url": "https://alexsmathguides.de/nachhilfe.html#preise",
+        "availability": "https://schema.org/InStock"
+      },
+      {
+        "@type": "Offer",
+        "name": "10er-Paket (10 Einheiten zu je 45 Minuten)",
+        "price": "250",
+        "priceCurrency": "EUR",
+        "url": "https://alexsmathguides.de/nachhilfe.html#preise",
+        "availability": "https://schema.org/InStock"
+      }
+    ]
+  }
+  </script>
   <link rel="canonical" href="https://alexsmathguides.de/nachhilfe.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -179,7 +221,11 @@
     /* Bild im Hero */
     .hero-visual { display: flex; align-items: center; }
     .hero-visual img {
-      width: 100%; border-radius: var(--radius); display: block;
+      /* height:auto ist hier Pflicht, nicht Kosmetik: Die height-Angabe im
+         <img>-Tag wirkt als Darstellungshinweis und bliebe sonst stehen --
+         das Bild wuerde auf volle 933 px gezerrt. */
+      width: 100%; height: auto;
+      border-radius: var(--radius); display: block;
     }
     .hero-visual .hero-card { margin: 0; }
     @media (max-width: 920px) { .hero-visual { gap: 18px; } }
@@ -625,20 +671,34 @@
 
     <!-- Hero -->
     <section class="hero">
-      <div class="container">
-        <span class="eyebrow">SOS Nachhilfe</span>
-        <h1>Mathe-Hilfe, wenn es schnell gehen muss.</h1>
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">SOS Nachhilfe</span>
+          <h1>Mathe-Nachhilfe online, wenn es schnell gehen muss.</h1>
 
-        <ul class="hero-punkte">
-          <li><b>Kein Abo</b> &mdash; du buchst Einheiten und nutzt sie, wenn es passt</li>
-          <li><b>Alle Klassenstufen</b> &mdash; von der Mittelstufe bis zum Abitur</li>
-          <li><b>Online im Einzelunterricht</b> &mdash; 45 Minuten je Einheit, Termine frei vereinbar</li>
-          <li><b>Meist am selben Tag</b> &mdash; Antwort mit Termin und Zahlungslink</li>
-        </ul>
+          <ul class="hero-punkte">
+            <li><b>Kein Abo</b> &mdash; du buchst Einheiten und nutzt sie, wenn es passt</li>
+            <li><b>Alle Klassenstufen</b> &mdash; von der Mittelstufe bis zum Abitur</li>
+            <li><b>Online im Einzelunterricht</b> &mdash; 45 Minuten je Einheit, Termine frei vereinbar</li>
+            <li><b>Meist am selben Tag</b> &mdash; Antwort mit Termin und Zahlungslink</li>
+          </ul>
 
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#kontakt">Einheit anfragen</a>
-          <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener">WhatsApp-Kontakt &rarr;</a>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#kontakt">Einheit anfragen</a>
+            <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener">WhatsApp-Kontakt &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Breite und Hoehe stehen im Markup, damit beim Laden nichts springt.
+             Kein loading="lazy": Das Bild steht ganz oben und ist das groesste
+             Element der Seite -- verzoegert geladen kostet es Ladezeitpunkte. -->
+        <div class="hero-visual">
+          <picture>
+            <source srcset="img/nachhilfe-hero.webp" type="image/webp">
+            <img src="img/nachhilfe-hero.jpg" width="1400" height="933"
+                 alt="Sch&uuml;lerin bei der Mathe-Nachhilfe online: Laptop mit Videogespr&auml;ch, daneben Block, Lineal und Stifte"
+                 fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
@@ -647,7 +707,7 @@
     <section class="section">
       <div class="container">
         <span class="eyebrow">F&uuml;r wen</span>
-        <h2>Vor der Klausur, bei einer L&uuml;cke, oder einfach regelm&auml;&szlig;ig.</h2>
+        <h2>Nachhilfe vor der Klausur, bei einer L&uuml;cke oder regelm&auml;&szlig;ig.</h2>
         <p style="max-width:62ch; color:var(--muted); margin:0 0 10px;">Nicht jeder braucht
         monatelange Begleitung. Manchmal ist die Klausur n&auml;chste Woche, manchmal sitzt ein
         einzelnes Thema nicht. Daf&uuml;r gibt es hier einzelne Einheiten statt eines Vertrags
@@ -686,7 +746,7 @@
     <section class="section" id="preise" style="background: var(--surface);">
       <div class="container">
         <span class="eyebrow">Preise</span>
-        <h2>W&auml;hle deinen Tarif.</h2>
+        <h2>Was Nachhilfe kostet &mdash; w&auml;hle deinen Tarif.</h2>
         <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Einmal zahlen,
         keine laufenden Kosten. Eine Einheit dauert 45&nbsp;Minuten &mdash; so lang wie eine Schulstunde.</p>
 
@@ -752,7 +812,7 @@
     <section class="section">
       <div class="container">
         <span class="eyebrow">So l&auml;uft es</span>
-        <h2>Von der Anfrage bis zur ersten Einheit.</h2>
+        <h2>Von der Anfrage bis zur ersten Nachhilfestunde.</h2>
 
         <div class="ablauf">
           <div class="schritt">
@@ -851,7 +911,7 @@
     <section class="section" style="background: var(--surface);">
       <div class="container">
         <span class="eyebrow">H&auml;ufig gefragt</span>
-        <h2>Was oft gefragt wird.</h2>
+        <h2>H&auml;ufige Fragen zur Mathe-Nachhilfe.</h2>
 
         <div class="faq">
           <details>
@@ -904,7 +964,7 @@
       <div class="container split" style="position:relative">
         <div>
           <span class="eyebrow">Kontakt</span>
-          <h2>Einheiten anfragen.</h2>
+          <h2>Nachhilfe anfragen.</h2>
           <p>Nutze WhatsApp f&uuml;r schnelle R&uuml;ckfragen oder Terminabsprachen. Oder schick mir direkt eine Nachricht &uuml;ber das Formular &ndash; z.&nbsp;B. als Elternteil. Ich melde mich meist noch am selben Tag mit einem Terminvorschlag und dem Zahlungslink.</p>
           <p><span class="code-inline">Tipp: Klasse, Thema und gew&uuml;nschte Anzahl Einheiten kurz nennen.</span></p>
           <p style="color:var(--muted); font-size:15px;">Bei Minderj&auml;hrigen brauche ich f&uuml;r die Buchung die Zustimmung eines Elternteils &mdash; am einfachsten, wenn ihr euch gemeinsam meldet.</p>
