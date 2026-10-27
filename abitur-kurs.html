@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0b2a4a">
   <title>Mathe Abitur Online-Kurs – 69 Lektionen mit Klausursimulator | alexsmathguides</title>
-  <meta name="description" content="Der mathemaxxers Abitur Kurs: 10 Welten, 69 Lektionen mit Kurzvideos unter 60 Sekunden, Quizzes und Klausursimulator – Welt 1 komplett kostenlos testen, keine Zahlungsdaten nötig." />
+  <meta name="description" content="Der mathemaxxers Abitur Kurs: 10 Welten, 69 Lektionen mit Kurzvideos unter 60 Sekunden, Quizzes und Klausursimulator – einmalig 139 €, kein Abo, Zugang sofort nach dem Kauf." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -184,53 +184,30 @@
       margin: 36px 0 20px;
     }
 
-    .hero-trial-form {
+    /* ── Kauf-Aufruf ── */
+    .hero-kauf {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 12px;
-      margin: 36px 0 20px;
+      gap: 14px;
+      margin: 36px 0 22px;
     }
 
-    .hero-trial-row {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      flex-wrap: wrap;
+    .btn-kauf-gross {
+      padding: 19px 36px;
+      font-size: 18px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 12px 28px rgba(11, 42, 74, .22);
     }
 
-    .hero-trial-form input[type="email"] {
-      padding: 14px 18px;
-      border: 1.5px solid var(--line);
-      border-radius: 10px;
-      font-family: 'Inter', sans-serif;
-      font-size: 15px;
-      color: var(--text);
-      background: #fff;
-      outline: none;
-      width: 280px;
-      max-width: 100%;
-      transition: border-color .2s;
-    }
-
-    .hero-trial-form input[type="email"]:focus { border-color: var(--primary); }
-
-    .trial-consent {
-      display: flex;
-      align-items: flex-start;
-      gap: 8px;
-      max-width: 480px;
-      margin: 0 auto 8px;
-      text-align: left;
-      font-size: 12.5px;
-      line-height: 1.5;
+    .hero-kauf-zusatz {
+      font-size: 13.5px;
+      font-weight: 600;
       color: var(--muted);
     }
 
-    .trial-consent input { margin-top: 3px; accent-color: var(--primary); flex-shrink: 0; }
-    .trial-consent a { color: var(--primary); text-decoration: underline; }
-    .trial-consent--dark { color: rgba(255,255,255,.7); }
-    .trial-consent--dark a { color: #fff; }
+    .hero-kauf-zusatz a { color: var(--primary); text-decoration: underline; }
 
     .btn-submit {
       padding: 15px 28px;
@@ -522,7 +499,7 @@
       color: var(--muted);
     }
 
-    /* ── Preis: kostenlos und Vollversion nebeneinander ── */
+    /* ── Preis ── */
     .preis-kopf {
       text-align: center;
       max-width: 640px;
@@ -537,6 +514,9 @@
       max-width: 900px;
       margin: 0 auto;
     }
+
+    /* Es gibt nur noch ein Angebot -- die Karte soll nicht auf volle Breite laufen. */
+    .preis-grid--einzel { max-width: 460px; }
 
     .preis-grid .form-card {
       max-width: none;
@@ -679,6 +659,8 @@
         flex-wrap: wrap;
         justify-content: center;
       }
+      /* Der Knopf traegt den Preis im Text -- auf schmalen Geraeten etwas kleiner. */
+      .btn-kauf-gross { font-size: 15.5px; padding: 17px 20px; }
       .form-card {
         padding: 32px 20px;
       }
@@ -806,24 +788,18 @@
   <!-- ── Hero ── -->
   <section class="hero">
     <div class="container">
-      <span class="badge">Welt 1 komplett kostenlos testen</span>
+      <span class="badge">10 Welten &middot; 69 Lektionen &middot; einmalig 139&nbsp;&euro;</span>
       <h1>Mathe Abitur Online-Kurs</h1>
       <p class="lead">10 Welten, 69 Lektionen, jede mit einem Video unter 60 Sekunden, in dem eine Beispielaufgabe Schritt für Schritt vorgerechnet wird, dazu Quiz und Mini-Game. Alles, was im Mathe-Abi wirklich drankommt, so kompakt, interaktiv und spielerisch wie möglich, kein unnötiger Ballast.</p>
-      <form class="hero-trial-form" action="https://kurs.alexsmathguides.de/trial/start" method="POST">
-        <div class="hero-trial-row">
-          <input type="email" name="email" placeholder="deine@email.de" required />
-          <button type="submit" class="btn-submit">Kostenlos starten</button>
-        </div>
-        <div class="trial-consent">
-          <input type="checkbox" id="trialConsentHero" name="marketingConsent" required />
-          <label for="trialConsentHero">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
-        </div>
-      </form>
+      <div class="hero-kauf">
+        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Kurs freischalten &#8212; 139&nbsp;&euro; einmalig &#8594;</a>
+        <span class="hero-kauf-zusatz">Einmal zahlen, dauerhaft nutzen &middot; <a href="#preis">Was alles enthalten ist</a></span>
+      </div>
       <div class="trust-row">
-        <span>✓ Welt 1 inkl. Quizzes &amp; Mini-Games gratis</span>
-        <span>✓ Kein Risiko, keine Zahlungsdaten nötig</span>
-        <span>✓ Vollversion <a href="#preis" style="text-decoration:underline;">139&nbsp;&euro; einmalig</a>, kein Abo</span>
-        <span>✓ Schon angemeldet? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a></span>
+        <span>✓ Zugang sofort nach dem Kauf</span>
+        <span>✓ Sichere Zahlung über Stripe, Rechnung automatisch per E-Mail</span>
+        <span>✓ Kein Abo, keine Folgekosten</span>
+        <span>✓ Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a></span>
       </div>
       <div class="hero-shot">
         <img src="img/screenshots/screenshot-karte.png" alt="Interaktive Lernkarte des mathemaxxers Abitur Kurses mit 10 Welten" loading="lazy" />
@@ -912,6 +888,14 @@
           <img src="img/screenshots/screenshot-quiz.png" alt="Beispiel eines Abschlussquiz mit Multiple-Choice-Fragen" loading="lazy" />
           <div class="shot-caption">Abschlussquiz mit sofortigem Feedback</div>
         </div>
+        <div class="shot-card">
+          <img src="img/screenshots/screenshot-minigame-paare.png" alt="Mini-Game „Welcher Grad?“, bei dem Funktionen ihrem Grad zugeordnet werden" loading="lazy" />
+          <div class="shot-caption">Mini-Game zum Üben, bevor es ins Quiz geht</div>
+        </div>
+        <div class="shot-card">
+          <img src="img/screenshots/screenshot-klausursimulator.png" alt="Klausursimulator mit fünf vollständigen Abitur-Probeklausuren" loading="lazy" />
+          <div class="shot-caption">Klausursimulator: fünf komplette Abi-Klausuren mit Punkteschema</div>
+        </div>
       </div>
     </div>
   </section>
@@ -930,33 +914,11 @@
     <div class="container">
       <div class="preis-kopf">
         <span class="eyebrow">Zugang</span>
-        <h2>Erst testen, dann entscheiden.</h2>
-        <p class="section-intro">Welt 1 kannst du ohne Zahlungsdaten ausprobieren. Wenn dir der Kurs liegt, schaltest du den Rest einmalig frei.</p>
+        <h2>Einmal zahlen, dauerhaft lernen.</h2>
+        <p class="section-intro">Ein Preis, alle 10 Welten, kein Abo. Der Zugang ist sofort nach der Zahlung freigeschaltet und bleibt dir auch nach dem Abitur erhalten.</p>
       </div>
 
-      <div class="preis-grid">
-
-        <div class="form-card">
-          <h2>Kostenlos testen</h2>
-          <div class="price">0&nbsp;&euro;<span> &middot; Welt 1</span></div>
-          <p class="sub">Nur deine E-Mail-Adresse. Keine Zahlungsdaten, keine automatische Abbuchung.</p>
-          <ul class="price-list">
-            <li>Welt 1: 7 Lektionen zu Grundlagen &amp; Funktionen</li>
-            <li>Quizzes mit Sofort-Feedback</li>
-            <li>Mini-Games zum &Uuml;ben</li>
-            <li>Interaktive Lernkarte mit Fortschritt</li>
-          </ul>
-          <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
-            <input type="email" name="email" placeholder="deine@email.de" required
-              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:100%;max-width:280px;" />
-            <button type="submit" class="btn-submit" style="width:100%;">Kostenlos starten</button>
-            <div class="trial-consent">
-              <input type="checkbox" id="trialConsentPreis" name="marketingConsent" required />
-              <label for="trialConsentPreis">Ich bin einverstanden, dass meine E-Mail-Adresse f&uuml;r den kostenlosen Zugang gespeichert und auch f&uuml;r gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos m&ouml;glich. Es gilt die <a href="datenschutz.html">Datenschutzerkl&auml;rung</a>.</label>
-            </div>
-          </form>
-          <p class="form-hint">Schon angemeldet? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
-        </div>
+      <div class="preis-grid preis-grid--einzel">
 
         <div class="form-card form-card-voll">
           <span class="karten-badge">Voller Zugang</span>
@@ -969,10 +931,11 @@
             <li>69 Quizzes mit Sofort-Feedback</li>
             <li>Mini-Game zu jedem Thema</li>
             <li>Klausursimulator mit Probeklausuren</li>
-            <li>Dein Fortschritt aus Welt 1 bleibt erhalten</li>
+            <li>Interaktive Lernkarte mit Fortschritt</li>
           </ul>
           <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf">Jetzt kaufen &#8594;</a>
           <p class="preis-fuss">Sichere Zahlung &uuml;ber Stripe &middot; Rechnung kommt automatisch per E-Mail &middot; Zugang sofort nach dem Kauf</p>
+          <p class="form-hint">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
         </div>
 
       </div>
@@ -1047,16 +1010,16 @@
       <h2>Häufig gefragt.</h2>
       <div>
         <details class="faq-item">
-          <summary>Wie funktioniert der kostenlose Zugang?</summary>
-          <p>Du gibst nur deine E-Mail-Adresse an und bekommst sofort Zugriff auf Welt 1, komplett kostenlos, inklusive Quizzes und Mini-Games. Die Erklärvideos sind Teil der Vollversion. Keine Zahlungsdaten, keine automatische Abbuchung. Erst wenn du mehr willst, kannst du direkt aus dem Kurs heraus die restlichen 9 Welten freischalten.</p>
+          <summary>Wie komme ich nach dem Kauf in den Kurs?</summary>
+          <p>Du bezahlst über Stripe und bekommst direkt danach eine E-Mail mit deinem persönlichen Zugangslink. Ein Passwort brauchst du nicht: Du loggst dich jederzeit mit derselben E-Mail-Adresse ein, mit der du bezahlt hast, und bekommst einen frischen Link ins Postfach. Die Rechnung kommt automatisch mit.</p>
         </details>
         <details class="faq-item">
           <summary>Was kostet der Kurs?</summary>
-          <p>Der volle Zugang zu allen 10 Welten kostet einmalig 139&nbsp;&euro;. Kein Abo, keine Folgekosten, der Kurs bleibt dir dauerhaft erhalten. Welt 1 kannst du vorher kostenlos ausprobieren, um zu sehen, ob dir die Art zu lernen liegt.</p>
+          <p>Der volle Zugang zu allen 10 Welten kostet einmalig 139&nbsp;&euro;. Kein Abo, keine Folgekosten, der Kurs bleibt dir dauerhaft erhalten.</p>
         </details>
         <details class="faq-item">
-          <summary>Bleibt mein Fortschritt erhalten, wenn ich später den ganzen Kurs freischalte?</summary>
-          <p>Ja. Du schaltest mit derselben E-Mail-Adresse frei, mit der du gestartet hast, dein kompletter Fortschritt aus Welt 1 bleibt erhalten.</p>
+          <summary>Kann ich mir vorher ansehen, wie der Kurs aufgebaut ist?</summary>
+          <p>Ja. Weiter oben auf dieser Seite siehst du echte Screenshots aus dem Kurs, die Lernkarte, eine Lektion und ein Quiz. Dazu findest du auf TikTok und Instagram unter <b>@mathemaxxer</b> über hundert Erklärvideos von mir, die genauso aufgebaut sind wie die im Kurs, und hier auf der Seite die <a href="freebies.html">kostenlosen Skripte</a>.</p>
         </details>
         <details class="faq-item">
           <summary>Wie lange habe ich danach Zugriff auf den Kurs?</summary>
@@ -1072,7 +1035,7 @@
         </details>
         <details class="faq-item">
           <summary>Gibt es Rabattcodes?</summary>
-          <p>Falls du einen Gutscheincode hast, kannst du ihn direkt im Bezahlvorgang bei Stripe eingeben, wenn du die restlichen Welten freischaltest.</p>
+          <p>Falls du einen Gutscheincode hast, kannst du ihn direkt im Bezahlvorgang bei Stripe eingeben.</p>
         </details>
       </div>
     </div>
@@ -1083,18 +1046,9 @@
     <div class="container">
       <div class="final-cta">
         <h2>Bereit fürs Abi?</h2>
-        <p>Starte jetzt kostenlos mit Welt 1 und überzeug dich selbst, bevor du dich entscheidest.</p>
-        <form action="https://kurs.alexsmathguides.de/trial/start" method="POST" style="display:flex;flex-direction:column;align-items:center;gap:14px;">
-          <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;">
-            <input type="email" name="email" placeholder="deine@email.de" required
-              style="padding:14px 18px;border:1.5px solid var(--line);border-radius:10px;font-family:'Inter',sans-serif;font-size:15px;color:var(--text);background:#fff;outline:none;width:280px;max-width:100%;" />
-            <button type="submit" class="btn-submit">Kostenlos starten</button>
-          </div>
-          <div class="trial-consent trial-consent--dark" style="justify-content:center;">
-            <input type="checkbox" id="trialConsentFinal" name="marketingConsent" required />
-            <label for="trialConsentFinal">Ich bin einverstanden, dass meine E-Mail-Adresse für den kostenlosen Zugang gespeichert und auch für gelegentliche E-Mails zum Kurs genutzt wird, Widerspruch jederzeit kostenlos möglich. Es gilt die <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
-          </div>
-        </form>
+        <p>Alle 10 Welten, 69 Lektionen, Klausursimulator. Einmalig 139&nbsp;&euro;, Zugang sofort nach dem Kauf.</p>
+        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Kurs freischalten &#8594;</a>
+        <p style="margin:24px auto 0;font-size:13px;">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="color:#fff;text-decoration:underline;">Hier einloggen</a></p>
       </div>
     </div>
   </section>
