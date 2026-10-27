@@ -547,7 +547,36 @@
         background-image: url('img/formel-muster-m9.png');
       }
     }
-  </style>
+  
+    /* ── Geo, das Geodreieck ──────────────────────────────────────────
+       Lugt gross ueber die obere linke Ecke eines Kastens. Einmal pro
+       Seite, sonst wird aus dem Maskottchen Tapete. */
+    .geo-ecke { position: relative; }
+    .geo-ecke > .geo-figur {
+      position: absolute;
+      top: -62px;
+      left: -46px;
+      width: 158px;
+      height: auto;
+      transform: rotate(-11deg);
+      pointer-events: none;
+      filter: drop-shadow(0 10px 20px rgba(11, 42, 74, .20));
+      z-index: 3;
+    }
+    @media (max-width: 760px) {
+      .geo-ecke > .geo-figur { width: 104px; top: -42px; left: -14px; }
+    }
+
+    /* Formularkaesten fangen oben links sofort mit Text an -- hier stellt
+       Geo sich auf die Kante, statt die erste Zeile zu verdecken. */
+    .geo-ecke--kante > .geo-figur { top: -136px; left: -6px; }
+    @media (max-width: 760px) {
+      /* Schmale Geraete: ueber dem Formular sitzt links ein Knopf, rechts ist frei. */
+      .geo-ecke--kante > .geo-figur {
+        top: -86px; left: auto; right: 8px; transform: rotate(9deg);
+      }
+    }
+</style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
   <!-- End Cloudflare Web Analytics -->
@@ -1045,7 +1074,9 @@
         </div>
 
         <!-- Formspree Kontaktformular -->
-        <div class="contact-form-box">
+        <div class="geo-ecke geo-ecke--kante contact-form-box">
+          <img class="geo-figur" src="img/geo.svg" alt="" aria-hidden="true" />
+          
           <div id="cf-container">
             <form id="contact-form" novalidate>
               <div class="cf-group">

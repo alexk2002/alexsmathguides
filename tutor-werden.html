@@ -336,7 +336,33 @@
         background-image: url('img/formel-muster-m9.png');
       }
     }
-  </style>
+  
+    /* ── Geo, das Geodreieck ──────────────────────────────────────────
+       Lugt gross ueber die obere linke Ecke eines Kastens. Einmal pro
+       Seite, sonst wird aus dem Maskottchen Tapete. */
+    .geo-ecke { position: relative; }
+    .geo-ecke > .geo-figur {
+      position: absolute;
+      top: -62px;
+      left: -46px;
+      width: 158px;
+      height: auto;
+      transform: rotate(-11deg);
+      pointer-events: none;
+      filter: drop-shadow(0 10px 20px rgba(11, 42, 74, .20));
+      z-index: 3;
+    }
+    @media (max-width: 760px) {
+      .geo-ecke > .geo-figur { width: 104px; top: -42px; left: -14px; }
+    }
+
+    /* Kaesten, die die volle Breite einnehmen: Geo sitzt innen auf der Ecke,
+       sonst haengt er neben der Seite und erzeugt Querscrollen. */
+    .geo-ecke--innen > .geo-figur { left: 10px; top: -56px; }
+    @media (max-width: 760px) {
+      .geo-ecke--innen > .geo-figur { left: 6px; top: -38px; }
+    }
+</style>
 <link rel="canonical" href="https://alexsmathguides.de/tutor-werden.html">
 </head>
 <body id="top">
@@ -568,7 +594,9 @@
   <!-- ── Abschluss ── -->
   <section id="bewerben">
     <div class="container">
-      <div class="abschluss">
+      <div class="geo-ecke geo-ecke--innen abschluss">
+          <img class="geo-figur" src="img/geo.svg" alt="" aria-hidden="true" />
+          
         <h2>Klingt gut? Dann meld dich</h2>
         <p>Schick uns deine Unterlagen und ein paar Sätze zu dir. Wir melden uns
         normalerweise innerhalb von zwei Tagen mit einem Terminvorschlag.</p>
