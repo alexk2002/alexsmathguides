@@ -923,6 +923,177 @@
       .ueber { grid-template-columns: 1fr; gap: 28px; }
       .handy { margin: 0 auto; width: 250px; }
     }
+
+    /* ════ Handy-Fassung, nach dem Vorbild von alldayeverydaymath ════════════ */
+
+    .nw { white-space: nowrap; }
+
+    /* Kopfzeile: Menue-Knopf statt drei Zeilen Links */
+    .menue-knopf { display: none; }
+    @media (max-width: 900px) {
+      .site-header .nav { flex-direction: row; justify-content: space-between; min-height: 62px; padding: 0; position: relative; }
+      .site-header .brand { font-size: 18px; }
+      .site-header .brand-logo { height: 34px; }
+      .menue-knopf {
+        display: flex; flex-direction: column; justify-content: center; gap: 5px;
+        width: 44px; height: 44px; padding: 0 11px;
+        border: 1px solid var(--line); border-radius: 12px; background: #fff; cursor: pointer;
+      }
+      .menue-knopf span { display: block; height: 2px; border-radius: 2px; background: var(--primary); transition: transform .2s, opacity .2s; }
+      .site-header.offen .menue-knopf span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+      .site-header.offen .menue-knopf span:nth-child(2) { opacity: 0; }
+      .site-header.offen .menue-knopf span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+      .site-header .nav-links {
+        display: none; position: absolute; top: 100%; left: -16px; right: -16px;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: #fff; border-bottom: 1px solid var(--line);
+        box-shadow: 0 18px 30px rgba(11,42,74,.10); padding: 6px 16px 18px;
+      }
+      .site-header.offen .nav-links { display: flex; }
+      .site-header .nav-links a:not(.nav-cta) { font-size: 16px; padding: 13px 4px; border-bottom: 1px solid #eef3f8; color: var(--text); }
+      .site-header .nav-links .nav-cta { margin-top: 14px; justify-content: center; padding: 14px 20px; font-size: 15.5px; }
+    }
+
+    /* Demo: auf dem Handy im Handyformat, mit Geo und Sprechblase */
+    .demo-handy { display: none; }
+    @media (max-width: 700px) {
+      .demo { display: none; }
+      .demo-handy { display: block; margin: 4px auto 0; }
+      .demo-geo { display: flex; align-items: flex-end; gap: 10px; max-width: 330px; margin: 0 auto 16px; text-align: left; }
+      .demo-geo img { width: 58px; height: auto; flex: none; transform: rotate(-8deg); }
+      .demo-geo p {
+        margin: 0; background: #fff; border: 1px solid var(--line);
+        border-radius: 18px 18px 18px 6px; padding: 11px 15px;
+        font-size: 15px; line-height: 1.45; color: var(--text);
+        box-shadow: 0 8px 22px rgba(11,42,74,.08);
+      }
+      /* Breite auch nach der Hoehe richten: Auf kleinen Handys (iPhone SE) soll das
+         ganze Handy auf einen Bildschirm passen. */
+      .handy.demo-handy-geraet { width: min(280px, 74vw, calc((100vh - 150px) * 0.43)); margin: 0 auto; }
+      .demo-handy-geraet .handy-schirm { aspect-ratio: 690 / 1576; background: #fff; }
+      .demo-handy-geraet .handy-insel { top: 9px; width: 76px; height: 21px; }
+      .demo-video-handy { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+      .demo-pause.demo-pause-handy { right: 10px; bottom: 10px; width: 32px; height: 32px; z-index: 4; }
+
+      .hero { padding-top: 30px; }
+      .hero .badge { font-size: 12px; margin-bottom: 14px; }
+      .hero h1 { font-size: 31px; line-height: 1.12; }
+      .hero p.lead { font-size: 16px; }
+      .hero .hero-kauf { margin: 22px 0 28px; }
+      .hero .btn-kauf-gross { width: 100%; max-width: 360px; text-align: center; }
+      .kurs-zahlen { margin-top: 32px; }
+    }
+
+    /* Rezensionen: kleine Karten in einem Karussell */
+    .testimonial-grid {
+      display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory;
+      scrollbar-width: none; padding: 4px 2px 12px; scroll-behavior: smooth;
+    }
+    .testimonial-grid::-webkit-scrollbar { display: none; }
+    .testimonial-card {
+      flex: 0 0 300px; scroll-snap-align: start; display: flex; flex-direction: column;
+      background: #fff; padding: 20px 20px 18px; box-shadow: 0 8px 22px rgba(11,42,74,.06);
+    }
+    .testimonial-stars { font-size: 13px; margin-bottom: 10px; }
+    .testimonial-text { font-size: 14.5px; line-height: 1.55; margin: 0; flex: 1; }
+    .testimonial-person { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+    .testimonial-person .avatar {
+      width: 34px; height: 34px; border-radius: 50%; flex: none;
+      background: var(--accent); color: var(--primary); font-weight: 700; font-size: 14px;
+      display: grid; place-items: center;
+    }
+    .testimonial-person b { display: block; font-size: 14px; color: var(--text); line-height: 1.3; }
+    .testimonial-person small { display: block; font-size: 12.5px; color: var(--muted); }
+    @media (max-width: 700px) {
+      .testimonial-grid { gap: 12px; padding: 4px 0 6px; }
+      .testimonial-card { flex-basis: 100%; }
+    }
+    .stimmen-punkte { display: flex; justify-content: center; gap: 8px; margin-top: 14px; }
+    .stimmen-punkte[hidden] { display: none; }
+    .stimmen-punkte button {
+      width: 8px; height: 8px; border-radius: 4px; border: 0; padding: 0; cursor: pointer;
+      background: #c9d6e4; transition: width .2s, background .2s;
+    }
+    .stimmen-punkte button.an { width: 22px; background: var(--primary); }
+
+    /* Funktionen auf dem Handy: alle acht auf einen Blick, als 2x4-Raster aus
+       Icon und Ueberschrift. Die Erklaerung zeigt das Demo-Video ohnehin. */
+    @media (max-width: 600px) {
+      #inhalt .section-intro { font-size: 15px; margin-bottom: 20px; }
+      #inhalt .feature-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .feature-card { display: grid; grid-template-columns: 34px 1fr; align-items: center; column-gap: 10px; padding: 12px 11px; border-radius: 14px; }
+      .feature-card .icon { width: 34px; height: 34px; margin: 0; border-radius: 10px; }
+      .feature-card .icon svg { width: 19px; height: 19px; }
+      .feature-card h3 { font-size: 13.5px; line-height: 1.3; margin: 0; }
+      .feature-card p { display: none; }
+    }
+
+    @media (max-width: 600px) and (max-height: 700px) { #inhalt .section-intro { display: none; } }
+
+    /* Welten auf dem Handy: Themen als kurze Liste statt vieler Kaertchen */
+    @media (max-width: 600px) {
+      .welt-group { padding: 18px 18px 16px; }
+      .welt-group-head { display: grid; grid-template-columns: 10px 1fr; column-gap: 10px; row-gap: 2px; align-items: start; margin-bottom: 8px; }
+      .welt-group-head .welt-dot { margin-top: 7px; }
+      .welt-group .count { grid-column: 2; }
+      .welt-chips { display: block; font-size: 14px; line-height: 1.6; color: var(--muted); }
+      .welt-chips span { display: inline; border: 0; background: none; padding: 0; font-size: inherit; color: inherit; font-weight: 400; border-radius: 0; }
+      .welt-chips span:not(:last-child)::after { content: ", "; }
+    }
+
+    /* Preiskarte auf dem Handy: ganz auf einem Bildschirm */
+    @media (max-width: 700px) {
+      #preis .preis-kopf { margin-bottom: 44px; }
+      .preis-grid .form-card { padding: 26px 18px 20px; }
+      .form-card h2 { font-size: 20px; margin: 0 0 2px; }
+      .form-card .price { font-size: 36px; margin: 0; }
+      .form-card .price span { font-size: 14px; }
+      .form-card .sub { font-size: 13.5px; margin-bottom: 14px; }
+      .preis-grid .price-list { margin-bottom: 18px; }
+      .price-list li { font-size: 13.5px; line-height: 1.35; padding: 3px 0; gap: 8px; }
+      .btn-kauf { font-size: 16px; padding: 14px 20px; }
+      .preis-fuss { font-size: 11.5px; margin-top: 10px; }
+      .form-hint { font-size: 12.5px; margin-top: 8px; }
+      .geo-ecke > .geo-figur { width: 78px; top: -34px; left: -10px; }
+    }
+
+    /* FAQ als Karte mit Pfeilen */
+    #faq h2 { text-align: center; margin-bottom: 26px; }
+    .faq-karte {
+      background: #fff; border: 1px solid var(--line); border-radius: 22px;
+      box-shadow: 0 14px 34px rgba(11,42,74,.07); padding: 4px 26px;
+    }
+    .faq-karte .faq-item:last-child { border-bottom: 0; }
+    .faq-karte .faq-item summary::after {
+      content: ""; width: 9px; height: 9px; font-size: 0;
+      border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted);
+      transform: translateY(-3px) rotate(45deg); transition: transform .2s;
+    }
+    .faq-karte .faq-item[open] summary::after { transform: translateY(2px) rotate(-135deg); }
+    @media (max-width: 600px) {
+      #faq h2 { margin-bottom: 18px; }
+      .faq-karte { padding: 2px 16px; border-radius: 18px; }
+      .faq-karte .faq-item { padding: 13px 0; }
+      .faq-item summary { font-size: 15px; line-height: 1.35; }
+    }
+
+    /* Kaufleiste unten, nur auf dem Handy und nur, solange kein anderer Kaufknopf zu sehen ist */
+    .kauf-leiste { display: none; }
+    @media (max-width: 760px) {
+      .kauf-leiste {
+        display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 30;
+        padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
+        background: rgba(255,255,255,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid var(--line);
+        transform: translateY(110%); transition: transform .25s ease;
+      }
+      .kauf-leiste.da { transform: none; }
+      .kauf-leiste-knopf {
+        display: block; text-align: center; background: var(--primary); color: #fff;
+        font-weight: 700; font-size: 16px; padding: 15px 20px; border-radius: 999px;
+      }
+      body { padding-bottom: 78px; }
+    }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -986,7 +1157,10 @@
         </svg>
         <span>alexsmathguides</span>
       </a>
-      <nav class="nav-links">
+      <button class="menue-knopf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptmenue">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links" id="hauptmenue">
         <a href="index.html">Coaching</a>
         <a href="nachhilfe.html">SOS Nachhilfe</a>
         <a href="freebies.html">Kostenlose PDFs</a>
@@ -1006,8 +1180,28 @@
       <p class="lead">Der komplette Oberstufenstoff ab Klasse 11 in kurzen Lektionen, in denen du selbst rechnest und im Quiz sofort merkst, ob es sitzt.</p>
       <div class="hero-kauf">
         <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Kurs freischalten für 139&nbsp;&euro; &#8594;</a>
-        <span class="hero-kauf-zusatz">Einmal zahlen, kein Abo &middot; Zugang sofort nach dem Kauf</span>
+        <span class="hero-kauf-zusatz"><span class="nw">Einmal zahlen, kein Abo</span> &middot; <span class="nw">Zugang sofort nach dem Kauf</span></span>
       </div>
+      <div class="demo-handy">
+        <div class="demo-geo">
+          <img src="img/geo.svg" alt="" aria-hidden="true">
+          <p>Lust auf einen Blick hinein? So lernst du im Kurs.</p>
+        </div>
+        <div class="handy demo-handy-geraet">
+          <div class="handy-koerper">
+            <div class="handy-schirm">
+              <div class="handy-insel"></div>
+              <video class="demo-video-handy" muted loop playsinline preload="none"
+                     poster="img/demo/kurs-demo-handy-poster.jpg"
+                     aria-label="Rundgang durch den Abitur Kurs auf dem Handy: Lernkarte, eine Lektion mit Geo, Mini-Game, Quiz, Suche und Probeklausur">
+                <source src="img/demo/kurs-demo-handy.mp4" type="video/mp4">
+              </video>
+              <button class="demo-pause demo-pause-handy" type="button" aria-label="Video anhalten"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <figure class="demo">
         <div class="demo-fenster">
           <div class="demo-leiste" aria-hidden="true">
@@ -1015,10 +1209,9 @@
             <span class="demo-adresse">kurs.alexsmathguides.de</span>
             <span></span>
           </div>
-          <video class="demo-video" autoplay muted loop playsinline preload="auto"
+          <video class="demo-video" muted loop playsinline preload="none"
                  poster="img/demo/kurs-demo-poster.jpg"
                  aria-label="Rundgang durch den Abitur Kurs: Lernkarte, eine Lektion mit Geo, Mini-Game, Quiz, Suche und Probeklausur">
-            <source src="img/demo/kurs-demo-960.mp4" type="video/mp4" media="(max-width: 700px)">
             <source src="img/demo/kurs-demo.mp4" type="video/mp4">
           </video>
           <button class="demo-pause" type="button" aria-label="Video anhalten"></button>
@@ -1051,24 +1244,25 @@
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">„Hat funktioniert! Andere Mathekurse sind längst nicht so flexibel, decken nicht so viel ab und kosten oft deutlich mehr. Unter 100&nbsp;€ wäre es der ganzen Arbeit wirklich nicht gerecht geworden. Bin sehr dankbar 🙏"</p>
-          <div class="testimonial-author">Murselin, Juli 2026</div>
+          <div class="testimonial-person"><span class="avatar" aria-hidden="true">M</span><span><b>Murselin</b><small>Juli 2026</small></span></div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">„Der Kurs hilft mir echt beim Lernen und motiviert mich weiterzumachen. Bin sehr zufrieden."</p>
-          <div class="testimonial-author">Jeremy, September 2026</div>
+          <div class="testimonial-person"><span class="avatar" aria-hidden="true">J</span><span><b>Jeremy</b><small>September 2026</small></span></div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">„Der Aufbau ist echt gut. Man ist in einem Thema drin und kann nach und nach die Lektionen abarbeiten. Generell ist es gut erklärt und die Videos sind auch sehr hilfreich. Nach jeder Lektion gibt es ein Quiz, sodass man checken kann, ob man alles verstanden hat."</p>
-          <div class="testimonial-author">Franzi, September 2026</div>
+          <div class="testimonial-person"><span class="avatar" aria-hidden="true">F</span><span><b>Franzi</b><small>September 2026</small></span></div>
         </div>
         <div class="testimonial-card">
           <div class="testimonial-stars">★★★★★</div>
           <p class="testimonial-text">„10/10. Bin in der 11. Klasse und nutze den Kurs zum Lernen. Gute Erklärungen und der Stoff, den wir im Unterricht zu nem Thema haben, ist eigentlich immer abgedeckt."</p>
-          <div class="testimonial-author">Ayla, Oktober 2026</div>
+          <div class="testimonial-person"><span class="avatar" aria-hidden="true">A</span><span><b>Ayla</b><small>Oktober 2026</small></span></div>
         </div>
       </div>
+      <div class="stimmen-punkte" hidden></div>
     </div>
   </section>
 
@@ -1241,8 +1435,8 @@
     <div class="container">
       <div class="preis-kopf">
         <span class="eyebrow">Zugang</span>
-        <h2>Einmal zahlen, dauerhaft lernen.</h2>
-        <p class="section-intro">Der Kurs kostet weniger als fünf einzelne Nachhilfestunden bei mir und deckt trotzdem den ganzen Oberstufenstoff ab. Du zahlst einmal, ein Abo gibt es nicht.</p>
+        <h2>Günstiger als 5 Nachhilfestunden.</h2>
+        <p class="section-intro">Fünf einzelne Nachhilfestunden kosten bei mir 145&nbsp;&euro;. Der Kurs kostet einmalig 139&nbsp;&euro;, deckt den ganzen Oberstufenstoff ab und bleibt dir dauerhaft erhalten.</p>
       </div>
 
       <div class="preis-grid preis-grid--einzel">
@@ -1276,9 +1470,8 @@
   <!-- ── FAQ ── -->
   <section id="faq" style="position:relative">
     <div class="container-narrow">
-      <span class="eyebrow">Fragen</span>
-      <h2>Häufig gefragt.</h2>
-      <div>
+      <h2>FAQ</h2>
+      <div class="faq-karte">
         <details class="faq-item">
           <summary>Ich schreibe 2027 Abi. Reicht die Zeit noch?</summary>
           <p>Ja. Du kannst jederzeit einsteigen und lernst in deinem eigenen Tempo. Wenn es knapp wird, springst du direkt zu den Themen, die bei dir noch wackeln, und übst mit den Probeklausuren unter echten Bedingungen.</p>
@@ -1331,6 +1524,11 @@
     </div>
   </section>
 
+  <!-- ── Kaufleiste, nur auf dem Handy ── -->
+  <div class="kauf-leiste" id="kaufLeiste">
+    <a href="https://kurs.alexsmathguides.de/checkout" class="kauf-leiste-knopf">Kurs freischalten für 139&nbsp;&euro;</a>
+  </div>
+
   <!-- ── Footer ── -->
   <footer class="footer">
     <div class="container">
@@ -1348,27 +1546,114 @@
 
 
   <script>
-    // Demo-Video: Pause-Knopf, und wer weniger Bewegung eingestellt hat, bekommt
-    // ein stehendes Bild statt eines laufenden Videos.
+    // Demo-Video: Auf dem Handy laeuft die Fassung im Handyformat, am Rechner die im
+    // Browserfenster. Geladen wird nur die, die man sieht. Mit Pause-Knopf; wer
+    // weniger Bewegung eingestellt hat, bekommt ein stehendes Bild.
     (function () {
-      var v = document.querySelector('.demo-video');
-      var k = document.querySelector('.demo-pause');
-      if (!v || !k) return;
       var PAUSE = '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.6" height="12" rx="1"/><rect x="9.4" y="2" width="3.6" height="12" rx="1"/></svg>';
       var PLAY = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.4v11.2a.8.8 0 0 0 1.2.7l9.2-5.6a.8.8 0 0 0 0-1.4L5.2 1.7A.8.8 0 0 0 4 2.4z"/></svg>';
-      function zeigen() {
-        var laeuft = !v.paused;
-        k.innerHTML = laeuft ? PAUSE : PLAY;
-        k.setAttribute('aria-label', laeuft ? 'Video anhalten' : 'Video abspielen');
+      var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var schmal = window.matchMedia('(max-width: 700px)');
+      var paare = [
+        { v: document.querySelector('.demo-video'), k: document.querySelector('.demo .demo-pause'), handy: false },
+        { v: document.querySelector('.demo-video-handy'), k: document.querySelector('.demo-pause-handy'), handy: true }
+      ];
+      paare.forEach(function (p) {
+        if (!p.v || !p.k) return;
+        function zeigen() {
+          var laeuft = !p.v.paused;
+          p.k.innerHTML = laeuft ? PAUSE : PLAY;
+          p.k.setAttribute('aria-label', laeuft ? 'Video anhalten' : 'Video abspielen');
+        }
+        p.k.addEventListener('click', function () { if (p.v.paused) p.v.play(); else p.v.pause(); });
+        p.v.addEventListener('play', zeigen);
+        p.v.addEventListener('pause', zeigen);
+        zeigen();
+      });
+      function waehlen() {
+        paare.forEach(function (p) {
+          if (!p.v) return;
+          if (p.handy === schmal.matches && !ruhig) {
+            p.v.preload = 'auto';
+            var x = p.v.play();
+            if (x && x.catch) x.catch(function () {});
+          } else {
+            p.v.pause();
+          }
+        });
       }
-      k.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
-      v.addEventListener('play', zeigen);
-      v.addEventListener('pause', zeigen);
-      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        v.removeAttribute('autoplay');
-        v.pause();
+      waehlen();
+      if (schmal.addEventListener) schmal.addEventListener('change', waehlen);
+    })();
+
+    // Menue-Knopf auf dem Handy
+    (function () {
+      var kopf = document.querySelector('.site-header');
+      var k = document.querySelector('.menue-knopf');
+      if (!kopf || !k) return;
+      function setzen(auf) {
+        kopf.classList.toggle('offen', auf);
+        k.setAttribute('aria-expanded', auf ? 'true' : 'false');
+        k.setAttribute('aria-label', auf ? 'Menü schließen' : 'Menü öffnen');
       }
-      zeigen();
+      k.addEventListener('click', function () { setzen(!kopf.classList.contains('offen')); });
+      document.addEventListener('click', function (e) { if (!kopf.contains(e.target)) setzen(false); });
+    })();
+
+    // Rezensionen: das Karussell laeuft von selbst weiter, haelt aber an, sobald
+    // jemand selbst wischt.
+    (function () {
+      var band = document.querySelector('.testimonial-grid');
+      var punkte = document.querySelector('.stimmen-punkte');
+      if (!band) return;
+      var karten = [].slice.call(band.querySelectorAll('.testimonial-card'));
+      function schritt() { return karten[0].offsetWidth + (parseFloat(getComputedStyle(band).columnGap) || 0); }
+      function aktuell() { return Math.round(band.scrollLeft / schritt()); }
+      if (punkte) {
+        karten.forEach(function (k, i) {
+          var b = document.createElement('button');
+          b.type = 'button'; b.setAttribute('aria-label', 'Rezension ' + (i + 1));
+          b.addEventListener('click', function () { band.scrollTo({ left: i * schritt(), behavior: 'smooth' }); });
+          punkte.appendChild(b);
+        });
+        var anzeigen = function () {
+          punkte.hidden = band.scrollWidth <= band.clientWidth + 4;
+          var a = aktuell();
+          [].forEach.call(punkte.children, function (b, i) { b.classList.toggle('an', i === a); });
+        };
+        band.addEventListener('scroll', anzeigen, { passive: true });
+        window.addEventListener('resize', anzeigen);
+        anzeigen();
+      }
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var ruheBis = 0;
+      ['pointerdown', 'touchstart', 'wheel'].forEach(function (ev) {
+        band.addEventListener(ev, function () { ruheBis = Date.now() + 9000; }, { passive: true });
+      });
+      setInterval(function () {
+        if (Date.now() < ruheBis || band.scrollWidth <= band.clientWidth + 4) return;
+        var r = band.getBoundingClientRect();
+        if (r.bottom < 0 || r.top > window.innerHeight) return;
+        if (band.scrollLeft + band.clientWidth >= band.scrollWidth - 8) band.scrollTo({ left: 0, behavior: 'smooth' });
+        else band.scrollTo({ left: (aktuell() + 1) * schritt(), behavior: 'smooth' });
+      }, 4200);
+    })();
+
+    // Kaufleiste: erscheint, sobald kein anderer Kaufknopf mehr im Bild ist
+    (function () {
+      var leiste = document.getElementById('kaufLeiste');
+      if (!leiste || !window.IntersectionObserver) return;
+      var ziele = [document.querySelector('.hero-kauf'), document.querySelector('#preis .btn-kauf'), document.querySelector('.final-cta')].filter(Boolean);
+      var sichtbar = [];
+      var beobachter = new IntersectionObserver(function (eintraege) {
+        eintraege.forEach(function (e) {
+          var i = sichtbar.indexOf(e.target);
+          if (e.isIntersecting && i < 0) sichtbar.push(e.target);
+          if (!e.isIntersecting && i >= 0) sichtbar.splice(i, 1);
+        });
+        leiste.classList.toggle('da', sichtbar.length === 0);
+      });
+      ziele.forEach(function (z) { beobachter.observe(z); });
     })();
   </script>
   <script>
