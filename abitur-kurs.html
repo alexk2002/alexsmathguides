@@ -773,20 +773,7 @@
       background: #fff; border: 1px solid var(--line); border-radius: 8px;
       padding: 3px 18px; white-space: nowrap;
     }
-    .demo-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #fff; }
-    .demo-pause {
-      position: absolute; right: 14px; bottom: 14px;
-      width: 38px; height: 38px; border-radius: 50%;
-      border: 1px solid rgba(216,226,238,.9);
-      background: rgba(255,255,255,.88);
-      backdrop-filter: blur(6px);
-      color: var(--primary);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer; opacity: .75;
-      transition: opacity .2s, transform .2s;
-    }
-    .demo-pause:hover, .demo-pause:focus-visible { opacity: 1; transform: scale(1.05); }
-    .demo-pause svg { width: 15px; height: 15px; display: block; }
+    .demo-video { pointer-events: none; display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #fff; }
     .demo figcaption {
       margin-top: 14px;
       font-size: 13.5px; font-weight: 600; color: var(--muted);
@@ -838,7 +825,6 @@
       .demo-leiste { height: 30px; padding: 0 10px; }
       .demo-punkte i { width: 8px; height: 8px; }
       .demo-adresse { font-size: 10.5px; padding: 2px 10px; }
-      .demo-pause { width: 32px; height: 32px; right: 10px; bottom: 10px; }
       .kurs-zahlen { gap: 16px 28px; }
       .kurs-zahl { min-width: 27%; }
       .kurs-zahl .wert { font-size: 26px; }
@@ -930,7 +916,7 @@
 
     /* Kopfzeile: Menue-Knopf statt drei Zeilen Links */
     .menue-knopf { display: none; }
-    @media (max-width: 900px) {
+    @media (max-width: 920px) {
       .site-header .nav { flex-direction: row; justify-content: space-between; min-height: 62px; padding: 0; position: relative; }
       .site-header .brand { font-size: 18px; }
       .site-header .brand-logo { height: 34px; }
@@ -954,27 +940,7 @@
       .site-header .nav-links .nav-cta { margin-top: 14px; justify-content: center; padding: 14px 20px; font-size: 15.5px; }
     }
 
-    /* Demo: auf dem Handy im Handyformat, mit Geo und Sprechblase */
-    .demo-handy { display: none; }
     @media (max-width: 700px) {
-      .demo { display: none; }
-      .demo-handy { display: block; margin: 4px auto 0; }
-      .demo-geo { display: flex; align-items: flex-end; gap: 10px; max-width: 330px; margin: 0 auto 16px; text-align: left; }
-      .demo-geo img { width: 58px; height: auto; flex: none; transform: rotate(-8deg); }
-      .demo-geo p {
-        margin: 0; background: #fff; border: 1px solid var(--line);
-        border-radius: 18px 18px 18px 6px; padding: 11px 15px;
-        font-size: 15px; line-height: 1.45; color: var(--text);
-        box-shadow: 0 8px 22px rgba(11,42,74,.08);
-      }
-      /* Breite auch nach der Hoehe richten: Auf kleinen Handys (iPhone SE) soll das
-         ganze Handy auf einen Bildschirm passen. */
-      .handy.demo-handy-geraet { width: min(280px, 74vw, calc((100vh - 150px) * 0.43)); margin: 0 auto; }
-      .demo-handy-geraet .handy-schirm { aspect-ratio: 690 / 1576; background: #fff; }
-      .demo-handy-geraet .handy-insel { top: 9px; width: 76px; height: 21px; }
-      .demo-video-handy { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-      .demo-pause.demo-pause-handy { right: 10px; bottom: 10px; width: 32px; height: 32px; z-index: 4; }
-
       .hero { padding-top: 30px; }
       .hero .badge { font-size: 12px; margin-bottom: 14px; }
       .hero h1 { font-size: 31px; line-height: 1.12; }
@@ -1094,6 +1060,178 @@
       }
       body { padding-bottom: 78px; }
     }
+
+    /* ════ Demo-Buehne auf dem Handy, wie bei alldayeverydaymath ═════════════
+       Kein Video: echte Seitenelemente, per Skript animiert. Laeuft dadurch in
+       jedem Browser von selbst, auch in den Browsern von TikTok und Instagram,
+       ohne Abspielknopf, ohne Vollbild, ohne Pause. */
+    .demo-buehne { display: none; }
+    @media (max-width: 700px) {
+      .demo { display: none; }
+      .demo-buehne { display: block; max-width: 420px; margin: 6px auto 0; text-align: left; pointer-events: none; user-select: none; -webkit-user-select: none; }
+    }
+    .db-geo { display: flex; align-items: flex-end; gap: 4px; margin: 0 0 -6px 10px; position: relative; z-index: 2; }
+    .db-geo img { width: 66px; height: auto; flex: none; transform: rotate(-6deg); margin-bottom: 4px; }
+    .db-blase {
+      margin: 0 0 12px; background: #fff; border-radius: 22px; padding: 12px 18px;
+      font-size: 15.5px; line-height: 1.4; color: var(--text); font-weight: 500;
+      box-shadow: 0 10px 28px rgba(11,42,74,.10), 0 1px 3px rgba(11,42,74,.06);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+    .db-blase.weg { opacity: 0; transform: translateY(4px); }
+    .db-fenster {
+      background: linear-gradient(180deg, #fdfefe 0%, #f6f9fc 100%);
+      border: 1px solid #dfe7f0; border-radius: 26px; overflow: hidden;
+      box-shadow: 0 24px 50px rgba(11,42,74,.12), 0 2px 6px rgba(11,42,74,.05);
+    }
+    .db-leiste {
+      display: grid; grid-template-columns: 1fr auto 1fr; align-items: center;
+      height: 50px; padding: 0 18px; background: #f3f6fa; border-bottom: 1px solid #e3eaf2;
+    }
+    .db-punkte { display: flex; gap: 7px; }
+    .db-punkte i { width: 11px; height: 11px; border-radius: 50%; background: #d5dee9; display: block; }
+    .db-titel { font-size: 15px; color: #5d6f84; font-weight: 500; transition: opacity .25s; }
+    .db-titel.weg { opacity: 0; }
+    .db-inhalt { position: relative; height: 410px; }
+    .db-szene {
+      position: absolute; inset: 0; padding: 18px 18px 16px;
+      opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease;
+    }
+    .db-szene.an { opacity: 1; transform: none; }
+    .fm { font-family: "Latin Modern Math", "STIX Two Math", "Cambria Math", "Times New Roman", serif; font-size: 1.08em; white-space: nowrap; }
+    .fm i { font-style: italic; }
+    .fm sup { font-size: .7em; line-height: 0; }
+    .fm .pr { display: inline-block; margin: 0 .06em 0 .12em; }
+    .fm-bruch { display: inline-flex; flex-direction: column; vertical-align: middle; text-align: center; font-size: .9em; margin: 0 2px; }
+    .fm-bruch > span:first-child { border-bottom: 1px solid currentColor; padding: 0 3px 1px; }
+    .fm-bruch > span:last-child { padding: 1px 3px 0; }
+    .db-tipp {
+      position: absolute; z-index: 5; width: 40px; height: 40px; margin: -20px 0 0 -20px; border-radius: 50%;
+      background: rgba(11,42,74,.16); border: 2px solid rgba(255,255,255,.95); box-shadow: 0 2px 10px rgba(11,42,74,.22);
+      opacity: 0; transform: scale(.6); transition: opacity .18s, transform .18s; left: 50%; top: 50%;
+    }
+    .db-tipp.an { opacity: 1; transform: scale(1); }
+
+    /* 1) Lektion */
+    .db-chat { display: flex; flex-direction: column; gap: 12px; }
+    .db-msg, .db-tippt { display: flex; align-items: flex-start; gap: 9px; }
+    .db-msg { opacity: 0; transform: translateY(8px); transition: opacity .35s ease, transform .35s ease; }
+    .db-msg.zeigen { opacity: 1; transform: none; }
+    .db-ava { width: 26px; height: 26px; flex: none; margin-top: 2px; }
+    .db-ava img { width: 26px; height: auto; display: block; }
+    .db-sprech { background: #f1f5fa; border-radius: 4px 16px 16px 16px; padding: 10px 13px; font-size: 14.5px; line-height: 1.5; color: #1e293b; }
+    .db-formel { background: #fff; border: 1px solid #e3eaf2; border-radius: 10px; padding: 9px 10px; margin-top: 8px; text-align: center; font-size: 17px; }
+    .db-tippt { display: none; }
+    .db-tippt.an { display: flex; }
+    .db-tippt .db-sprech { display: flex; gap: 4px; padding: 13px 14px; }
+    .db-tippt .db-sprech i { width: 6px; height: 6px; border-radius: 50%; background: #9aaabd; animation: db-punkt 1s infinite ease-in-out; }
+    .db-tippt .db-sprech i:nth-child(2) { animation-delay: .15s; }
+    .db-tippt .db-sprech i:nth-child(3) { animation-delay: .3s; }
+    @keyframes db-punkt { 0%, 60%, 100% { transform: translateY(0); opacity: .5; } 30% { transform: translateY(-3px); opacity: 1; } }
+    .db-weiter { position: absolute; left: 18px; right: 18px; bottom: 16px; display: flex; justify-content: flex-end; }
+    .db-knopf-weiter { background: var(--primary); color: #fff; font-weight: 700; font-size: 14.5px; padding: 11px 26px; border-radius: 999px; transition: transform .15s; }
+    .db-knopf-weiter.druck { transform: scale(.94); }
+
+    /* 2) Mini-Game */
+    .db-lab-kopf { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 10px; }
+    .db-lab-kopf b { font-size: 16px; color: var(--primary); }
+    .db-lab-kopf .fm { font-size: 14.5px; color: #475569; }
+    .db-graph { width: 100%; height: 160px; display: block; background: #fff; border: 1px solid #e3eaf2; border-radius: 12px; }
+    .db-gitter path { stroke: #eef2f7; stroke-width: 1; fill: none; vector-effect: non-scaling-stroke; }
+    .db-achse { stroke: #c4cfdc; stroke-width: 1.2; fill: none; vector-effect: non-scaling-stroke; }
+    .db-kurve { stroke: var(--primary); stroke-width: 2.6; fill: none; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+    .db-regler { display: grid; grid-template-columns: 64px 1fr; align-items: center; gap: 10px; margin: 14px 0 12px; }
+    .db-k { font-size: 13.5px; font-weight: 700; color: #1e293b; font-variant-numeric: tabular-nums; }
+    .db-spur { position: relative; height: 6px; border-radius: 3px; background: #e3eaf2; }
+    .db-fuell { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 3px; background: var(--primary); width: 65%; }
+    .db-daumen { position: absolute; top: 50%; left: 65%; width: 20px; height: 20px; margin: -10px 0 0 -10px; border-radius: 50%; background: #fff; border: 3px solid var(--primary); box-shadow: 0 2px 6px rgba(11,42,74,.25); }
+    .db-missionen { display: flex; flex-direction: column; gap: 7px; }
+    .db-mission { display: flex; align-items: center; gap: 9px; font-size: 13.5px; color: #475569; background: #fff; border: 1px solid #e3eaf2; border-radius: 10px; padding: 8px 11px; transition: background .3s, border-color .3s, color .3s; }
+    .db-haken { width: 20px; height: 20px; border-radius: 50%; flex: none; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: transparent; border: 1.5px solid #c9d6e4; transition: all .3s; }
+    .db-mission.ok { background: #ecfdf5; border-color: #9fdcc4; color: #065f46; }
+    .db-mission.ok .db-haken { background: #0f766e; border-color: #0f766e; color: #fff; transform: scale(1.1); }
+
+    /* 3) Quiz */
+    .db-q-kopf { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .db-q-balken { flex: 1; height: 7px; border-radius: 4px; background: #e3eaf2; overflow: hidden; }
+    .db-q-balken i { display: block; height: 100%; width: 0; background: #0f766e; border-radius: 4px; transition: width .6s ease; }
+    .db-q-zahl { font-size: 12.5px; color: #5d6f84; font-weight: 600; white-space: nowrap; }
+    .db-q-frage { font-size: 15.5px; font-weight: 700; color: #0f172a; line-height: 1.4; margin: 0 0 12px; }
+    .db-opt {
+      display: flex; align-items: center; gap: 12px; min-height: 52px; padding: 7px 14px; margin-bottom: 8px;
+      background: #fff; border: 1.5px solid #e3eaf2; border-radius: 14px; font-size: 14.5px; color: #1e293b;
+      transition: background .25s, border-color .25s, opacity .25s;
+    }
+    .db-opt b { width: 26px; height: 26px; flex: none; border-radius: 50%; display: grid; place-items: center; font-size: 12px; color: #5d6f84; background: #f1f5fa; transition: all .25s; }
+    .db-opt-haken { margin-left: auto; color: #0f766e; font-weight: 800; opacity: 0; transition: opacity .25s; }
+    .db-opt.blass { opacity: .45; }
+    .db-opt.waehlt { border-color: #f5b74e; background: #fff8ec; }
+    .db-opt.waehlt b { background: #f5b74e; color: #fff; }
+    .db-opt.gut { border-color: #0f766e; background: #f0fdf9; }
+    .db-opt.gut b { background: #0f766e; color: #fff; }
+    .db-opt.gut .db-opt-haken { opacity: 1; }
+
+    /* 4) Suche */
+    .db-feld { display: flex; align-items: center; gap: 10px; height: 48px; padding: 0 8px 0 14px; background: #fff; border: 1.5px solid #d5dee9; border-radius: 14px; }
+    .db-feld svg { width: 17px; height: 17px; fill: none; stroke: #8fa2b8; stroke-width: 2; stroke-linecap: round; flex: none; }
+    .db-eingabe { font-size: 15.5px; color: #0f172a; white-space: nowrap; }
+    .db-cursor { width: 1.5px; height: 20px; background: var(--primary); margin-left: -8px; animation: db-blink 1s steps(1) infinite; }
+    @keyframes db-blink { 50% { opacity: 0; } }
+    .db-los { margin-left: auto; width: 32px; height: 32px; border-radius: 50%; background: var(--primary); color: #fff; display: grid; place-items: center; font-size: 15px; opacity: .3; transition: opacity .2s, transform .15s; }
+    .db-los.bereit { opacity: 1; }
+    .db-los.druck { transform: scale(.88); }
+    .db-status { display: none; align-items: center; gap: 9px; margin: 16px 2px 10px; font-size: 13.5px; color: #475569; font-weight: 500; }
+    .db-status.an { display: flex; }
+    .db-funke { width: 13px; height: 13px; border-radius: 50%; background: conic-gradient(var(--primary) 0 25%, #d8e2ee 0); animation: db-dreh .8s linear infinite; }
+    @keyframes db-dreh { to { transform: rotate(1turn); } }
+    .db-skelett { display: none; flex-direction: column; gap: 9px; margin: 0 2px; }
+    .db-skelett.an { display: flex; }
+    .db-skelett i { display: block; height: 11px; border-radius: 6px; background: linear-gradient(90deg, #eef3f8 0%, #e2e9f2 40%, #eef3f8 80%); background-size: 300% 100%; animation: db-schimmer 1.3s ease-in-out infinite; }
+    .db-skelett i:first-child { height: 17px; width: 55%; }
+    .db-skelett i:last-child { width: 80%; }
+    @keyframes db-schimmer { 0% { background-position: 100% 0; } 100% { background-position: 0 0; } }
+    .db-ergebnis { display: none; margin-top: 14px; }
+    .db-ergebnis.an { display: block; animation: db-ein .35s ease both; }
+    @keyframes db-ein { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+    .db-ergebnis > small, .db-kasten small { display: block; font-size: 10.5px; font-weight: 700; letter-spacing: .11em; text-transform: uppercase; color: #93a5b8; }
+    .db-ergebnis h4 { font-size: 20px; color: var(--primary); margin: 4px 0 6px; letter-spacing: -.01em; }
+    .db-ergebnis p { font-size: 13.5px; line-height: 1.55; color: #475569; margin: 0 0 10px; }
+    .db-kasten { background: #f1f5fa; border-radius: 11px; padding: 8px 12px 9px; margin-bottom: 8px; display: flex; flex-direction: column; gap: 3px; }
+    .db-kasten .fm { font-size: 15px; color: #0f172a; }
+
+    /* 5) Lernkarte */
+    .db-karte { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .db-welt { position: relative; border: 1.5px solid #dfe7f0; background: #fff; border-radius: 14px; padding: 12px 12px 14px; min-height: 92px; transition: background .4s, border-color .4s, color .4s; }
+    .db-welt small { display: block; font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8b9bb0; }
+    .db-welt b { display: block; font-size: 15px; color: #0f172a; margin-top: 4px; }
+    .db-wh { position: absolute; top: 10px; right: 10px; width: 20px; height: 20px; border-radius: 50%; background: #fff; color: var(--primary); font-size: 11px; font-weight: 800; display: none; place-items: center; }
+    .db-wb { position: absolute; left: 12px; right: 12px; bottom: 12px; height: 4px; border-radius: 2px; background: #e8eef5; overflow: hidden; }
+    .db-wb i { display: block; height: 100%; width: 0; background: #b8c7d8; border-radius: 2px; }
+    .db-wb4 { width: 86% !important; transition: width .9s ease; background: var(--primary) !important; }
+    .db-welt.fertig { background: var(--primary); border-color: var(--primary); }
+    .db-welt.fertig small { color: rgba(255,255,255,.6); }
+    .db-welt.fertig b { color: #fff; }
+    .db-welt.fertig .db-wh { display: grid; }
+    .db-welt.fertig .db-wb { background: rgba(255,255,255,.18); }
+    .db-welt.fertig .db-wb i { background: #fff; }
+    .db-welt.fertig .db-wb4 { background: #fff !important; }
+    .db-welt4.dran { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(11,42,74,.08); }
+    .db-toast {
+      position: absolute; left: 0; right: 0; bottom: -4px; display: flex; align-items: center; gap: 12px;
+      background: var(--primary); color: #fff; border-radius: 16px; padding: 12px 16px;
+      box-shadow: 0 14px 30px rgba(11,42,74,.3); opacity: 0; transform: translateY(14px); transition: opacity .35s, transform .35s;
+    }
+    .db-toast.an { opacity: 1; transform: none; }
+    .db-toast > span { font-size: 24px; }
+    .db-toast b { display: block; font-size: 15px; }
+    .db-toast small { display: block; font-size: 12.5px; color: rgba(255,255,255,.75); }
+    .db-konfetti { position: absolute; left: -18px; right: -18px; top: -18px; height: 0; overflow: visible; pointer-events: none; z-index: 4; }
+    .db-konfetti i { position: absolute; top: 0; width: 7px; height: 12px; border-radius: 2px; opacity: 0; }
+    .db-konfetti.an i { animation: db-fall 1.8s cubic-bezier(.25,.6,.45,1) forwards; }
+    @keyframes db-fall {
+      0% { opacity: 1; transform: translate(0, -20px) rotate(0); }
+      100% { opacity: 0; transform: translate(var(--dx), 330px) rotate(var(--dr)); }
+    }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -1162,7 +1300,7 @@
       </button>
       <nav class="nav-links" id="hauptmenue">
         <a href="index.html">Coaching</a>
-        <a href="nachhilfe.html">SOS Nachhilfe</a>
+        <a href="nachhilfe.html">Nachhilfe</a>
         <a href="freebies.html">Kostenlose PDFs</a>
         <a href="tutor-werden.html">Tutor werden</a>
         <a href="abitur-kurs.html" style="color: var(--primary); font-weight: 600;">Abitur Kurs</a>
@@ -1182,22 +1320,90 @@
         <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Kurs freischalten für 139&nbsp;&euro; &#8594;</a>
         <span class="hero-kauf-zusatz"><span class="nw">Einmal zahlen, kein Abo</span> &middot; <span class="nw">Zugang sofort nach dem Kauf</span></span>
       </div>
-      <div class="demo-handy">
-        <div class="demo-geo">
-          <img src="img/geo.svg" alt="" aria-hidden="true">
-          <p>Lust auf einen Blick hinein? So lernst du im Kurs.</p>
+      <div class="demo-buehne" aria-label="Rundgang durch den Abitur Kurs: Lektion, Mini-Game, Quiz, Suche und Lernkarte">
+        <div class="db-geo" aria-hidden="true">
+          <img src="img/geo.svg" alt="">
+          <p class="db-blase">Ich erkläre dir jedes Thema Schritt für Schritt.</p>
         </div>
-        <div class="handy demo-handy-geraet">
-          <div class="handy-koerper">
-            <div class="handy-schirm">
-              <div class="handy-insel"></div>
-              <video class="demo-video-handy" muted loop playsinline preload="none"
-                     poster="img/demo/kurs-demo-handy-poster.jpg"
-                     aria-label="Rundgang durch den Abitur Kurs auf dem Handy: Lernkarte, eine Lektion mit Geo, Mini-Game, Quiz, Suche und Probeklausur">
-                <source src="img/demo/kurs-demo-handy.mp4" type="video/mp4">
-              </video>
-              <button class="demo-pause demo-pause-handy" type="button" aria-label="Video anhalten"></button>
+        <div class="db-fenster" aria-hidden="true">
+          <div class="db-leiste"><span class="db-punkte"><i></i><i></i><i></i></span><span class="db-titel">Lektion</span><span></span></div>
+          <div class="db-inhalt">
+
+            <!-- 1) Lektion als Chat -->
+            <div class="db-szene an" data-titel="Lektion" data-blase="Ich erkläre dir jedes Thema Schritt für Schritt.">
+              <div class="db-chat">
+                <div class="db-msg"><span class="db-ava"><img src="img/geo.svg" alt=""></span><div class="db-sprech">Hi! Heute geht’s um <b>Unbeschränktes Wachstum</b>.</div></div>
+                <div class="db-msg"><span class="db-ava"><img src="img/geo.svg" alt=""></span><div class="db-sprech">Die Formel kennst du schon aus Welt&nbsp;1:<div class="db-formel"><span class="fm"><i>f</i>(<i>t</i>) = <i>f</i>(0) · <i>e</i><sup><i>kt</i></sup></span></div></div></div>
+                <div class="db-msg"><span class="db-ava"><img src="img/geo.svg" alt=""></span><div class="db-sprech"><span class="fm"><i>f</i>(0)</span> ist der Startwert, <span class="fm"><i>k</i></span> die Wachstumskonstante.</div></div>
+                <div class="db-tippt"><span class="db-ava"><img src="img/geo.svg" alt=""></span><div class="db-sprech"><i></i><i></i><i></i></div></div>
+              </div>
+              <div class="db-weiter"><span class="db-knopf-weiter">Weiter</span></div>
             </div>
+
+            <!-- 2) Mini-Game -->
+            <div class="db-szene" data-titel="Mini-Game" data-blase="Mit Mini-Games bleibt es wirklich hängen.">
+              <div class="db-labor">
+                <div class="db-lab-kopf"><b>Wachstums-Labor</b><span class="fm"><i>f</i>(<i>t</i>) = <i>e</i><sup><i>k</i>·<i>t</i></sup></span></div>
+                <svg class="db-graph" viewBox="0 0 300 160" preserveAspectRatio="none">
+                  <g class="db-gitter"><path d="M0 40H300M0 80H300M0 120H300M50 0V160M100 0V160M150 0V160M200 0V160M250 0V160"/></g>
+                  <path class="db-achse" d="M0 150H300M50 0V160"/>
+                  <path class="db-kurve" d=""/>
+                </svg>
+                <div class="db-regler"><span class="db-k">k = 0,3</span><div class="db-spur"><i class="db-fuell"></i><b class="db-daumen"></b></div></div>
+                <div class="db-missionen">
+                  <div class="db-mission"><span class="db-haken">✓</span>Zerfall simulieren: <span class="fm"><i>k</i> &lt; 0</span></div>
+                  <div class="db-mission"><span class="db-haken">✓</span>Verdopplung: <span class="fm"><i>k</i> ≥ 0,7</span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3) Quiz -->
+            <div class="db-szene" data-titel="Quiz" data-blase="Im Quiz merkst du sofort, ob es sitzt.">
+              <div class="db-quiz">
+                <div class="db-q-kopf"><div class="db-q-balken"><i></i></div><span class="db-q-zahl">Frage 1 von 10</span></div>
+                <p class="db-q-frage">Wie lautet die Formel für unbeschränktes Wachstum?</p>
+                <div class="db-opt"><b>A</b><span class="fm"><i>f</i>(<i>t</i>) = <i>S</i> − (<i>S</i> − <i>f</i>(0))<i>e</i><sup>−<i>kt</i></sup></span></div>
+                <div class="db-opt"><b>B</b><span class="fm"><i>f</i>(<i>t</i>) = <span class="fm-bruch"><span><i>S</i></span><span>1 + <i>c</i><i>e</i><sup>−<i>kt</i></sup></span></span></span></div>
+                <div class="db-opt"><b>C</b><span class="fm"><i>f</i>(<i>t</i>) = <i>kt</i></span></div>
+                <div class="db-opt db-richtig"><b>D</b><span class="fm"><i>f</i>(<i>t</i>) = <i>f</i>(0) · <i>e</i><sup><i>kt</i></sup></span><span class="db-opt-haken">✓</span></div>
+              </div>
+            </div>
+
+            <!-- 4) Suche -->
+            <div class="db-szene" data-titel="Suche" data-blase="Formel vergessen? Einfach suchen.">
+              <div class="db-suche">
+                <div class="db-feld">
+                  <svg viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l4.5 4.5"/></svg>
+                  <span class="db-eingabe"></span><i class="db-cursor"></i>
+                  <span class="db-los">→</span>
+                </div>
+                <div class="db-status"><i class="db-funke"></i><span class="db-status-text">Durchsuche 69 Lektionen …</span></div>
+                <div class="db-skelett"><i></i><i></i><i></i></div>
+                <div class="db-ergebnis">
+                  <small>Welt 2 · Ableiten I</small>
+                  <h4>Kettenregel</h4>
+                  <p>Äußere Ableitung mal innere Ableitung, und nachdifferenzieren nicht vergessen.</p>
+                  <div class="db-kasten"><small>Formel</small><span class="fm"><i>f</i><span class="pr">′</span>(<i>x</i>) = <i>h</i><span class="pr">′</span>(<i>g</i>(<i>x</i>)) · <i>g</i><span class="pr">′</span>(<i>x</i>)</span></div>
+                  <div class="db-kasten"><small>Beispiel</small><span class="fm"><i>f</i>(<i>x</i>) = (3<i>x</i> − 2)<sup>5</sup></span><span class="fm"><i>f</i><span class="pr">′</span>(<i>x</i>) = 15(3<i>x</i> − 2)<sup>4</sup></span></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5) Lernkarte -->
+            <div class="db-szene" data-titel="Lernkarte" data-blase="Auf der Karte siehst du, wie weit du schon bist.">
+              <div class="db-karte">
+                <div class="db-welt fertig"><small>Welt 1</small><b>Grundlagen</b><span class="db-wh">✓</span><i class="db-wb"><i style="width:100%"></i></i></div>
+                <div class="db-welt fertig"><small>Welt 2</small><b>Ableiten I</b><span class="db-wh">✓</span><i class="db-wb"><i style="width:100%"></i></i></div>
+                <div class="db-welt fertig"><small>Welt 3</small><b>Ableiten II</b><span class="db-wh">✓</span><i class="db-wb"><i style="width:100%"></i></i></div>
+                <div class="db-welt db-welt4"><small>Welt 4</small><b>Integrale</b><span class="db-wh">✓</span><i class="db-wb"><i class="db-wb4"></i></i></div>
+                <div class="db-welt"><small>Welt 5</small><b>Wachstum</b><i class="db-wb"><i></i></i></div>
+                <div class="db-welt"><small>Welt 6</small><b>Vektoren</b><i class="db-wb"><i></i></i></div>
+                <div class="db-toast"><span>🏆</span><div><b>Welt 4 geschafft!</b><small>Alle Lektionen erledigt, weiter so!</small></div></div>
+                <div class="db-konfetti"></div>
+              </div>
+            </div>
+
+            <span class="db-tipp"></span>
           </div>
         </div>
       </div>
@@ -1209,12 +1415,11 @@
             <span class="demo-adresse">kurs.alexsmathguides.de</span>
             <span></span>
           </div>
-          <video class="demo-video" muted loop playsinline preload="none"
+          <video class="demo-video" muted loop playsinline preload="none" disablepictureinpicture disableremoteplayback controlslist="nodownload nofullscreen noremoteplayback" tabindex="-1"
                  poster="img/demo/kurs-demo-poster.jpg"
                  aria-label="Rundgang durch den Abitur Kurs: Lernkarte, eine Lektion mit Geo, Mini-Game, Quiz, Suche und Probeklausur">
             <source src="img/demo/kurs-demo.mp4" type="video/mp4">
           </video>
-          <button class="demo-pause" type="button" aria-label="Video anhalten"></button>
         </div>
         <figcaption>Echte Aufnahme aus dem Kurs.</figcaption>
       </figure>
@@ -1546,58 +1751,182 @@
 
 
   <script>
-    // Demo-Video: Auf dem Handy laeuft die Fassung im Handyformat, am Rechner die im
-    // Browserfenster. Geladen wird nur die, die man sieht. Mit Pause-Knopf; wer
-    // weniger Bewegung eingestellt hat, bekommt ein stehendes Bild.
+    // Demo am Rechner: das echte Video, laeuft von selbst, ohne Bedienelemente.
+    // Auf dem Handy wird es gar nicht erst geladen.
     (function () {
-      var PAUSE = '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.6" height="12" rx="1"/><rect x="9.4" y="2" width="3.6" height="12" rx="1"/></svg>';
-      var PLAY = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.4v11.2a.8.8 0 0 0 1.2.7l9.2-5.6a.8.8 0 0 0 0-1.4L5.2 1.7A.8.8 0 0 0 4 2.4z"/></svg>';
-      var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var v = document.querySelector('.demo-video');
+      if (!v) return;
       var schmal = window.matchMedia('(max-width: 700px)');
-      var paare = [
-        { v: document.querySelector('.demo-video'), k: document.querySelector('.demo .demo-pause'), handy: false },
-        { v: document.querySelector('.demo-video-handy'), k: document.querySelector('.demo-pause-handy'), handy: true }
-      ];
-      paare.forEach(function (p) {
-        if (!p.v || !p.k) return;
-        function zeigen() {
-          var laeuft = !p.v.paused;
-          p.k.innerHTML = laeuft ? PAUSE : PLAY;
-          p.k.setAttribute('aria-label', laeuft ? 'Video anhalten' : 'Video abspielen');
-        }
-        p.k.addEventListener('click', function () { if (p.v.paused) p.v.play(); else p.v.pause(); });
-        p.v.addEventListener('play', zeigen);
-        p.v.addEventListener('pause', zeigen);
-        zeigen();
-      });
       function waehlen() {
-        paare.forEach(function (p) {
-          if (!p.v) return;
-          if (p.handy === schmal.matches && !ruhig) {
-            p.v.preload = 'auto';
-            var x = p.v.play();
-            if (x && x.catch) x.catch(function () {});
-          } else {
-            p.v.pause();
-          }
-        });
+        if (schmal.matches) { v.pause(); return; }
+        v.preload = 'auto';
+        var x = v.play();
+        if (x && x.catch) x.catch(function () {});
       }
       waehlen();
       if (schmal.addEventListener) schmal.addEventListener('change', waehlen);
     })();
 
-    // Menue-Knopf auf dem Handy
+    // Demo-Buehne auf dem Handy: fuenf Szenen laufen von selbst in Schleife.
+    // Echte Seitenelemente statt Video -- deshalb kein Abspielknopf, kein Vollbild.
     (function () {
-      var kopf = document.querySelector('.site-header');
-      var k = document.querySelector('.menue-knopf');
-      if (!kopf || !k) return;
-      function setzen(auf) {
-        kopf.classList.toggle('offen', auf);
-        k.setAttribute('aria-expanded', auf ? 'true' : 'false');
-        k.setAttribute('aria-label', auf ? 'Menü schließen' : 'Menü öffnen');
+      var b = document.querySelector('.demo-buehne');
+      if (!b) return;
+      var szenen = [].slice.call(b.querySelectorAll('.db-szene'));
+      var titel = b.querySelector('.db-titel'), blase = b.querySelector('.db-blase');
+      var tipp = b.querySelector('.db-tipp'), inhalt = b.querySelector('.db-inhalt');
+      var schmal = window.matchMedia('(max-width: 700px)');
+      var sichtbar = !window.IntersectionObserver;
+      if (window.IntersectionObserver) new IntersectionObserver(function (e) { sichtbar = e[0].isIntersecting; }).observe(b);
+
+      function warte(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+      async function bereit() { while (!sichtbar || document.hidden || !schmal.matches) await warte(300); }
+      async function pause(ms) { await bereit(); await warte(ms); }
+      function q(s, el) { return (el || b).querySelector(s); }
+      function qa(s, el) { return [].slice.call((el || b).querySelectorAll(s)); }
+
+      function tippHin(el, x, y) {
+        var r = el.getBoundingClientRect(), ir = inhalt.getBoundingClientRect();
+        tipp.style.left = (r.left - ir.left + (x == null ? r.width / 2 : x)) + 'px';
+        tipp.style.top = (r.top - ir.top + (y == null ? r.height / 2 : y)) + 'px';
       }
-      k.addEventListener('click', function () { setzen(!kopf.classList.contains('offen')); });
-      document.addEventListener('click', function (e) { if (!kopf.contains(e.target)) setzen(false); });
+      async function tippe(el) {
+        tippHin(el); tipp.classList.add('an'); el.classList.add('druck');
+        await warte(230);
+        tipp.classList.remove('an'); el.classList.remove('druck');
+      }
+      // Erst die alte Szene ausblenden, dann die neue einblenden -- nie beide zugleich.
+      async function zeige(sz) {
+        szenen.forEach(function (s) { s.classList.remove('an'); });
+        titel.classList.add('weg'); blase.classList.add('weg');
+        await warte(380);
+        sz.classList.add('an');
+        titel.textContent = sz.getAttribute('data-titel');
+        blase.textContent = sz.getAttribute('data-blase');
+        titel.classList.remove('weg'); blase.classList.remove('weg');
+      }
+
+      // 1) Lektion: Geo schreibt, der Weiter-Knopf wird angetippt
+      async function lektion(sz) {
+        var msgs = qa('.db-msg', sz), punkte = q('.db-tippt', sz), knopf = q('.db-knopf-weiter', sz);
+        msgs.forEach(function (m) { m.classList.remove('zeigen'); });
+        await zeige(sz);
+        for (var i = 0; i < msgs.length; i++) {
+          if (i > 0) { await pause(1100); await tippe(knopf); }
+          msgs[i].parentNode.insertBefore(punkte, msgs[i]);
+          punkte.classList.add('an'); await pause(650); punkte.classList.remove('an');
+          msgs[i].classList.add('zeigen');
+        }
+        await pause(1900);
+      }
+
+      // 2) Mini-Game: am Regler ziehen, die Kurve kippt, Missionen werden abgehakt
+      function kurve(sz, k) {
+        var d = '';
+        for (var i = 0; i <= 60; i++) {
+          var t = -1 + 6 * i / 60, X = (t + 1) / 6 * 300, Y = 150 - Math.exp(k * t) / 8 * 145;
+          d += (i ? 'L' : 'M') + X.toFixed(1) + ' ' + Math.max(-60, Math.min(220, Y)).toFixed(1);
+        }
+        q('.db-kurve', sz).setAttribute('d', d);
+        var p = ((k + 1) / 2 * 100).toFixed(1) + '%';
+        q('.db-fuell', sz).style.width = p; q('.db-daumen', sz).style.left = p;
+        q('.db-k', sz).textContent = 'k = ' + (Math.round(k * 10) / 10).toFixed(1).replace('.', ',').replace('-', '−');
+      }
+      function fahre(sz, von, nach, ms, beiK) {
+        var daumen = q('.db-daumen', sz), t0 = performance.now();
+        tipp.classList.add('an');
+        return new Promise(function (fertig) {
+          function schritt(jetzt) {
+            var u = Math.min(1, (jetzt - t0) / ms), e = u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+            var k = von + (nach - von) * e;
+            kurve(sz, k); tippHin(daumen); beiK(k);
+            if (u < 1) requestAnimationFrame(schritt); else { tipp.classList.remove('an'); fertig(); }
+          }
+          requestAnimationFrame(schritt);
+        });
+      }
+      async function labor(sz) {
+        var m = qa('.db-mission', sz);
+        m.forEach(function (x) { x.classList.remove('ok'); });
+        kurve(sz, 0.3);
+        await zeige(sz);
+        await pause(800);
+        await fahre(sz, 0.3, -0.6, 1300, function (k) { if (k < 0) m[0].classList.add('ok'); });
+        await pause(800);
+        await fahre(sz, -0.6, 0.8, 1500, function (k) { if (k >= 0.7) m[1].classList.add('ok'); });
+        await pause(1700);
+      }
+
+      // 3) Quiz: richtige Antwort antippen, sie wird gruen
+      async function quiz(sz) {
+        var opts = qa('.db-opt', sz), richtig = q('.db-richtig', sz);
+        opts.forEach(function (o) { o.classList.remove('blass', 'waehlt', 'gut'); });
+        q('.db-q-balken i', sz).style.width = '0';
+        await zeige(sz);
+        await pause(1400);
+        await tippe(richtig);
+        richtig.classList.add('waehlt');
+        await pause(450);
+        richtig.classList.remove('waehlt'); richtig.classList.add('gut');
+        opts.forEach(function (o) { if (o !== richtig) o.classList.add('blass'); });
+        q('.db-q-balken i', sz).style.width = '10%';
+        await pause(2300);
+      }
+
+      // 4) Suche: Begriff tippen, kurz suchen, Antwort mit Formel und Beispiel
+      async function suche(sz) {
+        var ein = q('.db-eingabe', sz), los = q('.db-los', sz), st = q('.db-status', sz), stt = q('.db-status-text', sz);
+        var sk = q('.db-skelett', sz), erg = q('.db-ergebnis', sz);
+        ein.textContent = ''; los.classList.remove('bereit'); st.classList.remove('an'); sk.classList.remove('an'); erg.classList.remove('an');
+        await zeige(sz);
+        await pause(600);
+        var wort = 'Kettenregel';
+        for (var i = 1; i <= wort.length; i++) { ein.textContent = wort.slice(0, i); await pause(85); }
+        los.classList.add('bereit');
+        await pause(350); await tippe(los);
+        stt.textContent = 'Durchsuche 69 Lektionen …'; st.classList.add('an'); sk.classList.add('an');
+        await pause(850);
+        stt.textContent = 'Gefunden in Welt 2 · Ableiten I …';
+        await pause(750);
+        st.classList.remove('an'); sk.classList.remove('an'); erg.classList.add('an');
+        await pause(2800);
+      }
+
+      // 5) Lernkarte: Welt 4 fuellt sich, wird abgehakt, Konfetti
+      var FARBEN = ['#0b2a4a', '#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'];
+      async function karte(sz) {
+        var w4 = q('.db-welt4', sz), balken = q('.db-wb4', sz), toast = q('.db-toast', sz), konf = q('.db-konfetti', sz);
+        w4.classList.remove('fertig', 'dran'); toast.classList.remove('an'); konf.classList.remove('an');
+        balken.style.transition = 'none'; balken.style.setProperty('width', '86%', 'important');
+        void balken.offsetWidth; balken.style.transition = '';
+        if (!konf.children.length) {
+          for (var i = 0; i < 28; i++) {
+            var s = document.createElement('i');
+            s.style.left = (Math.random() * 100) + '%';
+            s.style.background = FARBEN[i % FARBEN.length];
+            s.style.setProperty('--dx', (Math.random() * 80 - 40) + 'px');
+            s.style.setProperty('--dr', (Math.random() * 720 - 360) + 'deg');
+            s.style.animationDelay = (Math.random() * .3) + 's';
+            konf.appendChild(s);
+          }
+        }
+        await zeige(sz);
+        await pause(900);
+        w4.classList.add('dran');
+        balken.style.setProperty('width', '100%', 'important');
+        await pause(1000);
+        w4.classList.remove('dran'); w4.classList.add('fertig');
+        void konf.offsetWidth; konf.classList.add('an'); toast.classList.add('an');
+        await pause(3000);
+      }
+
+      var ABLAUF = [lektion, labor, quiz, suche, karte];
+      (async function schleife() {
+        await bereit();
+        for (;;) {
+          for (var i = 0; i < ABLAUF.length; i++) await ABLAUF[i](szenen[i]);
+        }
+      })();
     })();
 
     // Rezensionen: das Karussell laeuft von selbst weiter, haelt aber an, sobald
@@ -1776,5 +2105,6 @@
       }
     })();
   </script>
+  <script src="/menue.js" defer></script>
 </body>
 </html>
