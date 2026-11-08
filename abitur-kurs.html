@@ -7,8 +7,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0b2a4a">
-  <title>Mathe Oberstufe &amp; Abitur Online-Kurs – 69 Lektionen mit Klausursimulator | alexsmathguides</title>
-  <meta name="description" content="Der mathemaxxers Abitur Kurs: der komplette Oberstufenstoff ab Klasse 11 in 10 Welten, 69 Lektionen, Quizzes und Klausursimulator – einmalig 139 €, kein Abo, Zugang sofort." />
+  <title>Mathe Abitur 2027 Online-Kurs: 69 Lektionen, Quizzes und Probeklausuren | alexsmathguides</title>
+  <meta name="description" content="Der Abitur Kurs von alexsmathguides: der komplette Oberstufenstoff ab Klasse 11 in 10 Welten mit 69 Lektionen, Mini-Games, Quizzes, Merkzetteln und fünf Probeklausuren. Einmalig 139 €, kein Abo, Zugang sofort." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -737,6 +737,192 @@
     @media (max-width: 760px) {
       .geo-ecke > .geo-figur { width: 104px; top: -42px; left: -14px; }
     }
+
+    /* ── Demo-Video im Browserfenster ──────────────────────────────────
+       Das Video ist das Erste, was man vom Kurs sieht. Der schlichte
+       Fensterrahmen macht klar: Das ist die echte Seite, kein Werbefilm. */
+    .hero { padding: 60px 0 60px; }
+    .hero .badge { margin-bottom: 18px; }
+    .hero h1 { font-size: clamp(34px, 5vw, 56px); margin-bottom: 16px; text-wrap: balance; }
+    .hero p.lead { font-size: 18px; max-width: 52ch; }
+    .hero .hero-kauf { margin: 28px 0 40px; gap: 12px; }
+    .hero .trust-row { margin: 30px 0 0; }
+
+    .demo { max-width: 1080px; margin: 0 auto; }
+    .demo-fenster {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 34px 80px rgba(11,42,74,.18), 0 8px 22px rgba(11,42,74,.08);
+    }
+    .demo-leiste {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      height: 40px;
+      padding: 0 16px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line);
+    }
+    .demo-punkte { display: flex; gap: 7px; }
+    .demo-punkte i { width: 11px; height: 11px; border-radius: 50%; background: #d3dde9; display: block; }
+    .demo-adresse {
+      font-size: 12.5px; font-weight: 500; color: var(--muted);
+      background: #fff; border: 1px solid var(--line); border-radius: 8px;
+      padding: 3px 18px; white-space: nowrap;
+    }
+    .demo-video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; background: #fff; }
+    .demo-pause {
+      position: absolute; right: 14px; bottom: 14px;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid rgba(216,226,238,.9);
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(6px);
+      color: var(--primary);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; opacity: .75;
+      transition: opacity .2s, transform .2s;
+    }
+    .demo-pause:hover, .demo-pause:focus-visible { opacity: 1; transform: scale(1.05); }
+    .demo-pause svg { width: 15px; height: 15px; display: block; }
+    .demo figcaption {
+      margin-top: 14px;
+      font-size: 13.5px; font-weight: 600; color: var(--muted);
+    }
+
+    /* Acht Funktionen: zwei Reihen zu vier statt fuenf plus drei */
+    #inhalt .feature-grid { grid-template-columns: repeat(4, 1fr); }
+    @media (max-width: 1100px) { #inhalt .feature-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px)  { #inhalt .feature-grid { grid-template-columns: 1fr; } }
+
+    /* Geo lugt ueber die Preiskarte -- genug Abstand, damit er den Text darueber nicht verdeckt */
+    .preis-kopf { margin-bottom: 76px; }
+    @media (max-width: 760px) { .preis-kopf { margin-bottom: 54px; } }
+
+    /* Eigene Strich-Icons statt Emojis: dieselbe weisse Kachel wie die
+       Social-Icons unter dem Foto, Linien in Dunkelblau. */
+    .feature-card .icon {
+      width: 46px; height: 46px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      font-size: 0;
+      margin-bottom: 18px;
+    }
+    .feature-card .icon svg {
+      width: 23px; height: 23px;
+      fill: none; stroke: currentColor; stroke-width: 1.8;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+
+    /* Zahlenleiste unter dem Video */
+    .kurs-zahlen {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 18px 52px;
+      margin: 44px auto 0;
+    }
+    .kurs-zahl .wert {
+      font-size: 32px; font-weight: 800; color: var(--primary);
+      letter-spacing: -.02em; line-height: 1.1;
+    }
+    .kurs-zahl .was { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    @media (max-width: 700px) {
+      .hero { padding-top: 36px; padding-bottom: 44px; }
+      .hero .hero-kauf { margin: 22px 0 30px; }
+      .hero p.lead { font-size: 16.5px; }
+      .demo-leiste { height: 30px; padding: 0 10px; }
+      .demo-punkte i { width: 8px; height: 8px; }
+      .demo-adresse { font-size: 10.5px; padding: 2px 10px; }
+      .demo-pause { width: 32px; height: 32px; right: 10px; bottom: 10px; }
+      .kurs-zahlen { gap: 16px 28px; }
+      .kurs-zahl { min-width: 27%; }
+      .kurs-zahl .wert { font-size: 26px; }
+    }
+
+    /* ── Hi, ich bin Alex (wie auf der Startseite) ── */
+    .handy {
+      width: 290px;
+      margin: 0 auto;
+      position: relative;
+      flex-shrink: 0;
+    }
+    .handy-koerper {
+      background: #10151c;
+      border-radius: 42px;
+      padding: 11px;
+      box-shadow:
+        0 0 0 2px #2a323d,
+        0 26px 60px rgba(11,42,74,.34),
+        0 6px 18px rgba(11,42,74,.18);
+      position: relative;
+    }
+    .handy-koerper::before,
+    .handy-koerper::after {
+      content: "";
+      position: absolute; left: -3px;
+      width: 3px; border-radius: 3px 0 0 3px;
+      background: #2a323d;
+    }
+    .handy-koerper::before { top: 116px; height: 30px; }
+    .handy-koerper::after  { top: 158px; height: 52px; }
+    .handy-schirm {
+      position: relative;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #0b2a4a;
+      aspect-ratio: 9 / 19.5;
+    }
+    .handy-schirm img {
+      width: 100%; height: 100%;
+      object-fit: cover; display: block;
+      object-position: 64% 50%;
+    }
+    .handy-insel {
+      position: absolute; top: 12px; left: 50%; transform: translateX(-50%);
+      width: 86px; height: 25px; border-radius: 999px;
+      background: #10151c; z-index: 3;
+    }
+    .kanaele {
+      display: flex; justify-content: center; gap: 14px; margin-top: 22px;
+    }
+    .kanaele a {
+      width: 42px; height: 42px; border-radius: 12px;
+      border: 1px solid var(--line); background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--primary);
+      transition: border-color .2s, transform .2s;
+    }
+    .kanaele a:hover { border-color: var(--primary); transform: translateY(-2px); }
+    .kanaele svg { width: 20px; height: 20px; }
+
+    .marker {
+      background: linear-gradient(180deg, transparent 56%, rgba(15,118,110,.20) 56%);
+      padding: 0 4px; border-radius: 2px;
+    }
+
+    .ueber { display: grid; grid-template-columns: 300px 1fr; gap: 56px; align-items: center; }
+    .ueber-text p { margin: 0 0 16px; font-size: 17px; line-height: 1.7; }
+    .ueber-text p:last-child { margin-bottom: 0; }
+    .ueber-zahlen {
+      display: flex; gap: 36px; flex-wrap: wrap;
+      margin: 24px 0 26px; padding: 20px 0;
+      border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    }
+    .ueber-zahl .wert {
+      font-size: 27px; font-weight: 800; color: var(--primary);
+      letter-spacing: -.02em; line-height: 1.1;
+    }
+    .ueber-zahl .was { font-size: 14px; color: var(--muted); margin-top: 2px; }
+    .signatur { font-size: 15px; color: var(--muted); font-style: italic; }
+    @media (max-width: 920px) {
+      .ueber { grid-template-columns: 1fr; gap: 28px; }
+      .handy { margin: 0 auto; width: 250px; }
+    }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -746,7 +932,7 @@
   "@context": "https://schema.org",
   "@type": "Course",
   "name": "Mathe Abitur Online-Kurs",
-  "description": "Online-Kurs zur Vorbereitung auf das Mathematik-Abitur: 10 Themenwelten mit 69 Lektionen, Erklärvideos unter 60 Sekunden, Quizzes, Mini-Games und ein Klausursimulator mit fünf vollständigen Abiturklausuren.",
+  "description": "Online-Kurs zur Vorbereitung auf das Mathematik-Abitur: 10 Themenwelten mit 69 geführten Lektionen, Erklärvideos unter 60 Sekunden, Mini-Games, Quizzes, Merkzetteln als PDF und einem Klausursimulator mit fünf vollständigen Abiturklausuren.",
   "url": "https://alexsmathguides.de/abitur-kurs.html",
   "inLanguage": "de",
   "educationalLevel": "Sekundarstufe II ab Klasse 11, Abitur",
@@ -766,8 +952,7 @@
   },
   "hasCourseInstance": {
     "@type": "CourseInstance",
-    "courseMode": "online",
-    "courseWorkload": "PT20H"
+    "courseMode": "online"
   }
 }
 </script>
@@ -806,73 +991,58 @@
         <a href="nachhilfe.html">SOS Nachhilfe</a>
         <a href="freebies.html">Kostenlose PDFs</a>
         <a href="tutor-werden.html">Tutor werden</a>
-        <a href="abitur-kurs.html" style="color: var(--primary); font-weight: 600;">mathemaxxers Abitur Kurs</a>
+        <a href="abitur-kurs.html" style="color: var(--primary); font-weight: 600;">Abitur Kurs</a>
         <a href="https://kurs.alexsmathguides.de/login">Login</a>
         <a class="nav-cta" href="index.html#kontakt">Erstgespr&auml;ch</a>
       </nav>
     </div>
   </header>
 
-  <!-- ── Hero ── -->
+  <!-- ── Hero mit Demo ── -->
   <section class="hero">
     <div class="container">
-      <span class="badge">10 Welten &middot; 69 Lektionen &middot; einmalig 139&nbsp;&euro;</span>
-      <h1>Mathe Abitur Online-Kurs</h1>
-      <p class="fuer-wen">Ab Klasse 11: der komplette Oberstufenstoff, bis zum Abitur.</p>
-      <p class="lead">10 Welten, 69 Lektionen, jede mit einem Video unter 60 Sekunden, in dem eine Beispielaufgabe Schritt für Schritt vorgerechnet wird, dazu Quiz und Mini-Game. Alles, was im Mathe-Abi wirklich drankommt, so kompakt, interaktiv und spielerisch wie möglich, kein unnötiger Ballast.</p>
+      <span class="badge">Online-Kurs für die Oberstufe</span>
+      <h1>Dein Mathe-Abi 2027, Schritt für Schritt</h1>
+      <p class="lead">Der komplette Oberstufenstoff ab Klasse 11 in kurzen Lektionen, in denen du selbst rechnest und im Quiz sofort merkst, ob es sitzt.</p>
       <div class="hero-kauf">
-        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Kurs freischalten &#8212; 139&nbsp;&euro; einmalig &#8594;</a>
-        <span class="hero-kauf-zusatz">Einmal zahlen, dauerhaft nutzen &middot; <a href="#preis">Was alles enthalten ist</a></span>
+        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Kurs freischalten für 139&nbsp;&euro; &#8594;</a>
+        <span class="hero-kauf-zusatz">Einmal zahlen, kein Abo &middot; Zugang sofort nach dem Kauf</span>
       </div>
+      <figure class="demo">
+        <div class="demo-fenster">
+          <div class="demo-leiste" aria-hidden="true">
+            <span class="demo-punkte"><i></i><i></i><i></i></span>
+            <span class="demo-adresse">kurs.alexsmathguides.de</span>
+            <span></span>
+          </div>
+          <video class="demo-video" autoplay muted loop playsinline preload="auto"
+                 poster="img/demo/kurs-demo-poster.jpg"
+                 aria-label="Rundgang durch den Abitur Kurs: Lernkarte, eine Lektion mit Geo, Mini-Game, Quiz, Suche und Probeklausur">
+            <source src="img/demo/kurs-demo-960.mp4" type="video/mp4" media="(max-width: 700px)">
+            <source src="img/demo/kurs-demo.mp4" type="video/mp4">
+          </video>
+          <button class="demo-pause" type="button" aria-label="Video anhalten"></button>
+        </div>
+        <figcaption>Echte Aufnahme aus dem Kurs.</figcaption>
+      </figure>
+
+      <div class="kurs-zahlen">
+        <div class="kurs-zahl"><div class="wert"><span class="marker">10</span></div><div class="was">Welten</div></div>
+        <div class="kurs-zahl"><div class="wert"><span class="marker">69</span></div><div class="was">Lektionen</div></div>
+        <div class="kurs-zahl"><div class="wert"><span class="marker">690</span></div><div class="was">Quizfragen</div></div>
+        <div class="kurs-zahl"><div class="wert"><span class="marker">66</span></div><div class="was">Merkzettel als PDF</div></div>
+        <div class="kurs-zahl"><div class="wert"><span class="marker">5</span></div><div class="was">Probeklausuren</div></div>
+      </div>
+
       <div class="trust-row">
-        <span>✓ Zugang sofort nach dem Kauf</span>
-        <span>✓ Sichere Zahlung über Stripe, Rechnung automatisch per E-Mail</span>
-        <span>✓ Kein Abo, keine Folgekosten</span>
+        <span>✓ Sichere Zahlung über Stripe</span>
+        <span>✓ Rechnung automatisch per E-Mail</span>
         <span>✓ Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a></span>
       </div>
-      <div class="hero-shot">
-        <img src="img/screenshots/screenshot-karte.png" alt="Interaktive Lernkarte des mathemaxxers Abitur Kurses mit 10 Welten" loading="lazy" />
-      </div>
     </div>
   </section>
 
-  <!-- ── Was du bekommst ── -->
-  <section id="inhalt">
-    <div class="container">
-      <span class="eyebrow">Der Kurs</span>
-      <h2>Alles, was du für dein Abi brauchst.</h2>
-      <p class="section-intro">Kein Frontalunterricht, kein Herumsuchen in dicken Skripten. Jede Lektion ist so aufgebaut, dass du in wenigen Minuten verstehst, worum es geht, und direkt siehst, wie eine typische Abi-Aufgabe gelöst wird.</p>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <span class="icon">🎥</span>
-          <h3>69 Kurzvideos, je unter 60 Sekunden</h3>
-          <p>Pro Lektion genau ein knackiges Video: eine Beispielaufgabe einmal komplett Schritt für Schritt vorgerechnet, kompakt statt langem Frontalvideo.</p>
-        </div>
-        <div class="feature-card">
-          <span class="icon">📖</span>
-          <h3>69 Lektionen zum Nachlesen</h3>
-          <p>Kompakte Theorie mit Formeln, Beispielen und typischen Fehlern, immer auf das Wesentliche reduziert.</p>
-        </div>
-        <div class="feature-card">
-          <span class="icon">🎯</span>
-          <h3>69 Quizzes</h3>
-          <p>Nach jeder Lektion ein Abschlussquiz mit sofortigem Feedback, damit du merkst, ob es wirklich sitzt.</p>
-        </div>
-        <div class="feature-card">
-          <span class="icon">🗺️</span>
-          <h3>Interaktive Lernkarte</h3>
-          <p>Dein Fortschritt in 10 Welten, geräteübergreifend gespeichert, Login reicht, egal ob Handy, Tablet oder Laptop. Jedes Thema ist jederzeit erreichbar, auch wenn du die Welten davor noch nicht gemacht hast.</p>
-        </div>
-        <div class="feature-card">
-          <span class="icon">📝</span>
-          <h3>Klausursimulator</h3>
-          <p>Probeklausuren im Abi-Format, um den Ernstfall zu üben, bevor er wirklich zählt.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Testimonials ── -->
+  <!-- ── Rezensionen ── -->
   <section id="stimmen" style="background: var(--surface);">
     <div class="container">
       <span class="eyebrow">Das sagen Nutzer</span>
@@ -902,40 +1072,168 @@
     </div>
   </section>
 
-  <!-- ── Screenshots ── -->
-  <section id="einblick">
+  <!-- ── Was du bekommst ── -->
+  <section id="inhalt">
     <div class="container">
-      <span class="eyebrow">Einblick</span>
-      <h2>So sieht eine Lektion aus.</h2>
-      <p class="section-intro">Erst das Kurzvideo unter 60 Sekunden, dann die Theorie kompakt zum Nachlesen, danach das Quiz zur Selbstkontrolle.</p>
-      <div class="shot-gallery">
-        <div class="shot-card">
-          <img src="img/screenshots/screenshot-lektion.png" alt="Beispiel einer Lektionsseite mit Video und Beispielaufgabe" loading="lazy" />
-          <div class="shot-caption">Lektion „Symmetrie von Funktionen“ mit Video und Beispielaufgabe</div>
+      <span class="eyebrow">Der Kurs</span>
+      <h2>Alles, was du für dein Abi brauchst.</h2>
+      <p class="section-intro">Jede Lektion ist so gebaut, dass du in ein paar Minuten verstehst, worum es geht, und gleich danach selbst eine typische Abi-Aufgabe rechnest.</p>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4h11A2.5 2.5 0 0 1 20 6.5v7a2.5 2.5 0 0 1-2.5 2.5H10l-4 3.5V16h0.5A2.5 2.5 0 0 1 4 13.5z"/><path d="M9.2 7.8v5h5z"/></svg></span>
+          <h3>Geo führt dich durch jede Lektion</h3>
+          <p>Die Lektionen laufen wie ein Chat. Geo erklärt, und du klickst weiter, wenn du so weit bist. Willst du nur kurz etwas nachlesen, klappst du einfach alles auf.</p>
         </div>
-        <div class="shot-card">
-          <img src="img/screenshots/screenshot-quiz.png" alt="Beispiel eines Abschlussquiz mit Multiple-Choice-Fragen" loading="lazy" />
-          <div class="shot-caption">Abschlussquiz mit sofortigem Feedback</div>
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="3"/><path d="M10.3 9.3v5.4l4.5-2.7z"/></svg></span>
+          <h3>Ein Video pro Lektion, unter 60 Sekunden</h3>
+          <p>Darin rechne ich eine typische Aufgabe einmal komplett vor, ohne Umwege und ohne Fachchinesisch.</p>
         </div>
-        <div class="shot-card">
-          <img src="img/screenshots/screenshot-minigame-paare.png" alt="Mini-Game „Welcher Grad?“, bei dem Funktionen ihrem Grad zugeordnet werden" loading="lazy" />
-          <div class="shot-caption">Mini-Game zum Üben, bevor es ins Quiz geht</div>
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5V15h16"/><path d="M6.2 13.4c4.2 0 6.4-1.6 8.3-4.6S17.4 4.9 19.6 4.4"/><path d="M4 20h16"/><circle cx="13.5" cy="20" r="2" fill="#fff"/></svg></span>
+          <h3>Mini-Games, die hängen bleiben</h3>
+          <p>Zu jedem Thema gibt es ein kleines Spiel. In den Laboren ziehst du zum Beispiel an Reglern und siehst sofort, wie sich die Kurve verändert.</p>
         </div>
-        <div class="shot-card">
-          <img src="img/screenshots/screenshot-klausursimulator.png" alt="Klausursimulator mit fünf vollständigen Abitur-Probeklausuren" loading="lazy" />
-          <div class="shot-caption">Klausursimulator: fünf komplette Abi-Klausuren mit Punkteschema</div>
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M8.3 12.4l2.5 2.5 5-5.3"/></svg></span>
+          <h3>69 Quizzes mit sofortiger Rückmeldung</h3>
+          <p>Nach jeder Lektion warten zehn Fragen. Sobald du fünf richtig hast, gilt das Thema als geschafft, und auf der Karte siehst du, wie weit du schon bist.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/></svg></span>
+          <h3>Eine Suche, die dir direkt antwortet</h3>
+          <p>Du gibst einen Begriff ein und bekommst Definition, Formel und eine kleine Beispielrechnung, dazu den Link zur passenden Lektion.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h7l4.5 4.5v11A1.5 1.5 0 0 1 17 20.5H7A1.5 1.5 0 0 1 5.5 19V5A1.5 1.5 0 0 1 7 3.5z"/><path d="M14 3.5V8h4.5"/><path d="M8.7 12.2h6.6M8.7 15.6h4.4"/></svg></span>
+          <h3>66 Merkzettel als PDF</h3>
+          <p>Am Ende einer Lektion wartet ein kleiner Spickzettel mit dem Wichtigsten, den du speichern oder ausdrucken kannst.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13.5" r="7"/><path d="M12 10v3.5l2.4 1.6"/><path d="M10 2.8h4M12 2.8v3.7"/><path d="M18.2 6.6l1.3-1.3"/></svg></span>
+          <h3>Fünf Probeklausuren</h3>
+          <p>Komplette Abi-Klausuren mit Zeitlimit. Hinterher vergleichst du deinen Lösungsweg mit der Musterlösung und bekommst eine Note nach echtem Notenschlüssel.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="18" r="2"/><path d="M8 6h7.5a3 3 0 0 1 0 6h-7a3 3 0 0 0 0 6H16"/></svg></span>
+          <h3>Eine Lernkarte, die mitzählt</h3>
+          <p>Dein Fortschritt wird gespeichert, egal ob du am Handy, Tablet oder Laptop lernst. Jedes Thema kannst du jederzeit öffnen, auch wenn die Welten davor noch offen sind.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── Trust ── -->
-  <section id="vertrauen" style="background: var(--surface);">
-    <div class="container-narrow" style="text-align:center;">
-      <span class="eyebrow">Gut zu wissen</span>
-      <h2>👨‍🏫 Von einem echten Nachhilfelehrer.</h2>
-      <p class="section-intro" style="margin-left:auto;margin-right:auto;">Ich bin Alex und gebe seit Jahren Mathe-Nachhilfe. Ich habe schon zahlreiche Schüler:innen erfolgreich durchs Abitur begleitet und weiß genau, wo es dabei wirklich hakt, genau darauf ist dieser Kurs aufgebaut.</p>
+  <!-- ── Hi, ich bin Alex ── -->
+  <section id="ueber-mich" style="background: var(--surface);">
+    <div class="container ueber">
+      <div class="handy">
+        <div class="handy-koerper">
+          <div class="handy-schirm">
+            <div class="handy-insel"></div>
+            <img src="img/coaching/alex-portrait.jpg" alt="Alexander Kleymann erklärt Mathe" loading="lazy">
+          </div>
+        </div>
+        <div class="kanaele">
+          <a href="https://www.tiktok.com/@alexsmathguides" target="_blank" rel="noopener" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.6 5.82A4.28 4.28 0 0 1 15.54 3h-3.09v12.4a2.59 2.59 0 0 1-2.59 2.5 2.59 2.59 0 1 1 .77-5.06V9.7a5.68 5.68 0 0 0-.77-.05A5.66 5.66 0 1 0 15.54 15.3V9.01a7.35 7.35 0 0 0 4.3 1.38V7.3a4.28 4.28 0 0 1-3.24-1.48z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/alexsmathguides" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.8"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@alexs_math_guides" target="_blank" rel="noopener" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.76-1.77C18.25 5 12 5 12 5s-6.25 0-7.84.43A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.76 1.77C5.75 19 12 19 12 19s6.25 0 7.84-.43a2.5 2.5 0 0 0 1.76-1.77A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10.1 14.94V9.06L15.2 12l-5.1 2.94z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="ueber-text">
+        <span class="eyebrow">Wer dahintersteckt</span>
+        <h2>Hi, ich bin Alex</h2>
+
+        <p>Seit fünf Jahren gebe ich Mathe-Nachhilfe, und dabei ist mir eins klar geworden: Kaum jemand scheitert an Mathe, weil er es nicht kann. Meistens hat irgendwann eine Erklärung gefehlt, und alles danach baut darauf auf.</p>
+
+        <p>Ich studiere Wirtschaftsingenieurwesen und habe dort programmieren gelernt. Dieses Wissen habe ich mit meiner Erfahrung aus der Nachhilfe verbunden und daraus einen Kurs gebaut, der dich so durch den Stoff führt, wie ich es auch in einer Stunde machen würde.</p>
+
+        <p>Wenn du lieber persönlich mit mir lernst, gibt es außerdem das <a href="index.html" style="text-decoration:underline;">Coaching</a>.</p>
+
+        <div class="ueber-zahlen">
+          <div class="ueber-zahl">
+            <div class="wert"><span class="marker">5 Jahre</span></div>
+            <div class="was">Mathe-Nachhilfe</div>
+          </div>
+          <div class="ueber-zahl">
+            <div class="wert"><span class="marker">1,5 Mio.</span></div>
+            <div class="was">Aufrufe auf TikTok</div>
+          </div>
+          <div class="ueber-zahl">
+            <div class="wert"><span class="marker">69</span></div>
+            <div class="was">Lektionen im Kurs</div>
+          </div>
+        </div>
+
+        <p class="signatur">Alexander Kleymann, alexsmathguides</p>
+      </div>
     </div>
+  </section>
+
+  <!-- ── Die 10 Welten ── -->
+  <section id="welten">
+    <div class="container">
+      <span class="eyebrow">Kursinhalt</span>
+      <h2>Die 10 Welten des Kurses.</h2>
+      <p class="section-intro">Von den Grundlagen bis zur Stochastik, alle prüfungsrelevanten Themen des Mathe-Abiturs in sinnvoller Reihenfolge. Du kannst sie der Reihe nach durcharbeiten oder direkt zu dem Thema springen, das in der Schule gerade dran ist.</p>
+      <div class="welten-groups">
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#4f9d5c;"></span>
+            <h3>Welt 1 · Grundlagen &amp; Funktionen</h3>
+            <span class="count">7 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Definitions- &amp; Wertemenge</span><span>Ganzrationale Funktionen</span><span>Exponentialfunktionen</span><span>Logarithmusfunktionen</span><span>Trigonometrische Funktionen</span><span>Symmetrie</span><span>Verkettung &amp; Umkehrfunktionen</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#3b7dd8;"></span>
+            <h3>Welt 2 bis 4 · Analysis (Ableiten &amp; Integrieren)</h3>
+            <span class="count">20 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Potenz-, Faktor- &amp; Summenregel</span><span>Produktregel</span><span>Quotientenregel</span><span>Kettenregel</span><span>Ableitung e &amp; ln</span><span>Ableitung Trigo</span><span>Grenzwerte &amp; Stetigkeit</span><span>Monotonie</span><span>Extremwerte</span><span>Wendepunkte &amp; Krümmung</span><span>Tangente &amp; Normale</span><span>Kurvendiskussion</span><span>Optimierungsaufgaben</span><span>Stammfunktionen</span><span>Bestimmtes Integral</span><span>Hauptsatz</span><span>Flächenberechnung</span><span>Substitution</span><span>Partielle Integration</span><span>Rotationskörper</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#2f8f5b;"></span>
+            <h3>Welt 5 · Wachstum</h3>
+            <span class="count">6 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Unbeschränktes Wachstum</span><span>Beschränktes Wachstum</span><span>Logistisches Wachstum</span><span>Differenzialgleichungen</span><span>Rekonstruktionsaufgaben</span><span>Übungsklausur Analysis</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#8b5fd8;"></span>
+            <h3>Welt 6 bis 8 · Analytische Geometrie</h3>
+            <span class="count">19 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Vektoren Grundlagen</span><span>Geraden Parameterform</span><span>Lagebeziehungen Geraden</span><span>Skalarprodukt</span><span>Betrag &amp; Winkel</span><span>Abstand Punkt Gerade</span><span>Kreuzprodukt</span><span>Spatprodukt</span><span>LGS Gauß</span><span>LGS Lösbarkeit</span><span>Ebenen Parameterform</span><span>Ebenen Normalenform</span><span>Ebenen Koordinatenform</span><span>Umwandlung Ebenenformen</span><span>Lagebeziehungen Gerade-Ebene</span><span>Lagebeziehungen Ebene-Ebene</span><span>Abstand Punkt Ebene</span><span>Schnittwinkel &amp; Lotfußpunkt</span><span>Übungsklausur Geometrie</span>
+          </div>
+        </div>
+        <div class="welt-group">
+          <div class="welt-group-head">
+            <span class="welt-dot" style="background:#d99a2b;"></span>
+            <h3>Welt 9 bis 10 · Stochastik</h3>
+            <span class="count">17 Lektionen</span>
+          </div>
+          <div class="welt-chips">
+            <span>Zufallsexperiment &amp; Ereignis</span><span>Laplace</span><span>Kombinatorik</span><span>Baumdiagramm</span><span>Bedingte Wahrscheinlichkeit</span><span>Unabhängigkeit</span><span>Vierfeldertafel</span><span>Totale Wahrscheinlichkeit</span><span>Satz von Bayes</span><span>Bernoulli-Kette</span><span>Binomialverteilung</span><span>Erwartungswert &amp; Varianz</span><span>Standardabweichung</span><span>Normalverteilung</span><span>Hypothesentest</span><span>Fehler 1. &amp; 2. Art</span><span>Abschlussklausur</span>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- ── Preis & Zugang ── -->
@@ -944,92 +1242,33 @@
       <div class="preis-kopf">
         <span class="eyebrow">Zugang</span>
         <h2>Einmal zahlen, dauerhaft lernen.</h2>
-        <p class="section-intro">Ein Preis, alle 10 Welten, kein Abo. Der Zugang ist sofort nach der Zahlung freigeschaltet und bleibt dir auch nach dem Abitur erhalten.</p>
+        <p class="section-intro">Der Kurs kostet weniger als fünf einzelne Nachhilfestunden bei mir und deckt trotzdem den ganzen Oberstufenstoff ab. Du zahlst einmal, ein Abo gibt es nicht.</p>
       </div>
 
       <div class="preis-grid preis-grid--einzel">
 
         <div class="geo-ecke form-card form-card-voll">
           <img class="geo-figur" src="img/geo.svg" alt="" aria-hidden="true" />
-          
+
           <span class="karten-badge">Voller Zugang</span>
           <h2>Alle 10 Welten</h2>
           <div class="price">139&nbsp;&euro;<span> einmalig</span></div>
-          <p class="sub">Einmal zahlen, dauerhaft nutzen. Kein Abo, keine Folgekosten, auch nach dem Abitur noch abrufbar.</p>
+          <p class="sub">Der Zugang bleibt dir erhalten, auch nach dem Abitur.</p>
           <ul class="price-list">
-            <li>Alle 69 Lektionen in 10 Welten</li>
-            <li>Alle Erkl&auml;rvideos, jedes unter 60 Sekunden</li>
-            <li>69 Quizzes mit Sofort-Feedback</li>
-            <li>Mini-Game zu jedem Thema</li>
-            <li>Klausursimulator mit Probeklausuren</li>
-            <li>Interaktive Lernkarte mit Fortschritt</li>
+            <li>Alle 69 Lektionen, geführt von Geo</li>
+            <li>69 Erklärvideos, jedes unter 60 Sekunden</li>
+            <li>69 Quizzes mit sofortiger Rückmeldung</li>
+            <li>Ein Mini-Game zu jedem Thema</li>
+            <li>66 Merkzettel als PDF</li>
+            <li>Suche mit Formeln und Beispielrechnungen</li>
+            <li>5 Probeklausuren im Klausursimulator</li>
+            <li>Lernkarte mit Fortschritt auf allen Geräten</li>
           </ul>
           <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf">Jetzt kaufen &#8594;</a>
-          <p class="preis-fuss">Sichere Zahlung &uuml;ber Stripe &middot; Rechnung kommt automatisch per E-Mail &middot; Zugang sofort nach dem Kauf</p>
+          <p class="preis-fuss">Sichere Zahlung über Stripe &middot; Rechnung kommt automatisch per E-Mail &middot; Zugang sofort nach dem Kauf</p>
           <p class="form-hint">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="text-decoration:underline;">Hier einloggen</a>.</p>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- ── Die 10 Welten ── -->
-  <section id="welten">
-    <div class="container">
-      <span class="eyebrow">Kursinhalt</span>
-      <h2>Die 10 Welten des Kurses.</h2>
-      <p class="section-intro">Von den Grundlagen bis zur Stochastik, alle prüfungsrelevanten Themen des Mathe-Abiturs in sinnvoller Reihenfolge. Du kannst sie der Reihe nach durcharbeiten oder direkt zu dem Thema springen, das in der Schule gerade dran ist.</p>
-      <div class="welten-groups">
-        <div class="welt-group">
-          <div class="welt-group-head">
-            <span class="welt-dot" style="background:#4f9d5c;"></span>
-            <h3>Welt 1 · Grundlagen &amp; Funktionen</h3>
-            <span class="count">7 Lektionen</span>
-          </div>
-          <div class="welt-chips">
-            <span>Definitions- &amp; Wertemenge</span><span>Ganzrationale Funktionen</span><span>Exponentialfunktionen</span><span>Logarithmusfunktionen</span><span>Trigonometrische Funktionen</span><span>Symmetrie</span><span>Verkettung &amp; Umkehrfunktionen</span>
-          </div>
-        </div>
-        <div class="welt-group">
-          <div class="welt-group-head">
-            <span class="welt-dot" style="background:#3b7dd8;"></span>
-            <h3>Welt 2–4 · Analysis (Ableiten &amp; Integrieren)</h3>
-            <span class="count">20 Lektionen</span>
-          </div>
-          <div class="welt-chips">
-            <span>Potenz-, Faktor- &amp; Summenregel</span><span>Produktregel</span><span>Quotientenregel</span><span>Kettenregel</span><span>Ableitung e &amp; ln</span><span>Ableitung Trigo</span><span>Grenzwerte &amp; Stetigkeit</span><span>Monotonie</span><span>Extremwerte</span><span>Wendepunkte &amp; Krümmung</span><span>Tangente &amp; Normale</span><span>Kurvendiskussion</span><span>Optimierungsaufgaben</span><span>Stammfunktionen</span><span>Bestimmtes Integral</span><span>Hauptsatz</span><span>Flächenberechnung</span><span>Substitution</span><span>Partielle Integration</span><span>Rotationskörper</span>
-          </div>
-        </div>
-        <div class="welt-group">
-          <div class="welt-group-head">
-            <span class="welt-dot" style="background:#2f8f5b;"></span>
-            <h3>Welt 5 · Wachstum</h3>
-            <span class="count">6 Lektionen</span>
-          </div>
-          <div class="welt-chips">
-            <span>Unbeschränktes Wachstum</span><span>Beschränktes Wachstum</span><span>Logistisches Wachstum</span><span>Differenzialgleichungen</span><span>Rekonstruktionsaufgaben</span><span>Übungsklausur Analysis</span>
-          </div>
-        </div>
-        <div class="welt-group">
-          <div class="welt-group-head">
-            <span class="welt-dot" style="background:#8b5fd8;"></span>
-            <h3>Welt 6–8 · Analytische Geometrie</h3>
-            <span class="count">19 Lektionen</span>
-          </div>
-          <div class="welt-chips">
-            <span>Vektoren Grundlagen</span><span>Geraden Parameterform</span><span>Lagebeziehungen Geraden</span><span>Skalarprodukt</span><span>Betrag &amp; Winkel</span><span>Abstand Punkt Gerade</span><span>Kreuzprodukt</span><span>Spatprodukt</span><span>LGS Gauß</span><span>LGS Lösbarkeit</span><span>Ebenen Parameterform</span><span>Ebenen Normalenform</span><span>Ebenen Koordinatenform</span><span>Umwandlung Ebenenformen</span><span>Lagebeziehungen Gerade-Ebene</span><span>Lagebeziehungen Ebene-Ebene</span><span>Abstand Punkt Ebene</span><span>Schnittwinkel &amp; Lotfußpunkt</span><span>Übungsklausur Geometrie</span>
-          </div>
-        </div>
-        <div class="welt-group">
-          <div class="welt-group-head">
-            <span class="welt-dot" style="background:#d99a2b;"></span>
-            <h3>Welt 9–10 · Stochastik</h3>
-            <span class="count">17 Lektionen</span>
-          </div>
-          <div class="welt-chips">
-            <span>Zufallsexperiment &amp; Ereignis</span><span>Laplace</span><span>Kombinatorik</span><span>Baumdiagramm</span><span>Bedingte Wahrscheinlichkeit</span><span>Unabhängigkeit</span><span>Vierfeldertafel</span><span>Totale Wahrscheinlichkeit</span><span>Satz von Bayes</span><span>Bernoulli-Kette</span><span>Binomialverteilung</span><span>Erwartungswert &amp; Varianz</span><span>Standardabweichung</span><span>Normalverteilung</span><span>Hypothesentest</span><span>Fehler 1. &amp; 2. Art</span><span>Abschlussklausur</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -1041,28 +1280,36 @@
       <h2>Häufig gefragt.</h2>
       <div>
         <details class="faq-item">
+          <summary>Ich schreibe 2027 Abi. Reicht die Zeit noch?</summary>
+          <p>Ja. Du kannst jederzeit einsteigen und lernst in deinem eigenen Tempo. Wenn es knapp wird, springst du direkt zu den Themen, die bei dir noch wackeln, und übst mit den Probeklausuren unter echten Bedingungen.</p>
+        </details>
+        <details class="faq-item">
           <summary>Wie komme ich nach dem Kauf in den Kurs?</summary>
-          <p>Du bezahlst über Stripe und bekommst direkt danach eine E-Mail mit deinem persönlichen Zugangslink. Ein Passwort brauchst du nicht: Du loggst dich jederzeit mit derselben E-Mail-Adresse ein, mit der du bezahlt hast, und bekommst einen frischen Link ins Postfach. Die Rechnung kommt automatisch mit.</p>
+          <p>Du bezahlst über Stripe und bekommst direkt danach eine E-Mail mit deinem persönlichen Zugangslink. Ein Passwort brauchst du nicht, weil du dich jederzeit mit derselben E-Mail-Adresse einloggst, mit der du bezahlt hast. Die Rechnung kommt automatisch mit.</p>
         </details>
         <details class="faq-item">
           <summary>Was kostet der Kurs?</summary>
-          <p>Der volle Zugang zu allen 10 Welten kostet einmalig 139&nbsp;&euro;. Kein Abo, keine Folgekosten, der Kurs bleibt dir dauerhaft erhalten.</p>
+          <p>Einmalig 139&nbsp;&euro;. Es gibt kein Abo und keine Folgekosten, und der Kurs bleibt dir dauerhaft erhalten.</p>
         </details>
         <details class="faq-item">
           <summary>Kann ich mir vorher ansehen, wie der Kurs aufgebaut ist?</summary>
-          <p>Ja. Weiter oben auf dieser Seite siehst du echte Screenshots aus dem Kurs, die Lernkarte, eine Lektion und ein Quiz. Dazu findest du auf TikTok und Instagram unter <b>@mathemaxxer</b> über hundert Erklärvideos von mir, die genauso aufgebaut sind wie die im Kurs, und hier auf der Seite die <a href="freebies.html">kostenlosen Skripte</a>.</p>
+          <p>Ja. Das Video ganz oben auf dieser Seite zeigt den echten Kurs, von der Lernkarte über eine Lektion, ein Mini-Game und das Quiz bis zur Suche und den Probeklausuren. Außerdem findest du auf TikTok und Instagram unter <b>@alexsmathguides</b> über hundert Erklärvideos von mir, die genauso aufgebaut sind wie die im Kurs, und hier auf der Seite die <a href="freebies.html" style="text-decoration:underline;">kostenlosen Skripte</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Kurs oder Coaching, was passt besser zu mir?</summary>
+          <p>Der Kurs passt, wenn du gern selbstständig lernst und dir eine klare Struktur reicht. Bleibst du allein immer wieder hängen oder brauchst jemanden, der mit dir dranbleibt, ist das <a href="index.html" style="text-decoration:underline;">Coaching</a> die bessere Wahl. Dort lernen wir zusammen, und den Kurs bekommst du dazu.</p>
         </details>
         <details class="faq-item">
           <summary>Wie lange habe ich danach Zugriff auf den Kurs?</summary>
-          <p>Für immer. Einmal freigeschaltet, ist der Kurs dauerhaft verfügbar, auch über dein Abitur hinaus.</p>
+          <p>Für immer. Einmal freigeschaltet, bleibt der Kurs dauerhaft verfügbar, auch über dein Abitur hinaus.</p>
         </details>
         <details class="faq-item">
           <summary>Auf welchen Geräten funktioniert der Kurs?</summary>
-          <p>Auf allen, die einen Browser haben, Handy, Tablet, Laptop. Du loggst dich einfach mit deiner E-Mail ein, dein Fortschritt wird geräteübergreifend gespeichert.</p>
+          <p>Auf allen, die einen Browser haben, also Handy, Tablet und Laptop. Du loggst dich mit deiner E-Mail ein, und dein Fortschritt wird geräteübergreifend gespeichert.</p>
         </details>
         <details class="faq-item">
           <summary>Brauche ich Vorwissen?</summary>
-          <p>Nein. Jede Lektion baut die Grundlagen mit auf. Am meisten bringt dir der Kurs, wenn du bereits Q-Phase-Stoff in Mathe hast oder dich gezielt aufs Abitur vorbereitest.</p>
+          <p>Nein, denn jede Lektion baut die Grundlagen mit auf. Am meisten bringt dir der Kurs, wenn du schon Q-Phase-Stoff in Mathe hast oder dich gezielt aufs Abitur vorbereitest.</p>
         </details>
         <details class="faq-item">
           <summary>Gibt es Rabattcodes?</summary>
@@ -1076,8 +1323,8 @@
   <section>
     <div class="container">
       <div class="final-cta">
-        <h2>Bereit fürs Abi?</h2>
-        <p>Alle 10 Welten, 69 Lektionen, Klausursimulator. Einmalig 139&nbsp;&euro;, Zugang sofort nach dem Kauf.</p>
+        <h2>Bereit fürs Abi 2027?</h2>
+        <p>Alle 10 Welten, 69 Lektionen und fünf Probeklausuren für einmalig 139&nbsp;&euro;. Den Zugang bekommst du sofort nach dem Kauf.</p>
         <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Kurs freischalten &#8594;</a>
         <p style="margin:24px auto 0;font-size:13px;">Schon gekauft? <a href="https://kurs.alexsmathguides.de/login" style="color:#fff;text-decoration:underline;">Hier einloggen</a></p>
       </div>
@@ -1100,6 +1347,30 @@
   </footer>
 
 
+  <script>
+    // Demo-Video: Pause-Knopf, und wer weniger Bewegung eingestellt hat, bekommt
+    // ein stehendes Bild statt eines laufenden Videos.
+    (function () {
+      var v = document.querySelector('.demo-video');
+      var k = document.querySelector('.demo-pause');
+      if (!v || !k) return;
+      var PAUSE = '<svg viewBox="0 0 16 16" fill="currentColor"><rect x="3" y="2" width="3.6" height="12" rx="1"/><rect x="9.4" y="2" width="3.6" height="12" rx="1"/></svg>';
+      var PLAY = '<svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.4v11.2a.8.8 0 0 0 1.2.7l9.2-5.6a.8.8 0 0 0 0-1.4L5.2 1.7A.8.8 0 0 0 4 2.4z"/></svg>';
+      function zeigen() {
+        var laeuft = !v.paused;
+        k.innerHTML = laeuft ? PAUSE : PLAY;
+        k.setAttribute('aria-label', laeuft ? 'Video anhalten' : 'Video abspielen');
+      }
+      k.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
+      v.addEventListener('play', zeigen);
+      v.addEventListener('pause', zeigen);
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        v.removeAttribute('autoplay');
+        v.pause();
+      }
+      zeigen();
+    })();
+  </script>
   <script>
     // Formel-Hintergrund: Maske mit Loechern dort, wo Text oder Bilder stehen.
     (function () {
