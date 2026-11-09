@@ -1232,6 +1232,48 @@
       0% { opacity: 1; transform: translate(0, -20px) rotate(0); }
       100% { opacity: 0; transform: translate(var(--dx), 330px) rotate(var(--dr)); }
     }
+
+    /* ════ Feinschliff Handy (November 2026) ════════════════════════════════ */
+
+    /* Zahlen unter der Demo: etwas kleiner, vier Stueck, auf dem Handy eine Zeile */
+    .kurs-zahlen { gap: 18px 46px; }
+    .kurs-zahl .wert { font-size: 27px; }
+    .kurs-zahl .was { font-size: 13.5px; }
+    @media (max-width: 700px) {
+      .kurs-zahlen { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 28px; }
+      .kurs-zahl { min-width: 0; }
+      .kurs-zahl .wert { font-size: 21px; }
+      .kurs-zahl .was { font-size: 11.5px; margin-top: 3px; white-space: nowrap; }
+    }
+
+    /* Rezensionen auf dem Handy: links und rechts etwas Luft, die Karte reicht
+       nicht mehr von Rand zu Rand */
+    @media (max-width: 700px) {
+      .testimonial-grid { gap: 28px; padding: 4px 14px 8px; scroll-padding: 0 14px; }
+      .testimonial-card { flex-basis: 100%; scroll-snap-align: center; }
+    }
+
+    /* Hi, ich bin Alex: Schrift wie im Rest der Seite */
+    .ueber-text p { font-size: 16px; line-height: 1.7; color: var(--muted); }
+    .ueber-text p a { color: var(--primary); font-weight: 600; }
+    .ueber-zahlen { gap: 40px; margin: 22px 0 22px; padding: 18px 0; }
+    .ueber-zahl .wert { font-size: 24px; }
+    .ueber-zahl .was { font-size: 13.5px; }
+    .signatur { font-size: 14.5px; }
+    @media (max-width: 600px) {
+      .ueber-text p { font-size: 15px; line-height: 1.65; margin-bottom: 14px; }
+      .ueber-zahl .wert { font-size: 22px; }
+    }
+
+    /* Die 10 Welten auf dem Handy: als Karussell zum Durchwischen */
+    @media (max-width: 700px) {
+      .welten-groups {
+        flex-direction: row; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
+        gap: 28px; padding: 4px 14px 8px; scroll-padding: 0 14px; scroll-behavior: smooth;
+      }
+      .welten-groups::-webkit-scrollbar { display: none; }
+      .welt-group { flex: 0 0 100%; scroll-snap-align: center; }
+    }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -1425,10 +1467,9 @@
       </figure>
 
       <div class="kurs-zahlen">
-        <div class="kurs-zahl"><div class="wert"><span class="marker">10</span></div><div class="was">Welten</div></div>
         <div class="kurs-zahl"><div class="wert"><span class="marker">69</span></div><div class="was">Lektionen</div></div>
         <div class="kurs-zahl"><div class="wert"><span class="marker">690</span></div><div class="was">Quizfragen</div></div>
-        <div class="kurs-zahl"><div class="wert"><span class="marker">66</span></div><div class="was">Merkzettel als PDF</div></div>
+        <div class="kurs-zahl"><div class="wert"><span class="marker">66</span></div><div class="was">Merkzettel</div></div>
         <div class="kurs-zahl"><div class="wert"><span class="marker">5</span></div><div class="was">Probeklausuren</div></div>
       </div>
 
@@ -1560,12 +1601,8 @@
             <div class="was">Mathe-Nachhilfe</div>
           </div>
           <div class="ueber-zahl">
-            <div class="wert"><span class="marker">1,5 Mio.</span></div>
+            <div class="wert"><span class="marker">2,5 Mio.</span></div>
             <div class="was">Aufrufe auf TikTok</div>
-          </div>
-          <div class="ueber-zahl">
-            <div class="wert"><span class="marker">69</span></div>
-            <div class="was">Lektionen im Kurs</div>
           </div>
         </div>
 
@@ -1632,6 +1669,7 @@
           </div>
         </div>
       </div>
+      <div class="stimmen-punkte welten-punkte" hidden></div>
     </div>
   </section>
 
@@ -1966,6 +2004,29 @@
         if (band.scrollLeft + band.clientWidth >= band.scrollWidth - 8) band.scrollTo({ left: 0, behavior: 'smooth' });
         else band.scrollTo({ left: (aktuell() + 1) * schritt(), behavior: 'smooth' });
       }, 4200);
+    })();
+
+    // Welten auf dem Handy: zum Durchwischen, mit Punkten darunter
+    (function () {
+      var band = document.querySelector('.welten-groups');
+      var punkte = document.querySelector('.welten-punkte');
+      if (!band || !punkte) return;
+      var karten = [].slice.call(band.querySelectorAll('.welt-group'));
+      function schritt() { return karten[0].offsetWidth + (parseFloat(getComputedStyle(band).columnGap) || 0); }
+      karten.forEach(function (k, i) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.setAttribute('aria-label', 'Welten ' + (i + 1));
+        b.addEventListener('click', function () { band.scrollTo({ left: i * schritt(), behavior: 'smooth' }); });
+        punkte.appendChild(b);
+      });
+      function anzeigen() {
+        punkte.hidden = band.scrollWidth <= band.clientWidth + 4;
+        var a = Math.round(band.scrollLeft / schritt());
+        [].forEach.call(punkte.children, function (b, i) { b.classList.toggle('an', i === a); });
+      }
+      band.addEventListener('scroll', anzeigen, { passive: true });
+      window.addEventListener('resize', anzeigen);
+      anzeigen();
     })();
 
     // Kaufleiste: erscheint, sobald kein anderer Kaufknopf mehr im Bild ist
