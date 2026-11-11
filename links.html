@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <title>Links | alexsmathguides</title>
+  <meta name="description" content="Alle Links von alexsmathguides: Abitur Kurs, Discord, kostenlose PDFs und Nachhilfe.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f4f7fb; --karte: #ffffff; --text: #0f172a; --muted: #475569;
+      --line: #d8e2ee; --primary: #0b2a4a; --primary-2: #133a63; --accent: #2f7fd1;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: radial-gradient(ellipse at top, #e4edf7 0%, var(--bg) 55%) fixed, var(--bg);
+      min-height: 100vh;
+      display: flex; justify-content: center;
+      padding: 44px 16px 32px;
+    }
+    main { width: 100%; max-width: 460px; display: flex; flex-direction: column; align-items: center; }
+    .logo {
+      width: 92px; height: 92px; border-radius: 26px; background: #fff;
+      display: grid; place-items: center;
+      box-shadow: 0 14px 40px rgba(11, 42, 74, .14);
+    }
+    .logo img { width: 62px; height: 62px; }
+    h1 { font-size: 22px; font-weight: 800; margin: 18px 0 4px; color: var(--primary); letter-spacing: -.01em; }
+    .unter { margin: 0 0 28px; color: var(--muted); font-size: 15px; text-align: center; line-height: 1.45; }
+
+    .liste { width: 100%; display: flex; flex-direction: column; gap: 12px; }
+    .knopf {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px; border-radius: 16px;
+      background: var(--karte); border: 1px solid var(--line);
+      color: var(--text); text-decoration: none;
+      box-shadow: 0 4px 14px rgba(11, 42, 74, .06);
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .knopf:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(11, 42, 74, .12); }
+    .knopf:active { transform: scale(.985); }
+    .symbol {
+      flex: none; width: 44px; height: 44px; border-radius: 12px;
+      display: grid; place-items: center; background: #e9eff7; color: var(--primary);
+    }
+    .symbol svg { width: 24px; height: 24px; }
+    .text { flex: 1; min-width: 0; }
+    .text b { display: block; font-size: 16px; font-weight: 700; }
+    .text span { display: block; font-size: 13.5px; color: var(--muted); margin-top: 2px; }
+    .pfeil { flex: none; color: #8592a6; font-size: 20px; }
+
+    .knopf.haupt { background: linear-gradient(135deg, var(--primary), var(--primary-2)); border-color: transparent; color: #fff; }
+    .knopf.haupt .text span { color: #c9d8ea; }
+    .knopf.haupt .symbol { background: rgba(255, 255, 255, .14); color: #fff; }
+    .knopf.haupt .pfeil { color: #c9d8ea; }
+    .knopf.discord .symbol { background: #5865f2; color: #fff; }
+
+    .sozial { display: flex; gap: 10px; margin: 28px 0 0; flex-wrap: wrap; justify-content: center; }
+    .sozial a {
+      font-size: 14px; font-weight: 600; color: var(--primary); text-decoration: none;
+      padding: 8px 14px; border-radius: 999px; background: #fff; border: 1px solid var(--line);
+    }
+    footer { margin-top: 30px; font-size: 12.5px; color: #8592a6; }
+    footer a { color: inherit; }
+  </style>
+  <!-- Cloudflare Web Analytics -->
+  <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
+  <!-- End Cloudflare Web Analytics -->
+</head>
+<body>
+<main>
+  <div class="logo"><img src="img/logo.svg" alt=""></div>
+  <h1>alexsmathguides</h1>
+  <p class="unter">Mathe fürs Abi, einfach erklärt</p>
+
+  <nav class="liste">
+    <a class="knopf haupt" href="abitur-kurs.html">
+      <span class="symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></span>
+      <span class="text"><b>Abitur Kurs</b><span>69 Lektionen, Quizze und Probeklausuren</span></span>
+      <span class="pfeil">›</span>
+    </a>
+
+    <!-- DISCORD: Einladungslink fehlt noch
+    <a class="knopf discord" href="DISCORD_LINK" target="_blank" rel="noopener">
+      <span class="symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/><path d="M8 9h8M8 13h5"/></svg></span>
+      <span class="text"><b>Discord Server</b><span>Fragen stellen und zusammen lernen</span></span>
+      <span class="pfeil">›</span>
+    </a>
+    -->
+
+    <a class="knopf" href="freebies.html">
+      <span class="symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg></span>
+      <span class="text"><b>Kostenlose PDFs</b><span>Lern-PDFs fürs Mathe-Abi</span></span>
+      <span class="pfeil">›</span>
+    </a>
+
+    <a class="knopf" href="nachhilfe.html">
+      <span class="symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-5.5 6-5.5s6 2.2 6 5.5"/><path d="M16 4.5a3.2 3.2 0 0 1 0 6.4M21 20c0-2.6-1.6-4.6-4-5.3"/></svg></span>
+      <span class="text"><b>Nachhilfe 1:1</b><span>Online und ohne Abo</span></span>
+      <span class="pfeil">›</span>
+    </a>
+  </nav>
+
+  <div class="sozial">
+    <a href="https://www.tiktok.com/@alexsmathguides" target="_blank" rel="noopener">TikTok</a>
+    <a href="https://www.instagram.com/alexsmathguides" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.youtube.com/@alexs_math_guides" target="_blank" rel="noopener">YouTube</a>
+  </div>
+
+  <footer><a href="index.html">alexsmathguides.de</a> · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
+</main>
+</body>
+</html>
