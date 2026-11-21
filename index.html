@@ -8,8 +8,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0b2a4a">
-  <title>Online Mathe Abitur Coaching | alexsmathguides</title>
-  <meta name="description" content="Online Mathe Abitur Coaching: persönlicher Coach, Einzelunterricht nach deinem Stundenplan, WhatsApp-Support und der komplette Abitur-Kurs inklusive. Ab 180 Euro im Monat, monatlich kündbar." />
+  <title>Online-Nachhilfe im Monatsabo: Mathe, Englisch, Physik, Informatik | alexsmathguides</title>
+  <meta name="description" content="Online-Nachhilfe in Mathe, Englisch, Physik und Informatik mit fester Lehrkraft: 4 oder 8 Stunden im Monat, ab 30 € pro Stunde, monatlich kündbar. Probestunde 19 €. Klasse 5 bis Abitur, direkt online buchbar." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -56,7 +56,7 @@
 
     /* ── Abitur-Kurs Promo ── */
 
-    /* ── Coaching: Ablauf ── */
+    /* ── Ablauf ── */
 
 
 
@@ -179,7 +179,7 @@
     /* Bild im Hero */
     .hero-visual { display: flex; align-items: center; }
     .hero-visual img {
-      width: 100%; border-radius: var(--radius); display: block;
+      width: 100%; height: auto; border-radius: var(--radius); display: block;
     }
     .hero-visual .hero-card { margin: 0; }
     @media (max-width: 920px) { .hero-visual { gap: 18px; } }
@@ -323,7 +323,7 @@
     .ablauf-schritt h3 { margin: 0 0 6px; font-size: 18px; }
     .ablauf-schritt p { margin: 0; color: var(--muted); }
 
-    /* ── Coaching: Leistungen ── */
+    /* ── Leistungen ── */
 
     /* Ablauf mit Bild daneben */
     .ablauf-raster {
@@ -576,6 +576,74 @@
         top: -86px; left: auto; right: 8px; transform: rotate(9deg);
       }
     }
+
+    /* ── Nachhilfe-Abo: Abitur-Schalter, Probestunde, Buchungsformular ── */
+    .abi-schalter {
+      display: inline-flex; align-items: center; gap: 12px; cursor: pointer;
+      margin: 0 0 34px; font-weight: 600; color: var(--text); user-select: none;
+    }
+    .abi-schalter input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+    .abi-schalter-knopf {
+      width: 48px; height: 28px; border-radius: 999px; background: var(--line);
+      position: relative; flex: none; transition: background .2s;
+    }
+    .abi-schalter-knopf::after {
+      content: ""; position: absolute; top: 3px; left: 3px; width: 22px; height: 22px;
+      border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,.25);
+      transition: transform .2s;
+    }
+    .abi-schalter input:checked + .abi-schalter-knopf { background: var(--primary); }
+    .abi-schalter input:checked + .abi-schalter-knopf::after { transform: translateX(20px); }
+    .abi-schalter input:focus-visible + .abi-schalter-knopf { outline: 3px solid var(--primary-2); outline-offset: 2px; }
+    .abi-schalter-plus { color: var(--muted); font-weight: 500; }
+
+    .preis .betrag .je { font-size: 16px; font-weight: 600; color: var(--muted); margin-left: 6px; letter-spacing: 0; }
+    .probe-band {
+      margin-top: 34px; background: var(--white);
+      border: 1.5px solid var(--primary-2); border-radius: 18px; padding: 24px 30px;
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px 28px;
+    }
+    .probe-band h3 { margin: 0 0 4px; }
+    .probe-band p { margin: 0; color: var(--muted); max-width: 62ch; }
+
+    .buchen-box {
+      background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+      box-shadow: var(--shadow); padding: 32px; max-width: 760px;
+    }
+    .paket-wahl { border: 0; padding: 0; margin: 0 0 14px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .paket-wahl legend { font-size: 14px; font-weight: 600; margin-bottom: 10px; padding: 0; }
+    .paket-option { position: relative; cursor: pointer; }
+    .paket-option input { position: absolute; opacity: 0; }
+    .paket-option > span {
+      display: flex; flex-direction: column; gap: 3px; height: 100%;
+      border: 1.5px solid var(--line); border-radius: 14px; padding: 14px 16px;
+      transition: border-color .15s, background .15s;
+    }
+    .paket-option small { color: var(--muted); font-size: 13.5px; line-height: 1.4; }
+    .paket-option input:checked + span { border-color: var(--primary); background: var(--accent); }
+    .paket-option input:focus-visible + span { outline: 3px solid var(--primary-2); outline-offset: 2px; }
+    .abi-zeile, .zustimmung { display: flex; gap: 10px; align-items: flex-start; cursor: pointer; font-size: 15px; }
+    .abi-zeile { margin: 0 0 22px; font-weight: 600; }
+    .abi-zeile input, .zustimmung input { margin-top: 4px; width: 18px; height: 18px; flex: none; accent-color: var(--primary); }
+    .buchen-raster { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+    .cf-group input[type="tel"] {
+      font: inherit; padding: 12px 14px; border: 1.5px solid var(--line);
+      border-radius: 12px; background: var(--white); color: var(--text);
+    }
+    .zustimmung { color: var(--muted); font-size: 14px; line-height: 1.5; margin: 6px 0 22px; }
+    .zustimmung a { color: var(--primary); }
+    .pflicht { color: #e53e3e; }
+    .buchen-knopf { width: 100%; justify-content: center; padding: 15px 20px; font-size: 16px; }
+    .buchen-summe { text-align: center; color: var(--muted); font-size: 14px; margin: 10px 0 0; }
+    .buchen-fehler {
+      background: #fdecec; color: #9b1c1c; border-radius: 12px;
+      padding: 12px 16px; margin: 0 0 18px; font-size: 15px;
+    }
+    @media (max-width: 700px) {
+      .paket-wahl, .buchen-raster { grid-template-columns: 1fr; }
+      .buchen-box { padding: 22px 18px; }
+      .probe-band { padding: 20px; }
+    }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -587,7 +655,7 @@
   "name": "alexsmathguides",
   "alternateName": "alexsmathguides – Online Mathe Nachhilfe",
   "url": "https://alexsmathguides.de/",
-  "description": "Online-Nachhilfe und Onlinekurs für Mathematik in der Oberstufe und im Abitur.",
+  "description": "Online-Nachhilfe im Monatsabo in Mathe, Englisch, Physik und Informatik, dazu ein Onlinekurs für das Mathe-Abitur.",
   "email": "kontakt@alexsmathguides.de",
   "telephone": "+4915233954481",
   "address": {
@@ -630,13 +698,12 @@
       </a>
       <button class="menue-knopf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptmenue"><span></span><span></span><span></span></button>
       <nav class="nav-links" id="hauptmenue">
-        <a href="index.html" style="color: var(--primary); font-weight: 600;">Coaching</a>
-        <a href="nachhilfe.html">Nachhilfe</a>
+        <a href="index.html" style="color: var(--primary); font-weight: 600;">Nachhilfe</a>
         <a href="freebies.html">Kostenlose PDFs</a>
         <a href="tutor-werden.html">Tutor werden</a>
         <b><a href="abitur-kurs.html">Abitur Kurs</a></b>
         <a href="https://kurs.alexsmathguides.de/login">Login</a>
-        <a class="nav-cta" href="#kontakt">Erstgespr&auml;ch</a>
+        <a class="nav-cta" href="#preise">Jetzt buchen</a>
       </nav>
     </div>
   </header>
@@ -647,36 +714,34 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Online Mathe Abitur Coaching</span>
-          <h1>Der Weg zu deinem Traum Mathe-Abi.</h1>
+          <span class="eyebrow">Online-Nachhilfe im Monatsabo</span>
+          <h1>Feste Lehrkraft. Feste Stunden. Monatlich kündbar.</h1>
 
           <ul class="hero-punkte">
-            <li><b>Dein fester Coach</b> &mdash; eine Person, die dich bis zur Pr&uuml;fung begleitet</li>
-            <li><b>Termine nach deinem Stundenplan</b> &mdash; ihr sprecht sie direkt ab</li>
-            <li><b>Der komplette Abitur-Kurs</b> &mdash; 69 Lektionen, ohne Aufpreis dabei</li>
+            <li><b>Mathe, Englisch, Physik und Informatik</b>, von Klasse 5 bis zum Abitur</li>
+            <li><b>Einzelunterricht online</b>, jede Stunde dauert 60 Minuten</li>
+            <li><b>Ab 30&nbsp;&euro; pro Stunde</b>, kein Vertrag über Monate</li>
+            <li><b>Probestunde für 19&nbsp;&euro;</b>, wenn du erst kennenlernen willst</li>
           </ul>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#kontakt">Kostenloses Erstgespr&auml;ch</a>
-            <a class="btn-outline" href="https://wa.me/4915233954481" target="_blank" rel="noopener">WhatsApp-Kontakt &rarr;</a>
+            <a class="btn btn-primary" href="#preise">Tarif wählen</a>
+            <a class="btn-outline" href="#buchen" data-paket="probestunde">Probestunde buchen &rarr;</a>
           </div>
-
-          <p class="abi-hinweis">Noch <b id="abi-uhr">&ndash;&ndash;</b> bis zu den
-          ersten Mathe-Abiturpr&uuml;fungen 2027</p>
         </div>
 
         <div class="hero-visual">
           <span class="deko-punkte deko-1"></span>
           <span class="deko-punkte deko-2"></span>
-          <img src="img/coaching/online-stunde.png"
-               alt="Coach und Sch&uuml;lerin arbeiten im Videocall gemeinsam an einer Extremwertaufgabe">
+          <picture>
+            <source srcset="img/nachhilfe-hero.webp" type="image/webp">
+            <img src="img/nachhilfe-hero.jpg" width="1400" height="933"
+                 alt="Sch&uuml;lerin bei der Mathe-Nachhilfe online: Laptop mit Videogespr&auml;ch, daneben Block, Lineal und Stifte"
+                 fetchpriority="high" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
-
-    <!-- Warum -->
-
-
 
     <!-- Was enthalten ist -->
     <section class="section enthalten-band">
@@ -685,22 +750,22 @@
           <div class="enthalten-punkt">
             <span class="enthalten-nr">1</span>
             <div>
-              <h3>Dein pers&ouml;nlicher Coach</h3>
-              <p>Begleitet dich das ganze Schuljahr und wei&szlig;, wo du stehst.</p>
+              <h3>Deine feste Lehrkraft</h3>
+              <p>Eine Person, die deinen Stand kennt und weiß, woran ihr zuletzt gearbeitet habt.</p>
             </div>
           </div>
           <div class="enthalten-punkt">
             <span class="enthalten-nr">2</span>
             <div>
-              <h3>Der komplette Abitur-Kurs</h3>
-              <p>69 Lektionen mit Videos und Quizzen. Ohne Aufpreis.</p>
+              <h3>Termine nach deinem Plan</h3>
+              <p>Ihr macht die Zeiten direkt miteinander aus.</p>
             </div>
           </div>
           <div class="enthalten-punkt">
             <span class="enthalten-nr">3</span>
             <div>
-              <h3>Fragen per WhatsApp</h3>
-              <p>Auch dann, wenn gerade keine Stunde ansteht.</p>
+              <h3>Monatlich kündbar</h3>
+              <p>Keine Mindestlaufzeit. Kündigen geht mit zwei Klicks.</p>
             </div>
           </div>
         </div>
@@ -709,31 +774,27 @@
 
     <section class="section" id="warum">
       <div class="container">
-        <span class="eyebrow">Warum Coaching</span>
-        <h2>Mathe scheitert selten am Kopf.</h2>
+        <span class="eyebrow">Warum regelmäßig</span>
+        <h2>Eine Stunde vor der Klausur reicht selten.</h2>
         <div class="grid-3">
           <div class="card">
-            <h3>Der Anschluss fehlt</h3>
-            <p>Eine Reihe verpasst, und pl&ouml;tzlich bauen alle neuen Themen auf
-            etwas auf, das nie sa&szlig;. Im Unterricht f&auml;llt das kaum auf, in
-            der Klausur schon.</p>
+            <h3>Lücken bauen aufeinander auf</h3>
+            <p>Ein Thema, das nie saß, macht das nächste schwer. Das lässt sich
+            nicht am Abend vor der Klausur aufholen, aber Woche für Woche schon.</p>
           </div>
           <div class="card">
-            <h3>Allein lernen ist schwer</h3>
-            <p>Videos schauen f&uuml;hlt sich produktiv an, bringt aber wenig, wenn
-            niemand merkt, wo du gerade h&auml;ngst. Genau daf&uuml;r ist ein Mensch
-            da.</p>
+            <h3>Eine Person, die dich kennt</h3>
+            <p>Jede neue Lehrkraft fängt bei null an. Wer dich jede Woche sieht,
+            merkt sofort, wo du hängst, und muss nicht erst suchen.</p>
           </div>
           <div class="card">
-            <h3>Es fehlt ein Plan</h3>
-            <p>Bis zum Abi sind es Monate mit vielen Themen. Wer ohne Reihenfolge
-            lernt, wiederholt das Bekannte und schiebt das Schwere auf.</p>
+            <h3>Planbar für die ganze Familie</h3>
+            <p>Ein fester Betrag im Monat, feste Termine, keine Pakete, die
+            irgendwann aufgebraucht sind. Und wenn es nicht mehr nötig ist, kündigt ihr.</p>
           </div>
         </div>
       </div>
     </section>
-
-    <!-- Ablauf -->
 
     <!-- Ueber mich -->
     <section class="section" id="ueber-mich" style="background: var(--surface);">
@@ -772,26 +833,23 @@
           geworden, und ich bekomme jede Woche Nachrichten von Leuten, bei denen
           es endlich klick gemacht hat.</p>
 
-          <p>Aus denselben Erkl&auml;rungen ist dann der Abitur-Kurs entstanden, 69
-          Lektionen quer durch den ganzen Stoff. Er hilft vielen, aber ich sehe
-          auch, wo er an Grenzen st&ouml;&szlig;t: Ein Video merkt nicht, wenn du an einer
-          Stelle h&auml;ngst. Ein Mensch schon.</p>
-
-          <p>Deshalb das Coaching. Der Kurs f&uuml;rs eigenst&auml;ndige Lernen, ein Coach
-          f&uuml;r alles, wo du allein nicht weiterkommst.</p>
+          <p>Heute unterrichtet ein ganzes Team: Studierende, die ihr Fach selbst
+          gut beherrschen und sich noch genau daran erinnern, wo es in der Schule
+          geklemmt hat. Ich suche für jede Schülerin und jeden Schüler die passende
+          Lehrkraft aus und bleibe dein Ansprechpartner.</p>
 
           <div class="ueber-zahlen">
             <div class="ueber-zahl">
               <div class="wert"><span class="marker">5 Jahre</span></div>
-              <div class="was">Mathe-Nachhilfe</div>
+              <div class="was">Nachhilfe</div>
             </div>
             <div class="ueber-zahl">
               <div class="wert"><span class="marker">2,5 Mio.</span></div>
               <div class="was">Aufrufe auf TikTok</div>
             </div>
             <div class="ueber-zahl">
-              <div class="wert"><span class="marker">69</span></div>
-              <div class="was">Lektionen im Kurs</div>
+              <div class="wert"><span class="marker">4</span></div>
+              <div class="was">Fächer</div>
             </div>
           </div>
 
@@ -800,169 +858,133 @@
       </div>
     </section>
 
-    <section class="section" id="ablauf" style="background: var(--surface);">
+    <section class="section" id="ablauf">
       <div class="container">
-        <span class="eyebrow">So l&auml;uft es ab</span>
-        <h2>Vom Erstgespr&auml;ch bis zur Pr&uuml;fung.</h2>
+        <span class="eyebrow">So läuft es ab</span>
+        <h2>Von der Buchung bis zur ersten Stunde.</h2>
 
-        <div class="ablauf-raster">
-          <div class="ablauf">
+        <div class="ablauf">
           <div class="ablauf-schritt">
             <div>
-              <h3>Kostenloses Erstgespr&auml;ch</h3>
-              <p>Wir sprechen etwa 20 Minuten dar&uuml;ber, wo du stehst, was ansteht
-              und was du erreichen willst. Danach wei&szlig;t du, ob es passt. Kostet
-              nichts und verpflichtet zu nichts.</p>
+              <h3>Du buchst online</h3>
+              <p>Tarif wählen, kurz sagen, worum es geht, bezahlen. Wer erst
+              kennenlernen will, bucht die Probestunde für 19&nbsp;&euro;.</p>
             </div>
           </div>
           <div class="ablauf-schritt">
             <div>
-              <h3>Du bekommst deinen Coach</h3>
-              <p>Wir suchen jemanden aus, der zu dir und deinem Thema passt. Alle
-              unsere Coaches haben ihr Mathe-Abi mit 1 abgeschlossen und
-              studieren.</p>
+              <h3>Ich melde mich innerhalb von 24 Stunden</h3>
+              <p>Ich suche die Lehrkraft aus, die zu Fach, Thema und Klassenstufe
+              passt, und stelle euch einander vor.</p>
             </div>
           </div>
           <div class="ablauf-schritt">
             <div>
-              <h3>Ihr macht eure Termine selbst aus</h3>
-              <p>Nachmittags, abends, am Wochenende. Ihr sprecht direkt miteinander
-              und findet Zeiten, die zu deinem Stundenplan passen.</p>
+              <h3>Ihr macht eure Termine aus</h3>
+              <p>Nachmittags, abends oder am Wochenende. Der Unterricht läuft
+              online über Zoom mit digitalem Whiteboard.</p>
             </div>
           </div>
           <div class="ablauf-schritt">
             <div>
-              <h3>Zwischen den Stunden geht es weiter</h3>
-              <p>Du arbeitest mit dem Abitur-Kurs in deinem Tempo. Wenn du irgendwo
-              h&auml;ngst, schreibst du deinem Coach einfach per WhatsApp.</p>
+              <h3>Jeden Monat neue Stunden</h3>
+              <p>Das Abo verlängert sich monatlich. Wenn es nicht mehr nötig ist,
+              kündigst du zum Ende des Abrechnungsmonats.</p>
             </div>
           </div>
-          <div class="ablauf-schritt">
-            <div>
-              <h3>Gezielt Richtung Pr&uuml;fung</h3>
-              <p>Je n&auml;her das Abi r&uuml;ckt, desto mehr geht es um echte
-              Pr&uuml;fungsaufgaben, Zeiteinteilung und die Themen, die dir noch
-              Punkte kosten.</p>
-            </div>
-          </div>
-          </div>
-
-          <figure class="ablauf-bild">
-            <img src="img/coaching/whatsapp-beispiel.png"
-                 alt="Chatverlauf: Ein Sch&uuml;ler schickt seinem Coach ein Foto seiner Rechnung, der Coach findet den Fehler"
-                 loading="lazy">
-            <figcaption>Zwischen den Stunden erreichst du deinen Coach
-            per WhatsApp.</figcaption>
-          </figure>
         </div>
       </div>
     </section>
 
-    <!-- Leistungen -->
-
-
-    <!-- Abschluss -->
-    <section class="section">
+    <section class="section" id="leistungen" style="background: var(--surface);">
       <div class="container">
-        <div class="final-cta">
-          <h2>Lass uns kurz sprechen.</h2>
-          <p>Das Erstgespr&auml;ch dauert etwa 20 Minuten, kostet nichts und
-          verpflichtet zu nichts. Danach wei&szlig;t du, ob Coaching f&uuml;r dich das
-          Richtige ist.</p>
-          <a class="btn btn-primary" href="#kontakt">Erstgespr&auml;ch anfragen</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="leistungen">
-      <div class="container">
-        <span class="eyebrow">Was drin ist</span>
-        <h2>Alles in einem Paket.</h2>
-        <p style="max-width:62ch; color:var(--muted); margin:0 0 30px;">Kein
-        Baukasten mit Zusatzkosten. Was hier steht, ist in jedem Tarif enthalten,
-        egal wie viele Stunden du buchst. Der Unterricht läuft eins zu eins per
-        Videocall, mit geteiltem Whiteboard, auf dem ihr gemeinsam rechnet.</p>
+        <span class="eyebrow">In jedem Tarif</span>
+        <h2>Was du bekommst.</h2>
 
         <div class="leistungen">
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4.5 20c0-3.6 3.3-5.6 7.5-5.6s7.5 2 7.5 5.6"/></svg></div>
-            <h3>Dein pers&ouml;nlicher Coach</h3>
-            <p>Kein wechselndes Personal. Eine Person, die deinen Stand kennt,
-            deine L&uuml;cken kennt und wei&szlig;, worauf ihr zuletzt hinausgearbeitet
-            habt.</p>
+            <h3>Feste Lehrkraft</h3>
+            <p>Kein wechselndes Personal. Passt es menschlich nicht, bekommst du
+            jemand anderen, ohne Aufpreis.</p>
           </div>
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 21h8M12 16.5V21"/><path d="M8 9h8M8 12.5h5"/></svg></div>
             <h3>Immer eins zu eins</h3>
-            <p>Keine Gruppen. Die ganze Stunde geh&ouml;rt dir, in deinem Tempo und an
+            <p>Keine Gruppen. Die ganze Stunde gehört dir, in deinem Tempo und an
             deinen Themen.</p>
           </div>
           <div class="leistung">
-            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M9 8h6M9 11.5h4"/></svg></div>
-            <h3>Der komplette Abitur-Kurs</h3>
-            <p>69 Lektionen mit Erkl&auml;rvideo, Beispielaufgabe und Quiz, dazu
-            Mini-Games, Lernkarte und Klausursimulator. Sonst 49 Euro, hier ohne
-            Aufpreis dabei.</p>
-          </div>
-          <div class="leistung">
-            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-11 6.7L4 20l1.9-4.8A7.5 7.5 0 1 1 20 11.5z"/></svg></div>
-            <h3>Support per WhatsApp</h3>
-            <p>Aufgabe verstanden, aber das Ergebnis stimmt nicht? Schick ein Foto
-            an deinen Coach, statt bis zur n&auml;chsten Stunde zu warten.</p>
-          </div>
-          <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg></div>
-            <h3>Termine nach deinem Plan</h3>
-            <p>Ihr sprecht die Zeiten direkt ab. Klausurenphase, Ferien,
-            Sportverein, das bekommt ihr geregelt.</p>
+            <h3>Volle 60 Minuten</h3>
+            <p>Jede Stunde dauert eine volle Zeitstunde. Genug Zeit, um ein Thema
+            wirklich durchzuarbeiten.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M9 8h6M9 11.5h4"/></svg></div>
+            <h3>Vier Fächer</h3>
+            <p>Mathe, Englisch, Physik und Informatik, von Klasse 5 bis zum
+            Abitur, Grund- und Leistungskurs.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></svg></div>
+            <h3>Abgesagt heißt nicht verloren</h3>
+            <p>Sagst du mindestens 24 Stunden vorher ab, wird die Stunde
+            nachgeholt, spätestens im Folgemonat.</p>
           </div>
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.2-7 9.5-4.1-1.3-7-5.2-7-9.5V6z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></svg></div>
-            <h3>Monatlich k&uuml;ndbar</h3>
-            <p>Keine Mindestlaufzeit, keine Knebelvertr&auml;ge. Du bleibst, solange
-            es dir hilft.</p>
+            <h3>Monatlich kündbar</h3>
+            <p>Keine Mindestlaufzeit. Du kündigst selbst im Kundenportal, zum
+            Ende des laufenden Abrechnungsmonats.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Preise -->
-    <section class="section" id="preise" style="background: var(--surface);">
+    <section class="section" id="preise">
       <div class="container">
         <span class="eyebrow">Preise</span>
         <h2>Such dir aus, wie viel du brauchst.</h2>
-        <p style="max-width:62ch; color:var(--muted); margin:0 0 34px;">Alle Tarife
-        enthalten dasselbe Paket. Der Unterschied sind nur die Stunden pro Monat.</p>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 22px;">Alle Tarife
+        sind Einzelunterricht mit 60 Minuten je Stunde und monatlich kündbar.
+        Für die Abiturvorbereitung kommen 5&nbsp;&euro; pro Stunde dazu.</p>
+
+        <label class="abi-schalter">
+          <input type="checkbox" id="abi-schalter">
+          <span class="abi-schalter-knopf" aria-hidden="true"></span>
+          <span>Abiturvorbereitung <span class="abi-schalter-plus">(+5&nbsp;&euro; pro Stunde)</span></span>
+        </label>
 
         <div class="preise">
           <div class="preis">
-            <h3>Basis</h3>
+            <h3>Basic</h3>
             <div class="umfang">4 Stunden im Monat</div>
-            <div class="betrag">180 &euro;</div>
-            <div class="takt">pro Monat, monatlich k&uuml;ndbar</div>
+            <div class="betrag"><span data-preis="basic-stunde">35</span>&nbsp;&euro;<span class="je">/ Stunde</span></div>
+            <div class="takt"><span data-preis="basic-monat">140</span>&nbsp;&euro; im Monat, monatlich kündbar</div>
             <ul>
-              <li>4 Einzelstunden mit deinem Coach</li>
-              <li>Kompletter Abitur-Kurs inklusive</li>
-              <li>WhatsApp-Support zwischendurch</li>
+              <li>Eine Stunde pro Woche</li>
+              <li>Feste Lehrkraft</li>
               <li>Termine frei vereinbar</li>
+              <li>Für laufende Begleitung im Schuljahr</li>
             </ul>
-            <a class="btn btn-secondary" href="#kontakt">Erstgespr&auml;ch vereinbaren</a>
+            <a class="btn btn-secondary" href="#buchen" data-paket="basic">Basic buchen</a>
           </div>
 
           <div class="preis preis--empfohlen">
-            <span class="preis-marke">Am beliebtesten</span>
+            <span class="preis-marke">Günstigster Stundenpreis</span>
             <h3>Intensiv</h3>
             <div class="umfang">8 Stunden im Monat</div>
-            <div class="betrag">320 &euro;</div>
-            <div class="takt">pro Monat, monatlich k&uuml;ndbar</div>
+            <div class="betrag"><span data-preis="intensiv-stunde">30</span>&nbsp;&euro;<span class="je">/ Stunde</span></div>
+            <div class="takt"><span data-preis="intensiv-monat">240</span>&nbsp;&euro; im Monat, monatlich kündbar</div>
             <ul>
-              <li>8 Einzelstunden mit deinem Coach</li>
-              <li>Kompletter Abitur-Kurs inklusive</li>
-              <li>WhatsApp-Support zwischendurch</li>
+              <li>Zwei Stunden pro Woche</li>
+              <li>Feste Lehrkraft</li>
               <li>Termine frei vereinbar</li>
-              <li>Sinnvoll ab etwa einem halben Jahr vor dem Abi</li>
+              <li>Für größere Lücken und die Zeit vor Prüfungen</li>
             </ul>
-            <a class="btn btn-primary" href="#kontakt">Erstgespr&auml;ch vereinbaren</a>
+            <a class="btn btn-primary" href="#buchen" data-paket="intensiv">Intensiv buchen</a>
           </div>
 
           <div class="preis">
@@ -971,18 +993,106 @@
             <div class="betrag">auf Anfrage</div>
             <div class="takt">nach Absprache</div>
             <ul>
-              <li>Mehr Stunden in der hei&szlig;en Phase</li>
+              <li>Mehr als 8 Stunden im Monat</li>
               <li>Gruppenunterricht mit Freunden</li>
-              <li>Intensivwochen vor der Pr&uuml;fung</li>
+              <li>Intensivwochen vor einer Prüfung</li>
               <li>Alles andere, was du brauchst</li>
             </ul>
             <a class="btn btn-secondary" href="#kontakt">Anfrage schreiben</a>
           </div>
         </div>
 
-        <p class="preis-hinweis">Das Erstgespr&auml;ch ist kostenlos und
-        unverbindlich. Erst danach entscheidest du, ob und mit welchem Tarif du
-        starten willst.</p>
+        <div class="probe-band">
+          <div>
+            <h3>Erst mal kennenlernen?</h3>
+            <p>Die Probestunde dauert 45&nbsp;Minuten und kostet <b>19&nbsp;&euro;</b>, einmal pro Schülerin oder Schüler. Danach entscheidest du, ob und mit welchem Tarif es weitergeht.</p>
+          </div>
+          <a class="btn btn-primary" href="#buchen" data-paket="probestunde" style="white-space:nowrap;">Probestunde buchen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Buchen -->
+    <section class="section" id="buchen" style="background: var(--surface);">
+      <div class="container">
+        <span class="eyebrow">Buchen</span>
+        <h2>In zwei Minuten gebucht.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 28px;">Ein paar Angaben,
+        damit ich die passende Lehrkraft finde. Danach geht es zur sicheren Bezahlung
+        bei Stripe: Karte, Lastschrift, Klarna, Apple Pay oder Amazon Pay.</p>
+
+        <div class="buchen-box">
+          <form id="buchen-form" method="post" action="https://kurs.alexsmathguides.de/nachhilfe/buchen">
+            <p id="buchen-fehler" class="buchen-fehler" role="alert" hidden></p>
+
+            <fieldset class="paket-wahl">
+              <legend>Was möchtest du buchen?</legend>
+              <label class="paket-option">
+                <input type="radio" name="paket" value="probestunde">
+                <span><b>Probestunde</b><small>45 Minuten, einmalig 19&nbsp;&euro;</small></span>
+              </label>
+              <label class="paket-option">
+                <input type="radio" name="paket" value="basic" checked>
+                <span><b>Basic</b><small>4 Stunden im Monat, <span data-preis="basic-monat">140</span>&nbsp;&euro; monatlich</small></span>
+              </label>
+              <label class="paket-option">
+                <input type="radio" name="paket" value="intensiv">
+                <span><b>Intensiv</b><small>8 Stunden im Monat, <span data-preis="intensiv-monat">240</span>&nbsp;&euro; monatlich</small></span>
+              </label>
+            </fieldset>
+
+            <label class="abi-zeile" id="abi-zeile">
+              <input type="checkbox" name="abitur" value="1" id="abi-form">
+              <span>Abiturvorbereitung (+5&nbsp;&euro; pro Stunde)</span>
+            </label>
+
+            <div class="buchen-raster">
+              <div class="cf-group">
+                <label for="b-schueler">Name der Schülerin / des Schülers <span class="pflicht">*</span></label>
+                <input type="text" id="b-schueler" name="schueler" maxlength="100" required autocomplete="name">
+              </div>
+              <div class="cf-group">
+                <label for="b-telefon">Telefon (am besten eines Elternteils) <span class="pflicht">*</span></label>
+                <input type="tel" id="b-telefon" name="telefon" maxlength="40" required autocomplete="tel">
+              </div>
+              <div class="cf-group">
+                <label for="b-fach">Fach <span class="pflicht">*</span></label>
+                <select id="b-fach" name="fach" required>
+                  <option value="Mathe">Mathe</option>
+                  <option value="Englisch">Englisch</option>
+                  <option value="Physik">Physik</option>
+                  <option value="Informatik">Informatik</option>
+                </select>
+              </div>
+              <div class="cf-group">
+                <label for="b-klasse">Klasse <span class="pflicht">*</span></label>
+                <select id="b-klasse" name="klasse" required>
+                  <option value="" selected disabled>Bitte wählen</option>
+                  <option>5</option><option>6</option><option>7</option><option>8</option>
+                  <option>9</option><option>10</option><option>11</option><option>12</option>
+                  <option>13</option><option>Berufsschule</option><option>Studium</option>
+                </select>
+              </div>
+            </div>
+            <div class="cf-group">
+              <label for="b-wunsch">Thema und Wunschzeiten</label>
+              <textarea id="b-wunsch" name="wunschzeiten" rows="3" maxlength="400" placeholder="z. B. Vektoren, Klausur am 12.12., gerne Montag oder Mittwoch ab 16 Uhr"></textarea>
+            </div>
+
+            <label class="zustimmung">
+              <input type="checkbox" name="beginn" value="1" required>
+              <span>Ich habe die <a href="agb.html" target="_blank">AGB</a> gelesen und möchte,
+              dass der Unterricht schon vor Ende der Widerrufsfrist beginnt. Mir ist bekannt,
+              dass ich bei einem Widerruf die bis dahin gegebenen Stunden anteilig bezahle
+              (<a href="widerruf.html" target="_blank">Widerrufsbelehrung</a>).</span>
+            </label>
+
+            <button type="submit" class="btn btn-primary buchen-knopf">Weiter zur Bezahlung</button>
+            <p class="buchen-summe" id="buchen-summe"></p>
+          </form>
+        </div>
+        <p class="preis-hinweis">Bei Minderjährigen bucht bitte ein Elternteil. Fragen vorher?
+        <a href="https://wa.me/4915233954481" target="_blank" rel="noopener">Schreib mir per WhatsApp.</a></p>
       </div>
     </section>
 
@@ -990,9 +1100,9 @@
       <div class="container">
         <div class="kurs-promo">
           <div class="kurs-promo-copy">
-            <span class="eyebrow">Lieber allein lernen?</span>
-            <h2>Der Abitur-Kurs einzeln.</h2>
-            <p>Im Coaching ist er ohne Aufpreis dabei. Wenn du kein Coaching brauchst, bekommst du ihn auch einzeln: 10 Welten, 69 Lektionen mit Erklärvideo, Beispielaufgabe und Quiz, dazu Mini-Games und eine interaktive Lernkarte. Einmal zahlen, für immer Zugriff.</p>
+            <span class="eyebrow">Mathe-Abi allein vorbereiten?</span>
+            <h2>Der Abitur-Kurs.</h2>
+            <p>Für alle, die lieber in ihrem eigenen Tempo lernen: 10 Welten, 69 Lektionen mit Erklärvideo, Beispielaufgabe und Quiz, dazu Mini-Games und eine interaktive Lernkarte. Einmal zahlen, für immer Zugriff.</p>
             <ul class="kurs-promo-list">
               <li>69 Erklärvideos zum Mitrechnen</li>
               <li>Quizzes mit Sofort-Feedback &amp; Mini-Games</li>
@@ -1013,47 +1123,59 @@
       </div>
     </section>
 
-
     <!-- FAQ -->
-    <section class="section" id="fragen">
+    <section class="section" id="fragen" style="background: var(--surface);">
       <div class="container">
-        <span class="eyebrow">H&auml;ufige Fragen</span>
+        <span class="eyebrow">Häufige Fragen</span>
         <h2>Das werden wir oft gefragt.</h2>
 
         <div class="faq">
           <details>
-            <summary>Ab wann sollte man mit dem Coaching anfangen?</summary>
-            <p>Je fr&uuml;her, desto entspannter. Wer ein Jahr vor dem Abi anf&auml;ngt,
-            kann L&uuml;cken in Ruhe schlie&szlig;en. Aber auch drei Monate vorher bringt
-            noch viel, dann arbeiten wir gezielter an den Themen, die die meisten
-            Punkte bringen.</p>
+            <summary>Wie schnell geht es nach der Buchung los?</summary>
+            <p>Ich melde mich innerhalb von 24 Stunden mit deiner Lehrkraft. Den
+            ersten Termin macht ihr dann direkt miteinander aus, meist noch in
+            derselben Woche.</p>
           </details>
           <details>
-            <summary>Wer sind die Coaches?</summary>
-            <p>Studierende, die ihr eigenes Mathe-Abi mit einer 1 abgeschlossen
-            haben. Sie waren selbst vor wenigen Jahren in derselben Situation und
-            wissen noch genau, wo es klemmt.</p>
+            <summary>Wer unterrichtet?</summary>
+            <p>Studierende aus unserem Team, die ihr Fach selbst gut beherrschen und
+            noch wissen, wo es in der Schule klemmt. Ich suche für jede Buchung die
+            Lehrkraft aus, die zu Fach, Thema und Klassenstufe passt.</p>
           </details>
           <details>
-            <summary>Was, wenn es mit dem Coach nicht passt?</summary>
-            <p>Sag uns einfach Bescheid, dann bekommst du jemand anderen. Das ist
-            kein Drama und kostet dich nichts.</p>
+            <summary>Was, wenn es mit der Lehrkraft nicht passt?</summary>
+            <p>Sag mir Bescheid, dann bekommst du jemand anderen. Das kostet nichts.</p>
           </details>
           <details>
-            <summary>Kann ich Stunden verschieben?</summary>
-            <p>Ja. Du sprichst die Termine direkt mit deinem Coach ab, ihr findet
-            zusammen eine L&ouml;sung. Nur sehr kurzfristige Absagen k&ouml;nnen wir nicht
-            immer nachholen.</p>
+            <summary>Was passiert, wenn ich eine Stunde absagen muss?</summary>
+            <p>Sagst du mindestens 24 Stunden vorher ab, wird die Stunde nachgeholt,
+            spätestens bis zum Ende des Folgemonats. Spätere Absagen und verpasste
+            Termine verfallen, außer bei Krankheit: Dann reicht eine kurze Nachricht.
+            Sagt deine Lehrkraft ab, wird immer nachgeholt.</p>
           </details>
           <details>
-            <summary>Gibt es eine Mindestlaufzeit?</summary>
-            <p>Nein. Du kannst monatlich k&uuml;ndigen. Wir glauben, dass du bleibst,
-            weil es hilft, nicht weil ein Vertrag dich festh&auml;lt.</p>
+            <summary>Wie kündige ich?</summary>
+            <p>Mit zwei Klicks im Kundenportal, der Link steht in deiner
+            Buchungsbestätigung und auf der Seite <a href="kuendigen.html">Verträge kündigen</a>.
+            Die Kündigung gilt zum Ende des laufenden Abrechnungsmonats, bis dahin
+            laufen deine Stunden normal weiter.</p>
           </details>
           <details>
-            <summary>Nur Mathe oder auch andere F&auml;cher?</summary>
-            <p>Wir sind auf Mathe spezialisiert, vor allem auf die Oberstufe und
-            das Abitur. Das machen wir daf&uuml;r richtig.</p>
+            <summary>Warum kostet Abiturvorbereitung mehr?</summary>
+            <p>Für das Abitur brauchst du eine Lehrkraft, die die Prüfungsformate und
+            Anforderungen deines Bundeslands kennt. Deshalb kommen 5&nbsp;&euro; pro
+            Stunde dazu: Basic kostet dann 160&nbsp;&euro;, Intensiv 280&nbsp;&euro; im Monat.</p>
+          </details>
+          <details>
+            <summary>Was ist die Probestunde?</summary>
+            <p>Eine erste Stunde zum Kennenlernen, 45 Minuten für 19&nbsp;&euro;. Sie
+            ist einmalig und verlängert sich nicht. Danach entscheidest du, ob du ein
+            Abo abschließt.</p>
+          </details>
+          <details>
+            <summary>Wie wird bezahlt?</summary>
+            <p>Monatlich im Voraus über Stripe, per Karte, SEPA-Lastschrift, Klarna,
+            Apple Pay oder Amazon Pay. Die Rechnung kommt jeden Monat automatisch per Mail.</p>
           </details>
         </div>
       </div>
@@ -1063,9 +1185,8 @@
       <div class="container split" style="position:relative">
         <div>
           <span class="eyebrow">Kontakt</span>
-          <h2>Erstgespr&auml;ch anfragen.</h2>
-          <p>Nutze WhatsApp für schnelle Rückfragen oder Terminabsprachen. Oder schick mir direkt eine Nachricht über das Formular – z.&nbsp;B. als Elternteil oder Schule.</p>
-          <p><span class="code-inline">Tipp: Klasse, Bundesland und Abi-Jahrgang kurz nennen.</span></p>
+          <h2>Fragen oder etwas Individuelles?</h2>
+          <p>Mehr Stunden, Gruppenunterricht, eine Intensivwoche vor der Prüfung oder einfach eine Frage vor der Buchung: Schreib mir über das Formular oder per WhatsApp. Ich melde mich meist noch am selben Tag.</p>
           <p style="margin-top: 18px; font-weight: 600;">Kontakt per WhatsApp:</p>
           <p>
             <a class="btn btn-primary" href="https://wa.me/4915233954481" target="_blank" rel="noopener noreferrer">
@@ -1077,7 +1198,7 @@
         <!-- Formspree Kontaktformular -->
         <div class="geo-ecke geo-ecke--kante contact-form-box">
           <img class="geo-figur" src="img/geo.svg" alt="" aria-hidden="true" />
-          
+
           <div id="cf-container">
             <form id="contact-form" novalidate>
               <div class="cf-group">
@@ -1090,7 +1211,7 @@
               </div>
               <div class="cf-group">
                 <label for="cf-message">Deine Anfrage <span style="color:#e53e3e;">*</span></label>
-                <textarea id="cf-message" name="message" rows="5" placeholder="Worum geht es? Schreib kurz, wo du stehst und was du erreichen willst." required></textarea>
+                <textarea id="cf-message" name="message" rows="5" placeholder="Worum geht es? Fach, Klasse und was du dir vorstellst." required></textarea>
               </div>
               <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px 20px;">
                 Abschicken
@@ -1101,7 +1222,7 @@
           <div class="cf-success" id="cf-success">
             <div class="cf-success-icon">✅</div>
             <h3>Nachricht erhalten!</h3>
-            <p>Danke – ich melde mich so schnell wie möglich bei dir.</p>
+            <p>Danke, ich melde mich so schnell wie möglich bei dir.</p>
           </div>
         </div>
 
@@ -1324,6 +1445,91 @@
         var abschnitte = document.querySelectorAll('section');
         for (var i = 0; i < abschnitte.length; i++) beo.observe(abschnitte[i]);
       }
+    })();
+  </script>
+  <script>
+    // Nachhilfe-Abo buchen. Das Formular schickt einen normalen POST an den Kursserver,
+    // der leitet direkt zu Stripe weiter. Die Preise hier muessen zu
+    // server/lib/nachhilfeTarife.js passen.
+    (function () {
+      var PREISE = {
+        basic:    { stunde: 35, monat: 140, abiStunde: 40, abiMonat: 160 },
+        intensiv: { stunde: 30, monat: 240, abiStunde: 35, abiMonat: 280 }
+      };
+      var form = document.getElementById('buchen-form');
+      if (!form) return;
+      var schalter = document.getElementById('abi-schalter');
+      var abiForm = document.getElementById('abi-form');
+      var abiZeile = document.getElementById('abi-zeile');
+      var summe = document.getElementById('buchen-summe');
+      var fehler = document.getElementById('buchen-fehler');
+
+      if (/^(localhost|127\.0\.0\.1)$/.test(location.hostname)) {
+        form.action = 'http://localhost:3999/nachhilfe/buchen';
+      }
+
+      function paket() {
+        var r = form.querySelector('input[name="paket"]:checked');
+        return r ? r.value : 'basic';
+      }
+
+      function zeigen() {
+        var abi = abiForm.checked;
+        Object.keys(PREISE).forEach(function (k) {
+          var p = PREISE[k];
+          document.querySelectorAll('[data-preis="' + k + '-stunde"]').forEach(function (el) {
+            el.textContent = abi ? p.abiStunde : p.stunde;
+          });
+          document.querySelectorAll('[data-preis="' + k + '-monat"]').forEach(function (el) {
+            el.textContent = abi ? p.abiMonat : p.monat;
+          });
+        });
+        var pk = paket();
+        abiZeile.hidden = pk === 'probestunde';
+        if (pk === 'probestunde') {
+          summe.textContent = 'Probestunde, 45 Minuten: einmalig 19 €';
+        } else {
+          var p = PREISE[pk];
+          summe.textContent = (pk === 'basic' ? 'Basic' : 'Intensiv') + (abi ? ' mit Abiturvorbereitung' : '') +
+            ': ' + (abi ? p.abiMonat : p.monat) + ' € im Monat, monatlich kündbar';
+        }
+      }
+
+      schalter.addEventListener('change', function () { abiForm.checked = schalter.checked; zeigen(); });
+      abiForm.addEventListener('change', function () { schalter.checked = abiForm.checked; zeigen(); });
+      form.addEventListener('change', zeigen);
+
+      // Knoepfe "Basic buchen", "Probestunde buchen" waehlen das Paket schon vor.
+      document.querySelectorAll('a[data-paket]').forEach(function (a) {
+        a.addEventListener('click', function () {
+          var r = form.querySelector('input[name="paket"][value="' + a.getAttribute('data-paket') + '"]');
+          if (r) { r.checked = true; zeigen(); }
+        });
+      });
+
+      form.addEventListener('submit', function () {
+        var knopf = form.querySelector('.buchen-knopf');
+        knopf.disabled = true;
+        knopf.textContent = 'Einen Moment …';
+        // Zurueck-Taste aus dem Stripe-Checkout: Knopf wieder freigeben.
+        window.addEventListener('pageshow', function () {
+          knopf.disabled = false; knopf.textContent = 'Weiter zur Bezahlung';
+        }, { once: true });
+      });
+
+      var MELDUNGEN = {
+        angaben: 'Bitte fülle alle Pflichtfelder aus.',
+        zustimmung: 'Bitte bestätige noch den Haken zu AGB und Unterrichtsbeginn.',
+        tarif: 'Bitte wähle einen Tarif aus.',
+        technik: 'Da ist technisch etwas schiefgegangen. Versuch es bitte gleich noch einmal oder schreib mir per WhatsApp.'
+      };
+      var f = new URLSearchParams(location.search).get('fehler');
+      if (f) {
+        fehler.textContent = MELDUNGEN[f] || MELDUNGEN.technik;
+        fehler.hidden = false;
+      }
+
+      zeigen();
     })();
   </script>
   <script src="/menue.js" defer></script>

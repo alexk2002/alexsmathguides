@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="theme-color" content="#0b2a4a">
+  <title>Buchung erfolgreich | alexsmathguides</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .gebucht { padding: 80px 0 90px; text-align: center; }
+    .gebucht .icon { font-size: 56px; margin-bottom: 14px; }
+    .gebucht h1 { color: var(--primary); margin-bottom: 14px; }
+    .gebucht p { font-size: 17px; color: var(--muted); max-width: 56ch; margin: 0 auto 14px; }
+    .gebucht ol { text-align: left; max-width: 52ch; margin: 26px auto; color: var(--text); line-height: 1.6; }
+    .gebucht ol li { margin-bottom: 10px; }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="index.html" class="brand">
+        <svg class="brand-logo" viewBox="-2 7 94 84" aria-hidden="true" focusable="false">
+          <g class="geo-arm">
+            <path d="M 20 44 Q 6 36 4 22" fill="none" stroke="#0b2a4a"
+                  stroke-width="5" stroke-linecap="round"/>
+          </g>
+          <path d="M 16 14 L 16 84 L 86 84 Z" fill="#fff" stroke="#0b2a4a"
+                stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+          <g stroke="#0b2a4a" stroke-width="3.4" stroke-linecap="round" opacity=".85">
+            <line x1="16" y1="26" x2="25" y2="26"/><line x1="16" y1="38" x2="23" y2="38"/>
+            <line x1="16" y1="50" x2="25" y2="50"/><line x1="16" y1="62" x2="23" y2="62"/>
+            <line x1="34" y1="84" x2="34" y2="80"/><line x1="46" y1="84" x2="46" y2="81"/>
+            <line x1="58" y1="84" x2="58" y2="76"/><line x1="70" y1="84" x2="70" y2="78"/>
+          </g>
+          <g class="geo-augen">
+            <circle cx="34" cy="60" r="4.4" fill="#0b2a4a"/>
+            <circle cx="51" cy="60" r="4.4" fill="#0b2a4a"/>
+          </g>
+          <path d="M 33 69 Q 42.5 76 52 69" fill="none" stroke="#0b2a4a"
+                stroke-width="3.4" stroke-linecap="round"/>
+        </svg>
+        <span>alexsmathguides</span>
+      </a>
+      <button class="menue-knopf" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="hauptmenue"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="hauptmenue">
+        <a href="index.html">Nachhilfe</a>
+        <a href="freebies.html">Kostenlose PDFs</a>
+        <a href="tutor-werden.html">Tutor werden</a>
+        <b><a href="abitur-kurs.html">Abitur Kurs</a></b>
+        <a href="https://kurs.alexsmathguides.de/login">Login</a>
+        <a class="nav-cta" href="index.html#preise">Jetzt buchen</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="gebucht">
+      <div class="container">
+        <div class="icon">✅</div>
+        <h1 id="g-titel">Danke, deine Nachhilfe ist gebucht!</h1>
+        <p>Die Zahlung ist angekommen. Eine Bestätigung mit allen Einzelheiten ist
+        per Mail unterwegs, die Rechnung kommt separat von Stripe.</p>
+        <ol>
+          <li><b>Innerhalb von 24 Stunden</b> melde ich mich bei dir, per Mail oder
+          unter der Telefonnummer, die du angegeben hast.</li>
+          <li>Ich stelle dir deine Lehrkraft vor.</li>
+          <li>Ihr macht den ersten Termin direkt miteinander aus.</li>
+        </ol>
+        <p>Keine Mail bekommen? Schau kurz im Spam-Ordner nach oder
+        <a href="https://wa.me/4915233954481" target="_blank" rel="noopener">schreib mir per WhatsApp</a>.</p>
+        <p style="margin-top:30px;"><a class="btn btn-secondary" href="index.html">Zur Startseite</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 alexsmathguides – Online Mathe Nachhilfe von Alexander Kleymann.</p>
+      <div class="footer-links">
+        <a class="fuss-login" href="https://kurs.alexsmathguides.de/login">Zum Kurs einloggen</a>
+        <a href="/impressum.html">Impressum</a>
+        <a href="/datenschutz.html">Datenschutz</a>
+        <a href="/widerruf.html">Widerruf</a>
+        <a href="/kuendigen.html">Verträge kündigen</a>
+        <a href="/agb.html">AGB</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    if (new URLSearchParams(location.search).get('art') === 'probestunde') {
+      document.getElementById('g-titel').textContent = 'Danke, deine Probestunde ist gebucht!';
+    }
+  </script>
+  <script src="/menue.js" defer></script>
+</body>
+</html>
