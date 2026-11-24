@@ -9,7 +9,7 @@
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
   <meta name="theme-color" content="#0b2a4a">
   <title>Online-Nachhilfe im Monatsabo: Mathe, Englisch, Physik, Informatik | alexsmathguides</title>
-  <meta name="description" content="Online-Nachhilfe in Mathe, Englisch, Physik und Informatik mit fester Lehrkraft: 4 oder 8 Stunden im Monat, ab 30 € pro Stunde, monatlich kündbar. Probestunde 19 €. Klasse 5 bis Abitur, direkt online buchbar." />
+  <meta name="description" content="Bessere Noten mit der richtigen Unterstützung: Online-Nachhilfe in Mathe, Englisch, Physik und Informatik mit fester Lehrkraft: 4 oder 8 Stunden im Monat, ab 30 € pro Stunde, monatlich kündbar. Probestunde 19 €. Klasse 5 bis Abitur, direkt online buchbar." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -644,6 +644,42 @@
       .buchen-box { padding: 22px 18px; }
       .probe-band { padding: 20px; }
     }
+
+    /* ── Umbau 24.11.2026 ── */
+    .hero-lead { font-size: 18px; color: var(--muted); line-height: 1.6; margin: 0 0 14px; max-width: 54ch; }
+    .hero-faecher { font-weight: 700; margin: 0 0 18px; }
+    .hero-vorteile { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 0 0 20px; }
+    .hero-vorteil { display: flex; flex-direction: column; gap: 2px; font-size: 14.5px; }
+    .hero-vorteil svg { width: 24px; height: 24px; fill: none; stroke: var(--primary); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; margin-bottom: 6px; }
+    .hero-vorteil span { color: var(--muted); }
+    .hero .hero-preis { font-size: 24px; font-weight: 800; color: var(--primary); margin: 0 0 2px; }
+    .hero-fakten { font-size: 13.5px; color: var(--muted); margin: 0 0 18px; }
+    .hero-probe { background: var(--surface); border-radius: 14px; padding: 14px 18px; margin: 0 0 22px; display: flex; flex-direction: column; gap: 2px; }
+    .grid-2x2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 14px; }
+    .ablauf-garantie { margin: 28px 0 0; font-weight: 700; max-width: 62ch; }
+    .leistung:last-child:nth-child(3n+1) { grid-column: 1 / -1; }
+    .abschluss-band { background: var(--surface); border: 1px solid var(--line); border-radius: 24px; padding: 52px 32px; text-align: center; }
+    .abschluss-band h2 { max-width: 22ch; margin: 0 auto 14px; }
+    .abschluss-band p { color: var(--muted); max-width: 58ch; margin: 0 auto 26px; }
+    .btn-weiss { display: inline-flex; background: #fff; color: var(--primary); font-weight: 700; padding: 15px 26px; border-radius: 999px; text-decoration: none; }
+    .wa-knopf { position: fixed; right: 18px; bottom: 18px; z-index: 60; display: inline-flex; align-items: center; gap: 8px; background: #25D366; color: #fff; font-weight: 700; font-size: 14.5px; padding: 12px 16px; border-radius: 999px; box-shadow: 0 6px 18px rgba(0,0,0,.18); text-decoration: none; }
+    .wa-knopf svg { width: 24px; height: 24px; }
+    @media (max-width: 720px) {
+      .hero-vorteile { grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 13px; }
+      .grid-2x2 { grid-template-columns: 1fr; }
+      .wa-knopf span { display: none; }
+      .wa-knopf { padding: 13px; right: 14px; bottom: 14px; }
+      .abschluss-band { padding: 40px 20px; }
+      .hero h1 { font-size: 31px; line-height: 1.12; margin-bottom: 12px; }
+      .hero .hero-lead { font-size: 15.5px; margin-bottom: 10px; }
+      .hero .hero-faecher { margin-bottom: 12px; font-size: 15px; }
+      .hero-vorteile { margin-bottom: 12px; }
+      .hero-vorteil svg { margin-bottom: 2px; }
+      .hero .hero-preis { font-size: 21px; }
+      .hero .hero-fakten { font-size: 12.5px; margin-bottom: 12px; }
+      .hero-probe { padding: 10px 14px; margin-bottom: 14px; font-size: 14px; }
+      .hero .eyebrow { margin-bottom: 10px; }
+    }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -703,7 +739,7 @@
         <a href="tutor-werden.html">Tutor werden</a>
         <b><a href="abitur-kurs.html">Abitur Kurs</a></b>
         <a href="https://kurs.alexsmathguides.de/login">Login</a>
-        <a class="nav-cta" href="#preise">Jetzt buchen</a>
+        <a class="nav-cta" href="#buchen" data-paket="probestunde">Probestunde buchen</a>
       </nav>
     </div>
   </header>
@@ -714,19 +750,28 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <span class="eyebrow">Online-Nachhilfe im Monatsabo</span>
-          <h1>Feste Lehrkraft. Feste Stunden. Monatlich kündbar.</h1>
+          <span class="eyebrow">Online-Nachhilfe mit fester Lehrkraft</span>
+          <h1>Bessere Noten beginnen mit der richtigen Unterstützung.</h1>
+          <p class="hero-lead">Individuelle Online-Nachhilfe, die wirklich weiterhilft. Mit einer festen Lehrkraft, verständlichen Erklärungen und einem Lernplan, der zu deinem Kind passt.</p>
+          <p class="hero-faecher">Mathe &middot; Englisch &middot; Physik &middot; Informatik</p>
 
-          <ul class="hero-punkte">
-            <li><b>Mathe, Englisch, Physik und Informatik</b>, von Klasse 5 bis zum Abitur</li>
-            <li><b>Einzelunterricht online</b>, jede Stunde dauert 60 Minuten</li>
-            <li><b>Ab 30&nbsp;&euro; pro Stunde</b>, kein Vertrag über Monate</li>
-            <li><b>Probestunde für 19&nbsp;&euro;</b>, wenn du erst kennenlernen willst</li>
-          </ul>
+          <div class="hero-vorteile">
+            <div class="hero-vorteil"><svg viewBox="0 0 24 24"><path d="M12 12.5a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4.5 20c0-3.6 3.3-5.6 7.5-5.6s7.5 2 7.5 5.6"/></svg><b>1:1 Unterricht</b><span>Volle Aufmerksamkeit</span></div>
+            <div class="hero-vorteil"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M8.8 14.6l2.2 2.1 4.2-4.3"/></svg><b>Feste Lehrkraft</b><span>Kontinuierliche Betreuung</span></div>
+            <div class="hero-vorteil"><svg viewBox="0 0 24 24"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3"/><rect x="4" y="8" width="16" height="11" rx="2.5"/><path d="M15.5 13.5h2"/></svg><b>Flexibel</b><span>Monatlich kündbar</span></div>
+          </div>
+
+          <p class="hero-preis">Ab 30&nbsp;&euro; pro Stunde</p>
+          <p class="hero-fakten">60 Minuten Einzelunterricht &middot; Online über Zoom &middot; Klasse 5 bis Abitur</p>
+
+          <div class="hero-probe">
+            <b>Erst kennenlernen?</b>
+            <span>Starte mit einer 45-minütigen Probestunde für nur 19&nbsp;&euro;.</span>
+          </div>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#preise">Tarif wählen</a>
-            <a class="btn-outline" href="#buchen" data-paket="probestunde">Probestunde buchen &rarr;</a>
+            <a class="btn btn-primary" href="#buchen" data-paket="probestunde">Jetzt Probestunde buchen &rarr;</a>
+            <a class="btn-outline" href="#preise">Tarife ansehen</a>
           </div>
         </div>
 
@@ -743,54 +788,26 @@
       </div>
     </section>
 
-    <!-- Was enthalten ist -->
-    <section class="section enthalten-band">
-      <div class="container">
-        <div class="enthalten">
-          <div class="enthalten-punkt">
-            <span class="enthalten-nr">1</span>
-            <div>
-              <h3>Deine feste Lehrkraft</h3>
-              <p>Eine Person, die deinen Stand kennt und weiß, woran ihr zuletzt gearbeitet habt.</p>
-            </div>
-          </div>
-          <div class="enthalten-punkt">
-            <span class="enthalten-nr">2</span>
-            <div>
-              <h3>Termine nach deinem Plan</h3>
-              <p>Ihr macht die Zeiten direkt miteinander aus.</p>
-            </div>
-          </div>
-          <div class="enthalten-punkt">
-            <span class="enthalten-nr">3</span>
-            <div>
-              <h3>Monatlich kündbar</h3>
-              <p>Keine Mindestlaufzeit. Kündigen geht mit zwei Klicks.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="warum">
       <div class="container">
-        <span class="eyebrow">Warum regelmäßig</span>
-        <h2>Eine Stunde vor der Klausur reicht selten.</h2>
-        <div class="grid-3">
+        <span class="eyebrow">Warum alexsmathguides</span>
+        <h2>Mehr als nur eine Stunde Nachhilfe.</h2>
+        <div class="grid-2x2">
           <div class="card">
-            <h3>Lücken bauen aufeinander auf</h3>
-            <p>Ein Thema, das nie saß, macht das nächste schwer. Das lässt sich
-            nicht am Abend vor der Klausur aufholen, aber Woche für Woche schon.</p>
+            <h3>Eine Lehrkraft, die dein Kind wirklich kennt</h3>
+            <p>Keine ständig wechselnden Gesichter und kein Erklären von vorne. Dein Kind bekommt eine feste Lehrkraft, die seinen Lernstand kennt, Schwächen erkennt und gezielt daran arbeitet.</p>
           </div>
           <div class="card">
-            <h3>Eine Person, die dich kennt</h3>
-            <p>Jede neue Lehrkraft fängt bei null an. Wer dich jede Woche sieht,
-            merkt sofort, wo du hängst, und muss nicht erst suchen.</p>
+            <h3>Nicht nur für die nächste Klausur lernen</h3>
+            <p>Mathematische Grundlagen bauen aufeinander auf. Deshalb schließen wir Wissenslücken systematisch, statt nur kurzfristig für die nächste Prüfung zu pauken.</p>
           </div>
           <div class="card">
-            <h3>Planbar für die ganze Familie</h3>
-            <p>Ein fester Betrag im Monat, feste Termine, keine Pakete, die
-            irgendwann aufgebraucht sind. Und wenn es nicht mehr nötig ist, kündigt ihr.</p>
+            <h3>Entlastung für Eltern und Schüler</h3>
+            <p>Du musst nicht ständig nach neuen Nachhilfelehrern suchen oder dich um die Organisation kümmern. Wir finden die passende Lehrkraft, und die Termine stimmt ihr direkt miteinander ab.</p>
+          </div>
+          <div class="card">
+            <h3>Flexibel bleiben</h3>
+            <p>Feste monatliche Stunden, transparente Preise und keine langfristige Vertragsbindung. Wenn die Unterstützung nicht mehr benötigt wird, kannst du monatlich kündigen.</p>
           </div>
         </div>
       </div>
@@ -819,29 +836,23 @@
           </div>
         </div>
         <div class="ueber-text">
-          <span class="eyebrow">Wer dahintersteckt</span>
-          <h2>Hi, ich bin Alex</h2>
+          <span class="eyebrow">Wer steckt hinter alexsmathguides?</span>
+          <h2>Hi, ich bin Alex!</h2>
 
-          <p>Ich gebe seit f&uuml;nf Jahren Mathe-Nachhilfe. In der Zeit habe ich
-          gemerkt, dass fast niemand an Mathe scheitert, weil er zu dumm daf&uuml;r
-          w&auml;re. Es scheitert daran, dass irgendwann eine Erkl&auml;rung gefehlt hat
-          und danach alles darauf aufbaute.</p>
+          <p>Ich kenne Mathe aus zwei Perspektiven: als Schüler, der selbst nicht immer alles sofort verstanden hat, und als Nachhilfelehrer, der seit fünf Jahren anderen dabei hilft, genau diese Schwierigkeiten zu überwinden.</p>
 
-          <p>Irgendwann habe ich angefangen, meine Erkl&auml;rungen auf TikTok zu
-          posten. Kurz, ohne Fachchinesisch, so wie ich sie einem Freund erkl&auml;ren
-          w&uuml;rde. Inzwischen sind daraus <strong>&uuml;ber 2,5 Millionen Aufrufe</strong>
-          geworden, und ich bekomme jede Woche Nachrichten von Leuten, bei denen
-          es endlich klick gemacht hat.</p>
+          <p>Was ich dabei gelernt habe: Die meisten Schüler brauchen nicht einfach mehr Lernzeit. Sie brauchen jemanden, der ihnen die Dinge so erklärt, dass sie endlich Sinn ergeben.</p>
 
-          <p>Heute unterrichtet ein ganzes Team: Studierende, die ihr Fach selbst
-          gut beherrschen und sich noch genau daran erinnern, wo es in der Schule
-          geklemmt hat. Ich suche für jede Schülerin und jeden Schüler die passende
-          Lehrkraft aus und bleibe dein Ansprechpartner.</p>
+          <p>Genau deshalb habe ich alexsmathguides gegründet. Angefangen hat alles mit kurzen Mathe-Erklärvideos auf TikTok. Mittlerweile wurden meine Inhalte <strong>über 2,5 Millionen Mal</strong> angesehen.</p>
+
+          <p>Heute steckt hinter alexsmathguides ein Team aus engagierten Studierenden, die ihre Fächer beherrschen und wissen, worauf es in der Schule ankommt.</p>
+
+          <p><strong>Und das Wichtigste: Ich kümmere mich persönlich darum, dass dein Kind die passende Lehrkraft bekommt.</strong> Ich bleibe euer Ansprechpartner, von der ersten Anfrage bis zur laufenden Betreuung.</p>
 
           <div class="ueber-zahlen">
             <div class="ueber-zahl">
               <div class="wert"><span class="marker">5 Jahre</span></div>
-              <div class="was">Nachhilfe</div>
+              <div class="was">Nachhilfeerfahrung</div>
             </div>
             <div class="ueber-zahl">
               <div class="wert"><span class="marker">2,5 Mio.</span></div>
@@ -849,7 +860,7 @@
             </div>
             <div class="ueber-zahl">
               <div class="wert"><span class="marker">4</span></div>
-              <div class="was">Fächer</div>
+              <div class="was">Unterrichtsfächer</div>
             </div>
           </div>
 
@@ -861,82 +872,72 @@
     <section class="section" id="ablauf">
       <div class="container">
         <span class="eyebrow">So läuft es ab</span>
-        <h2>Von der Buchung bis zur ersten Stunde.</h2>
+        <h2>In 3 Schritten zur passenden Nachhilfe.</h2>
 
-        <div class="ablauf">
+        <div class="ablauf ablauf-3">
           <div class="ablauf-schritt">
             <div>
-              <h3>Du buchst online</h3>
-              <p>Tarif wählen, kurz sagen, worum es geht, bezahlen. Wer erst
-              kennenlernen will, bucht die Probestunde für 19&nbsp;&euro;.</p>
+              <h3>Probestunde oder Tarif auswählen</h3>
+              <p>Buche direkt online und teile uns mit, welches Fach, welche Klassenstufe und welche Themen Unterstützung benötigen.</p>
             </div>
           </div>
           <div class="ablauf-schritt">
             <div>
-              <h3>Ich melde mich innerhalb von 24 Stunden</h3>
-              <p>Ich suche die Lehrkraft aus, die zu Fach, Thema und Klassenstufe
-              passt, und stelle euch einander vor.</p>
+              <h3>Wir finden die passende Lehrkraft</h3>
+              <p>Ich prüfe deine Angaben persönlich und suche eine Lehrkraft aus unserem Team, die fachlich und menschlich zu deinem Kind passt. Innerhalb von 24 Stunden melde ich mich bei dir.</p>
             </div>
           </div>
           <div class="ablauf-schritt">
             <div>
-              <h3>Ihr macht eure Termine aus</h3>
-              <p>Nachmittags, abends oder am Wochenende. Der Unterricht läuft
-              online über Zoom mit digitalem Whiteboard.</p>
-            </div>
-          </div>
-          <div class="ablauf-schritt">
-            <div>
-              <h3>Jeden Monat neue Stunden</h3>
-              <p>Das Abo verlängert sich monatlich. Wenn es nicht mehr nötig ist,
-              kündigst du zum Ende des Abrechnungsmonats.</p>
+              <h3>Gemeinsam bessere Ergebnisse erzielen</h3>
+              <p>Ihr vereinbart eure Termine direkt miteinander. Der Unterricht findet bequem online über Zoom statt, mit digitalem Whiteboard und individuellen Übungen.</p>
             </div>
           </div>
         </div>
+        <p class="ablauf-garantie">Und wenn es menschlich nicht passt? Kein Problem. Wir finden eine andere Lehrkraft, ohne zusätzliche Kosten.</p>
       </div>
     </section>
 
     <section class="section" id="leistungen" style="background: var(--surface);">
       <div class="container">
         <span class="eyebrow">In jedem Tarif</span>
-        <h2>Was du bekommst.</h2>
+        <h2>Individuelle Betreuung statt Unterricht von der Stange.</h2>
 
         <div class="leistungen">
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M12 13a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/><path d="M4.5 20c0-3.6 3.3-5.6 7.5-5.6s7.5 2 7.5 5.6"/></svg></div>
-            <h3>Feste Lehrkraft</h3>
-            <p>Kein wechselndes Personal. Passt es menschlich nicht, bekommst du
-            jemand anderen, ohne Aufpreis.</p>
+            <h3>Deine feste Lehrkraft</h3>
+            <p>Eine Person, die den Lernstand kennt, Fortschritte verfolgt und gezielt an den Schwächen arbeitet.</p>
           </div>
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><rect x="3" y="4.5" width="18" height="12" rx="2"/><path d="M8 21h8M12 16.5V21"/><path d="M8 9h8M8 12.5h5"/></svg></div>
-            <h3>Immer eins zu eins</h3>
-            <p>Keine Gruppen. Die ganze Stunde gehört dir, in deinem Tempo und an
-            deinen Themen.</p>
+            <h3>100&nbsp;% Einzelunterricht</h3>
+            <p>Keine Gruppen und keine Ablenkung. Die gesamte Unterrichtszeit gehört deinem Kind.</p>
           </div>
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg></div>
             <h3>Volle 60 Minuten</h3>
-            <p>Jede Stunde dauert eine volle Zeitstunde. Genug Zeit, um ein Thema
-            wirklich durchzuarbeiten.</p>
+            <p>Genug Zeit, um Fragen zu klären, Aufgaben gemeinsam zu lösen und Inhalte wirklich zu verstehen.</p>
           </div>
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M9 8h6M9 11.5h4"/></svg></div>
-            <h3>Vier Fächer</h3>
-            <p>Mathe, Englisch, Physik und Informatik, von Klasse 5 bis zum
-            Abitur, Grund- und Leistungskurs.</p>
+            <h3>Vier wichtige Schulfächer</h3>
+            <p>Mathematik, Englisch, Physik und Informatik, von Klasse 5 bis zum Abitur, einschließlich Grund- und Leistungskurs.</p>
+          </div>
+          <div class="leistung">
+            <div class="leistung-symbol"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2.5"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/><path d="M8.8 14.6l2.2 2.1 4.2-4.3"/></svg></div>
+            <h3>Flexibel bei Terminen</h3>
+            <p>Nachmittags, abends oder am Wochenende. Die Termine vereinbart ihr direkt mit eurer Lehrkraft.</p>
           </div>
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h12"/></svg></div>
-            <h3>Abgesagt heißt nicht verloren</h3>
-            <p>Sagst du mindestens 24 Stunden vorher ab, wird die Stunde
-            nachgeholt, spätestens im Folgemonat.</p>
+            <h3>Faire Ausfallregelung</h3>
+            <p>Bei einer Absage mindestens 24 Stunden vorher wird die Stunde nachgeholt. Sagt die Lehrkraft ab, wird ebenfalls nachgeholt.</p>
           </div>
           <div class="leistung">
             <div class="leistung-symbol"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5.5c0 4.3-2.9 8.2-7 9.5-4.1-1.3-7-5.2-7-9.5V6z"/><path d="M9.2 12.2l2 2 3.6-3.9"/></svg></div>
-            <h3>Monatlich kündbar</h3>
-            <p>Keine Mindestlaufzeit. Du kündigst selbst im Kundenportal, zum
-            Ende des laufenden Abrechnungsmonats.</p>
+            <h3>Keine langfristige Bindung</h3>
+            <p>Monatlich kündbar und ohne Mindestlaufzeit. Du entscheidest, wie lange dein Kind Unterstützung benötigt.</p>
           </div>
         </div>
       </div>
@@ -946,10 +947,8 @@
     <section class="section" id="preise">
       <div class="container">
         <span class="eyebrow">Preise</span>
-        <h2>Such dir aus, wie viel du brauchst.</h2>
-        <p style="max-width:62ch; color:var(--muted); margin:0 0 22px;">Alle Tarife
-        sind Einzelunterricht mit 60 Minuten je Stunde und monatlich kündbar.
-        Für die Abiturvorbereitung kommen 5&nbsp;&euro; pro Stunde dazu.</p>
+        <h2>Der passende Tarif für jeden Lernbedarf.</h2>
+        <p style="max-width:62ch; color:var(--muted); margin:0 0 22px;">Alle Preise für 60 Minuten Einzelunterricht, alle Tarife monatlich kündbar. Abiturvorbereitung kostet zusätzlich 5&nbsp;&euro; pro Stunde.</p>
 
         <label class="abi-schalter">
           <input type="checkbox" id="abi-schalter">
@@ -967,13 +966,13 @@
               <li>Eine Stunde pro Woche</li>
               <li>Feste Lehrkraft</li>
               <li>Termine frei vereinbar</li>
-              <li>Für laufende Begleitung im Schuljahr</li>
+              <li>Für regelmäßige Unterstützung und kontinuierliche Begleitung im Schuljahr</li>
             </ul>
             <a class="btn btn-secondary" href="#buchen" data-paket="basic">Basic buchen</a>
           </div>
 
           <div class="preis preis--empfohlen">
-            <span class="preis-marke">Günstigster Stundenpreis</span>
+            <span class="preis-marke">Meine Empfehlung</span>
             <h3>Intensiv</h3>
             <div class="umfang">8 Stunden im Monat</div>
             <div class="betrag"><span data-preis="intensiv-stunde">30</span>&nbsp;&euro;<span class="je">/ Stunde</span></div>
@@ -982,7 +981,7 @@
               <li>Zwei Stunden pro Woche</li>
               <li>Feste Lehrkraft</li>
               <li>Termine frei vereinbar</li>
-              <li>Für größere Lücken und die Zeit vor Prüfungen</li>
+              <li>Ideal, um größere Wissenslücken systematisch zu schließen und sich intensiv auf Prüfungen vorzubereiten</li>
             </ul>
             <a class="btn btn-primary" href="#buchen" data-paket="intensiv">Intensiv buchen</a>
           </div>
@@ -1004,10 +1003,61 @@
 
         <div class="probe-band">
           <div>
-            <h3>Erst mal kennenlernen?</h3>
-            <p>Die Probestunde dauert 45&nbsp;Minuten und kostet <b>19&nbsp;&euro;</b>, einmal pro Schülerin oder Schüler. Danach entscheidest du, ob und mit welchem Tarif es weitergeht.</p>
+            <h3>Erst kennenlernen, dann entscheiden.</h3>
+            <p>Die Probestunde dauert 45&nbsp;Minuten und kostet <b>19&nbsp;&euro;</b>, einmal pro Schülerin oder Schüler. Danach entscheidest du in Ruhe, ob und mit welchem Tarif es weitergeht.</p>
           </div>
           <a class="btn btn-primary" href="#buchen" data-paket="probestunde" style="white-space:nowrap;">Probestunde buchen</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="fragen">
+      <div class="container">
+        <span class="eyebrow">Häufige Fragen</span>
+        <h2>Häufige Fragen zur Online-Nachhilfe.</h2>
+
+        <div class="faq">
+          <details>
+            <summary>Wie schnell kann mein Kind mit der Nachhilfe beginnen?</summary>
+            <p>In der Regel melde ich mich innerhalb von 24 Stunden nach der Buchung. Ich suche eine passende Lehrkraft aus und stelle den Kontakt her. Den ersten Termin vereinbart ihr anschließend direkt miteinander.</p>
+          </details>
+          <details>
+            <summary>Wer unterrichtet mein Kind?</summary>
+            <p>Unser Team besteht aus Studierenden, die ihre Unterrichtsfächer sehr gut beherrschen und die schulischen Anforderungen aus eigener Erfahrung kennen. Ich wähle für jede Anfrage persönlich eine passende Lehrkraft aus.</p>
+          </details>
+          <details>
+            <summary>Was passiert, wenn die Chemie nicht stimmt?</summary>
+            <p>Das ist kein Problem. Wenn dein Kind mit der Lehrkraft nicht zurechtkommt, finden wir eine andere. Ohne zusätzliche Kosten.</p>
+          </details>
+          <details>
+            <summary>Muss ich mich langfristig binden?</summary>
+            <p>Nein. Alle Tarife sind monatlich kündbar und haben keine Mindestlaufzeit. Du kannst die Nachhilfe so lange nutzen, wie sie benötigt wird.</p>
+          </details>
+          <details>
+            <summary>Kann ich erst einmal ausprobieren, ob die Nachhilfe passt?</summary>
+            <p>Ja! Dafür gibt es die 45-minütige Probestunde für einmalig 19&nbsp;&euro;. Sie verlängert sich nicht. Danach entscheidet ihr ganz in Ruhe, ob und mit welchem Tarif es weitergeht.</p>
+          </details>
+          <details>
+            <summary>Wie funktioniert der Online-Unterricht?</summary>
+            <p>Der Unterricht findet über Zoom statt. Mit einem digitalen Whiteboard werden Aufgaben gemeinsam bearbeitet, Lösungswege erklärt und Notizen festgehalten.</p>
+          </details>
+          <details>
+            <summary>Was passiert, wenn eine Stunde ausfällt?</summary>
+            <p>Bei einer Absage mindestens 24 Stunden im Voraus wird die Stunde nachgeholt, spätestens bis zum Ende des Folgemonats. Spätere Absagen und verpasste Termine verfallen, außer bei Krankheit: Dann reicht eine kurze Nachricht. Sagt die Lehrkraft ab, wird die Stunde immer nachgeholt.</p>
+          </details>
+          <details>
+            <summary>Ist die Nachhilfe auch für die Abiturvorbereitung geeignet?</summary>
+            <p>Ja! Für die Abiturvorbereitung brauchst du eine Lehrkraft, die die Prüfungsformate und Anforderungen deines Bundeslands kennt. Deshalb kommen 5&nbsp;&euro; pro Stunde dazu: Basic kostet dann 160&nbsp;&euro;, Intensiv 280&nbsp;&euro; im Monat.</p>
+          </details>
+          <details>
+            <summary>Wie erfolgt die Bezahlung?</summary>
+            <p>Die Zahlung erfolgt monatlich im Voraus über Stripe. Du kannst unter anderem mit Karte, SEPA-Lastschrift, Klarna, Apple Pay oder Amazon Pay bezahlen. Die Rechnung bekommst du automatisch per E-Mail.</p>
+          </details>
+          <details>
+            <summary>Wie kündige ich?</summary>
+            <p>Mit zwei Klicks im Kundenportal, der Link steht in deiner Buchungsbestätigung und auf der Seite <a href="kuendigen.html">Verträge kündigen</a>. Die Kündigung gilt zum Ende des laufenden Abrechnungsmonats, bis dahin laufen deine Stunden normal weiter.</p>
+          </details>
         </div>
       </div>
     </section>
@@ -1100,17 +1150,19 @@
       <div class="container">
         <div class="kurs-promo">
           <div class="kurs-promo-copy">
-            <span class="eyebrow">Mathe-Abi allein vorbereiten?</span>
-            <h2>Der Abitur-Kurs.</h2>
-            <p>Für alle, die lieber in ihrem eigenen Tempo lernen: 10 Welten, 69 Lektionen mit Erklärvideo, Beispielaufgabe und Quiz, dazu Mini-Games und eine interaktive Lernkarte. Einmal zahlen, für immer Zugriff.</p>
+            <span class="eyebrow">Der Abitur-Kurs</span>
+            <h2>Du möchtest lieber selbstständig für dein Mathe-Abi lernen?</h2>
+            <p><b>Dein kompletter Mathe-Abiturstoff, jederzeit und überall.</b> Mit dem interaktiven Online-Abiturkurs bereitest du dich in deinem eigenen Tempo auf die Prüfung vor. Verständliche Erklärvideos, interaktive Übungen und realistische Probeklausuren begleiten dich durch die gesamte Oberstufe.</p>
             <ul class="kurs-promo-list">
-              <li>69 Erklärvideos zum Mitrechnen</li>
-              <li>Quizzes mit Sofort-Feedback &amp; Mini-Games</li>
-              <li>Interaktive Lernkarte mit Fortschritt</li>
-              <li>Klausursimulator inklusive</li>
+              <li>10 Themenwelten mit 69 Lektionen</li>
+              <li>Quizfragen mit direktem Feedback</li>
+              <li>Interaktive Mini-Games und Lernkarte</li>
+              <li>Klausursimulator zur Prüfungsvorbereitung</li>
+              <li>Einmal zahlen, dauerhaft Zugriff</li>
             </ul>
+            <p><b>Ideal, wenn du flexibel und eigenständig lernen möchtest.</b></p>
             <div class="kurs-promo-actions">
-              <a class="btn btn-primary" href="abitur-kurs.html">Kurs entdecken</a>
+              <a class="btn btn-primary" href="abitur-kurs.html">Jetzt Abiturkurs entdecken &rarr;</a>
               <a class="kurs-promo-link" href="abitur-kurs.html#preis">49&nbsp;&euro; einmalig, kein Abo</a>
             </div>
           </div>
@@ -1123,60 +1175,13 @@
       </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="section" id="fragen" style="background: var(--surface);">
+    <!-- Abschluss -->
+    <section class="section" id="abschluss">
       <div class="container">
-        <span class="eyebrow">Häufige Fragen</span>
-        <h2>Das werden wir oft gefragt.</h2>
-
-        <div class="faq">
-          <details>
-            <summary>Wie schnell geht es nach der Buchung los?</summary>
-            <p>Ich melde mich innerhalb von 24 Stunden mit deiner Lehrkraft. Den
-            ersten Termin macht ihr dann direkt miteinander aus, meist noch in
-            derselben Woche.</p>
-          </details>
-          <details>
-            <summary>Wer unterrichtet?</summary>
-            <p>Studierende aus unserem Team, die ihr Fach selbst gut beherrschen und
-            noch wissen, wo es in der Schule klemmt. Ich suche für jede Buchung die
-            Lehrkraft aus, die zu Fach, Thema und Klassenstufe passt.</p>
-          </details>
-          <details>
-            <summary>Was, wenn es mit der Lehrkraft nicht passt?</summary>
-            <p>Sag mir Bescheid, dann bekommst du jemand anderen. Das kostet nichts.</p>
-          </details>
-          <details>
-            <summary>Was passiert, wenn ich eine Stunde absagen muss?</summary>
-            <p>Sagst du mindestens 24 Stunden vorher ab, wird die Stunde nachgeholt,
-            spätestens bis zum Ende des Folgemonats. Spätere Absagen und verpasste
-            Termine verfallen, außer bei Krankheit: Dann reicht eine kurze Nachricht.
-            Sagt deine Lehrkraft ab, wird immer nachgeholt.</p>
-          </details>
-          <details>
-            <summary>Wie kündige ich?</summary>
-            <p>Mit zwei Klicks im Kundenportal, der Link steht in deiner
-            Buchungsbestätigung und auf der Seite <a href="kuendigen.html">Verträge kündigen</a>.
-            Die Kündigung gilt zum Ende des laufenden Abrechnungsmonats, bis dahin
-            laufen deine Stunden normal weiter.</p>
-          </details>
-          <details>
-            <summary>Warum kostet Abiturvorbereitung mehr?</summary>
-            <p>Für das Abitur brauchst du eine Lehrkraft, die die Prüfungsformate und
-            Anforderungen deines Bundeslands kennt. Deshalb kommen 5&nbsp;&euro; pro
-            Stunde dazu: Basic kostet dann 160&nbsp;&euro;, Intensiv 280&nbsp;&euro; im Monat.</p>
-          </details>
-          <details>
-            <summary>Was ist die Probestunde?</summary>
-            <p>Eine erste Stunde zum Kennenlernen, 45 Minuten für 19&nbsp;&euro;. Sie
-            ist einmalig und verlängert sich nicht. Danach entscheidest du, ob du ein
-            Abo abschließt.</p>
-          </details>
-          <details>
-            <summary>Wie wird bezahlt?</summary>
-            <p>Monatlich im Voraus über Stripe, per Karte, SEPA-Lastschrift, Klarna,
-            Apple Pay oder Amazon Pay. Die Rechnung kommt jeden Monat automatisch per Mail.</p>
-          </details>
+        <div class="abschluss-band">
+          <h2>Mathe verstehen. Selbstvertrauen gewinnen. Bessere Noten schreiben.</h2>
+          <p>Persönliche Online-Nachhilfe mit fester Lehrkraft. Individuell, verständlich und flexibel. Für Schülerinnen und Schüler der Klassen 5 bis 13 und Eltern, die sich eine zuverlässige Unterstützung wünschen.</p>
+          <a class="btn btn-primary" href="#buchen" data-paket="probestunde">Jetzt Probestunde buchen &rarr;</a>
         </div>
       </div>
     </section>
@@ -1229,6 +1234,11 @@
       </div>
     </section>
   </main>
+
+  <a class="wa-knopf" href="https://wa.me/4915233954481" target="_blank" rel="noopener" aria-label="Fragen? Schreib mir per WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2a9.7 9.7 0 0 0-8.3 14.8L2.3 21.8l4.9-1.3A9.7 9.7 0 1 0 12 2.2zm0 17.7a8 8 0 0 1-4.1-1.1l-.3-.2-2.9.8.8-2.8-.2-.3A8 8 0 1 1 12 19.9zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.4.2-.4.7-1.3.1-.1 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.5-.4h-.5a.9.9 0 0 0-.6.3 2.7 2.7 0 0 0-.9 2c0 1.2.9 2.3 1 2.5.1.2 1.7 2.7 4.2 3.7 1.6.7 2.2.7 3 .6.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1l-.4-.2z"/></svg>
+    <span>Fragen? WhatsApp</span>
+  </a>
 
   <footer class="footer">
     <div class="container">
