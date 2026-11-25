@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-2 6 96 86">
-  <title>Geo, das Geodreieck</title>
+  <title>Geodreiecki, das Geodreieck</title>
   <!-- Dieselbe Figur wie im Seitenkopf und im Kurs. Ohne feste Groesse,
        damit die Breite allein aus dem CSS kommt. -->
   <g fill="none" stroke="#0b2a4a">

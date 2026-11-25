@@ -1313,6 +1313,18 @@
     .mitte-cta { text-align: center; margin-top: 28px; }
     .final-cta p.final-zahlen { color: #fff; font-weight: 700; margin-bottom: 26px; }
     @media (max-width: 760px) { .lern-schritte { grid-template-columns: 1fr; } }
+
+    /* ── Auch als App ── */
+    .app-band { display: flex; gap: 32px; align-items: center; background: var(--surface); border-radius: 24px; padding: 40px 44px; }
+    .app-band-icon { width: 96px; height: 96px; border-radius: 22px; box-shadow: 0 10px 28px rgba(11,42,74,.15); flex: none; }
+    .app-band-text h2 { margin: 6px 0 10px; }
+    .app-band-text p { color: var(--muted); line-height: 1.65; max-width: 60ch; margin: 0 0 20px; }
+    .app-band-text .btn-kauf { display: inline-flex; width: auto; }
+    .app-band-text p.app-band-klein { font-size: 13.5px; margin: 12px 0 0; }
+    @media (max-width: 720px) {
+      .app-band { flex-direction: column; text-align: center; padding: 32px 22px; gap: 18px; }
+      .app-band-text p { margin-left: auto; margin-right: auto; }
+    }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -1594,6 +1606,22 @@
       </div>
       <p class="kurs-fazit">So weißt du nicht nur, was du gelernt hast, sondern auch, wie gut du für die Prüfung vorbereitet bist.</p>
       <div class="mitte-cta"><a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Jetzt mit dem Lernen starten &#8594;</a></div>
+    </div>
+  </section>
+
+  <!-- ── Auch als App ── -->
+  <section id="app">
+    <div class="container">
+      <div class="app-band">
+        <img class="app-band-icon" src="img/app-icon.png" alt="App-Icon des Abitur Kurses" width="96" height="96" loading="lazy">
+        <div class="app-band-text">
+          <span class="eyebrow">Auch als App</span>
+          <h2>Lern, wo du willst. Sogar ohne Internet.</h2>
+          <p>Hol dir den Kurs gratis als App auf dein Handy oder als Programm auf deinen Computer. Ein Tipp aufs Icon, und du bist drin. Mit dem vollen Kurs lädst du alle Lektionen und Videos herunter und lernst auch offline, im Zug oder bei schlechtem WLAN.</p>
+          <a class="btn-submit btn-kauf" href="https://kurs.alexsmathguides.de/app">App gratis holen &#8594;</a>
+          <p class="app-band-klein">Für iPhone, Android, Windows und Mac &middot; ohne App Store</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1885,6 +1913,10 @@
         <details class="faq-item">
           <summary>Wie funktioniert die Bezahlung?</summary>
           <p>Du bezahlst einmalig 49&nbsp;&euro; über Stripe. Direkt danach bekommst du deinen persönlichen Zugangslink per E-Mail. Ein Passwort brauchst du nicht, und die Rechnung kommt automatisch mit.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Gibt es den Kurs auch als App?</summary>
+          <p>Ja. Auf <a href="https://kurs.alexsmathguides.de/app" style="text-decoration:underline;">kurs.alexsmathguides.de/app</a> installierst du ihn gratis als App auf iPhone und Android oder als Programm auf Windows und Mac, ohne App Store. Mit dem vollen Kurs kannst du dort alle Lektionen und Videos herunterladen und auch offline lernen.</p>
         </details>
         <details class="faq-item">
           <summary>Auf welchen Geräten funktioniert der Kurs?</summary>
