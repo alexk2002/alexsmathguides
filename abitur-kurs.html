@@ -1325,6 +1325,17 @@
       .app-band { flex-direction: column; text-align: center; padding: 32px 22px; gap: 18px; }
       .app-band-text p { margin-left: auto; margin-right: auto; }
     }
+
+    /* Black Friday (27.11.2026): Banner und Preise blendet das Skript unten nur bis 24 Uhr ein. */
+    .bf-banner { background: #0f172a; color: #fff; text-align: center; padding: 11px 16px; font-size: 15px; line-height: 1.45; }
+    .bf-banner b { color: #facc15; }
+    .bf-kurz { display: none; }
+    @media (max-width: 600px) { .bf-lang { display: none; } .bf-kurz { display: inline; } .bf-banner { font-size: 14.5px; padding: 10px 12px; } }
+    .bf-banner .bf-uhr { font-variant-numeric: tabular-nums; font-weight: 700; }
+    .bf-banner a { display: inline-block; margin-left: 10px; background: #facc15; color: #0f172a; font-weight: 800; text-decoration: none; padding: 5px 14px; border-radius: 999px; font-size: 14px; }
+    .kp s { opacity: .55; font-weight: 500; }
+    .kp ins { text-decoration: none; color: #b91c1c; }
+    .btn-kauf-gross .kp ins { color: inherit; }
 </style>
   <!-- Cloudflare Web Analytics -->
   <script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "aea266d35d474858932bd86a1c5865c4"}'></script>
@@ -1361,6 +1372,12 @@
 <link rel="canonical" href="https://alexsmathguides.de/abitur-kurs.html">
 </head>
 <body id="top">
+
+  <!-- Black Friday: erscheint nur bis 27.11.2026, 24 Uhr (Skript am Seitenende) -->
+  <div class="bf-banner" id="bf-banner" hidden>
+    <b>Black Friday:</b> <span class="bf-lang">Der komplette Kurs heute für </span><b>29&nbsp;&euro;</b> statt 49&nbsp;&euro;<span class="bf-lang">.</span><span class="bf-kurz">,</span> <span class="bf-lang">Endet in</span><span class="bf-kurz">noch</span> <span class="bf-uhr" id="bf-uhr"></span>
+    <a href="https://kurs.alexsmathguides.de/checkout">Jetzt sichern</a>
+  </div>
 
   <!-- ── Header ── -->
   <header class="site-header">
@@ -1411,7 +1428,7 @@
       <p class="lead hero-ohne">Keine stundenlange Suche nach passenden Erklärvideos. Kein Zusammenstellen eigener Lernzettel. Kein Lernen, ohne zu wissen, ob du es überhaupt verstanden hast.</p>
       <p class="hero-fazit">Alles, was du für eine starke Abiturvorbereitung brauchst, an einem Ort.</p>
       <div class="hero-kauf">
-        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Jetzt Kurs freischalten für 49&nbsp;&euro; &#8594;</a>
+        <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Jetzt Kurs freischalten für <data class="kp" value="49">49&nbsp;&euro;</data> &#8594;</a>
         <ul class="hero-haken">
           <li>Einmal zahlen, dauerhaft nutzen</li>
           <li>Sofortiger Zugang, kein Warten</li>
@@ -1833,7 +1850,7 @@
       <div class="preis-kopf">
         <span class="eyebrow">Zugang</span>
         <h2>Was kostet eine gute Abiturvorbereitung?</h2>
-        <p class="section-intro">Vier Nachhilfestunden kosten bei mir 140&nbsp;&euro;. Für nur <b>49&nbsp;&euro;</b> bekommst du stattdessen einen vollständigen Mathe-Abiturkurs, der dich durch den gesamten Oberstufenstoff begleitet. Und anders als bei einzelnen Nachhilfestunden kannst du jede Lektion beliebig oft wiederholen.</p>
+        <p class="section-intro">Vier Nachhilfestunden kosten bei mir 140&nbsp;&euro;. Für nur <b><data class="kp" value="49">49&nbsp;&euro;</data></b> bekommst du stattdessen einen vollständigen Mathe-Abiturkurs, der dich durch den gesamten Oberstufenstoff begleitet. Und anders als bei einzelnen Nachhilfestunden kannst du jede Lektion beliebig oft wiederholen.</p>
       </div>
 
       <div class="preis-grid">
@@ -1860,7 +1877,7 @@
 
           <span class="karten-badge">Voller Zugang</span>
           <h2>Dein kompletter Mathe-Abiturkurs</h2>
-          <div class="price">49&nbsp;&euro;<span> einmalig, kein Abo</span></div>
+          <div class="price"><data class="kp" value="49">49&nbsp;&euro;</data><span> einmalig, kein Abo</span></div>
           <p class="sub">Einmal freischalten. Immer wieder nutzen. Bis zum Abitur und darüber hinaus.</p>
           <ul class="price-list">
             <li>Alle 10 Themenwelten</li>
@@ -1912,7 +1929,7 @@
         </details>
         <details class="faq-item">
           <summary>Wie funktioniert die Bezahlung?</summary>
-          <p>Du bezahlst einmalig 49&nbsp;&euro; über Stripe. Direkt danach bekommst du deinen persönlichen Zugangslink per E-Mail. Ein Passwort brauchst du nicht, und die Rechnung kommt automatisch mit.</p>
+          <p>Du bezahlst einmalig <data class="kp" value="49">49&nbsp;&euro;</data> über Stripe. Direkt danach bekommst du deinen persönlichen Zugangslink per E-Mail. Ein Passwort brauchst du nicht, und die Rechnung kommt automatisch mit.</p>
         </details>
         <details class="faq-item">
           <summary>Gibt es den Kurs auch als App?</summary>
@@ -1936,7 +1953,7 @@
       <div class="final-cta">
         <h2>Dein Mathe-Abi wartet nicht. Fang heute an!</h2>
         <p>Du musst nicht bis kurz vor den Prüfungen warten, um deine Wissenslücken zu schließen. Arbeite dich Schritt für Schritt durch den Oberstufenstoff, festige dein Wissen und trainiere mit vollständigen Abiturklausuren.</p>
-        <p class="final-zahlen">69 Lektionen. 10 Themenwelten. 5 Probeklausuren. Einmalig 49&nbsp;&euro;.</p>
+        <p class="final-zahlen">69 Lektionen. 10 Themenwelten. 5 Probeklausuren. Einmalig <data class="kp" value="49">49&nbsp;&euro;</data>.</p>
         <a href="https://kurs.alexsmathguides.de/checkout" class="btn-submit btn-kauf-gross">Jetzt Mathe-Abi-Kurs freischalten &#8594;</a>
         <p style="margin:18px auto 0;font-size:14px;">Sofortiger Zugang &middot; Kein Abo &middot; Dauerhafter Zugriff</p>
         <p style="margin:10px auto 0;font-size:14px;">Lieber erst reinschauen? <a href="#testen" style="color:#fff;text-decoration:underline;">Den Kurs gratis testen</a></p>
@@ -2345,5 +2362,34 @@
     })();
   </script>
   <script src="/menue.js" defer></script>
+  <script>
+    // Black Friday: bis 27.11.2026, 24 Uhr 29 statt 49 Euro. Die Kasse (kurs.alexsmathguides.de,
+    // server/lib/kurspreis.js) stellt zur selben Zeit von selbst zurück; danach zeigt die
+    // Seite ohne neuen Push wieder den normalen Preis.
+    (function () {
+      var ENDE = new Date('2026-11-28T00:00:00+01:00').getTime();
+      if (Date.now() >= ENDE) return;
+      var alt = [];
+      document.querySelectorAll('.kp').forEach(function (el) {
+        alt.push([el, el.innerHTML]);
+        el.innerHTML = '<s>49&nbsp;&euro;</s> <ins>29&nbsp;&euro;</ins>';
+      });
+      var banner = document.getElementById('bf-banner'), uhr = document.getElementById('bf-uhr');
+      if (banner) banner.hidden = false;
+      function z(n) { return (n < 10 ? '0' : '') + n; }
+      function tick() {
+        var rest = ENDE - Date.now();
+        if (rest <= 0) {
+          if (banner) banner.hidden = true;
+          alt.forEach(function (a) { a[0].innerHTML = a[1]; });
+          clearInterval(t);
+          return;
+        }
+        var s = Math.floor(rest / 1000);
+        if (uhr) uhr.textContent = z(Math.floor(s / 3600)) + ':' + z(Math.floor(s / 60) % 60) + ':' + z(s % 60);
+      }
+      var t = setInterval(tick, 1000); tick();
+    })();
+  </script>
 </body>
 </html>
